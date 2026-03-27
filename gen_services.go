@@ -13,6 +13,11 @@ type ActionTypeService struct {
 	Deleter[ActionType]
 }
 
+// AdditionalInvoiceFieldValueService provides operations for AdditionalInvoiceFieldValue entities.
+type AdditionalInvoiceFieldValueService struct {
+	Reader[AdditionalInvoiceFieldValue]
+}
+
 // AppointmentService provides operations for Appointment entities.
 type AppointmentService struct {
 	Reader[Appointment]
@@ -20,6 +25,56 @@ type AppointmentService struct {
 	Updater[Appointment]
 	Patcher[Appointment]
 	Deleter[Appointment]
+}
+
+// ArticleAttachmentService provides operations for ArticleAttachment entities.
+type ArticleAttachmentService struct {
+	Reader[ArticleAttachment]
+}
+
+// ArticleConfigurationItemCategoryAssociationService provides operations for ArticleConfigurationItemCategoryAssociation entities.
+type ArticleConfigurationItemCategoryAssociationService struct {
+	Reader[ArticleConfigurationItemCategoryAssociation]
+}
+
+// ArticleNoteService provides operations for ArticleNote entities.
+type ArticleNoteService struct {
+	Reader[ArticleNote]
+}
+
+// ArticlePlainTextContentService provides operations for ArticlePlainTextContent entities.
+type ArticlePlainTextContentService struct {
+	Reader[ArticlePlainTextContent]
+}
+
+// ArticleTagAssociationService provides operations for ArticleTagAssociation entities.
+type ArticleTagAssociationService struct {
+	Reader[ArticleTagAssociation]
+}
+
+// ArticleTicketAssociationService provides operations for ArticleTicketAssociation entities.
+type ArticleTicketAssociationService struct {
+	Reader[ArticleTicketAssociation]
+}
+
+// ArticleToArticleAssociationService provides operations for ArticleToArticleAssociation entities.
+type ArticleToArticleAssociationService struct {
+	Reader[ArticleToArticleAssociation]
+}
+
+// ArticleToDocumentAssociationService provides operations for ArticleToDocumentAssociation entities.
+type ArticleToDocumentAssociationService struct {
+	Reader[ArticleToDocumentAssociation]
+}
+
+// AttachmentInfoService provides operations for AttachmentInfo entities.
+type AttachmentInfoService struct {
+	Reader[AttachmentInfo]
+}
+
+// BillingCodeService provides operations for BillingCode entities.
+type BillingCodeService struct {
+	Reader[BillingCode]
 }
 
 // BillingItemApprovalLevelService provides operations for BillingItemApprovalLevel entities.
@@ -60,6 +115,16 @@ type ChecklistLibraryService struct {
 	Deleter[ChecklistLibrary]
 }
 
+// ChecklistLibraryChecklistItemService provides operations for ChecklistLibraryChecklistItem entities.
+type ChecklistLibraryChecklistItemService struct {
+	Reader[ChecklistLibraryChecklistItem]
+}
+
+// ClassificationIconService provides operations for ClassificationIcon entities.
+type ClassificationIconService struct {
+	Reader[ClassificationIcon]
+}
+
 // ClientPortalUserService provides operations for ClientPortalUser entities.
 type ClientPortalUserService struct {
 	Reader[ClientPortalUser]
@@ -85,11 +150,66 @@ type CompanyService struct {
 	Patcher[Company]
 }
 
+// CompanyAlertService provides operations for CompanyAlert entities.
+type CompanyAlertService struct {
+	Reader[CompanyAlert]
+}
+
+// CompanyAttachmentService provides operations for CompanyAttachment entities.
+type CompanyAttachmentService struct {
+	Reader[CompanyAttachment]
+}
+
 // CompanyCategoryService provides operations for CompanyCategory entities.
 type CompanyCategoryService struct {
 	Reader[CompanyCategory]
 	Updater[CompanyCategory]
 	Patcher[CompanyCategory]
+}
+
+// CompanyLocationService provides operations for CompanyLocation entities.
+type CompanyLocationService struct {
+	Reader[CompanyLocation]
+}
+
+// CompanyNoteAttachmentService provides operations for CompanyNoteAttachment entities.
+type CompanyNoteAttachmentService struct {
+	Reader[CompanyNoteAttachment]
+}
+
+// CompanyNoteService provides operations for CompanyNote entities.
+type CompanyNoteService struct {
+	Reader[CompanyNote]
+}
+
+// CompanySiteConfigurationService provides operations for CompanySiteConfiguration entities.
+type CompanySiteConfigurationService struct {
+	Reader[CompanySiteConfiguration]
+}
+
+// CompanyTeamService provides operations for CompanyTeam entities.
+type CompanyTeamService struct {
+	Reader[CompanyTeam]
+}
+
+// CompanyToDoService provides operations for CompanyToDo entities.
+type CompanyToDoService struct {
+	Reader[CompanyToDo]
+}
+
+// CompanyWebhookExcludedResourceService provides operations for CompanyWebhookExcludedResource entities.
+type CompanyWebhookExcludedResourceService struct {
+	Reader[CompanyWebhookExcludedResource]
+}
+
+// CompanyWebhookFieldService provides operations for CompanyWebhookField entities.
+type CompanyWebhookFieldService struct {
+	Reader[CompanyWebhookField]
+}
+
+// CompanyWebhookUdfFieldService provides operations for CompanyWebhookUdfField entities.
+type CompanyWebhookUdfFieldService struct {
+	Reader[CompanyWebhookUdfField]
 }
 
 // CompanyWebhookService provides operations for CompanyWebhook entities.
@@ -101,12 +221,52 @@ type CompanyWebhookService struct {
 	Deleter[CompanyWebhook]
 }
 
+// ConfigurationItemAttachmentService provides operations for ConfigurationItemAttachment entities.
+type ConfigurationItemAttachmentService struct {
+	Reader[ConfigurationItemAttachment]
+}
+
+// ConfigurationItemBillingProductAssociationService provides operations for ConfigurationItemBillingProductAssociation entities.
+type ConfigurationItemBillingProductAssociationService struct {
+	Reader[ConfigurationItemBillingProductAssociation]
+}
+
 // ConfigurationItemCategoryService provides operations for ConfigurationItemCategory entities.
 type ConfigurationItemCategoryService struct {
 	Reader[ConfigurationItemCategory]
 	Creator[ConfigurationItemCategory]
 	Updater[ConfigurationItemCategory]
 	Patcher[ConfigurationItemCategory]
+}
+
+// ConfigurationItemCategoryUdfAssociationService provides operations for ConfigurationItemCategoryUdfAssociation entities.
+type ConfigurationItemCategoryUdfAssociationService struct {
+	Reader[ConfigurationItemCategoryUdfAssociation]
+}
+
+// ConfigurationItemDnsRecordService provides operations for ConfigurationItemDnsRecord entities.
+type ConfigurationItemDnsRecordService struct {
+	Reader[ConfigurationItemDnsRecord]
+}
+
+// ConfigurationItemNoteAttachmentService provides operations for ConfigurationItemNoteAttachment entities.
+type ConfigurationItemNoteAttachmentService struct {
+	Reader[ConfigurationItemNoteAttachment]
+}
+
+// ConfigurationItemNoteService provides operations for ConfigurationItemNote entities.
+type ConfigurationItemNoteService struct {
+	Reader[ConfigurationItemNote]
+}
+
+// ConfigurationItemRelatedItemService provides operations for ConfigurationItemRelatedItem entities.
+type ConfigurationItemRelatedItemService struct {
+	Reader[ConfigurationItemRelatedItem]
+}
+
+// ConfigurationItemSslSubjectAlternativeNameService provides operations for ConfigurationItemSslSubjectAlternativeName entities.
+type ConfigurationItemSslSubjectAlternativeNameService struct {
+	Reader[ConfigurationItemSslSubjectAlternativeName]
 }
 
 // ConfigurationItemTypeService provides operations for ConfigurationItemType entities.
@@ -116,6 +276,21 @@ type ConfigurationItemTypeService struct {
 	Updater[ConfigurationItemType]
 	Patcher[ConfigurationItemType]
 	Deleter[ConfigurationItemType]
+}
+
+// ConfigurationItemWebhookExcludedResourceService provides operations for ConfigurationItemWebhookExcludedResource entities.
+type ConfigurationItemWebhookExcludedResourceService struct {
+	Reader[ConfigurationItemWebhookExcludedResource]
+}
+
+// ConfigurationItemWebhookFieldService provides operations for ConfigurationItemWebhookField entities.
+type ConfigurationItemWebhookFieldService struct {
+	Reader[ConfigurationItemWebhookField]
+}
+
+// ConfigurationItemWebhookUdfFieldService provides operations for ConfigurationItemWebhookUdfField entities.
+type ConfigurationItemWebhookUdfFieldService struct {
+	Reader[ConfigurationItemWebhookUdfField]
 }
 
 // ConfigurationItemWebhookService provides operations for ConfigurationItemWebhook entities.
@@ -135,6 +310,16 @@ type ConfigurationItemService struct {
 	Patcher[ConfigurationItem]
 }
 
+// ContactBillingProductAssociationService provides operations for ContactBillingProductAssociation entities.
+type ContactBillingProductAssociationService struct {
+	Reader[ContactBillingProductAssociation]
+}
+
+// ContactGroupContactService provides operations for ContactGroupContact entities.
+type ContactGroupContactService struct {
+	Reader[ContactGroupContact]
+}
+
 // ContactGroupService provides operations for ContactGroup entities.
 type ContactGroupService struct {
 	Reader[ContactGroup]
@@ -142,6 +327,21 @@ type ContactGroupService struct {
 	Updater[ContactGroup]
 	Patcher[ContactGroup]
 	Deleter[ContactGroup]
+}
+
+// ContactWebhookExcludedResourceService provides operations for ContactWebhookExcludedResource entities.
+type ContactWebhookExcludedResourceService struct {
+	Reader[ContactWebhookExcludedResource]
+}
+
+// ContactWebhookFieldService provides operations for ContactWebhookField entities.
+type ContactWebhookFieldService struct {
+	Reader[ContactWebhookField]
+}
+
+// ContactWebhookUdfFieldService provides operations for ContactWebhookUdfField entities.
+type ContactWebhookUdfFieldService struct {
+	Reader[ContactWebhookUdfField]
 }
 
 // ContactWebhookService provides operations for ContactWebhook entities.
@@ -153,6 +353,51 @@ type ContactWebhookService struct {
 	Deleter[ContactWebhook]
 }
 
+// ContactService provides operations for Contact entities.
+type ContactService struct {
+	Reader[Contact]
+}
+
+// ContractBillingRuleService provides operations for ContractBillingRule entities.
+type ContractBillingRuleService struct {
+	Reader[ContractBillingRule]
+}
+
+// ContractBlockHourFactorService provides operations for ContractBlockHourFactor entities.
+type ContractBlockHourFactorService struct {
+	Reader[ContractBlockHourFactor]
+}
+
+// ContractBlockService provides operations for ContractBlock entities.
+type ContractBlockService struct {
+	Reader[ContractBlock]
+}
+
+// ContractChargeService provides operations for ContractCharge entities.
+type ContractChargeService struct {
+	Reader[ContractCharge]
+}
+
+// ContractExclusionBillingCodeService provides operations for ContractExclusionBillingCode entities.
+type ContractExclusionBillingCodeService struct {
+	Reader[ContractExclusionBillingCode]
+}
+
+// ContractExclusionRoleService provides operations for ContractExclusionRole entities.
+type ContractExclusionRoleService struct {
+	Reader[ContractExclusionRole]
+}
+
+// ContractExclusionSetExcludedRoleService provides operations for ContractExclusionSetExcludedRole entities.
+type ContractExclusionSetExcludedRoleService struct {
+	Reader[ContractExclusionSetExcludedRole]
+}
+
+// ContractExclusionSetExcludedWorkTypeService provides operations for ContractExclusionSetExcludedWorkType entities.
+type ContractExclusionSetExcludedWorkTypeService struct {
+	Reader[ContractExclusionSetExcludedWorkType]
+}
+
 // ContractExclusionSetService provides operations for ContractExclusionSet entities.
 type ContractExclusionSetService struct {
 	Reader[ContractExclusionSet]
@@ -160,6 +405,36 @@ type ContractExclusionSetService struct {
 	Updater[ContractExclusionSet]
 	Patcher[ContractExclusionSet]
 	Deleter[ContractExclusionSet]
+}
+
+// ContractMilestoneService provides operations for ContractMilestone entities.
+type ContractMilestoneService struct {
+	Reader[ContractMilestone]
+}
+
+// ContractNoteAttachmentService provides operations for ContractNoteAttachment entities.
+type ContractNoteAttachmentService struct {
+	Reader[ContractNoteAttachment]
+}
+
+// ContractNoteService provides operations for ContractNote entities.
+type ContractNoteService struct {
+	Reader[ContractNote]
+}
+
+// ContractRateService provides operations for ContractRate entities.
+type ContractRateService struct {
+	Reader[ContractRate]
+}
+
+// ContractRetainerService provides operations for ContractRetainer entities.
+type ContractRetainerService struct {
+	Reader[ContractRetainer]
+}
+
+// ContractRoleCostService provides operations for ContractRoleCost entities.
+type ContractRoleCostService struct {
+	Reader[ContractRoleCost]
 }
 
 // ContractServiceAdjustmentService provides operations for ContractServiceAdjustment entities.
@@ -170,6 +445,31 @@ type ContractServiceAdjustmentService struct {
 // ContractServiceBundleAdjustmentService provides operations for ContractServiceBundleAdjustment entities.
 type ContractServiceBundleAdjustmentService struct {
 	Creator[ContractServiceBundleAdjustment]
+}
+
+// ContractServiceBundleUnitService provides operations for ContractServiceBundleUnit entities.
+type ContractServiceBundleUnitService struct {
+	Reader[ContractServiceBundleUnit]
+}
+
+// ContractServiceBundleService provides operations for ContractServiceBundle entities.
+type ContractServiceBundleService struct {
+	Reader[ContractServiceBundle]
+}
+
+// ContractServiceUnitService provides operations for ContractServiceUnit entities.
+type ContractServiceUnitService struct {
+	Reader[ContractServiceUnit]
+}
+
+// ContractServiceService provides operations for ContractService entities.
+type ContractServiceService struct {
+	Reader[ContractService]
+}
+
+// ContractTicketPurchaseService provides operations for ContractTicketPurchase entities.
+type ContractTicketPurchaseService struct {
+	Reader[ContractTicketPurchase]
 }
 
 // ContractEntityService provides operations for Contract entities.
@@ -194,12 +494,32 @@ type CurrencyService struct {
 	Patcher[Currency]
 }
 
+// DeletedTaskActivityLogService provides operations for DeletedTaskActivityLog entities.
+type DeletedTaskActivityLogService struct {
+	Reader[DeletedTaskActivityLog]
+}
+
+// DeletedTicketActivityLogService provides operations for DeletedTicketActivityLog entities.
+type DeletedTicketActivityLogService struct {
+	Reader[DeletedTicketActivityLog]
+}
+
+// DeletedTicketLogService provides operations for DeletedTicketLog entities.
+type DeletedTicketLogService struct {
+	Reader[DeletedTicketLog]
+}
+
 // DepartmentService provides operations for Department entities.
 type DepartmentService struct {
 	Reader[Department]
 	Creator[Department]
 	Updater[Department]
 	Patcher[Department]
+}
+
+// DocumentAttachmentService provides operations for DocumentAttachment entities.
+type DocumentAttachmentService struct {
+	Reader[DocumentAttachment]
 }
 
 // DocumentCategoryService provides operations for DocumentCategory entities.
@@ -211,9 +531,59 @@ type DocumentCategoryService struct {
 	Deleter[DocumentCategory]
 }
 
+// DocumentChecklistItemService provides operations for DocumentChecklistItem entities.
+type DocumentChecklistItemService struct {
+	Reader[DocumentChecklistItem]
+}
+
 // DocumentChecklistLibraryService provides operations for DocumentChecklistLibrary entities.
 type DocumentChecklistLibraryService struct {
 	Creator[DocumentChecklistLibrary]
+}
+
+// DocumentConfigurationItemAssociationService provides operations for DocumentConfigurationItemAssociation entities.
+type DocumentConfigurationItemAssociationService struct {
+	Reader[DocumentConfigurationItemAssociation]
+}
+
+// DocumentConfigurationItemCategoryAssociationService provides operations for DocumentConfigurationItemCategoryAssociation entities.
+type DocumentConfigurationItemCategoryAssociationService struct {
+	Reader[DocumentConfigurationItemCategoryAssociation]
+}
+
+// DocumentNoteService provides operations for DocumentNote entities.
+type DocumentNoteService struct {
+	Reader[DocumentNote]
+}
+
+// DocumentPlainTextContentService provides operations for DocumentPlainTextContent entities.
+type DocumentPlainTextContentService struct {
+	Reader[DocumentPlainTextContent]
+}
+
+// DocumentTagAssociationService provides operations for DocumentTagAssociation entities.
+type DocumentTagAssociationService struct {
+	Reader[DocumentTagAssociation]
+}
+
+// DocumentTicketAssociationService provides operations for DocumentTicketAssociation entities.
+type DocumentTicketAssociationService struct {
+	Reader[DocumentTicketAssociation]
+}
+
+// DocumentToArticleAssociationService provides operations for DocumentToArticleAssociation entities.
+type DocumentToArticleAssociationService struct {
+	Reader[DocumentToArticleAssociation]
+}
+
+// DocumentToDocumentAssociationService provides operations for DocumentToDocumentAssociation entities.
+type DocumentToDocumentAssociationService struct {
+	Reader[DocumentToDocumentAssociation]
+}
+
+// DocumentService provides operations for Document entities.
+type DocumentService struct {
+	Reader[Document]
 }
 
 // DomainRegistrarService provides operations for DomainRegistrar entities.
@@ -222,6 +592,21 @@ type DomainRegistrarService struct {
 	Creator[DomainRegistrar]
 	Updater[DomainRegistrar]
 	Patcher[DomainRegistrar]
+}
+
+// ExpenseItemAttachmentService provides operations for ExpenseItemAttachment entities.
+type ExpenseItemAttachmentService struct {
+	Reader[ExpenseItemAttachment]
+}
+
+// ExpenseItemService provides operations for ExpenseItem entities.
+type ExpenseItemService struct {
+	Reader[ExpenseItem]
+}
+
+// ExpenseReportAttachmentService provides operations for ExpenseReportAttachment entities.
+type ExpenseReportAttachmentService struct {
+	Reader[ExpenseReportAttachment]
 }
 
 // ExpenseReportService provides operations for ExpenseReport entities.
@@ -241,6 +626,11 @@ type HolidaySetService struct {
 	Deleter[HolidaySet]
 }
 
+// HolidayService provides operations for Holiday entities.
+type HolidayService struct {
+	Reader[Holiday]
+}
+
 // IntegrationVendorInsightService provides operations for IntegrationVendorInsight entities.
 type IntegrationVendorInsightService struct {
 	Reader[IntegrationVendorInsight]
@@ -257,6 +647,24 @@ type IntegrationVendorWidgetService struct {
 	Updater[IntegrationVendorWidget]
 	Patcher[IntegrationVendorWidget]
 	Deleter[IntegrationVendorWidget]
+}
+
+// InternalLocationWithBusinessHoursService provides operations for InternalLocationWithBusinessHours entities.
+type InternalLocationWithBusinessHoursService struct {
+	Reader[InternalLocationWithBusinessHours]
+	Creator[InternalLocationWithBusinessHours]
+	Updater[InternalLocationWithBusinessHours]
+	Patcher[InternalLocationWithBusinessHours]
+}
+
+// InternalLocationService provides operations for InternalLocation entities.
+type InternalLocationService struct {
+	Reader[InternalLocation]
+}
+
+// InventoryItemSerialNumberService provides operations for InventoryItemSerialNumber entities.
+type InventoryItemSerialNumberService struct {
+	Reader[InventoryItemSerialNumber]
 }
 
 // InventoryItemService provides operations for InventoryItem entities.
@@ -284,10 +692,32 @@ type InventoryProductService struct {
 	Deleter[InventoryProduct]
 }
 
+// InventoryStockedItemService provides operations for InventoryStockedItem entities.
+type InventoryStockedItemService struct {
+	Reader[InventoryStockedItem]
+}
+
+// InventoryStockedItemAddService provides operations for InventoryStockedItemAdd entities.
+type InventoryStockedItemAddService struct {
+}
+
+// InventoryStockedItemRemoveService provides operations for InventoryStockedItemRemove entities.
+type InventoryStockedItemRemoveService struct {
+}
+
+// InventoryStockedItemTransferService provides operations for InventoryStockedItemTransfer entities.
+type InventoryStockedItemTransferService struct {
+}
+
 // InventoryTransferService provides operations for InventoryTransfer entities.
 type InventoryTransferService struct {
 	Reader[InventoryTransfer]
 	Creator[InventoryTransfer]
+}
+
+// InvoiceTemplateService provides operations for InvoiceTemplate entities.
+type InvoiceTemplateService struct {
+	Reader[InvoiceTemplate]
 }
 
 // InvoiceService provides operations for Invoice entities.
@@ -295,6 +725,11 @@ type InvoiceService struct {
 	Reader[Invoice]
 	Updater[Invoice]
 	Patcher[Invoice]
+}
+
+// KnowledgeBaseArticleService provides operations for KnowledgeBaseArticle entities.
+type KnowledgeBaseArticleService struct {
+	Reader[KnowledgeBaseArticle]
 }
 
 // KnowledgeBaseCategoryService provides operations for KnowledgeBaseCategory entities.
@@ -306,12 +741,22 @@ type KnowledgeBaseCategoryService struct {
 	Deleter[KnowledgeBaseCategory]
 }
 
+// NotificationHistoryService provides operations for NotificationHistory entities.
+type NotificationHistoryService struct {
+	Reader[NotificationHistory]
+}
+
 // OpportunityService provides operations for Opportunity entities.
 type OpportunityService struct {
 	Reader[Opportunity]
 	Creator[Opportunity]
 	Updater[Opportunity]
 	Patcher[Opportunity]
+}
+
+// OpportunityAttachmentService provides operations for OpportunityAttachment entities.
+type OpportunityAttachmentService struct {
+	Reader[OpportunityAttachment]
 }
 
 // OpportunityCategoryService provides operations for OpportunityCategory entities.
@@ -345,12 +790,22 @@ type OrganizationalLevelAssociationService struct {
 	Patcher[OrganizationalLevelAssociation]
 }
 
+// OrganizationalResourceService provides operations for OrganizationalResource entities.
+type OrganizationalResourceService struct {
+	Reader[OrganizationalResource]
+}
+
 // PaymentTermService provides operations for PaymentTerm entities.
 type PaymentTermService struct {
 	Reader[PaymentTerm]
 	Creator[PaymentTerm]
 	Updater[PaymentTerm]
 	Patcher[PaymentTerm]
+}
+
+// PhaseService provides operations for Phase entities.
+type PhaseService struct {
+	Reader[Phase]
 }
 
 // PriceListMaterialCodeService provides operations for PriceListMaterialCode entities.
@@ -402,12 +857,47 @@ type PriceListWorkTypeModifierService struct {
 	Patcher[PriceListWorkTypeModifier]
 }
 
+// ProductNoteService provides operations for ProductNote entities.
+type ProductNoteService struct {
+	Reader[ProductNote]
+}
+
+// ProductTierService provides operations for ProductTier entities.
+type ProductTierService struct {
+	Reader[ProductTier]
+}
+
+// ProductVendorService provides operations for ProductVendor entities.
+type ProductVendorService struct {
+	Reader[ProductVendor]
+}
+
 // ProductService provides operations for Product entities.
 type ProductService struct {
 	Reader[Product]
 	Creator[Product]
 	Updater[Product]
 	Patcher[Product]
+}
+
+// ProjectAttachmentService provides operations for ProjectAttachment entities.
+type ProjectAttachmentService struct {
+	Reader[ProjectAttachment]
+}
+
+// ProjectChargeService provides operations for ProjectCharge entities.
+type ProjectChargeService struct {
+	Reader[ProjectCharge]
+}
+
+// ProjectNoteAttachmentService provides operations for ProjectNoteAttachment entities.
+type ProjectNoteAttachmentService struct {
+	Reader[ProjectNoteAttachment]
+}
+
+// ProjectNoteService provides operations for ProjectNote entities.
+type ProjectNoteService struct {
+	Reader[ProjectNote]
 }
 
 // ProjectService provides operations for Project entities.
@@ -425,12 +915,27 @@ type PurchaseApprovalService struct {
 	Patcher[PurchaseApproval]
 }
 
+// PurchaseOrderItemReceivingService provides operations for PurchaseOrderItemReceiving entities.
+type PurchaseOrderItemReceivingService struct {
+	Reader[PurchaseOrderItemReceiving]
+}
+
+// PurchaseOrderItemService provides operations for PurchaseOrderItem entities.
+type PurchaseOrderItemService struct {
+	Reader[PurchaseOrderItem]
+}
+
 // PurchaseOrderService provides operations for PurchaseOrder entities.
 type PurchaseOrderService struct {
 	Reader[PurchaseOrder]
 	Creator[PurchaseOrder]
 	Updater[PurchaseOrder]
 	Patcher[PurchaseOrder]
+}
+
+// QuoteItemService provides operations for QuoteItem entities.
+type QuoteItemService struct {
+	Reader[QuoteItem]
 }
 
 // QuoteLocationService provides operations for QuoteLocation entities.
@@ -441,12 +946,52 @@ type QuoteLocationService struct {
 	Patcher[QuoteLocation]
 }
 
+// QuoteTemplateService provides operations for QuoteTemplate entities.
+type QuoteTemplateService struct {
+	Reader[QuoteTemplate]
+}
+
 // QuoteService provides operations for Quote entities.
 type QuoteService struct {
 	Reader[Quote]
 	Creator[Quote]
 	Updater[Quote]
 	Patcher[Quote]
+}
+
+// ResourceAttachmentService provides operations for ResourceAttachment entities.
+type ResourceAttachmentService struct {
+	Reader[ResourceAttachment]
+}
+
+// ResourceDailyAvailabilityService provides operations for ResourceDailyAvailability entities.
+type ResourceDailyAvailabilityService struct {
+	Reader[ResourceDailyAvailability]
+}
+
+// ResourceRoleDepartmentService provides operations for ResourceRoleDepartment entities.
+type ResourceRoleDepartmentService struct {
+	Reader[ResourceRoleDepartment]
+}
+
+// ResourceRoleQueueService provides operations for ResourceRoleQueue entities.
+type ResourceRoleQueueService struct {
+	Reader[ResourceRoleQueue]
+}
+
+// ResourceRoleService provides operations for ResourceRole entities.
+type ResourceRoleService struct {
+	Reader[ResourceRole]
+}
+
+// ResourceServiceDeskRoleService provides operations for ResourceServiceDeskRole entities.
+type ResourceServiceDeskRoleService struct {
+	Reader[ResourceServiceDeskRole]
+}
+
+// ResourceSkillService provides operations for ResourceSkill entities.
+type ResourceSkillService struct {
+	Reader[ResourceSkill]
 }
 
 // ResourceService provides operations for Resource entities.
@@ -464,11 +1009,21 @@ type RoleService struct {
 	Patcher[Role]
 }
 
+// SalesOrderAttachmentService provides operations for SalesOrderAttachment entities.
+type SalesOrderAttachmentService struct {
+	Reader[SalesOrderAttachment]
+}
+
 // SalesOrderService provides operations for SalesOrder entities.
 type SalesOrderService struct {
 	Reader[SalesOrder]
 	Updater[SalesOrder]
 	Patcher[SalesOrder]
+}
+
+// ServiceBundleServiceService provides operations for ServiceBundleService entities.
+type ServiceBundleServiceService struct {
+	Reader[ServiceBundleService]
 }
 
 // ServiceBundleEntityService provides operations for ServiceBundle entities.
@@ -480,6 +1035,26 @@ type ServiceBundleEntityService struct {
 	Deleter[ServiceBundle]
 }
 
+// ServiceCallTaskResourceService provides operations for ServiceCallTaskResource entities.
+type ServiceCallTaskResourceService struct {
+	Reader[ServiceCallTaskResource]
+}
+
+// ServiceCallTaskService provides operations for ServiceCallTask entities.
+type ServiceCallTaskService struct {
+	Reader[ServiceCallTask]
+}
+
+// ServiceCallTicketResourceService provides operations for ServiceCallTicketResource entities.
+type ServiceCallTicketResourceService struct {
+	Reader[ServiceCallTicketResource]
+}
+
+// ServiceCallTicketService provides operations for ServiceCallTicket entities.
+type ServiceCallTicketService struct {
+	Reader[ServiceCallTicket]
+}
+
 // ServiceCallService provides operations for ServiceCall entities.
 type ServiceCallService struct {
 	Reader[ServiceCall]
@@ -487,6 +1062,11 @@ type ServiceCallService struct {
 	Updater[ServiceCall]
 	Patcher[ServiceCall]
 	Deleter[ServiceCall]
+}
+
+// ServiceLevelAgreementResultsService provides operations for ServiceLevelAgreementResults entities.
+type ServiceLevelAgreementResultsService struct {
+	Reader[ServiceLevelAgreementResults]
 }
 
 // ServiceService provides operations for Service entities.
@@ -497,6 +1077,21 @@ type ServiceService struct {
 	Patcher[Service]
 }
 
+// ShippingTypeService provides operations for ShippingType entities.
+type ShippingTypeService struct {
+	Reader[ShippingType]
+}
+
+// SkillService provides operations for Skill entities.
+type SkillService struct {
+	Reader[Skill]
+}
+
+// SubscriptionPeriodService provides operations for SubscriptionPeriod entities.
+type SubscriptionPeriodService struct {
+	Reader[SubscriptionPeriod]
+}
+
 // SubscriptionService provides operations for Subscription entities.
 type SubscriptionService struct {
 	Reader[Subscription]
@@ -504,6 +1099,21 @@ type SubscriptionService struct {
 	Updater[Subscription]
 	Patcher[Subscription]
 	Deleter[Subscription]
+}
+
+// SurveyResultsService provides operations for SurveyResults entities.
+type SurveyResultsService struct {
+	Reader[SurveyResults]
+}
+
+// SurveyService provides operations for Survey entities.
+type SurveyService struct {
+	Reader[Survey]
+}
+
+// TagAliasService provides operations for TagAlias entities.
+type TagAliasService struct {
+	Reader[TagAlias]
 }
 
 // TagGroupService provides operations for TagGroup entities.
@@ -524,12 +1134,37 @@ type TagService struct {
 	Deleter[Tag]
 }
 
+// TaskAttachmentService provides operations for TaskAttachment entities.
+type TaskAttachmentService struct {
+	Reader[TaskAttachment]
+}
+
+// TaskNoteAttachmentService provides operations for TaskNoteAttachment entities.
+type TaskNoteAttachmentService struct {
+	Reader[TaskNoteAttachment]
+}
+
 // TaskNoteService provides operations for TaskNote entities.
 type TaskNoteService struct {
 	Reader[TaskNote]
 	Creator[TaskNote]
 	Updater[TaskNote]
 	Patcher[TaskNote]
+}
+
+// TaskPredecessorService provides operations for TaskPredecessor entities.
+type TaskPredecessorService struct {
+	Reader[TaskPredecessor]
+}
+
+// TaskSecondaryResourceService provides operations for TaskSecondaryResource entities.
+type TaskSecondaryResourceService struct {
+	Reader[TaskSecondaryResource]
+}
+
+// TaskService provides operations for Task entities.
+type TaskService struct {
+	Reader[Task]
 }
 
 // TaxCategoryService provides operations for TaxCategory entities.
@@ -556,6 +1191,21 @@ type TaxService struct {
 	Patcher[Tax]
 }
 
+// TicketAdditionalConfigurationItemService provides operations for TicketAdditionalConfigurationItem entities.
+type TicketAdditionalConfigurationItemService struct {
+	Reader[TicketAdditionalConfigurationItem]
+}
+
+// TicketAdditionalContactService provides operations for TicketAdditionalContact entities.
+type TicketAdditionalContactService struct {
+	Reader[TicketAdditionalContact]
+}
+
+// TicketAttachmentService provides operations for TicketAttachment entities.
+type TicketAttachmentService struct {
+	Reader[TicketAttachment]
+}
+
 // TicketCategoryService provides operations for TicketCategory entities.
 type TicketCategoryService struct {
 	Reader[TicketCategory]
@@ -563,9 +1213,49 @@ type TicketCategoryService struct {
 	Patcher[TicketCategory]
 }
 
+// TicketCategoryFieldDefaultsService provides operations for TicketCategoryFieldDefaults entities.
+type TicketCategoryFieldDefaultsService struct {
+	Reader[TicketCategoryFieldDefaults]
+}
+
+// TicketChangeRequestApprovalService provides operations for TicketChangeRequestApproval entities.
+type TicketChangeRequestApprovalService struct {
+	Reader[TicketChangeRequestApproval]
+}
+
+// TicketChargeService provides operations for TicketCharge entities.
+type TicketChargeService struct {
+	Reader[TicketCharge]
+}
+
+// TicketChecklistItemService provides operations for TicketChecklistItem entities.
+type TicketChecklistItemService struct {
+	Reader[TicketChecklistItem]
+}
+
 // TicketChecklistLibraryService provides operations for TicketChecklistLibrary entities.
 type TicketChecklistLibraryService struct {
 	Creator[TicketChecklistLibrary]
+}
+
+// TicketHistoryService provides operations for TicketHistory entities.
+type TicketHistoryService struct {
+	Reader[TicketHistory]
+}
+
+// TicketNoteAttachmentService provides operations for TicketNoteAttachment entities.
+type TicketNoteAttachmentService struct {
+	Reader[TicketNoteAttachment]
+}
+
+// TicketNoteWebhookExcludedResourceService provides operations for TicketNoteWebhookExcludedResource entities.
+type TicketNoteWebhookExcludedResourceService struct {
+	Reader[TicketNoteWebhookExcludedResource]
+}
+
+// TicketNoteWebhookFieldService provides operations for TicketNoteWebhookField entities.
+type TicketNoteWebhookFieldService struct {
+	Reader[TicketNoteWebhookField]
 }
 
 // TicketNoteWebhookService provides operations for TicketNoteWebhook entities.
@@ -575,6 +1265,41 @@ type TicketNoteWebhookService struct {
 	Updater[TicketNoteWebhook]
 	Patcher[TicketNoteWebhook]
 	Deleter[TicketNoteWebhook]
+}
+
+// TicketNoteService provides operations for TicketNote entities.
+type TicketNoteService struct {
+	Reader[TicketNote]
+}
+
+// TicketRmaCreditService provides operations for TicketRmaCredit entities.
+type TicketRmaCreditService struct {
+	Reader[TicketRmaCredit]
+}
+
+// TicketSecondaryResourceService provides operations for TicketSecondaryResource entities.
+type TicketSecondaryResourceService struct {
+	Reader[TicketSecondaryResource]
+}
+
+// TicketTagAssociationService provides operations for TicketTagAssociation entities.
+type TicketTagAssociationService struct {
+	Reader[TicketTagAssociation]
+}
+
+// TicketWebhookExcludedResourceService provides operations for TicketWebhookExcludedResource entities.
+type TicketWebhookExcludedResourceService struct {
+	Reader[TicketWebhookExcludedResource]
+}
+
+// TicketWebhookFieldService provides operations for TicketWebhookField entities.
+type TicketWebhookFieldService struct {
+	Reader[TicketWebhookField]
+}
+
+// TicketWebhookUdfFieldService provides operations for TicketWebhookUdfField entities.
+type TicketWebhookUdfFieldService struct {
+	Reader[TicketWebhookUdfField]
 }
 
 // TicketWebhookService provides operations for TicketWebhook entities.
@@ -603,12 +1328,33 @@ type TimeEntryService struct {
 	Deleter[TimeEntry]
 }
 
+// TimeEntryAttachmentService provides operations for TimeEntryAttachment entities.
+type TimeEntryAttachmentService struct {
+	Reader[TimeEntryAttachment]
+}
+
+// TimeOffRequestService provides operations for TimeOffRequest entities.
+type TimeOffRequestService struct {
+	Reader[TimeOffRequest]
+}
+
 // UserDefinedFieldDefinitionService provides operations for UserDefinedFieldDefinition entities.
 type UserDefinedFieldDefinitionService struct {
 	Reader[UserDefinedFieldDefinition]
 	Creator[UserDefinedFieldDefinition]
 	Updater[UserDefinedFieldDefinition]
 	Patcher[UserDefinedFieldDefinition]
+}
+
+// UserDefinedFieldListItemService provides operations for UserDefinedFieldListItem entities.
+type UserDefinedFieldListItemService struct {
+	Reader[UserDefinedFieldListItem]
+}
+
+// WebhookEventErrorLogService provides operations for WebhookEventErrorLog entities.
+type WebhookEventErrorLogService struct {
+	Reader[WebhookEventErrorLog]
+	Deleter[WebhookEventErrorLog]
 }
 
 // WorkTypeModifierService provides operations for WorkTypeModifier entities.
@@ -1178,11 +1924,26 @@ type InventoryItemSerialNumberChildService struct {
 	Patcher[InventoryItemSerialNumber]
 }
 
+// InventoryStockedItemAddChildService provides operations for InventoryStockedItemAdd child entities.
+type InventoryStockedItemAddChildService struct {
+	Creator[InventoryStockedItemAdd]
+}
+
 // InventoryStockedItemChildService provides operations for InventoryStockedItem child entities.
 type InventoryStockedItemChildService struct {
 	Reader[InventoryStockedItem]
 	Updater[InventoryStockedItem]
 	Patcher[InventoryStockedItem]
+}
+
+// InventoryStockedItemRemoveChildService provides operations for InventoryStockedItemRemove child entities.
+type InventoryStockedItemRemoveChildService struct {
+	Creator[InventoryStockedItemRemove]
+}
+
+// InventoryStockedItemTransferChildService provides operations for InventoryStockedItemTransfer child entities.
+type InventoryStockedItemTransferChildService struct {
+	Creator[InventoryStockedItemTransfer]
 }
 
 // KnowledgeBaseArticleChildService provides operations for KnowledgeBaseArticle child entities.
@@ -1392,9 +2153,21 @@ type ServiceCallTicketChildService struct {
 	Deleter[ServiceCallTicket]
 }
 
+// ServiceLevelAgreementResultsChildService provides operations for ServiceLevelAgreementResults child entities.
+type ServiceLevelAgreementResultsChildService struct {
+	Reader[ServiceLevelAgreementResults]
+}
+
 // SubscriptionPeriodChildService provides operations for SubscriptionPeriod child entities.
 type SubscriptionPeriodChildService struct {
 	Reader[SubscriptionPeriod]
+}
+
+// TagAliasChildService provides operations for TagAlias child entities.
+type TagAliasChildService struct {
+	Reader[TagAlias]
+	Creator[TagAlias]
+	Deleter[TagAlias]
 }
 
 // TaskAttachmentChildService provides operations for TaskAttachment child entities.
@@ -1462,6 +2235,11 @@ type TicketAttachmentChildService struct {
 	Reader[TicketAttachment]
 	Creator[TicketAttachment]
 	Deleter[TicketAttachment]
+}
+
+// TicketCategoryFieldDefaultsChildService provides operations for TicketCategoryFieldDefaults child entities.
+type TicketCategoryFieldDefaultsChildService struct {
+	Reader[TicketCategoryFieldDefaults]
 }
 
 // TicketChangeRequestApprovalChildService provides operations for TicketChangeRequestApproval child entities.
@@ -1598,84 +2376,233 @@ type UserDefinedFieldListItemChildService struct {
 
 // entityServiceFields holds all top-level entity services.
 type entityServiceFields struct {
-	ActionTypes                      ActionTypeService
-	Appointments                     AppointmentService
-	BillingItemApprovalLevels        BillingItemApprovalLevelService
-	BillingItems                     BillingItemService
-	ChangeOrderCharges               ChangeOrderChargeService
-	ChangeRequestLinks               ChangeRequestLinkService
-	ChecklistLibraries               ChecklistLibraryService
-	ClientPortalUsers                ClientPortalUserService
-	ComanagedAssociations            ComanagedAssociationService
-	Companies                        CompanyService
-	CompanyCategories                CompanyCategoryService
-	CompanyWebhooks                  CompanyWebhookService
-	ConfigurationItemCategories      ConfigurationItemCategoryService
-	ConfigurationItemTypes           ConfigurationItemTypeService
-	ConfigurationItemWebhooks        ConfigurationItemWebhookService
-	ConfigurationItems               ConfigurationItemService
-	ContactGroups                    ContactGroupService
-	ContactWebhooks                  ContactWebhookService
-	ContractExclusionSets            ContractExclusionSetService
-	ContractServiceAdjustments       ContractServiceAdjustmentService
-	ContractServiceBundleAdjustments ContractServiceBundleAdjustmentService
-	Contracts                        ContractEntityService
-	Countries                        CountryService
-	Currencies                       CurrencyService
-	Departments                      DepartmentService
-	DocumentCategories               DocumentCategoryService
-	DocumentChecklistLibraries       DocumentChecklistLibraryService
-	DomainRegistrars                 DomainRegistrarService
-	ExpenseReports                   ExpenseReportService
-	HolidaySets                      HolidaySetService
-	IntegrationVendorInsights        IntegrationVendorInsightService
-	IntegrationVendorWidgets         IntegrationVendorWidgetService
-	InventoryItems                   InventoryItemService
-	InventoryLocations               InventoryLocationService
-	InventoryProducts                InventoryProductService
-	InventoryTransfers               InventoryTransferService
-	Invoices                         InvoiceService
-	KnowledgeBaseCategories          KnowledgeBaseCategoryService
-	Opportunities                    OpportunityService
-	OpportunityCategories            OpportunityCategoryService
-	OrganizationalLevel1             OrganizationalLevel1Service
-	OrganizationalLevel2             OrganizationalLevel2Service
-	OrganizationalLevelAssociation   OrganizationalLevelAssociationService
-	PaymentTerms                     PaymentTermService
-	PriceListMaterialCodes           PriceListMaterialCodeService
-	PriceListProductTiers            PriceListProductTierService
-	PriceListProducts                PriceListProductService
-	PriceListRoles                   PriceListRoleService
-	PriceListServiceBundles          PriceListServiceBundleService
-	PriceListServices                PriceListServiceService
-	PriceListWorkTypeModifiers       PriceListWorkTypeModifierService
-	Products                         ProductService
-	Projects                         ProjectService
-	PurchaseApprovals                PurchaseApprovalService
-	PurchaseOrders                   PurchaseOrderService
-	QuoteLocations                   QuoteLocationService
-	Quotes                           QuoteService
-	Resources                        ResourceService
-	Roles                            RoleService
-	SalesOrders                      SalesOrderService
-	ServiceBundles                   ServiceBundleEntityService
-	ServiceCalls                     ServiceCallService
-	Services                         ServiceService
-	Subscriptions                    SubscriptionService
-	TagGroups                        TagGroupService
-	Tags                             TagService
-	TaskNotes                        TaskNoteService
-	TaxCategories                    TaxCategoryService
-	TaxRegions                       TaxRegionService
-	Taxes                            TaxService
-	TicketCategories                 TicketCategoryService
-	TicketChecklistLibraries         TicketChecklistLibraryService
-	TicketNoteWebhooks               TicketNoteWebhookService
-	TicketWebhooks                   TicketWebhookService
-	Tickets                          TicketService
-	TimeEntries                      TimeEntryService
-	UserDefinedFieldDefinitions      UserDefinedFieldDefinitionService
-	WorkTypeModifiers                WorkTypeModifierService
+	ActionTypes                                   ActionTypeService
+	AdditionalInvoiceFieldValues                  AdditionalInvoiceFieldValueService
+	Appointments                                  AppointmentService
+	ArticleAttachments                            ArticleAttachmentService
+	ArticleConfigurationItemCategoryAssociations  ArticleConfigurationItemCategoryAssociationService
+	ArticleNotes                                  ArticleNoteService
+	ArticlePlainTextContent                       ArticlePlainTextContentService
+	ArticleTagAssociations                        ArticleTagAssociationService
+	ArticleTicketAssociations                     ArticleTicketAssociationService
+	ArticleToArticleAssociations                  ArticleToArticleAssociationService
+	ArticleToDocumentAssociations                 ArticleToDocumentAssociationService
+	AttachmentInfo                                AttachmentInfoService
+	BillingCodes                                  BillingCodeService
+	BillingItemApprovalLevels                     BillingItemApprovalLevelService
+	BillingItems                                  BillingItemService
+	ChangeOrderCharges                            ChangeOrderChargeService
+	ChangeRequestLinks                            ChangeRequestLinkService
+	ChecklistLibraries                            ChecklistLibraryService
+	ChecklistLibraryChecklistItems                ChecklistLibraryChecklistItemService
+	ClassificationIcons                           ClassificationIconService
+	ClientPortalUsers                             ClientPortalUserService
+	ComanagedAssociations                         ComanagedAssociationService
+	Companies                                     CompanyService
+	CompanyAlerts                                 CompanyAlertService
+	CompanyAttachments                            CompanyAttachmentService
+	CompanyCategories                             CompanyCategoryService
+	CompanyLocations                              CompanyLocationService
+	CompanyNoteAttachments                        CompanyNoteAttachmentService
+	CompanyNotes                                  CompanyNoteService
+	CompanySiteConfigurations                     CompanySiteConfigurationService
+	CompanyTeams                                  CompanyTeamService
+	CompanyToDos                                  CompanyToDoService
+	CompanyWebhookExcludedResources               CompanyWebhookExcludedResourceService
+	CompanyWebhookFields                          CompanyWebhookFieldService
+	CompanyWebhookUdfFields                       CompanyWebhookUdfFieldService
+	CompanyWebhooks                               CompanyWebhookService
+	ConfigurationItemAttachments                  ConfigurationItemAttachmentService
+	ConfigurationItemBillingProductAssociations   ConfigurationItemBillingProductAssociationService
+	ConfigurationItemCategories                   ConfigurationItemCategoryService
+	ConfigurationItemCategoryUdfAssociations      ConfigurationItemCategoryUdfAssociationService
+	ConfigurationItemDnsRecords                   ConfigurationItemDnsRecordService
+	ConfigurationItemNoteAttachments              ConfigurationItemNoteAttachmentService
+	ConfigurationItemNotes                        ConfigurationItemNoteService
+	ConfigurationItemRelatedItems                 ConfigurationItemRelatedItemService
+	ConfigurationItemSslSubjectAlternativeNames   ConfigurationItemSslSubjectAlternativeNameService
+	ConfigurationItemTypes                        ConfigurationItemTypeService
+	ConfigurationItemWebhookExcludedResources     ConfigurationItemWebhookExcludedResourceService
+	ConfigurationItemWebhookFields                ConfigurationItemWebhookFieldService
+	ConfigurationItemWebhookUdfFields             ConfigurationItemWebhookUdfFieldService
+	ConfigurationItemWebhooks                     ConfigurationItemWebhookService
+	ConfigurationItems                            ConfigurationItemService
+	ContactBillingProductAssociations             ContactBillingProductAssociationService
+	ContactGroupContacts                          ContactGroupContactService
+	ContactGroups                                 ContactGroupService
+	ContactWebhookExcludedResources               ContactWebhookExcludedResourceService
+	ContactWebhookFields                          ContactWebhookFieldService
+	ContactWebhookUdfFields                       ContactWebhookUdfFieldService
+	ContactWebhooks                               ContactWebhookService
+	Contacts                                      ContactService
+	ContractBillingRules                          ContractBillingRuleService
+	ContractBlockHourFactors                      ContractBlockHourFactorService
+	ContractBlocks                                ContractBlockService
+	ContractCharges                               ContractChargeService
+	ContractExclusionBillingCodes                 ContractExclusionBillingCodeService
+	ContractExclusionRoles                        ContractExclusionRoleService
+	ContractExclusionSetExcludedRoles             ContractExclusionSetExcludedRoleService
+	ContractExclusionSetExcludedWorkTypes         ContractExclusionSetExcludedWorkTypeService
+	ContractExclusionSets                         ContractExclusionSetService
+	ContractMilestones                            ContractMilestoneService
+	ContractNoteAttachments                       ContractNoteAttachmentService
+	ContractNotes                                 ContractNoteService
+	ContractRates                                 ContractRateService
+	ContractRetainers                             ContractRetainerService
+	ContractRoleCosts                             ContractRoleCostService
+	ContractServiceAdjustments                    ContractServiceAdjustmentService
+	ContractServiceBundleAdjustments              ContractServiceBundleAdjustmentService
+	ContractServiceBundleUnits                    ContractServiceBundleUnitService
+	ContractServiceBundles                        ContractServiceBundleService
+	ContractServiceUnits                          ContractServiceUnitService
+	ContractServices                              ContractServiceService
+	ContractTicketPurchases                       ContractTicketPurchaseService
+	Contracts                                     ContractEntityService
+	Countries                                     CountryService
+	Currencies                                    CurrencyService
+	DeletedTaskActivityLogs                       DeletedTaskActivityLogService
+	DeletedTicketActivityLogs                     DeletedTicketActivityLogService
+	DeletedTicketLogs                             DeletedTicketLogService
+	Departments                                   DepartmentService
+	DocumentAttachments                           DocumentAttachmentService
+	DocumentCategories                            DocumentCategoryService
+	DocumentChecklistItems                        DocumentChecklistItemService
+	DocumentChecklistLibraries                    DocumentChecklistLibraryService
+	DocumentConfigurationItemAssociations         DocumentConfigurationItemAssociationService
+	DocumentConfigurationItemCategoryAssociations DocumentConfigurationItemCategoryAssociationService
+	DocumentNotes                                 DocumentNoteService
+	DocumentPlainTextContent                      DocumentPlainTextContentService
+	DocumentTagAssociations                       DocumentTagAssociationService
+	DocumentTicketAssociations                    DocumentTicketAssociationService
+	DocumentToArticleAssociations                 DocumentToArticleAssociationService
+	DocumentToDocumentAssociations                DocumentToDocumentAssociationService
+	Documents                                     DocumentService
+	DomainRegistrars                              DomainRegistrarService
+	ExpenseItemAttachments                        ExpenseItemAttachmentService
+	ExpenseItems                                  ExpenseItemService
+	ExpenseReportAttachments                      ExpenseReportAttachmentService
+	ExpenseReports                                ExpenseReportService
+	HolidaySets                                   HolidaySetService
+	Holidays                                      HolidayService
+	IntegrationVendorInsights                     IntegrationVendorInsightService
+	IntegrationVendorWidgets                      IntegrationVendorWidgetService
+	InternalLocationWithBusinessHours             InternalLocationWithBusinessHoursService
+	InternalLocations                             InternalLocationService
+	InventoryItemSerialNumbers                    InventoryItemSerialNumberService
+	InventoryItems                                InventoryItemService
+	InventoryLocations                            InventoryLocationService
+	InventoryProducts                             InventoryProductService
+	InventoryStockedItems                         InventoryStockedItemService
+	InventoryStockedItemsAdd                      InventoryStockedItemAddService
+	InventoryStockedItemsRemove                   InventoryStockedItemRemoveService
+	InventoryStockedItemsTransfer                 InventoryStockedItemTransferService
+	InventoryTransfers                            InventoryTransferService
+	InvoiceTemplates                              InvoiceTemplateService
+	Invoices                                      InvoiceService
+	KnowledgeBaseArticles                         KnowledgeBaseArticleService
+	KnowledgeBaseCategories                       KnowledgeBaseCategoryService
+	NotificationHistory                           NotificationHistoryService
+	Opportunities                                 OpportunityService
+	OpportunityAttachments                        OpportunityAttachmentService
+	OpportunityCategories                         OpportunityCategoryService
+	OrganizationalLevel1                          OrganizationalLevel1Service
+	OrganizationalLevel2                          OrganizationalLevel2Service
+	OrganizationalLevelAssociation                OrganizationalLevelAssociationService
+	OrganizationalResources                       OrganizationalResourceService
+	PaymentTerms                                  PaymentTermService
+	Phases                                        PhaseService
+	PriceListMaterialCodes                        PriceListMaterialCodeService
+	PriceListProductTiers                         PriceListProductTierService
+	PriceListProducts                             PriceListProductService
+	PriceListRoles                                PriceListRoleService
+	PriceListServiceBundles                       PriceListServiceBundleService
+	PriceListServices                             PriceListServiceService
+	PriceListWorkTypeModifiers                    PriceListWorkTypeModifierService
+	ProductNotes                                  ProductNoteService
+	ProductTiers                                  ProductTierService
+	ProductVendors                                ProductVendorService
+	Products                                      ProductService
+	ProjectAttachments                            ProjectAttachmentService
+	ProjectCharges                                ProjectChargeService
+	ProjectNoteAttachments                        ProjectNoteAttachmentService
+	ProjectNotes                                  ProjectNoteService
+	Projects                                      ProjectService
+	PurchaseApprovals                             PurchaseApprovalService
+	PurchaseOrderItemReceiving                    PurchaseOrderItemReceivingService
+	PurchaseOrderItems                            PurchaseOrderItemService
+	PurchaseOrders                                PurchaseOrderService
+	QuoteItems                                    QuoteItemService
+	QuoteLocations                                QuoteLocationService
+	QuoteTemplates                                QuoteTemplateService
+	Quotes                                        QuoteService
+	ResourceAttachments                           ResourceAttachmentService
+	ResourceDailyAvailabilities                   ResourceDailyAvailabilityService
+	ResourceRoleDepartments                       ResourceRoleDepartmentService
+	ResourceRoleQueues                            ResourceRoleQueueService
+	ResourceRoles                                 ResourceRoleService
+	ResourceServiceDeskRoles                      ResourceServiceDeskRoleService
+	ResourceSkills                                ResourceSkillService
+	Resources                                     ResourceService
+	Roles                                         RoleService
+	SalesOrderAttachments                         SalesOrderAttachmentService
+	SalesOrders                                   SalesOrderService
+	ServiceBundleServices                         ServiceBundleServiceService
+	ServiceBundles                                ServiceBundleEntityService
+	ServiceCallTaskResources                      ServiceCallTaskResourceService
+	ServiceCallTasks                              ServiceCallTaskService
+	ServiceCallTicketResources                    ServiceCallTicketResourceService
+	ServiceCallTickets                            ServiceCallTicketService
+	ServiceCalls                                  ServiceCallService
+	ServiceLevelAgreementResults                  ServiceLevelAgreementResultsService
+	Services                                      ServiceService
+	ShippingTypes                                 ShippingTypeService
+	Skills                                        SkillService
+	SubscriptionPeriods                           SubscriptionPeriodService
+	Subscriptions                                 SubscriptionService
+	SurveyResults                                 SurveyResultsService
+	Surveys                                       SurveyService
+	TagAliases                                    TagAliasService
+	TagGroups                                     TagGroupService
+	Tags                                          TagService
+	TaskAttachments                               TaskAttachmentService
+	TaskNoteAttachments                           TaskNoteAttachmentService
+	TaskNotes                                     TaskNoteService
+	TaskPredecessors                              TaskPredecessorService
+	TaskSecondaryResources                        TaskSecondaryResourceService
+	Tasks                                         TaskService
+	TaxCategories                                 TaxCategoryService
+	TaxRegions                                    TaxRegionService
+	Taxes                                         TaxService
+	TicketAdditionalConfigurationItems            TicketAdditionalConfigurationItemService
+	TicketAdditionalContacts                      TicketAdditionalContactService
+	TicketAttachments                             TicketAttachmentService
+	TicketCategories                              TicketCategoryService
+	TicketCategoryFieldDefaults                   TicketCategoryFieldDefaultsService
+	TicketChangeRequestApprovals                  TicketChangeRequestApprovalService
+	TicketCharges                                 TicketChargeService
+	TicketChecklistItems                          TicketChecklistItemService
+	TicketChecklistLibraries                      TicketChecklistLibraryService
+	TicketHistory                                 TicketHistoryService
+	TicketNoteAttachments                         TicketNoteAttachmentService
+	TicketNoteWebhookExcludedResources            TicketNoteWebhookExcludedResourceService
+	TicketNoteWebhookFields                       TicketNoteWebhookFieldService
+	TicketNoteWebhooks                            TicketNoteWebhookService
+	TicketNotes                                   TicketNoteService
+	TicketRmaCredits                              TicketRmaCreditService
+	TicketSecondaryResources                      TicketSecondaryResourceService
+	TicketTagAssociations                         TicketTagAssociationService
+	TicketWebhookExcludedResources                TicketWebhookExcludedResourceService
+	TicketWebhookFields                           TicketWebhookFieldService
+	TicketWebhookUdfFields                        TicketWebhookUdfFieldService
+	TicketWebhooks                                TicketWebhookService
+	Tickets                                       TicketService
+	TimeEntries                                   TimeEntryService
+	TimeEntryAttachments                          TimeEntryAttachmentService
+	TimeOffRequests                               TimeOffRequestService
+	UserDefinedFieldDefinitions                   UserDefinedFieldDefinitionService
+	UserDefinedFieldListItems                     UserDefinedFieldListItemService
+	WebhookEventErrorLogs                         WebhookEventErrorLogService
+	WorkTypeModifiers                             WorkTypeModifierService
 }
 
 // initServices initializes all entity services on the client.
@@ -1688,6 +2615,10 @@ func (c *Client) initServices() {
 		Patcher: Patcher[ActionType]{baseService: bActionType},
 		Deleter: Deleter[ActionType]{baseService: bActionType},
 	}
+	bAdditionalInvoiceFieldValue := baseService{client: c, entityPath: "/V1.0/AdditionalInvoiceFieldValues", entityName: "AdditionalInvoiceFieldValue"}
+	c.AdditionalInvoiceFieldValues = AdditionalInvoiceFieldValueService{
+		Reader: Reader[AdditionalInvoiceFieldValue]{baseService: bAdditionalInvoiceFieldValue},
+	}
 	bAppointment := baseService{client: c, entityPath: "/V1.0/Appointments", entityName: "Appointment"}
 	c.Appointments = AppointmentService{
 		Reader:  Reader[Appointment]{baseService: bAppointment},
@@ -1695,6 +2626,46 @@ func (c *Client) initServices() {
 		Updater: Updater[Appointment]{baseService: bAppointment},
 		Patcher: Patcher[Appointment]{baseService: bAppointment},
 		Deleter: Deleter[Appointment]{baseService: bAppointment},
+	}
+	bArticleAttachment := baseService{client: c, entityPath: "/V1.0/ArticleAttachments", entityName: "ArticleAttachment"}
+	c.ArticleAttachments = ArticleAttachmentService{
+		Reader: Reader[ArticleAttachment]{baseService: bArticleAttachment},
+	}
+	bArticleConfigurationItemCategoryAssociation := baseService{client: c, entityPath: "/V1.0/ArticleConfigurationItemCategoryAssociations", entityName: "ArticleConfigurationItemCategoryAssociation"}
+	c.ArticleConfigurationItemCategoryAssociations = ArticleConfigurationItemCategoryAssociationService{
+		Reader: Reader[ArticleConfigurationItemCategoryAssociation]{baseService: bArticleConfigurationItemCategoryAssociation},
+	}
+	bArticleNote := baseService{client: c, entityPath: "/V1.0/ArticleNotes", entityName: "ArticleNote"}
+	c.ArticleNotes = ArticleNoteService{
+		Reader: Reader[ArticleNote]{baseService: bArticleNote},
+	}
+	bArticlePlainTextContent := baseService{client: c, entityPath: "/V1.0/ArticlePlainTextContent", entityName: "ArticlePlainTextContent"}
+	c.ArticlePlainTextContent = ArticlePlainTextContentService{
+		Reader: Reader[ArticlePlainTextContent]{baseService: bArticlePlainTextContent},
+	}
+	bArticleTagAssociation := baseService{client: c, entityPath: "/V1.0/ArticleTagAssociations", entityName: "ArticleTagAssociation"}
+	c.ArticleTagAssociations = ArticleTagAssociationService{
+		Reader: Reader[ArticleTagAssociation]{baseService: bArticleTagAssociation},
+	}
+	bArticleTicketAssociation := baseService{client: c, entityPath: "/V1.0/ArticleTicketAssociations", entityName: "ArticleTicketAssociation"}
+	c.ArticleTicketAssociations = ArticleTicketAssociationService{
+		Reader: Reader[ArticleTicketAssociation]{baseService: bArticleTicketAssociation},
+	}
+	bArticleToArticleAssociation := baseService{client: c, entityPath: "/V1.0/ArticleToArticleAssociations", entityName: "ArticleToArticleAssociation"}
+	c.ArticleToArticleAssociations = ArticleToArticleAssociationService{
+		Reader: Reader[ArticleToArticleAssociation]{baseService: bArticleToArticleAssociation},
+	}
+	bArticleToDocumentAssociation := baseService{client: c, entityPath: "/V1.0/ArticleToDocumentAssociations", entityName: "ArticleToDocumentAssociation"}
+	c.ArticleToDocumentAssociations = ArticleToDocumentAssociationService{
+		Reader: Reader[ArticleToDocumentAssociation]{baseService: bArticleToDocumentAssociation},
+	}
+	bAttachmentInfo := baseService{client: c, entityPath: "/V1.0/AttachmentInfo", entityName: "AttachmentInfo"}
+	c.AttachmentInfo = AttachmentInfoService{
+		Reader: Reader[AttachmentInfo]{baseService: bAttachmentInfo},
+	}
+	bBillingCode := baseService{client: c, entityPath: "/V1.0/BillingCodes", entityName: "BillingCode"}
+	c.BillingCodes = BillingCodeService{
+		Reader: Reader[BillingCode]{baseService: bBillingCode},
 	}
 	bBillingItemApprovalLevel := baseService{client: c, entityPath: "/V1.0/BillingItemApprovalLevels", entityName: "BillingItemApprovalLevel"}
 	c.BillingItemApprovalLevels = BillingItemApprovalLevelService{
@@ -1729,6 +2700,14 @@ func (c *Client) initServices() {
 		Patcher: Patcher[ChecklistLibrary]{baseService: bChecklistLibrary},
 		Deleter: Deleter[ChecklistLibrary]{baseService: bChecklistLibrary},
 	}
+	bChecklistLibraryChecklistItem := baseService{client: c, entityPath: "/V1.0/ChecklistLibraryChecklistItems", entityName: "ChecklistLibraryChecklistItem"}
+	c.ChecklistLibraryChecklistItems = ChecklistLibraryChecklistItemService{
+		Reader: Reader[ChecklistLibraryChecklistItem]{baseService: bChecklistLibraryChecklistItem},
+	}
+	bClassificationIcon := baseService{client: c, entityPath: "/V1.0/ClassificationIcons", entityName: "ClassificationIcon"}
+	c.ClassificationIcons = ClassificationIconService{
+		Reader: Reader[ClassificationIcon]{baseService: bClassificationIcon},
+	}
 	bClientPortalUser := baseService{client: c, entityPath: "/V1.0/ClientPortalUsers", entityName: "ClientPortalUser"}
 	c.ClientPortalUsers = ClientPortalUserService{
 		Reader:  Reader[ClientPortalUser]{baseService: bClientPortalUser},
@@ -1751,11 +2730,55 @@ func (c *Client) initServices() {
 		Updater: Updater[Company]{baseService: bCompany},
 		Patcher: Patcher[Company]{baseService: bCompany},
 	}
+	bCompanyAlert := baseService{client: c, entityPath: "/V1.0/CompanyAlerts", entityName: "CompanyAlert"}
+	c.CompanyAlerts = CompanyAlertService{
+		Reader: Reader[CompanyAlert]{baseService: bCompanyAlert},
+	}
+	bCompanyAttachment := baseService{client: c, entityPath: "/V1.0/CompanyAttachments", entityName: "CompanyAttachment"}
+	c.CompanyAttachments = CompanyAttachmentService{
+		Reader: Reader[CompanyAttachment]{baseService: bCompanyAttachment},
+	}
 	bCompanyCategory := baseService{client: c, entityPath: "/V1.0/CompanyCategories", entityName: "CompanyCategory"}
 	c.CompanyCategories = CompanyCategoryService{
 		Reader:  Reader[CompanyCategory]{baseService: bCompanyCategory},
 		Updater: Updater[CompanyCategory]{baseService: bCompanyCategory},
 		Patcher: Patcher[CompanyCategory]{baseService: bCompanyCategory},
+	}
+	bCompanyLocation := baseService{client: c, entityPath: "/V1.0/CompanyLocations", entityName: "CompanyLocation"}
+	c.CompanyLocations = CompanyLocationService{
+		Reader: Reader[CompanyLocation]{baseService: bCompanyLocation},
+	}
+	bCompanyNoteAttachment := baseService{client: c, entityPath: "/V1.0/CompanyNoteAttachments", entityName: "CompanyNoteAttachment"}
+	c.CompanyNoteAttachments = CompanyNoteAttachmentService{
+		Reader: Reader[CompanyNoteAttachment]{baseService: bCompanyNoteAttachment},
+	}
+	bCompanyNote := baseService{client: c, entityPath: "/V1.0/CompanyNotes", entityName: "CompanyNote"}
+	c.CompanyNotes = CompanyNoteService{
+		Reader: Reader[CompanyNote]{baseService: bCompanyNote},
+	}
+	bCompanySiteConfiguration := baseService{client: c, entityPath: "/V1.0/CompanySiteConfigurations", entityName: "CompanySiteConfiguration"}
+	c.CompanySiteConfigurations = CompanySiteConfigurationService{
+		Reader: Reader[CompanySiteConfiguration]{baseService: bCompanySiteConfiguration},
+	}
+	bCompanyTeam := baseService{client: c, entityPath: "/V1.0/CompanyTeams", entityName: "CompanyTeam"}
+	c.CompanyTeams = CompanyTeamService{
+		Reader: Reader[CompanyTeam]{baseService: bCompanyTeam},
+	}
+	bCompanyToDo := baseService{client: c, entityPath: "/V1.0/CompanyToDos", entityName: "CompanyToDo"}
+	c.CompanyToDos = CompanyToDoService{
+		Reader: Reader[CompanyToDo]{baseService: bCompanyToDo},
+	}
+	bCompanyWebhookExcludedResource := baseService{client: c, entityPath: "/V1.0/CompanyWebhookExcludedResources", entityName: "CompanyWebhookExcludedResource"}
+	c.CompanyWebhookExcludedResources = CompanyWebhookExcludedResourceService{
+		Reader: Reader[CompanyWebhookExcludedResource]{baseService: bCompanyWebhookExcludedResource},
+	}
+	bCompanyWebhookField := baseService{client: c, entityPath: "/V1.0/CompanyWebhookFields", entityName: "CompanyWebhookField"}
+	c.CompanyWebhookFields = CompanyWebhookFieldService{
+		Reader: Reader[CompanyWebhookField]{baseService: bCompanyWebhookField},
+	}
+	bCompanyWebhookUdfField := baseService{client: c, entityPath: "/V1.0/CompanyWebhookUdfFields", entityName: "CompanyWebhookUdfField"}
+	c.CompanyWebhookUdfFields = CompanyWebhookUdfFieldService{
+		Reader: Reader[CompanyWebhookUdfField]{baseService: bCompanyWebhookUdfField},
 	}
 	bCompanyWebhook := baseService{client: c, entityPath: "/V1.0/CompanyWebhooks", entityName: "CompanyWebhook"}
 	c.CompanyWebhooks = CompanyWebhookService{
@@ -1765,12 +2788,44 @@ func (c *Client) initServices() {
 		Patcher: Patcher[CompanyWebhook]{baseService: bCompanyWebhook},
 		Deleter: Deleter[CompanyWebhook]{baseService: bCompanyWebhook},
 	}
+	bConfigurationItemAttachment := baseService{client: c, entityPath: "/V1.0/ConfigurationItemAttachments", entityName: "ConfigurationItemAttachment"}
+	c.ConfigurationItemAttachments = ConfigurationItemAttachmentService{
+		Reader: Reader[ConfigurationItemAttachment]{baseService: bConfigurationItemAttachment},
+	}
+	bConfigurationItemBillingProductAssociation := baseService{client: c, entityPath: "/V1.0/ConfigurationItemBillingProductAssociations", entityName: "ConfigurationItemBillingProductAssociation"}
+	c.ConfigurationItemBillingProductAssociations = ConfigurationItemBillingProductAssociationService{
+		Reader: Reader[ConfigurationItemBillingProductAssociation]{baseService: bConfigurationItemBillingProductAssociation},
+	}
 	bConfigurationItemCategory := baseService{client: c, entityPath: "/V1.0/ConfigurationItemCategories", entityName: "ConfigurationItemCategory"}
 	c.ConfigurationItemCategories = ConfigurationItemCategoryService{
 		Reader:  Reader[ConfigurationItemCategory]{baseService: bConfigurationItemCategory},
 		Creator: Creator[ConfigurationItemCategory]{baseService: bConfigurationItemCategory},
 		Updater: Updater[ConfigurationItemCategory]{baseService: bConfigurationItemCategory},
 		Patcher: Patcher[ConfigurationItemCategory]{baseService: bConfigurationItemCategory},
+	}
+	bConfigurationItemCategoryUdfAssociation := baseService{client: c, entityPath: "/V1.0/ConfigurationItemCategoryUdfAssociations", entityName: "ConfigurationItemCategoryUdfAssociation"}
+	c.ConfigurationItemCategoryUdfAssociations = ConfigurationItemCategoryUdfAssociationService{
+		Reader: Reader[ConfigurationItemCategoryUdfAssociation]{baseService: bConfigurationItemCategoryUdfAssociation},
+	}
+	bConfigurationItemDnsRecord := baseService{client: c, entityPath: "/V1.0/ConfigurationItemDnsRecords", entityName: "ConfigurationItemDnsRecord"}
+	c.ConfigurationItemDnsRecords = ConfigurationItemDnsRecordService{
+		Reader: Reader[ConfigurationItemDnsRecord]{baseService: bConfigurationItemDnsRecord},
+	}
+	bConfigurationItemNoteAttachment := baseService{client: c, entityPath: "/V1.0/ConfigurationItemNoteAttachments", entityName: "ConfigurationItemNoteAttachment"}
+	c.ConfigurationItemNoteAttachments = ConfigurationItemNoteAttachmentService{
+		Reader: Reader[ConfigurationItemNoteAttachment]{baseService: bConfigurationItemNoteAttachment},
+	}
+	bConfigurationItemNote := baseService{client: c, entityPath: "/V1.0/ConfigurationItemNotes", entityName: "ConfigurationItemNote"}
+	c.ConfigurationItemNotes = ConfigurationItemNoteService{
+		Reader: Reader[ConfigurationItemNote]{baseService: bConfigurationItemNote},
+	}
+	bConfigurationItemRelatedItem := baseService{client: c, entityPath: "/V1.0/ConfigurationItemRelatedItems", entityName: "ConfigurationItemRelatedItem"}
+	c.ConfigurationItemRelatedItems = ConfigurationItemRelatedItemService{
+		Reader: Reader[ConfigurationItemRelatedItem]{baseService: bConfigurationItemRelatedItem},
+	}
+	bConfigurationItemSslSubjectAlternativeName := baseService{client: c, entityPath: "/V1.0/ConfigurationItemSslSubjectAlternativeNames", entityName: "ConfigurationItemSslSubjectAlternativeName"}
+	c.ConfigurationItemSslSubjectAlternativeNames = ConfigurationItemSslSubjectAlternativeNameService{
+		Reader: Reader[ConfigurationItemSslSubjectAlternativeName]{baseService: bConfigurationItemSslSubjectAlternativeName},
 	}
 	bConfigurationItemType := baseService{client: c, entityPath: "/V1.0/ConfigurationItemTypes", entityName: "ConfigurationItemType"}
 	c.ConfigurationItemTypes = ConfigurationItemTypeService{
@@ -1779,6 +2834,18 @@ func (c *Client) initServices() {
 		Updater: Updater[ConfigurationItemType]{baseService: bConfigurationItemType},
 		Patcher: Patcher[ConfigurationItemType]{baseService: bConfigurationItemType},
 		Deleter: Deleter[ConfigurationItemType]{baseService: bConfigurationItemType},
+	}
+	bConfigurationItemWebhookExcludedResource := baseService{client: c, entityPath: "/V1.0/ConfigurationItemWebhookExcludedResources", entityName: "ConfigurationItemWebhookExcludedResource"}
+	c.ConfigurationItemWebhookExcludedResources = ConfigurationItemWebhookExcludedResourceService{
+		Reader: Reader[ConfigurationItemWebhookExcludedResource]{baseService: bConfigurationItemWebhookExcludedResource},
+	}
+	bConfigurationItemWebhookField := baseService{client: c, entityPath: "/V1.0/ConfigurationItemWebhookFields", entityName: "ConfigurationItemWebhookField"}
+	c.ConfigurationItemWebhookFields = ConfigurationItemWebhookFieldService{
+		Reader: Reader[ConfigurationItemWebhookField]{baseService: bConfigurationItemWebhookField},
+	}
+	bConfigurationItemWebhookUdfField := baseService{client: c, entityPath: "/V1.0/ConfigurationItemWebhookUdfFields", entityName: "ConfigurationItemWebhookUdfField"}
+	c.ConfigurationItemWebhookUdfFields = ConfigurationItemWebhookUdfFieldService{
+		Reader: Reader[ConfigurationItemWebhookUdfField]{baseService: bConfigurationItemWebhookUdfField},
 	}
 	bConfigurationItemWebhook := baseService{client: c, entityPath: "/V1.0/ConfigurationItemWebhooks", entityName: "ConfigurationItemWebhook"}
 	c.ConfigurationItemWebhooks = ConfigurationItemWebhookService{
@@ -1795,6 +2862,14 @@ func (c *Client) initServices() {
 		Updater: Updater[ConfigurationItem]{baseService: bConfigurationItem},
 		Patcher: Patcher[ConfigurationItem]{baseService: bConfigurationItem},
 	}
+	bContactBillingProductAssociation := baseService{client: c, entityPath: "/V1.0/ContactBillingProductAssociations", entityName: "ContactBillingProductAssociation"}
+	c.ContactBillingProductAssociations = ContactBillingProductAssociationService{
+		Reader: Reader[ContactBillingProductAssociation]{baseService: bContactBillingProductAssociation},
+	}
+	bContactGroupContact := baseService{client: c, entityPath: "/V1.0/ContactGroupContacts", entityName: "ContactGroupContact"}
+	c.ContactGroupContacts = ContactGroupContactService{
+		Reader: Reader[ContactGroupContact]{baseService: bContactGroupContact},
+	}
 	bContactGroup := baseService{client: c, entityPath: "/V1.0/ContactGroups", entityName: "ContactGroup"}
 	c.ContactGroups = ContactGroupService{
 		Reader:  Reader[ContactGroup]{baseService: bContactGroup},
@@ -1802,6 +2877,18 @@ func (c *Client) initServices() {
 		Updater: Updater[ContactGroup]{baseService: bContactGroup},
 		Patcher: Patcher[ContactGroup]{baseService: bContactGroup},
 		Deleter: Deleter[ContactGroup]{baseService: bContactGroup},
+	}
+	bContactWebhookExcludedResource := baseService{client: c, entityPath: "/V1.0/ContactWebhookExcludedResources", entityName: "ContactWebhookExcludedResource"}
+	c.ContactWebhookExcludedResources = ContactWebhookExcludedResourceService{
+		Reader: Reader[ContactWebhookExcludedResource]{baseService: bContactWebhookExcludedResource},
+	}
+	bContactWebhookField := baseService{client: c, entityPath: "/V1.0/ContactWebhookFields", entityName: "ContactWebhookField"}
+	c.ContactWebhookFields = ContactWebhookFieldService{
+		Reader: Reader[ContactWebhookField]{baseService: bContactWebhookField},
+	}
+	bContactWebhookUdfField := baseService{client: c, entityPath: "/V1.0/ContactWebhookUdfFields", entityName: "ContactWebhookUdfField"}
+	c.ContactWebhookUdfFields = ContactWebhookUdfFieldService{
+		Reader: Reader[ContactWebhookUdfField]{baseService: bContactWebhookUdfField},
 	}
 	bContactWebhook := baseService{client: c, entityPath: "/V1.0/ContactWebhooks", entityName: "ContactWebhook"}
 	c.ContactWebhooks = ContactWebhookService{
@@ -1811,6 +2898,42 @@ func (c *Client) initServices() {
 		Patcher: Patcher[ContactWebhook]{baseService: bContactWebhook},
 		Deleter: Deleter[ContactWebhook]{baseService: bContactWebhook},
 	}
+	bContact := baseService{client: c, entityPath: "/V1.0/Contacts", entityName: "Contact"}
+	c.Contacts = ContactService{
+		Reader: Reader[Contact]{baseService: bContact},
+	}
+	bContractBillingRule := baseService{client: c, entityPath: "/V1.0/ContractBillingRules", entityName: "ContractBillingRule"}
+	c.ContractBillingRules = ContractBillingRuleService{
+		Reader: Reader[ContractBillingRule]{baseService: bContractBillingRule},
+	}
+	bContractBlockHourFactor := baseService{client: c, entityPath: "/V1.0/ContractBlockHourFactors", entityName: "ContractBlockHourFactor"}
+	c.ContractBlockHourFactors = ContractBlockHourFactorService{
+		Reader: Reader[ContractBlockHourFactor]{baseService: bContractBlockHourFactor},
+	}
+	bContractBlock := baseService{client: c, entityPath: "/V1.0/ContractBlocks", entityName: "ContractBlock"}
+	c.ContractBlocks = ContractBlockService{
+		Reader: Reader[ContractBlock]{baseService: bContractBlock},
+	}
+	bContractCharge := baseService{client: c, entityPath: "/V1.0/ContractCharges", entityName: "ContractCharge"}
+	c.ContractCharges = ContractChargeService{
+		Reader: Reader[ContractCharge]{baseService: bContractCharge},
+	}
+	bContractExclusionBillingCode := baseService{client: c, entityPath: "/V1.0/ContractExclusionBillingCodes", entityName: "ContractExclusionBillingCode"}
+	c.ContractExclusionBillingCodes = ContractExclusionBillingCodeService{
+		Reader: Reader[ContractExclusionBillingCode]{baseService: bContractExclusionBillingCode},
+	}
+	bContractExclusionRole := baseService{client: c, entityPath: "/V1.0/ContractExclusionRoles", entityName: "ContractExclusionRole"}
+	c.ContractExclusionRoles = ContractExclusionRoleService{
+		Reader: Reader[ContractExclusionRole]{baseService: bContractExclusionRole},
+	}
+	bContractExclusionSetExcludedRole := baseService{client: c, entityPath: "/V1.0/ContractExclusionSetExcludedRoles", entityName: "ContractExclusionSetExcludedRole"}
+	c.ContractExclusionSetExcludedRoles = ContractExclusionSetExcludedRoleService{
+		Reader: Reader[ContractExclusionSetExcludedRole]{baseService: bContractExclusionSetExcludedRole},
+	}
+	bContractExclusionSetExcludedWorkType := baseService{client: c, entityPath: "/V1.0/ContractExclusionSetExcludedWorkTypes", entityName: "ContractExclusionSetExcludedWorkType"}
+	c.ContractExclusionSetExcludedWorkTypes = ContractExclusionSetExcludedWorkTypeService{
+		Reader: Reader[ContractExclusionSetExcludedWorkType]{baseService: bContractExclusionSetExcludedWorkType},
+	}
 	bContractExclusionSet := baseService{client: c, entityPath: "/V1.0/ContractExclusionSets", entityName: "ContractExclusionSet"}
 	c.ContractExclusionSets = ContractExclusionSetService{
 		Reader:  Reader[ContractExclusionSet]{baseService: bContractExclusionSet},
@@ -1819,6 +2942,30 @@ func (c *Client) initServices() {
 		Patcher: Patcher[ContractExclusionSet]{baseService: bContractExclusionSet},
 		Deleter: Deleter[ContractExclusionSet]{baseService: bContractExclusionSet},
 	}
+	bContractMilestone := baseService{client: c, entityPath: "/V1.0/ContractMilestones", entityName: "ContractMilestone"}
+	c.ContractMilestones = ContractMilestoneService{
+		Reader: Reader[ContractMilestone]{baseService: bContractMilestone},
+	}
+	bContractNoteAttachment := baseService{client: c, entityPath: "/V1.0/ContractNoteAttachments", entityName: "ContractNoteAttachment"}
+	c.ContractNoteAttachments = ContractNoteAttachmentService{
+		Reader: Reader[ContractNoteAttachment]{baseService: bContractNoteAttachment},
+	}
+	bContractNote := baseService{client: c, entityPath: "/V1.0/ContractNotes", entityName: "ContractNote"}
+	c.ContractNotes = ContractNoteService{
+		Reader: Reader[ContractNote]{baseService: bContractNote},
+	}
+	bContractRate := baseService{client: c, entityPath: "/V1.0/ContractRates", entityName: "ContractRate"}
+	c.ContractRates = ContractRateService{
+		Reader: Reader[ContractRate]{baseService: bContractRate},
+	}
+	bContractRetainer := baseService{client: c, entityPath: "/V1.0/ContractRetainers", entityName: "ContractRetainer"}
+	c.ContractRetainers = ContractRetainerService{
+		Reader: Reader[ContractRetainer]{baseService: bContractRetainer},
+	}
+	bContractRoleCost := baseService{client: c, entityPath: "/V1.0/ContractRoleCosts", entityName: "ContractRoleCost"}
+	c.ContractRoleCosts = ContractRoleCostService{
+		Reader: Reader[ContractRoleCost]{baseService: bContractRoleCost},
+	}
 	bContractServiceAdjustment := baseService{client: c, entityPath: "/V1.0/ContractServiceAdjustments", entityName: "ContractServiceAdjustment"}
 	c.ContractServiceAdjustments = ContractServiceAdjustmentService{
 		Creator: Creator[ContractServiceAdjustment]{baseService: bContractServiceAdjustment},
@@ -1826,6 +2973,26 @@ func (c *Client) initServices() {
 	bContractServiceBundleAdjustment := baseService{client: c, entityPath: "/V1.0/ContractServiceBundleAdjustments", entityName: "ContractServiceBundleAdjustment"}
 	c.ContractServiceBundleAdjustments = ContractServiceBundleAdjustmentService{
 		Creator: Creator[ContractServiceBundleAdjustment]{baseService: bContractServiceBundleAdjustment},
+	}
+	bContractServiceBundleUnit := baseService{client: c, entityPath: "/V1.0/ContractServiceBundleUnits", entityName: "ContractServiceBundleUnit"}
+	c.ContractServiceBundleUnits = ContractServiceBundleUnitService{
+		Reader: Reader[ContractServiceBundleUnit]{baseService: bContractServiceBundleUnit},
+	}
+	bContractServiceBundle := baseService{client: c, entityPath: "/V1.0/ContractServiceBundles", entityName: "ContractServiceBundle"}
+	c.ContractServiceBundles = ContractServiceBundleService{
+		Reader: Reader[ContractServiceBundle]{baseService: bContractServiceBundle},
+	}
+	bContractServiceUnit := baseService{client: c, entityPath: "/V1.0/ContractServiceUnits", entityName: "ContractServiceUnit"}
+	c.ContractServiceUnits = ContractServiceUnitService{
+		Reader: Reader[ContractServiceUnit]{baseService: bContractServiceUnit},
+	}
+	bContractService := baseService{client: c, entityPath: "/V1.0/ContractServices", entityName: "ContractService"}
+	c.ContractServices = ContractServiceService{
+		Reader: Reader[ContractService]{baseService: bContractService},
+	}
+	bContractTicketPurchase := baseService{client: c, entityPath: "/V1.0/ContractTicketPurchases", entityName: "ContractTicketPurchase"}
+	c.ContractTicketPurchases = ContractTicketPurchaseService{
+		Reader: Reader[ContractTicketPurchase]{baseService: bContractTicketPurchase},
 	}
 	bContract := baseService{client: c, entityPath: "/V1.0/Contracts", entityName: "Contract"}
 	c.Contracts = ContractEntityService{
@@ -1846,12 +3013,28 @@ func (c *Client) initServices() {
 		Updater: Updater[Currency]{baseService: bCurrency},
 		Patcher: Patcher[Currency]{baseService: bCurrency},
 	}
+	bDeletedTaskActivityLog := baseService{client: c, entityPath: "/V1.0/DeletedTaskActivityLogs", entityName: "DeletedTaskActivityLog"}
+	c.DeletedTaskActivityLogs = DeletedTaskActivityLogService{
+		Reader: Reader[DeletedTaskActivityLog]{baseService: bDeletedTaskActivityLog},
+	}
+	bDeletedTicketActivityLog := baseService{client: c, entityPath: "/V1.0/DeletedTicketActivityLogs", entityName: "DeletedTicketActivityLog"}
+	c.DeletedTicketActivityLogs = DeletedTicketActivityLogService{
+		Reader: Reader[DeletedTicketActivityLog]{baseService: bDeletedTicketActivityLog},
+	}
+	bDeletedTicketLog := baseService{client: c, entityPath: "/V1.0/DeletedTicketLogs", entityName: "DeletedTicketLog"}
+	c.DeletedTicketLogs = DeletedTicketLogService{
+		Reader: Reader[DeletedTicketLog]{baseService: bDeletedTicketLog},
+	}
 	bDepartment := baseService{client: c, entityPath: "/V1.0/Departments", entityName: "Department"}
 	c.Departments = DepartmentService{
 		Reader:  Reader[Department]{baseService: bDepartment},
 		Creator: Creator[Department]{baseService: bDepartment},
 		Updater: Updater[Department]{baseService: bDepartment},
 		Patcher: Patcher[Department]{baseService: bDepartment},
+	}
+	bDocumentAttachment := baseService{client: c, entityPath: "/V1.0/DocumentAttachments", entityName: "DocumentAttachment"}
+	c.DocumentAttachments = DocumentAttachmentService{
+		Reader: Reader[DocumentAttachment]{baseService: bDocumentAttachment},
 	}
 	bDocumentCategory := baseService{client: c, entityPath: "/V1.0/DocumentCategories", entityName: "DocumentCategory"}
 	c.DocumentCategories = DocumentCategoryService{
@@ -1861,9 +3044,49 @@ func (c *Client) initServices() {
 		Patcher: Patcher[DocumentCategory]{baseService: bDocumentCategory},
 		Deleter: Deleter[DocumentCategory]{baseService: bDocumentCategory},
 	}
+	bDocumentChecklistItem := baseService{client: c, entityPath: "/V1.0/DocumentChecklistItems", entityName: "DocumentChecklistItem"}
+	c.DocumentChecklistItems = DocumentChecklistItemService{
+		Reader: Reader[DocumentChecklistItem]{baseService: bDocumentChecklistItem},
+	}
 	bDocumentChecklistLibrary := baseService{client: c, entityPath: "/V1.0/DocumentChecklistLibraries", entityName: "DocumentChecklistLibrary"}
 	c.DocumentChecklistLibraries = DocumentChecklistLibraryService{
 		Creator: Creator[DocumentChecklistLibrary]{baseService: bDocumentChecklistLibrary},
+	}
+	bDocumentConfigurationItemAssociation := baseService{client: c, entityPath: "/V1.0/DocumentConfigurationItemAssociations", entityName: "DocumentConfigurationItemAssociation"}
+	c.DocumentConfigurationItemAssociations = DocumentConfigurationItemAssociationService{
+		Reader: Reader[DocumentConfigurationItemAssociation]{baseService: bDocumentConfigurationItemAssociation},
+	}
+	bDocumentConfigurationItemCategoryAssociation := baseService{client: c, entityPath: "/V1.0/DocumentConfigurationItemCategoryAssociations", entityName: "DocumentConfigurationItemCategoryAssociation"}
+	c.DocumentConfigurationItemCategoryAssociations = DocumentConfigurationItemCategoryAssociationService{
+		Reader: Reader[DocumentConfigurationItemCategoryAssociation]{baseService: bDocumentConfigurationItemCategoryAssociation},
+	}
+	bDocumentNote := baseService{client: c, entityPath: "/V1.0/DocumentNotes", entityName: "DocumentNote"}
+	c.DocumentNotes = DocumentNoteService{
+		Reader: Reader[DocumentNote]{baseService: bDocumentNote},
+	}
+	bDocumentPlainTextContent := baseService{client: c, entityPath: "/V1.0/DocumentPlainTextContent", entityName: "DocumentPlainTextContent"}
+	c.DocumentPlainTextContent = DocumentPlainTextContentService{
+		Reader: Reader[DocumentPlainTextContent]{baseService: bDocumentPlainTextContent},
+	}
+	bDocumentTagAssociation := baseService{client: c, entityPath: "/V1.0/DocumentTagAssociations", entityName: "DocumentTagAssociation"}
+	c.DocumentTagAssociations = DocumentTagAssociationService{
+		Reader: Reader[DocumentTagAssociation]{baseService: bDocumentTagAssociation},
+	}
+	bDocumentTicketAssociation := baseService{client: c, entityPath: "/V1.0/DocumentTicketAssociations", entityName: "DocumentTicketAssociation"}
+	c.DocumentTicketAssociations = DocumentTicketAssociationService{
+		Reader: Reader[DocumentTicketAssociation]{baseService: bDocumentTicketAssociation},
+	}
+	bDocumentToArticleAssociation := baseService{client: c, entityPath: "/V1.0/DocumentToArticleAssociations", entityName: "DocumentToArticleAssociation"}
+	c.DocumentToArticleAssociations = DocumentToArticleAssociationService{
+		Reader: Reader[DocumentToArticleAssociation]{baseService: bDocumentToArticleAssociation},
+	}
+	bDocumentToDocumentAssociation := baseService{client: c, entityPath: "/V1.0/DocumentToDocumentAssociations", entityName: "DocumentToDocumentAssociation"}
+	c.DocumentToDocumentAssociations = DocumentToDocumentAssociationService{
+		Reader: Reader[DocumentToDocumentAssociation]{baseService: bDocumentToDocumentAssociation},
+	}
+	bDocument := baseService{client: c, entityPath: "/V1.0/Documents", entityName: "Document"}
+	c.Documents = DocumentService{
+		Reader: Reader[Document]{baseService: bDocument},
 	}
 	bDomainRegistrar := baseService{client: c, entityPath: "/V1.0/DomainRegistrars", entityName: "DomainRegistrar"}
 	c.DomainRegistrars = DomainRegistrarService{
@@ -1871,6 +3094,18 @@ func (c *Client) initServices() {
 		Creator: Creator[DomainRegistrar]{baseService: bDomainRegistrar},
 		Updater: Updater[DomainRegistrar]{baseService: bDomainRegistrar},
 		Patcher: Patcher[DomainRegistrar]{baseService: bDomainRegistrar},
+	}
+	bExpenseItemAttachment := baseService{client: c, entityPath: "/V1.0/ExpenseItemAttachments", entityName: "ExpenseItemAttachment"}
+	c.ExpenseItemAttachments = ExpenseItemAttachmentService{
+		Reader: Reader[ExpenseItemAttachment]{baseService: bExpenseItemAttachment},
+	}
+	bExpenseItem := baseService{client: c, entityPath: "/V1.0/ExpenseItems", entityName: "ExpenseItem"}
+	c.ExpenseItems = ExpenseItemService{
+		Reader: Reader[ExpenseItem]{baseService: bExpenseItem},
+	}
+	bExpenseReportAttachment := baseService{client: c, entityPath: "/V1.0/ExpenseReportAttachments", entityName: "ExpenseReportAttachment"}
+	c.ExpenseReportAttachments = ExpenseReportAttachmentService{
+		Reader: Reader[ExpenseReportAttachment]{baseService: bExpenseReportAttachment},
 	}
 	bExpenseReport := baseService{client: c, entityPath: "/V1.0/ExpenseReports", entityName: "ExpenseReport"}
 	c.ExpenseReports = ExpenseReportService{
@@ -1887,6 +3122,10 @@ func (c *Client) initServices() {
 		Patcher: Patcher[HolidaySet]{baseService: bHolidaySet},
 		Deleter: Deleter[HolidaySet]{baseService: bHolidaySet},
 	}
+	bHoliday := baseService{client: c, entityPath: "/V1.0/Holidays", entityName: "Holiday"}
+	c.Holidays = HolidayService{
+		Reader: Reader[Holiday]{baseService: bHoliday},
+	}
 	bIntegrationVendorInsight := baseService{client: c, entityPath: "/V1.0/IntegrationVendorInsights", entityName: "IntegrationVendorInsight"}
 	c.IntegrationVendorInsights = IntegrationVendorInsightService{
 		Reader:  Reader[IntegrationVendorInsight]{baseService: bIntegrationVendorInsight},
@@ -1902,6 +3141,21 @@ func (c *Client) initServices() {
 		Updater: Updater[IntegrationVendorWidget]{baseService: bIntegrationVendorWidget},
 		Patcher: Patcher[IntegrationVendorWidget]{baseService: bIntegrationVendorWidget},
 		Deleter: Deleter[IntegrationVendorWidget]{baseService: bIntegrationVendorWidget},
+	}
+	bInternalLocationWithBusinessHours := baseService{client: c, entityPath: "/V1.0/InternalLocationWithBusinessHours", entityName: "InternalLocationWithBusinessHours"}
+	c.InternalLocationWithBusinessHours = InternalLocationWithBusinessHoursService{
+		Reader:  Reader[InternalLocationWithBusinessHours]{baseService: bInternalLocationWithBusinessHours},
+		Creator: Creator[InternalLocationWithBusinessHours]{baseService: bInternalLocationWithBusinessHours},
+		Updater: Updater[InternalLocationWithBusinessHours]{baseService: bInternalLocationWithBusinessHours},
+		Patcher: Patcher[InternalLocationWithBusinessHours]{baseService: bInternalLocationWithBusinessHours},
+	}
+	bInternalLocation := baseService{client: c, entityPath: "/V1.0/InternalLocations", entityName: "InternalLocation"}
+	c.InternalLocations = InternalLocationService{
+		Reader: Reader[InternalLocation]{baseService: bInternalLocation},
+	}
+	bInventoryItemSerialNumber := baseService{client: c, entityPath: "/V1.0/InventoryItemSerialNumbers", entityName: "InventoryItemSerialNumber"}
+	c.InventoryItemSerialNumbers = InventoryItemSerialNumberService{
+		Reader: Reader[InventoryItemSerialNumber]{baseService: bInventoryItemSerialNumber},
 	}
 	bInventoryItem := baseService{client: c, entityPath: "/V1.0/InventoryItems", entityName: "InventoryItem"}
 	c.InventoryItems = InventoryItemService{
@@ -1925,16 +3179,28 @@ func (c *Client) initServices() {
 		Patcher: Patcher[InventoryProduct]{baseService: bInventoryProduct},
 		Deleter: Deleter[InventoryProduct]{baseService: bInventoryProduct},
 	}
+	bInventoryStockedItem := baseService{client: c, entityPath: "/V1.0/InventoryStockedItems", entityName: "InventoryStockedItem"}
+	c.InventoryStockedItems = InventoryStockedItemService{
+		Reader: Reader[InventoryStockedItem]{baseService: bInventoryStockedItem},
+	}
 	bInventoryTransfer := baseService{client: c, entityPath: "/V1.0/InventoryTransfers", entityName: "InventoryTransfer"}
 	c.InventoryTransfers = InventoryTransferService{
 		Reader:  Reader[InventoryTransfer]{baseService: bInventoryTransfer},
 		Creator: Creator[InventoryTransfer]{baseService: bInventoryTransfer},
+	}
+	bInvoiceTemplate := baseService{client: c, entityPath: "/V1.0/InvoiceTemplates", entityName: "InvoiceTemplate"}
+	c.InvoiceTemplates = InvoiceTemplateService{
+		Reader: Reader[InvoiceTemplate]{baseService: bInvoiceTemplate},
 	}
 	bInvoice := baseService{client: c, entityPath: "/V1.0/Invoices", entityName: "Invoice"}
 	c.Invoices = InvoiceService{
 		Reader:  Reader[Invoice]{baseService: bInvoice},
 		Updater: Updater[Invoice]{baseService: bInvoice},
 		Patcher: Patcher[Invoice]{baseService: bInvoice},
+	}
+	bKnowledgeBaseArticle := baseService{client: c, entityPath: "/V1.0/KnowledgeBaseArticles", entityName: "KnowledgeBaseArticle"}
+	c.KnowledgeBaseArticles = KnowledgeBaseArticleService{
+		Reader: Reader[KnowledgeBaseArticle]{baseService: bKnowledgeBaseArticle},
 	}
 	bKnowledgeBaseCategory := baseService{client: c, entityPath: "/V1.0/KnowledgeBaseCategories", entityName: "KnowledgeBaseCategory"}
 	c.KnowledgeBaseCategories = KnowledgeBaseCategoryService{
@@ -1944,12 +3210,20 @@ func (c *Client) initServices() {
 		Patcher: Patcher[KnowledgeBaseCategory]{baseService: bKnowledgeBaseCategory},
 		Deleter: Deleter[KnowledgeBaseCategory]{baseService: bKnowledgeBaseCategory},
 	}
+	bNotificationHistory := baseService{client: c, entityPath: "/V1.0/NotificationHistory", entityName: "NotificationHistory"}
+	c.NotificationHistory = NotificationHistoryService{
+		Reader: Reader[NotificationHistory]{baseService: bNotificationHistory},
+	}
 	bOpportunity := baseService{client: c, entityPath: "/V1.0/Opportunities", entityName: "Opportunity"}
 	c.Opportunities = OpportunityService{
 		Reader:  Reader[Opportunity]{baseService: bOpportunity},
 		Creator: Creator[Opportunity]{baseService: bOpportunity},
 		Updater: Updater[Opportunity]{baseService: bOpportunity},
 		Patcher: Patcher[Opportunity]{baseService: bOpportunity},
+	}
+	bOpportunityAttachment := baseService{client: c, entityPath: "/V1.0/OpportunityAttachments", entityName: "OpportunityAttachment"}
+	c.OpportunityAttachments = OpportunityAttachmentService{
+		Reader: Reader[OpportunityAttachment]{baseService: bOpportunityAttachment},
 	}
 	bOpportunityCategory := baseService{client: c, entityPath: "/V1.0/OpportunityCategories", entityName: "OpportunityCategory"}
 	c.OpportunityCategories = OpportunityCategoryService{
@@ -1978,12 +3252,20 @@ func (c *Client) initServices() {
 		Updater: Updater[OrganizationalLevelAssociation]{baseService: bOrganizationalLevelAssociation},
 		Patcher: Patcher[OrganizationalLevelAssociation]{baseService: bOrganizationalLevelAssociation},
 	}
+	bOrganizationalResource := baseService{client: c, entityPath: "/V1.0/OrganizationalResources", entityName: "OrganizationalResource"}
+	c.OrganizationalResources = OrganizationalResourceService{
+		Reader: Reader[OrganizationalResource]{baseService: bOrganizationalResource},
+	}
 	bPaymentTerm := baseService{client: c, entityPath: "/V1.0/PaymentTerms", entityName: "PaymentTerm"}
 	c.PaymentTerms = PaymentTermService{
 		Reader:  Reader[PaymentTerm]{baseService: bPaymentTerm},
 		Creator: Creator[PaymentTerm]{baseService: bPaymentTerm},
 		Updater: Updater[PaymentTerm]{baseService: bPaymentTerm},
 		Patcher: Patcher[PaymentTerm]{baseService: bPaymentTerm},
+	}
+	bPhase := baseService{client: c, entityPath: "/V1.0/Phases", entityName: "Phase"}
+	c.Phases = PhaseService{
+		Reader: Reader[Phase]{baseService: bPhase},
 	}
 	bPriceListMaterialCode := baseService{client: c, entityPath: "/V1.0/PriceListMaterialCodes", entityName: "PriceListMaterialCode"}
 	c.PriceListMaterialCodes = PriceListMaterialCodeService{
@@ -2027,12 +3309,40 @@ func (c *Client) initServices() {
 		Updater: Updater[PriceListWorkTypeModifier]{baseService: bPriceListWorkTypeModifier},
 		Patcher: Patcher[PriceListWorkTypeModifier]{baseService: bPriceListWorkTypeModifier},
 	}
+	bProductNote := baseService{client: c, entityPath: "/V1.0/ProductNotes", entityName: "ProductNote"}
+	c.ProductNotes = ProductNoteService{
+		Reader: Reader[ProductNote]{baseService: bProductNote},
+	}
+	bProductTier := baseService{client: c, entityPath: "/V1.0/ProductTiers", entityName: "ProductTier"}
+	c.ProductTiers = ProductTierService{
+		Reader: Reader[ProductTier]{baseService: bProductTier},
+	}
+	bProductVendor := baseService{client: c, entityPath: "/V1.0/ProductVendors", entityName: "ProductVendor"}
+	c.ProductVendors = ProductVendorService{
+		Reader: Reader[ProductVendor]{baseService: bProductVendor},
+	}
 	bProduct := baseService{client: c, entityPath: "/V1.0/Products", entityName: "Product"}
 	c.Products = ProductService{
 		Reader:  Reader[Product]{baseService: bProduct},
 		Creator: Creator[Product]{baseService: bProduct},
 		Updater: Updater[Product]{baseService: bProduct},
 		Patcher: Patcher[Product]{baseService: bProduct},
+	}
+	bProjectAttachment := baseService{client: c, entityPath: "/V1.0/ProjectAttachments", entityName: "ProjectAttachment"}
+	c.ProjectAttachments = ProjectAttachmentService{
+		Reader: Reader[ProjectAttachment]{baseService: bProjectAttachment},
+	}
+	bProjectCharge := baseService{client: c, entityPath: "/V1.0/ProjectCharges", entityName: "ProjectCharge"}
+	c.ProjectCharges = ProjectChargeService{
+		Reader: Reader[ProjectCharge]{baseService: bProjectCharge},
+	}
+	bProjectNoteAttachment := baseService{client: c, entityPath: "/V1.0/ProjectNoteAttachments", entityName: "ProjectNoteAttachment"}
+	c.ProjectNoteAttachments = ProjectNoteAttachmentService{
+		Reader: Reader[ProjectNoteAttachment]{baseService: bProjectNoteAttachment},
+	}
+	bProjectNote := baseService{client: c, entityPath: "/V1.0/ProjectNotes", entityName: "ProjectNote"}
+	c.ProjectNotes = ProjectNoteService{
+		Reader: Reader[ProjectNote]{baseService: bProjectNote},
 	}
 	bProject := baseService{client: c, entityPath: "/V1.0/Projects", entityName: "Project"}
 	c.Projects = ProjectService{
@@ -2047,12 +3357,24 @@ func (c *Client) initServices() {
 		Updater: Updater[PurchaseApproval]{baseService: bPurchaseApproval},
 		Patcher: Patcher[PurchaseApproval]{baseService: bPurchaseApproval},
 	}
+	bPurchaseOrderItemReceiving := baseService{client: c, entityPath: "/V1.0/PurchaseOrderItemReceiving", entityName: "PurchaseOrderItemReceiving"}
+	c.PurchaseOrderItemReceiving = PurchaseOrderItemReceivingService{
+		Reader: Reader[PurchaseOrderItemReceiving]{baseService: bPurchaseOrderItemReceiving},
+	}
+	bPurchaseOrderItem := baseService{client: c, entityPath: "/V1.0/PurchaseOrderItems", entityName: "PurchaseOrderItem"}
+	c.PurchaseOrderItems = PurchaseOrderItemService{
+		Reader: Reader[PurchaseOrderItem]{baseService: bPurchaseOrderItem},
+	}
 	bPurchaseOrder := baseService{client: c, entityPath: "/V1.0/PurchaseOrders", entityName: "PurchaseOrder"}
 	c.PurchaseOrders = PurchaseOrderService{
 		Reader:  Reader[PurchaseOrder]{baseService: bPurchaseOrder},
 		Creator: Creator[PurchaseOrder]{baseService: bPurchaseOrder},
 		Updater: Updater[PurchaseOrder]{baseService: bPurchaseOrder},
 		Patcher: Patcher[PurchaseOrder]{baseService: bPurchaseOrder},
+	}
+	bQuoteItem := baseService{client: c, entityPath: "/V1.0/QuoteItems", entityName: "QuoteItem"}
+	c.QuoteItems = QuoteItemService{
+		Reader: Reader[QuoteItem]{baseService: bQuoteItem},
 	}
 	bQuoteLocation := baseService{client: c, entityPath: "/V1.0/QuoteLocations", entityName: "QuoteLocation"}
 	c.QuoteLocations = QuoteLocationService{
@@ -2061,12 +3383,44 @@ func (c *Client) initServices() {
 		Updater: Updater[QuoteLocation]{baseService: bQuoteLocation},
 		Patcher: Patcher[QuoteLocation]{baseService: bQuoteLocation},
 	}
+	bQuoteTemplate := baseService{client: c, entityPath: "/V1.0/QuoteTemplates", entityName: "QuoteTemplate"}
+	c.QuoteTemplates = QuoteTemplateService{
+		Reader: Reader[QuoteTemplate]{baseService: bQuoteTemplate},
+	}
 	bQuote := baseService{client: c, entityPath: "/V1.0/Quotes", entityName: "Quote"}
 	c.Quotes = QuoteService{
 		Reader:  Reader[Quote]{baseService: bQuote},
 		Creator: Creator[Quote]{baseService: bQuote},
 		Updater: Updater[Quote]{baseService: bQuote},
 		Patcher: Patcher[Quote]{baseService: bQuote},
+	}
+	bResourceAttachment := baseService{client: c, entityPath: "/V1.0/ResourceAttachments", entityName: "ResourceAttachment"}
+	c.ResourceAttachments = ResourceAttachmentService{
+		Reader: Reader[ResourceAttachment]{baseService: bResourceAttachment},
+	}
+	bResourceDailyAvailability := baseService{client: c, entityPath: "/V1.0/ResourceDailyAvailabilities", entityName: "ResourceDailyAvailability"}
+	c.ResourceDailyAvailabilities = ResourceDailyAvailabilityService{
+		Reader: Reader[ResourceDailyAvailability]{baseService: bResourceDailyAvailability},
+	}
+	bResourceRoleDepartment := baseService{client: c, entityPath: "/V1.0/ResourceRoleDepartments", entityName: "ResourceRoleDepartment"}
+	c.ResourceRoleDepartments = ResourceRoleDepartmentService{
+		Reader: Reader[ResourceRoleDepartment]{baseService: bResourceRoleDepartment},
+	}
+	bResourceRoleQueue := baseService{client: c, entityPath: "/V1.0/ResourceRoleQueues", entityName: "ResourceRoleQueue"}
+	c.ResourceRoleQueues = ResourceRoleQueueService{
+		Reader: Reader[ResourceRoleQueue]{baseService: bResourceRoleQueue},
+	}
+	bResourceRole := baseService{client: c, entityPath: "/V1.0/ResourceRoles", entityName: "ResourceRole"}
+	c.ResourceRoles = ResourceRoleService{
+		Reader: Reader[ResourceRole]{baseService: bResourceRole},
+	}
+	bResourceServiceDeskRole := baseService{client: c, entityPath: "/V1.0/ResourceServiceDeskRoles", entityName: "ResourceServiceDeskRole"}
+	c.ResourceServiceDeskRoles = ResourceServiceDeskRoleService{
+		Reader: Reader[ResourceServiceDeskRole]{baseService: bResourceServiceDeskRole},
+	}
+	bResourceSkill := baseService{client: c, entityPath: "/V1.0/ResourceSkills", entityName: "ResourceSkill"}
+	c.ResourceSkills = ResourceSkillService{
+		Reader: Reader[ResourceSkill]{baseService: bResourceSkill},
 	}
 	bResource := baseService{client: c, entityPath: "/V1.0/Resources", entityName: "Resource"}
 	c.Resources = ResourceService{
@@ -2081,11 +3435,19 @@ func (c *Client) initServices() {
 		Updater: Updater[Role]{baseService: bRole},
 		Patcher: Patcher[Role]{baseService: bRole},
 	}
+	bSalesOrderAttachment := baseService{client: c, entityPath: "/V1.0/SalesOrderAttachments", entityName: "SalesOrderAttachment"}
+	c.SalesOrderAttachments = SalesOrderAttachmentService{
+		Reader: Reader[SalesOrderAttachment]{baseService: bSalesOrderAttachment},
+	}
 	bSalesOrder := baseService{client: c, entityPath: "/V1.0/SalesOrders", entityName: "SalesOrder"}
 	c.SalesOrders = SalesOrderService{
 		Reader:  Reader[SalesOrder]{baseService: bSalesOrder},
 		Updater: Updater[SalesOrder]{baseService: bSalesOrder},
 		Patcher: Patcher[SalesOrder]{baseService: bSalesOrder},
+	}
+	bServiceBundleService := baseService{client: c, entityPath: "/V1.0/ServiceBundleServices", entityName: "ServiceBundleService"}
+	c.ServiceBundleServices = ServiceBundleServiceService{
+		Reader: Reader[ServiceBundleService]{baseService: bServiceBundleService},
 	}
 	bServiceBundle := baseService{client: c, entityPath: "/V1.0/ServiceBundles", entityName: "ServiceBundle"}
 	c.ServiceBundles = ServiceBundleEntityService{
@@ -2095,6 +3457,22 @@ func (c *Client) initServices() {
 		Patcher: Patcher[ServiceBundle]{baseService: bServiceBundle},
 		Deleter: Deleter[ServiceBundle]{baseService: bServiceBundle},
 	}
+	bServiceCallTaskResource := baseService{client: c, entityPath: "/V1.0/ServiceCallTaskResources", entityName: "ServiceCallTaskResource"}
+	c.ServiceCallTaskResources = ServiceCallTaskResourceService{
+		Reader: Reader[ServiceCallTaskResource]{baseService: bServiceCallTaskResource},
+	}
+	bServiceCallTask := baseService{client: c, entityPath: "/V1.0/ServiceCallTasks", entityName: "ServiceCallTask"}
+	c.ServiceCallTasks = ServiceCallTaskService{
+		Reader: Reader[ServiceCallTask]{baseService: bServiceCallTask},
+	}
+	bServiceCallTicketResource := baseService{client: c, entityPath: "/V1.0/ServiceCallTicketResources", entityName: "ServiceCallTicketResource"}
+	c.ServiceCallTicketResources = ServiceCallTicketResourceService{
+		Reader: Reader[ServiceCallTicketResource]{baseService: bServiceCallTicketResource},
+	}
+	bServiceCallTicket := baseService{client: c, entityPath: "/V1.0/ServiceCallTickets", entityName: "ServiceCallTicket"}
+	c.ServiceCallTickets = ServiceCallTicketService{
+		Reader: Reader[ServiceCallTicket]{baseService: bServiceCallTicket},
+	}
 	bServiceCall := baseService{client: c, entityPath: "/V1.0/ServiceCalls", entityName: "ServiceCall"}
 	c.ServiceCalls = ServiceCallService{
 		Reader:  Reader[ServiceCall]{baseService: bServiceCall},
@@ -2103,12 +3481,28 @@ func (c *Client) initServices() {
 		Patcher: Patcher[ServiceCall]{baseService: bServiceCall},
 		Deleter: Deleter[ServiceCall]{baseService: bServiceCall},
 	}
+	bServiceLevelAgreementResults := baseService{client: c, entityPath: "/V1.0/ServiceLevelAgreementResults", entityName: "ServiceLevelAgreementResults"}
+	c.ServiceLevelAgreementResults = ServiceLevelAgreementResultsService{
+		Reader: Reader[ServiceLevelAgreementResults]{baseService: bServiceLevelAgreementResults},
+	}
 	bService := baseService{client: c, entityPath: "/V1.0/Services", entityName: "Service"}
 	c.Services = ServiceService{
 		Reader:  Reader[Service]{baseService: bService},
 		Creator: Creator[Service]{baseService: bService},
 		Updater: Updater[Service]{baseService: bService},
 		Patcher: Patcher[Service]{baseService: bService},
+	}
+	bShippingType := baseService{client: c, entityPath: "/V1.0/ShippingTypes", entityName: "ShippingType"}
+	c.ShippingTypes = ShippingTypeService{
+		Reader: Reader[ShippingType]{baseService: bShippingType},
+	}
+	bSkill := baseService{client: c, entityPath: "/V1.0/Skills", entityName: "Skill"}
+	c.Skills = SkillService{
+		Reader: Reader[Skill]{baseService: bSkill},
+	}
+	bSubscriptionPeriod := baseService{client: c, entityPath: "/V1.0/SubscriptionPeriods", entityName: "SubscriptionPeriod"}
+	c.SubscriptionPeriods = SubscriptionPeriodService{
+		Reader: Reader[SubscriptionPeriod]{baseService: bSubscriptionPeriod},
 	}
 	bSubscription := baseService{client: c, entityPath: "/V1.0/Subscriptions", entityName: "Subscription"}
 	c.Subscriptions = SubscriptionService{
@@ -2117,6 +3511,18 @@ func (c *Client) initServices() {
 		Updater: Updater[Subscription]{baseService: bSubscription},
 		Patcher: Patcher[Subscription]{baseService: bSubscription},
 		Deleter: Deleter[Subscription]{baseService: bSubscription},
+	}
+	bSurveyResults := baseService{client: c, entityPath: "/V1.0/SurveyResults", entityName: "SurveyResults"}
+	c.SurveyResults = SurveyResultsService{
+		Reader: Reader[SurveyResults]{baseService: bSurveyResults},
+	}
+	bSurvey := baseService{client: c, entityPath: "/V1.0/Surveys", entityName: "Survey"}
+	c.Surveys = SurveyService{
+		Reader: Reader[Survey]{baseService: bSurvey},
+	}
+	bTagAlias := baseService{client: c, entityPath: "/V1.0/TagAliases", entityName: "TagAlias"}
+	c.TagAliases = TagAliasService{
+		Reader: Reader[TagAlias]{baseService: bTagAlias},
 	}
 	bTagGroup := baseService{client: c, entityPath: "/V1.0/TagGroups", entityName: "TagGroup"}
 	c.TagGroups = TagGroupService{
@@ -2134,12 +3540,32 @@ func (c *Client) initServices() {
 		Patcher: Patcher[Tag]{baseService: bTag},
 		Deleter: Deleter[Tag]{baseService: bTag},
 	}
+	bTaskAttachment := baseService{client: c, entityPath: "/V1.0/TaskAttachments", entityName: "TaskAttachment"}
+	c.TaskAttachments = TaskAttachmentService{
+		Reader: Reader[TaskAttachment]{baseService: bTaskAttachment},
+	}
+	bTaskNoteAttachment := baseService{client: c, entityPath: "/V1.0/TaskNoteAttachments", entityName: "TaskNoteAttachment"}
+	c.TaskNoteAttachments = TaskNoteAttachmentService{
+		Reader: Reader[TaskNoteAttachment]{baseService: bTaskNoteAttachment},
+	}
 	bTaskNote := baseService{client: c, entityPath: "/V1.0/TaskNotes", entityName: "TaskNote"}
 	c.TaskNotes = TaskNoteService{
 		Reader:  Reader[TaskNote]{baseService: bTaskNote},
 		Creator: Creator[TaskNote]{baseService: bTaskNote},
 		Updater: Updater[TaskNote]{baseService: bTaskNote},
 		Patcher: Patcher[TaskNote]{baseService: bTaskNote},
+	}
+	bTaskPredecessor := baseService{client: c, entityPath: "/V1.0/TaskPredecessors", entityName: "TaskPredecessor"}
+	c.TaskPredecessors = TaskPredecessorService{
+		Reader: Reader[TaskPredecessor]{baseService: bTaskPredecessor},
+	}
+	bTaskSecondaryResource := baseService{client: c, entityPath: "/V1.0/TaskSecondaryResources", entityName: "TaskSecondaryResource"}
+	c.TaskSecondaryResources = TaskSecondaryResourceService{
+		Reader: Reader[TaskSecondaryResource]{baseService: bTaskSecondaryResource},
+	}
+	bTask := baseService{client: c, entityPath: "/V1.0/Tasks", entityName: "Task"}
+	c.Tasks = TaskService{
+		Reader: Reader[Task]{baseService: bTask},
 	}
 	bTaxCategory := baseService{client: c, entityPath: "/V1.0/TaxCategories", entityName: "TaxCategory"}
 	c.TaxCategories = TaxCategoryService{
@@ -2162,15 +3588,59 @@ func (c *Client) initServices() {
 		Updater: Updater[Tax]{baseService: bTax},
 		Patcher: Patcher[Tax]{baseService: bTax},
 	}
+	bTicketAdditionalConfigurationItem := baseService{client: c, entityPath: "/V1.0/TicketAdditionalConfigurationItems", entityName: "TicketAdditionalConfigurationItem"}
+	c.TicketAdditionalConfigurationItems = TicketAdditionalConfigurationItemService{
+		Reader: Reader[TicketAdditionalConfigurationItem]{baseService: bTicketAdditionalConfigurationItem},
+	}
+	bTicketAdditionalContact := baseService{client: c, entityPath: "/V1.0/TicketAdditionalContacts", entityName: "TicketAdditionalContact"}
+	c.TicketAdditionalContacts = TicketAdditionalContactService{
+		Reader: Reader[TicketAdditionalContact]{baseService: bTicketAdditionalContact},
+	}
+	bTicketAttachment := baseService{client: c, entityPath: "/V1.0/TicketAttachments", entityName: "TicketAttachment"}
+	c.TicketAttachments = TicketAttachmentService{
+		Reader: Reader[TicketAttachment]{baseService: bTicketAttachment},
+	}
 	bTicketCategory := baseService{client: c, entityPath: "/V1.0/TicketCategories", entityName: "TicketCategory"}
 	c.TicketCategories = TicketCategoryService{
 		Reader:  Reader[TicketCategory]{baseService: bTicketCategory},
 		Updater: Updater[TicketCategory]{baseService: bTicketCategory},
 		Patcher: Patcher[TicketCategory]{baseService: bTicketCategory},
 	}
+	bTicketCategoryFieldDefaults := baseService{client: c, entityPath: "/V1.0/TicketCategoryFieldDefaults", entityName: "TicketCategoryFieldDefaults"}
+	c.TicketCategoryFieldDefaults = TicketCategoryFieldDefaultsService{
+		Reader: Reader[TicketCategoryFieldDefaults]{baseService: bTicketCategoryFieldDefaults},
+	}
+	bTicketChangeRequestApproval := baseService{client: c, entityPath: "/V1.0/TicketChangeRequestApprovals", entityName: "TicketChangeRequestApproval"}
+	c.TicketChangeRequestApprovals = TicketChangeRequestApprovalService{
+		Reader: Reader[TicketChangeRequestApproval]{baseService: bTicketChangeRequestApproval},
+	}
+	bTicketCharge := baseService{client: c, entityPath: "/V1.0/TicketCharges", entityName: "TicketCharge"}
+	c.TicketCharges = TicketChargeService{
+		Reader: Reader[TicketCharge]{baseService: bTicketCharge},
+	}
+	bTicketChecklistItem := baseService{client: c, entityPath: "/V1.0/TicketChecklistItems", entityName: "TicketChecklistItem"}
+	c.TicketChecklistItems = TicketChecklistItemService{
+		Reader: Reader[TicketChecklistItem]{baseService: bTicketChecklistItem},
+	}
 	bTicketChecklistLibrary := baseService{client: c, entityPath: "/V1.0/TicketChecklistLibraries", entityName: "TicketChecklistLibrary"}
 	c.TicketChecklistLibraries = TicketChecklistLibraryService{
 		Creator: Creator[TicketChecklistLibrary]{baseService: bTicketChecklistLibrary},
+	}
+	bTicketHistory := baseService{client: c, entityPath: "/V1.0/TicketHistory", entityName: "TicketHistory"}
+	c.TicketHistory = TicketHistoryService{
+		Reader: Reader[TicketHistory]{baseService: bTicketHistory},
+	}
+	bTicketNoteAttachment := baseService{client: c, entityPath: "/V1.0/TicketNoteAttachments", entityName: "TicketNoteAttachment"}
+	c.TicketNoteAttachments = TicketNoteAttachmentService{
+		Reader: Reader[TicketNoteAttachment]{baseService: bTicketNoteAttachment},
+	}
+	bTicketNoteWebhookExcludedResource := baseService{client: c, entityPath: "/V1.0/TicketNoteWebhookExcludedResources", entityName: "TicketNoteWebhookExcludedResource"}
+	c.TicketNoteWebhookExcludedResources = TicketNoteWebhookExcludedResourceService{
+		Reader: Reader[TicketNoteWebhookExcludedResource]{baseService: bTicketNoteWebhookExcludedResource},
+	}
+	bTicketNoteWebhookField := baseService{client: c, entityPath: "/V1.0/TicketNoteWebhookFields", entityName: "TicketNoteWebhookField"}
+	c.TicketNoteWebhookFields = TicketNoteWebhookFieldService{
+		Reader: Reader[TicketNoteWebhookField]{baseService: bTicketNoteWebhookField},
 	}
 	bTicketNoteWebhook := baseService{client: c, entityPath: "/V1.0/TicketNoteWebhooks", entityName: "TicketNoteWebhook"}
 	c.TicketNoteWebhooks = TicketNoteWebhookService{
@@ -2179,6 +3649,34 @@ func (c *Client) initServices() {
 		Updater: Updater[TicketNoteWebhook]{baseService: bTicketNoteWebhook},
 		Patcher: Patcher[TicketNoteWebhook]{baseService: bTicketNoteWebhook},
 		Deleter: Deleter[TicketNoteWebhook]{baseService: bTicketNoteWebhook},
+	}
+	bTicketNote := baseService{client: c, entityPath: "/V1.0/TicketNotes", entityName: "TicketNote"}
+	c.TicketNotes = TicketNoteService{
+		Reader: Reader[TicketNote]{baseService: bTicketNote},
+	}
+	bTicketRmaCredit := baseService{client: c, entityPath: "/V1.0/TicketRmaCredits", entityName: "TicketRmaCredit"}
+	c.TicketRmaCredits = TicketRmaCreditService{
+		Reader: Reader[TicketRmaCredit]{baseService: bTicketRmaCredit},
+	}
+	bTicketSecondaryResource := baseService{client: c, entityPath: "/V1.0/TicketSecondaryResources", entityName: "TicketSecondaryResource"}
+	c.TicketSecondaryResources = TicketSecondaryResourceService{
+		Reader: Reader[TicketSecondaryResource]{baseService: bTicketSecondaryResource},
+	}
+	bTicketTagAssociation := baseService{client: c, entityPath: "/V1.0/TicketTagAssociations", entityName: "TicketTagAssociation"}
+	c.TicketTagAssociations = TicketTagAssociationService{
+		Reader: Reader[TicketTagAssociation]{baseService: bTicketTagAssociation},
+	}
+	bTicketWebhookExcludedResource := baseService{client: c, entityPath: "/V1.0/TicketWebhookExcludedResources", entityName: "TicketWebhookExcludedResource"}
+	c.TicketWebhookExcludedResources = TicketWebhookExcludedResourceService{
+		Reader: Reader[TicketWebhookExcludedResource]{baseService: bTicketWebhookExcludedResource},
+	}
+	bTicketWebhookField := baseService{client: c, entityPath: "/V1.0/TicketWebhookFields", entityName: "TicketWebhookField"}
+	c.TicketWebhookFields = TicketWebhookFieldService{
+		Reader: Reader[TicketWebhookField]{baseService: bTicketWebhookField},
+	}
+	bTicketWebhookUdfField := baseService{client: c, entityPath: "/V1.0/TicketWebhookUdfFields", entityName: "TicketWebhookUdfField"}
+	c.TicketWebhookUdfFields = TicketWebhookUdfFieldService{
+		Reader: Reader[TicketWebhookUdfField]{baseService: bTicketWebhookUdfField},
 	}
 	bTicketWebhook := baseService{client: c, entityPath: "/V1.0/TicketWebhooks", entityName: "TicketWebhook"}
 	c.TicketWebhooks = TicketWebhookService{
@@ -2203,12 +3701,29 @@ func (c *Client) initServices() {
 		Patcher: Patcher[TimeEntry]{baseService: bTimeEntry},
 		Deleter: Deleter[TimeEntry]{baseService: bTimeEntry},
 	}
+	bTimeEntryAttachment := baseService{client: c, entityPath: "/V1.0/TimeEntryAttachments", entityName: "TimeEntryAttachment"}
+	c.TimeEntryAttachments = TimeEntryAttachmentService{
+		Reader: Reader[TimeEntryAttachment]{baseService: bTimeEntryAttachment},
+	}
+	bTimeOffRequest := baseService{client: c, entityPath: "/V1.0/TimeOffRequests", entityName: "TimeOffRequest"}
+	c.TimeOffRequests = TimeOffRequestService{
+		Reader: Reader[TimeOffRequest]{baseService: bTimeOffRequest},
+	}
 	bUserDefinedFieldDefinition := baseService{client: c, entityPath: "/V1.0/UserDefinedFieldDefinitions", entityName: "UserDefinedFieldDefinition"}
 	c.UserDefinedFieldDefinitions = UserDefinedFieldDefinitionService{
 		Reader:  Reader[UserDefinedFieldDefinition]{baseService: bUserDefinedFieldDefinition},
 		Creator: Creator[UserDefinedFieldDefinition]{baseService: bUserDefinedFieldDefinition},
 		Updater: Updater[UserDefinedFieldDefinition]{baseService: bUserDefinedFieldDefinition},
 		Patcher: Patcher[UserDefinedFieldDefinition]{baseService: bUserDefinedFieldDefinition},
+	}
+	bUserDefinedFieldListItem := baseService{client: c, entityPath: "/V1.0/UserDefinedFieldListItems", entityName: "UserDefinedFieldListItem"}
+	c.UserDefinedFieldListItems = UserDefinedFieldListItemService{
+		Reader: Reader[UserDefinedFieldListItem]{baseService: bUserDefinedFieldListItem},
+	}
+	bWebhookEventErrorLog := baseService{client: c, entityPath: "/V1.0/WebhookEventErrorLogs", entityName: "WebhookEventErrorLog"}
+	c.WebhookEventErrorLogs = WebhookEventErrorLogService{
+		Reader:  Reader[WebhookEventErrorLog]{baseService: bWebhookEventErrorLog},
+		Deleter: Deleter[WebhookEventErrorLog]{baseService: bWebhookEventErrorLog},
 	}
 	bWorkTypeModifier := baseService{client: c, entityPath: "/V1.0/WorkTypeModifiers", entityName: "WorkTypeModifier"}
 	c.WorkTypeModifiers = WorkTypeModifierService{
@@ -2332,816 +3847,6 @@ func (c *Client) KnowledgeBaseArticleDocumentAssociations(parentID int64) Articl
 	}
 }
 
-// ChecklistLibraryChecklistItems returns a service for ChecklistLibraryChecklistItem entities under a parent.
-func (c *Client) ChecklistLibraryChecklistItems(parentID int64) ChecklistLibraryChecklistItemChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ChecklistLibraries/%d/ChecklistItems", parentID),
-		entityName: "ChecklistLibraryChecklistItem",
-	}
-	return ChecklistLibraryChecklistItemChildService{
-		Reader:  Reader[ChecklistLibraryChecklistItem]{baseService: base},
-		Creator: Creator[ChecklistLibraryChecklistItem]{baseService: base},
-		Updater: Updater[ChecklistLibraryChecklistItem]{baseService: base},
-		Patcher: Patcher[ChecklistLibraryChecklistItem]{baseService: base},
-		Deleter: Deleter[ChecklistLibraryChecklistItem]{baseService: base},
-	}
-}
-
-// CompanyAlerts returns a service for CompanyAlert entities under a parent.
-func (c *Client) CompanyAlerts(parentID int64) CompanyAlertChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Companies/%d/Alerts", parentID),
-		entityName: "CompanyAlert",
-	}
-	return CompanyAlertChildService{
-		Reader:  Reader[CompanyAlert]{baseService: base},
-		Creator: Creator[CompanyAlert]{baseService: base},
-		Updater: Updater[CompanyAlert]{baseService: base},
-		Patcher: Patcher[CompanyAlert]{baseService: base},
-		Deleter: Deleter[CompanyAlert]{baseService: base},
-	}
-}
-
-// CompanyAttachments returns a service for CompanyAttachment entities under a parent.
-func (c *Client) CompanyAttachments(parentID int64) CompanyAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Companies/%d/Attachments", parentID),
-		entityName: "CompanyAttachment",
-	}
-	return CompanyAttachmentChildService{
-		Reader:  Reader[CompanyAttachment]{baseService: base},
-		Creator: Creator[CompanyAttachment]{baseService: base},
-		Deleter: Deleter[CompanyAttachment]{baseService: base},
-	}
-}
-
-// CompanyLocations returns a service for CompanyLocation entities under a parent.
-func (c *Client) CompanyLocations(parentID int64) CompanyLocationChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Companies/%d/Locations", parentID),
-		entityName: "CompanyLocation",
-	}
-	return CompanyLocationChildService{
-		Reader:  Reader[CompanyLocation]{baseService: base},
-		Creator: Creator[CompanyLocation]{baseService: base},
-		Updater: Updater[CompanyLocation]{baseService: base},
-		Patcher: Patcher[CompanyLocation]{baseService: base},
-		Deleter: Deleter[CompanyLocation]{baseService: base},
-	}
-}
-
-// CompanyNoteAttachments returns a service for CompanyNoteAttachment entities under a parent.
-func (c *Client) CompanyNoteAttachments(parentID int64) CompanyNoteAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/CompanyNotes/%d/Attachments", parentID),
-		entityName: "CompanyNoteAttachment",
-	}
-	return CompanyNoteAttachmentChildService{
-		Reader:  Reader[CompanyNoteAttachment]{baseService: base},
-		Creator: Creator[CompanyNoteAttachment]{baseService: base},
-		Deleter: Deleter[CompanyNoteAttachment]{baseService: base},
-	}
-}
-
-// CompanyNotes returns a service for CompanyNote entities under a parent.
-func (c *Client) CompanyNotes(parentID int64) CompanyNoteChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Companies/%d/Notes", parentID),
-		entityName: "CompanyNote",
-	}
-	return CompanyNoteChildService{
-		Reader:  Reader[CompanyNote]{baseService: base},
-		Creator: Creator[CompanyNote]{baseService: base},
-		Updater: Updater[CompanyNote]{baseService: base},
-		Patcher: Patcher[CompanyNote]{baseService: base},
-	}
-}
-
-// CompanySiteConfigurations returns a service for CompanySiteConfiguration entities under a parent.
-func (c *Client) CompanySiteConfigurations(parentID int64) CompanySiteConfigurationChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Companies/%d/SiteConfigurations", parentID),
-		entityName: "CompanySiteConfiguration",
-	}
-	return CompanySiteConfigurationChildService{
-		Reader:  Reader[CompanySiteConfiguration]{baseService: base},
-		Updater: Updater[CompanySiteConfiguration]{baseService: base},
-		Patcher: Patcher[CompanySiteConfiguration]{baseService: base},
-	}
-}
-
-// CompanyTeams returns a service for CompanyTeam entities under a parent.
-func (c *Client) CompanyTeams(parentID int64) CompanyTeamChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Companies/%d/Teams", parentID),
-		entityName: "CompanyTeam",
-	}
-	return CompanyTeamChildService{
-		Reader:  Reader[CompanyTeam]{baseService: base},
-		Creator: Creator[CompanyTeam]{baseService: base},
-		Deleter: Deleter[CompanyTeam]{baseService: base},
-	}
-}
-
-// CompanyToDos returns a service for CompanyToDo entities under a parent.
-func (c *Client) CompanyToDos(parentID int64) CompanyToDoChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Companies/%d/ToDos", parentID),
-		entityName: "CompanyToDo",
-	}
-	return CompanyToDoChildService{
-		Reader:  Reader[CompanyToDo]{baseService: base},
-		Creator: Creator[CompanyToDo]{baseService: base},
-		Updater: Updater[CompanyToDo]{baseService: base},
-		Patcher: Patcher[CompanyToDo]{baseService: base},
-		Deleter: Deleter[CompanyToDo]{baseService: base},
-	}
-}
-
-// CompanyWebhookExcludedResources returns a service for CompanyWebhookExcludedResource entities under a parent.
-func (c *Client) CompanyWebhookExcludedResources(parentID int64) CompanyWebhookExcludedResourceChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/CompanyWebhooks/%d/ExcludedResources", parentID),
-		entityName: "CompanyWebhookExcludedResource",
-	}
-	return CompanyWebhookExcludedResourceChildService{
-		Reader:  Reader[CompanyWebhookExcludedResource]{baseService: base},
-		Creator: Creator[CompanyWebhookExcludedResource]{baseService: base},
-		Deleter: Deleter[CompanyWebhookExcludedResource]{baseService: base},
-	}
-}
-
-// CompanyWebhookFields returns a service for CompanyWebhookField entities under a parent.
-func (c *Client) CompanyWebhookFields(parentID int64) CompanyWebhookFieldChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/CompanyWebhooks/%d/Fields", parentID),
-		entityName: "CompanyWebhookField",
-	}
-	return CompanyWebhookFieldChildService{
-		Reader:  Reader[CompanyWebhookField]{baseService: base},
-		Creator: Creator[CompanyWebhookField]{baseService: base},
-		Updater: Updater[CompanyWebhookField]{baseService: base},
-		Patcher: Patcher[CompanyWebhookField]{baseService: base},
-		Deleter: Deleter[CompanyWebhookField]{baseService: base},
-	}
-}
-
-// CompanyWebhookUdfFields returns a service for CompanyWebhookUdfField entities under a parent.
-func (c *Client) CompanyWebhookUdfFields(parentID int64) CompanyWebhookUdfFieldChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/CompanyWebhooks/%d/UdfFields", parentID),
-		entityName: "CompanyWebhookUdfField",
-	}
-	return CompanyWebhookUdfFieldChildService{
-		Reader:  Reader[CompanyWebhookUdfField]{baseService: base},
-		Creator: Creator[CompanyWebhookUdfField]{baseService: base},
-		Updater: Updater[CompanyWebhookUdfField]{baseService: base},
-		Patcher: Patcher[CompanyWebhookUdfField]{baseService: base},
-		Deleter: Deleter[CompanyWebhookUdfField]{baseService: base},
-	}
-}
-
-// ConfigurationItemAttachments returns a service for ConfigurationItemAttachment entities under a parent.
-func (c *Client) ConfigurationItemAttachments(parentID int64) ConfigurationItemAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ConfigurationItems/%d/Attachments", parentID),
-		entityName: "ConfigurationItemAttachment",
-	}
-	return ConfigurationItemAttachmentChildService{
-		Reader:  Reader[ConfigurationItemAttachment]{baseService: base},
-		Creator: Creator[ConfigurationItemAttachment]{baseService: base},
-		Deleter: Deleter[ConfigurationItemAttachment]{baseService: base},
-	}
-}
-
-// ConfigurationItemBillingProductAssociations returns a service for ConfigurationItemBillingProductAssociation entities under a parent.
-func (c *Client) ConfigurationItemBillingProductAssociations(parentID int64) ConfigurationItemBillingProductAssociationChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ConfigurationItems/%d/BillingProductAssociations", parentID),
-		entityName: "ConfigurationItemBillingProductAssociation",
-	}
-	return ConfigurationItemBillingProductAssociationChildService{
-		Reader:  Reader[ConfigurationItemBillingProductAssociation]{baseService: base},
-		Creator: Creator[ConfigurationItemBillingProductAssociation]{baseService: base},
-		Updater: Updater[ConfigurationItemBillingProductAssociation]{baseService: base},
-		Patcher: Patcher[ConfigurationItemBillingProductAssociation]{baseService: base},
-		Deleter: Deleter[ConfigurationItemBillingProductAssociation]{baseService: base},
-	}
-}
-
-// ConfigurationItemCategoryUdfAssociations returns a service for ConfigurationItemCategoryUdfAssociation entities under a parent.
-func (c *Client) ConfigurationItemCategoryUdfAssociations(parentID int64) ConfigurationItemCategoryUdfAssociationChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ConfigurationItemCategories/%d/UdfAssociations", parentID),
-		entityName: "ConfigurationItemCategoryUdfAssociation",
-	}
-	return ConfigurationItemCategoryUdfAssociationChildService{
-		Reader:  Reader[ConfigurationItemCategoryUdfAssociation]{baseService: base},
-		Creator: Creator[ConfigurationItemCategoryUdfAssociation]{baseService: base},
-		Updater: Updater[ConfigurationItemCategoryUdfAssociation]{baseService: base},
-		Patcher: Patcher[ConfigurationItemCategoryUdfAssociation]{baseService: base},
-		Deleter: Deleter[ConfigurationItemCategoryUdfAssociation]{baseService: base},
-	}
-}
-
-// ConfigurationItemDnsRecords returns a service for ConfigurationItemDnsRecord entities under a parent.
-func (c *Client) ConfigurationItemDnsRecords(parentID int64) ConfigurationItemDnsRecordChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ConfigurationItems/%d/DnsRecords", parentID),
-		entityName: "ConfigurationItemDnsRecord",
-	}
-	return ConfigurationItemDnsRecordChildService{
-		Reader:  Reader[ConfigurationItemDnsRecord]{baseService: base},
-		Deleter: Deleter[ConfigurationItemDnsRecord]{baseService: base},
-	}
-}
-
-// ConfigurationItemNoteAttachments returns a service for ConfigurationItemNoteAttachment entities under a parent.
-func (c *Client) ConfigurationItemNoteAttachments(parentID int64) ConfigurationItemNoteAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ConfigurationItemNotes/%d/Attachments", parentID),
-		entityName: "ConfigurationItemNoteAttachment",
-	}
-	return ConfigurationItemNoteAttachmentChildService{
-		Reader:  Reader[ConfigurationItemNoteAttachment]{baseService: base},
-		Creator: Creator[ConfigurationItemNoteAttachment]{baseService: base},
-		Deleter: Deleter[ConfigurationItemNoteAttachment]{baseService: base},
-	}
-}
-
-// ConfigurationItemNotes returns a service for ConfigurationItemNote entities under a parent.
-func (c *Client) ConfigurationItemNotes(parentID int64) ConfigurationItemNoteChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ConfigurationItems/%d/Notes", parentID),
-		entityName: "ConfigurationItemNote",
-	}
-	return ConfigurationItemNoteChildService{
-		Reader:  Reader[ConfigurationItemNote]{baseService: base},
-		Creator: Creator[ConfigurationItemNote]{baseService: base},
-		Updater: Updater[ConfigurationItemNote]{baseService: base},
-		Patcher: Patcher[ConfigurationItemNote]{baseService: base},
-	}
-}
-
-// ConfigurationItemRelatedItems returns a service for ConfigurationItemRelatedItem entities under a parent.
-func (c *Client) ConfigurationItemRelatedItems(parentID int64) ConfigurationItemRelatedItemChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ConfigurationItems/%d/RelatedItems", parentID),
-		entityName: "ConfigurationItemRelatedItem",
-	}
-	return ConfigurationItemRelatedItemChildService{
-		Reader:  Reader[ConfigurationItemRelatedItem]{baseService: base},
-		Creator: Creator[ConfigurationItemRelatedItem]{baseService: base},
-		Deleter: Deleter[ConfigurationItemRelatedItem]{baseService: base},
-	}
-}
-
-// ConfigurationItemSslSubjectAlternativeNames returns a service for ConfigurationItemSslSubjectAlternativeName entities under a parent.
-func (c *Client) ConfigurationItemSslSubjectAlternativeNames(parentID int64) ConfigurationItemSslSubjectAlternativeNameChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ConfigurationItems/%d/SslSubjectAlternativeNames", parentID),
-		entityName: "ConfigurationItemSslSubjectAlternativeName",
-	}
-	return ConfigurationItemSslSubjectAlternativeNameChildService{
-		Reader:  Reader[ConfigurationItemSslSubjectAlternativeName]{baseService: base},
-		Deleter: Deleter[ConfigurationItemSslSubjectAlternativeName]{baseService: base},
-	}
-}
-
-// ConfigurationItemWebhookExcludedResources returns a service for ConfigurationItemWebhookExcludedResource entities under a parent.
-func (c *Client) ConfigurationItemWebhookExcludedResources(parentID int64) ConfigurationItemWebhookExcludedResourceChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ConfigurationItemWebhooks/%d/ExcludedResources", parentID),
-		entityName: "ConfigurationItemWebhookExcludedResource",
-	}
-	return ConfigurationItemWebhookExcludedResourceChildService{
-		Reader:  Reader[ConfigurationItemWebhookExcludedResource]{baseService: base},
-		Creator: Creator[ConfigurationItemWebhookExcludedResource]{baseService: base},
-		Deleter: Deleter[ConfigurationItemWebhookExcludedResource]{baseService: base},
-	}
-}
-
-// ConfigurationItemWebhookFields returns a service for ConfigurationItemWebhookField entities under a parent.
-func (c *Client) ConfigurationItemWebhookFields(parentID int64) ConfigurationItemWebhookFieldChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ConfigurationItemWebhooks/%d/Fields", parentID),
-		entityName: "ConfigurationItemWebhookField",
-	}
-	return ConfigurationItemWebhookFieldChildService{
-		Reader:  Reader[ConfigurationItemWebhookField]{baseService: base},
-		Creator: Creator[ConfigurationItemWebhookField]{baseService: base},
-		Updater: Updater[ConfigurationItemWebhookField]{baseService: base},
-		Patcher: Patcher[ConfigurationItemWebhookField]{baseService: base},
-		Deleter: Deleter[ConfigurationItemWebhookField]{baseService: base},
-	}
-}
-
-// ConfigurationItemWebhookUdfFields returns a service for ConfigurationItemWebhookUdfField entities under a parent.
-func (c *Client) ConfigurationItemWebhookUdfFields(parentID int64) ConfigurationItemWebhookUdfFieldChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ConfigurationItemWebhooks/%d/UdfFields", parentID),
-		entityName: "ConfigurationItemWebhookUdfField",
-	}
-	return ConfigurationItemWebhookUdfFieldChildService{
-		Reader:  Reader[ConfigurationItemWebhookUdfField]{baseService: base},
-		Creator: Creator[ConfigurationItemWebhookUdfField]{baseService: base},
-		Updater: Updater[ConfigurationItemWebhookUdfField]{baseService: base},
-		Patcher: Patcher[ConfigurationItemWebhookUdfField]{baseService: base},
-		Deleter: Deleter[ConfigurationItemWebhookUdfField]{baseService: base},
-	}
-}
-
-// ContactBillingProductAssociations returns a service for ContactBillingProductAssociation entities under a parent.
-func (c *Client) ContactBillingProductAssociations(parentID int64) ContactBillingProductAssociationChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contacts/%d/BillingProductAssociations", parentID),
-		entityName: "ContactBillingProductAssociation",
-	}
-	return ContactBillingProductAssociationChildService{
-		Reader:  Reader[ContactBillingProductAssociation]{baseService: base},
-		Creator: Creator[ContactBillingProductAssociation]{baseService: base},
-		Updater: Updater[ContactBillingProductAssociation]{baseService: base},
-		Patcher: Patcher[ContactBillingProductAssociation]{baseService: base},
-		Deleter: Deleter[ContactBillingProductAssociation]{baseService: base},
-	}
-}
-
-// ContactGroupContacts returns a service for ContactGroupContact entities under a parent.
-func (c *Client) ContactGroupContacts(parentID int64) ContactGroupContactChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ContactGroups/%d/Contacts", parentID),
-		entityName: "ContactGroupContact",
-	}
-	return ContactGroupContactChildService{
-		Reader:  Reader[ContactGroupContact]{baseService: base},
-		Creator: Creator[ContactGroupContact]{baseService: base},
-		Deleter: Deleter[ContactGroupContact]{baseService: base},
-	}
-}
-
-// ContactWebhookExcludedResources returns a service for ContactWebhookExcludedResource entities under a parent.
-func (c *Client) ContactWebhookExcludedResources(parentID int64) ContactWebhookExcludedResourceChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ContactWebhooks/%d/ExcludedResources", parentID),
-		entityName: "ContactWebhookExcludedResource",
-	}
-	return ContactWebhookExcludedResourceChildService{
-		Reader:  Reader[ContactWebhookExcludedResource]{baseService: base},
-		Creator: Creator[ContactWebhookExcludedResource]{baseService: base},
-		Deleter: Deleter[ContactWebhookExcludedResource]{baseService: base},
-	}
-}
-
-// ContactWebhookFields returns a service for ContactWebhookField entities under a parent.
-func (c *Client) ContactWebhookFields(parentID int64) ContactWebhookFieldChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ContactWebhooks/%d/Fields", parentID),
-		entityName: "ContactWebhookField",
-	}
-	return ContactWebhookFieldChildService{
-		Reader:  Reader[ContactWebhookField]{baseService: base},
-		Creator: Creator[ContactWebhookField]{baseService: base},
-		Updater: Updater[ContactWebhookField]{baseService: base},
-		Patcher: Patcher[ContactWebhookField]{baseService: base},
-		Deleter: Deleter[ContactWebhookField]{baseService: base},
-	}
-}
-
-// ContactWebhookUdfFields returns a service for ContactWebhookUdfField entities under a parent.
-func (c *Client) ContactWebhookUdfFields(parentID int64) ContactWebhookUdfFieldChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ContactWebhooks/%d/UdfFields", parentID),
-		entityName: "ContactWebhookUdfField",
-	}
-	return ContactWebhookUdfFieldChildService{
-		Reader:  Reader[ContactWebhookUdfField]{baseService: base},
-		Creator: Creator[ContactWebhookUdfField]{baseService: base},
-		Updater: Updater[ContactWebhookUdfField]{baseService: base},
-		Patcher: Patcher[ContactWebhookUdfField]{baseService: base},
-		Deleter: Deleter[ContactWebhookUdfField]{baseService: base},
-	}
-}
-
-// ContractBillingRules returns a service for ContractBillingRule entities under a parent.
-func (c *Client) ContractBillingRules(parentID int64) ContractBillingRuleChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/BillingRules", parentID),
-		entityName: "ContractBillingRule",
-	}
-	return ContractBillingRuleChildService{
-		Reader:  Reader[ContractBillingRule]{baseService: base},
-		Creator: Creator[ContractBillingRule]{baseService: base},
-		Updater: Updater[ContractBillingRule]{baseService: base},
-		Patcher: Patcher[ContractBillingRule]{baseService: base},
-		Deleter: Deleter[ContractBillingRule]{baseService: base},
-	}
-}
-
-// ContractBlockHourFactors returns a service for ContractBlockHourFactor entities under a parent.
-func (c *Client) ContractBlockHourFactors(parentID int64) ContractBlockHourFactorChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/BlockHourFactors", parentID),
-		entityName: "ContractBlockHourFactor",
-	}
-	return ContractBlockHourFactorChildService{
-		Reader:  Reader[ContractBlockHourFactor]{baseService: base},
-		Creator: Creator[ContractBlockHourFactor]{baseService: base},
-		Updater: Updater[ContractBlockHourFactor]{baseService: base},
-		Patcher: Patcher[ContractBlockHourFactor]{baseService: base},
-	}
-}
-
-// ContractBlocks returns a service for ContractBlock entities under a parent.
-func (c *Client) ContractBlocks(parentID int64) ContractBlockChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/Blocks", parentID),
-		entityName: "ContractBlock",
-	}
-	return ContractBlockChildService{
-		Reader:  Reader[ContractBlock]{baseService: base},
-		Creator: Creator[ContractBlock]{baseService: base},
-		Updater: Updater[ContractBlock]{baseService: base},
-		Patcher: Patcher[ContractBlock]{baseService: base},
-	}
-}
-
-// ContractCharges returns a service for ContractCharge entities under a parent.
-func (c *Client) ContractCharges(parentID int64) ContractChargeChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/Charges", parentID),
-		entityName: "ContractCharge",
-	}
-	return ContractChargeChildService{
-		Reader:  Reader[ContractCharge]{baseService: base},
-		Creator: Creator[ContractCharge]{baseService: base},
-		Updater: Updater[ContractCharge]{baseService: base},
-		Patcher: Patcher[ContractCharge]{baseService: base},
-		Deleter: Deleter[ContractCharge]{baseService: base},
-	}
-}
-
-// ContractExclusionBillingCodes returns a service for ContractExclusionBillingCode entities under a parent.
-func (c *Client) ContractExclusionBillingCodes(parentID int64) ContractExclusionBillingCodeChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/ExclusionBillingCodes", parentID),
-		entityName: "ContractExclusionBillingCode",
-	}
-	return ContractExclusionBillingCodeChildService{
-		Reader:  Reader[ContractExclusionBillingCode]{baseService: base},
-		Creator: Creator[ContractExclusionBillingCode]{baseService: base},
-		Deleter: Deleter[ContractExclusionBillingCode]{baseService: base},
-	}
-}
-
-// ContractExclusionRoles returns a service for ContractExclusionRole entities under a parent.
-func (c *Client) ContractExclusionRoles(parentID int64) ContractExclusionRoleChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/ExclusionRoles", parentID),
-		entityName: "ContractExclusionRole",
-	}
-	return ContractExclusionRoleChildService{
-		Reader:  Reader[ContractExclusionRole]{baseService: base},
-		Creator: Creator[ContractExclusionRole]{baseService: base},
-		Deleter: Deleter[ContractExclusionRole]{baseService: base},
-	}
-}
-
-// ContractExclusionSetExcludedRoles returns a service for ContractExclusionSetExcludedRole entities under a parent.
-func (c *Client) ContractExclusionSetExcludedRoles(parentID int64) ContractExclusionSetExcludedRoleChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ContractExclusionSets/%d/ExcludedRoles", parentID),
-		entityName: "ContractExclusionSetExcludedRole",
-	}
-	return ContractExclusionSetExcludedRoleChildService{
-		Reader:  Reader[ContractExclusionSetExcludedRole]{baseService: base},
-		Creator: Creator[ContractExclusionSetExcludedRole]{baseService: base},
-		Deleter: Deleter[ContractExclusionSetExcludedRole]{baseService: base},
-	}
-}
-
-// ContractExclusionSetExcludedWorkTypes returns a service for ContractExclusionSetExcludedWorkType entities under a parent.
-func (c *Client) ContractExclusionSetExcludedWorkTypes(parentID int64) ContractExclusionSetExcludedWorkTypeChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ContractExclusionSets/%d/ExcludedWorkTypes", parentID),
-		entityName: "ContractExclusionSetExcludedWorkType",
-	}
-	return ContractExclusionSetExcludedWorkTypeChildService{
-		Reader:  Reader[ContractExclusionSetExcludedWorkType]{baseService: base},
-		Creator: Creator[ContractExclusionSetExcludedWorkType]{baseService: base},
-		Deleter: Deleter[ContractExclusionSetExcludedWorkType]{baseService: base},
-	}
-}
-
-// ContractMilestones returns a service for ContractMilestone entities under a parent.
-func (c *Client) ContractMilestones(parentID int64) ContractMilestoneChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/Milestones", parentID),
-		entityName: "ContractMilestone",
-	}
-	return ContractMilestoneChildService{
-		Reader:  Reader[ContractMilestone]{baseService: base},
-		Creator: Creator[ContractMilestone]{baseService: base},
-		Updater: Updater[ContractMilestone]{baseService: base},
-		Patcher: Patcher[ContractMilestone]{baseService: base},
-	}
-}
-
-// ContractNoteAttachments returns a service for ContractNoteAttachment entities under a parent.
-func (c *Client) ContractNoteAttachments(parentID int64) ContractNoteAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ContractNotes/%d/Attachments", parentID),
-		entityName: "ContractNoteAttachment",
-	}
-	return ContractNoteAttachmentChildService{
-		Reader:  Reader[ContractNoteAttachment]{baseService: base},
-		Creator: Creator[ContractNoteAttachment]{baseService: base},
-		Deleter: Deleter[ContractNoteAttachment]{baseService: base},
-	}
-}
-
-// ContractNotes returns a service for ContractNote entities under a parent.
-func (c *Client) ContractNotes(parentID int64) ContractNoteChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/Notes", parentID),
-		entityName: "ContractNote",
-	}
-	return ContractNoteChildService{
-		Reader:  Reader[ContractNote]{baseService: base},
-		Creator: Creator[ContractNote]{baseService: base},
-		Updater: Updater[ContractNote]{baseService: base},
-		Patcher: Patcher[ContractNote]{baseService: base},
-	}
-}
-
-// ContractRates returns a service for ContractRate entities under a parent.
-func (c *Client) ContractRates(parentID int64) ContractRateChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/Rates", parentID),
-		entityName: "ContractRate",
-	}
-	return ContractRateChildService{
-		Reader:  Reader[ContractRate]{baseService: base},
-		Creator: Creator[ContractRate]{baseService: base},
-		Updater: Updater[ContractRate]{baseService: base},
-		Patcher: Patcher[ContractRate]{baseService: base},
-	}
-}
-
-// ContractRetainers returns a service for ContractRetainer entities under a parent.
-func (c *Client) ContractRetainers(parentID int64) ContractRetainerChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/Retainers", parentID),
-		entityName: "ContractRetainer",
-	}
-	return ContractRetainerChildService{
-		Reader:  Reader[ContractRetainer]{baseService: base},
-		Creator: Creator[ContractRetainer]{baseService: base},
-		Updater: Updater[ContractRetainer]{baseService: base},
-		Patcher: Patcher[ContractRetainer]{baseService: base},
-	}
-}
-
-// ContractRoleCosts returns a service for ContractRoleCost entities under a parent.
-func (c *Client) ContractRoleCosts(parentID int64) ContractRoleCostChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/RoleCosts", parentID),
-		entityName: "ContractRoleCost",
-	}
-	return ContractRoleCostChildService{
-		Reader:  Reader[ContractRoleCost]{baseService: base},
-		Creator: Creator[ContractRoleCost]{baseService: base},
-		Updater: Updater[ContractRoleCost]{baseService: base},
-		Patcher: Patcher[ContractRoleCost]{baseService: base},
-	}
-}
-
-// ContractServiceBundleUnits returns a service for ContractServiceBundleUnit entities under a parent.
-func (c *Client) ContractServiceBundleUnits(parentID int64) ContractServiceBundleUnitChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/ServiceBundleUnits", parentID),
-		entityName: "ContractServiceBundleUnit",
-	}
-	return ContractServiceBundleUnitChildService{
-		Reader: Reader[ContractServiceBundleUnit]{baseService: base},
-	}
-}
-
-// ContractServiceBundles returns a service for ContractServiceBundle entities under a parent.
-func (c *Client) ContractServiceBundles(parentID int64) ContractServiceBundleChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/ServiceBundles", parentID),
-		entityName: "ContractServiceBundle",
-	}
-	return ContractServiceBundleChildService{
-		Reader:  Reader[ContractServiceBundle]{baseService: base},
-		Creator: Creator[ContractServiceBundle]{baseService: base},
-		Updater: Updater[ContractServiceBundle]{baseService: base},
-		Patcher: Patcher[ContractServiceBundle]{baseService: base},
-	}
-}
-
-// ContractServiceUnits returns a service for ContractServiceUnit entities under a parent.
-func (c *Client) ContractServiceUnits(parentID int64) ContractServiceUnitChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/ServiceUnits", parentID),
-		entityName: "ContractServiceUnit",
-	}
-	return ContractServiceUnitChildService{
-		Reader: Reader[ContractServiceUnit]{baseService: base},
-	}
-}
-
-// ContractServices returns a service for ContractService entities under a parent.
-func (c *Client) ContractServices(parentID int64) ContractServiceChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/Services", parentID),
-		entityName: "ContractService",
-	}
-	return ContractServiceChildService{
-		Reader:  Reader[ContractService]{baseService: base},
-		Creator: Creator[ContractService]{baseService: base},
-		Updater: Updater[ContractService]{baseService: base},
-		Patcher: Patcher[ContractService]{baseService: base},
-	}
-}
-
-// ContractTicketPurchases returns a service for ContractTicketPurchase entities under a parent.
-func (c *Client) ContractTicketPurchases(parentID int64) ContractTicketPurchaseChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Contracts/%d/TicketPurchases", parentID),
-		entityName: "ContractTicketPurchase",
-	}
-	return ContractTicketPurchaseChildService{
-		Reader:  Reader[ContractTicketPurchase]{baseService: base},
-		Creator: Creator[ContractTicketPurchase]{baseService: base},
-		Updater: Updater[ContractTicketPurchase]{baseService: base},
-		Patcher: Patcher[ContractTicketPurchase]{baseService: base},
-	}
-}
-
-// DocumentAttachments returns a service for DocumentAttachment entities under a parent.
-func (c *Client) DocumentAttachments(parentID int64) DocumentAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Documents/%d/Attachments", parentID),
-		entityName: "DocumentAttachment",
-	}
-	return DocumentAttachmentChildService{
-		Reader:  Reader[DocumentAttachment]{baseService: base},
-		Creator: Creator[DocumentAttachment]{baseService: base},
-		Deleter: Deleter[DocumentAttachment]{baseService: base},
-	}
-}
-
-// DocumentChecklistItems returns a service for DocumentChecklistItem entities under a parent.
-func (c *Client) DocumentChecklistItems(parentID int64) DocumentChecklistItemChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Documents/%d/ChecklistItems", parentID),
-		entityName: "DocumentChecklistItem",
-	}
-	return DocumentChecklistItemChildService{
-		Reader:  Reader[DocumentChecklistItem]{baseService: base},
-		Creator: Creator[DocumentChecklistItem]{baseService: base},
-		Updater: Updater[DocumentChecklistItem]{baseService: base},
-		Patcher: Patcher[DocumentChecklistItem]{baseService: base},
-		Deleter: Deleter[DocumentChecklistItem]{baseService: base},
-	}
-}
-
-// DocumentConfigurationItemAssociations returns a service for DocumentConfigurationItemAssociation entities under a parent.
-func (c *Client) DocumentConfigurationItemAssociations(parentID int64) DocumentConfigurationItemAssociationChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Documents/%d/ConfigurationItemAssociations", parentID),
-		entityName: "DocumentConfigurationItemAssociation",
-	}
-	return DocumentConfigurationItemAssociationChildService{
-		Reader:  Reader[DocumentConfigurationItemAssociation]{baseService: base},
-		Creator: Creator[DocumentConfigurationItemAssociation]{baseService: base},
-		Deleter: Deleter[DocumentConfigurationItemAssociation]{baseService: base},
-	}
-}
-
-// DocumentConfigurationItemCategoryAssociations returns a service for DocumentConfigurationItemCategoryAssociation entities under a parent.
-func (c *Client) DocumentConfigurationItemCategoryAssociations(parentID int64) DocumentConfigurationItemCategoryAssociationChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Documents/%d/ConfigurationItemCategoryAssociations", parentID),
-		entityName: "DocumentConfigurationItemCategoryAssociation",
-	}
-	return DocumentConfigurationItemCategoryAssociationChildService{
-		Reader:  Reader[DocumentConfigurationItemCategoryAssociation]{baseService: base},
-		Creator: Creator[DocumentConfigurationItemCategoryAssociation]{baseService: base},
-		Deleter: Deleter[DocumentConfigurationItemCategoryAssociation]{baseService: base},
-	}
-}
-
-// DocumentNotes returns a service for DocumentNote entities under a parent.
-func (c *Client) DocumentNotes(parentID int64) DocumentNoteChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Documents/%d/Notes", parentID),
-		entityName: "DocumentNote",
-	}
-	return DocumentNoteChildService{
-		Reader:  Reader[DocumentNote]{baseService: base},
-		Creator: Creator[DocumentNote]{baseService: base},
-		Updater: Updater[DocumentNote]{baseService: base},
-		Patcher: Patcher[DocumentNote]{baseService: base},
-		Deleter: Deleter[DocumentNote]{baseService: base},
-	}
-}
-
-// DocumentPlainTextContent returns a service for DocumentPlainTextContent entities under a parent.
-func (c *Client) DocumentPlainTextContent(parentID int64) DocumentPlainTextContentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Documents/%d/PlainTextContent", parentID),
-		entityName: "DocumentPlainTextContent",
-	}
-	return DocumentPlainTextContentChildService{
-		Reader:  Reader[DocumentPlainTextContent]{baseService: base},
-		Updater: Updater[DocumentPlainTextContent]{baseService: base},
-		Patcher: Patcher[DocumentPlainTextContent]{baseService: base},
-	}
-}
-
-// DocumentTagAssociations returns a service for DocumentTagAssociation entities under a parent.
-func (c *Client) DocumentTagAssociations(parentID int64) DocumentTagAssociationChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Documents/%d/TagAssociations", parentID),
-		entityName: "DocumentTagAssociation",
-	}
-	return DocumentTagAssociationChildService{
-		Reader:  Reader[DocumentTagAssociation]{baseService: base},
-		Creator: Creator[DocumentTagAssociation]{baseService: base},
-		Deleter: Deleter[DocumentTagAssociation]{baseService: base},
-	}
-}
-
-// DocumentTicketAssociations returns a service for DocumentTicketAssociation entities under a parent.
-func (c *Client) DocumentTicketAssociations(parentID int64) DocumentTicketAssociationChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Documents/%d/TicketAssociations", parentID),
-		entityName: "DocumentTicketAssociation",
-	}
-	return DocumentTicketAssociationChildService{
-		Reader:  Reader[DocumentTicketAssociation]{baseService: base},
-		Creator: Creator[DocumentTicketAssociation]{baseService: base},
-		Deleter: Deleter[DocumentTicketAssociation]{baseService: base},
-	}
-}
-
 // DocumentArticleAssociations returns a service for DocumentToArticleAssociation entities under a parent.
 func (c *Client) DocumentArticleAssociations(parentID int64) DocumentToArticleAssociationChildService {
 	base := baseService{
@@ -3186,49 +3891,6 @@ func (c *Client) DocumentCategoryDocuments(parentID int64) DocumentChildService 
 	}
 }
 
-// ExpenseItemAttachments returns a service for ExpenseItemAttachment entities under a parent.
-func (c *Client) ExpenseItemAttachments(parentID int64) ExpenseItemAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ExpenseItems/%d/Attachments", parentID),
-		entityName: "ExpenseItemAttachment",
-	}
-	return ExpenseItemAttachmentChildService{
-		Reader:  Reader[ExpenseItemAttachment]{baseService: base},
-		Creator: Creator[ExpenseItemAttachment]{baseService: base},
-		Deleter: Deleter[ExpenseItemAttachment]{baseService: base},
-	}
-}
-
-// ExpenseItems returns a service for ExpenseItem entities under a parent.
-func (c *Client) ExpenseItems(parentID int64) ExpenseItemChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Expenses/%d/Items", parentID),
-		entityName: "ExpenseItem",
-	}
-	return ExpenseItemChildService{
-		Reader:  Reader[ExpenseItem]{baseService: base},
-		Creator: Creator[ExpenseItem]{baseService: base},
-		Updater: Updater[ExpenseItem]{baseService: base},
-		Patcher: Patcher[ExpenseItem]{baseService: base},
-	}
-}
-
-// ExpenseReportAttachments returns a service for ExpenseReportAttachment entities under a parent.
-func (c *Client) ExpenseReportAttachments(parentID int64) ExpenseReportAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ExpenseReports/%d/Attachments", parentID),
-		entityName: "ExpenseReportAttachment",
-	}
-	return ExpenseReportAttachmentChildService{
-		Reader:  Reader[ExpenseReportAttachment]{baseService: base},
-		Creator: Creator[ExpenseReportAttachment]{baseService: base},
-		Deleter: Deleter[ExpenseReportAttachment]{baseService: base},
-	}
-}
-
 // HolidaySetHolidays returns a service for Holiday entities under a parent.
 func (c *Client) HolidaySetHolidays(parentID int64) HolidayChildService {
 	base := baseService{
@@ -3245,18 +3907,15 @@ func (c *Client) HolidaySetHolidays(parentID int64) HolidayChildService {
 	}
 }
 
-// InventoryItemSerialNumbers returns a service for InventoryItemSerialNumber entities under a parent.
-func (c *Client) InventoryItemSerialNumbers(parentID int64) InventoryItemSerialNumberChildService {
+// InventoryProductStockedItemsAdd returns a service for InventoryStockedItemAdd entities under a parent.
+func (c *Client) InventoryProductStockedItemsAdd(parentID int64) InventoryStockedItemAddChildService {
 	base := baseService{
 		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/InventoryItems/%d/SerialNumbers", parentID),
-		entityName: "InventoryItemSerialNumber",
+		entityPath: fmt.Sprintf("/V1.0/InventoryProducts/%d/StockedItemsAdd", parentID),
+		entityName: "InventoryStockedItemAdd",
 	}
-	return InventoryItemSerialNumberChildService{
-		Reader:  Reader[InventoryItemSerialNumber]{baseService: base},
-		Creator: Creator[InventoryItemSerialNumber]{baseService: base},
-		Updater: Updater[InventoryItemSerialNumber]{baseService: base},
-		Patcher: Patcher[InventoryItemSerialNumber]{baseService: base},
+	return InventoryStockedItemAddChildService{
+		Creator: Creator[InventoryStockedItemAdd]{baseService: base},
 	}
 }
 
@@ -3274,6 +3933,30 @@ func (c *Client) InventoryProductStockedItems(parentID int64) InventoryStockedIt
 	}
 }
 
+// InventoryProductStockedItemsRemove returns a service for InventoryStockedItemRemove entities under a parent.
+func (c *Client) InventoryProductStockedItemsRemove(parentID int64) InventoryStockedItemRemoveChildService {
+	base := baseService{
+		client:     c,
+		entityPath: fmt.Sprintf("/V1.0/InventoryProducts/%d/StockedItemsRemove", parentID),
+		entityName: "InventoryStockedItemRemove",
+	}
+	return InventoryStockedItemRemoveChildService{
+		Creator: Creator[InventoryStockedItemRemove]{baseService: base},
+	}
+}
+
+// InventoryProductStockedItemsTransfer returns a service for InventoryStockedItemTransfer entities under a parent.
+func (c *Client) InventoryProductStockedItemsTransfer(parentID int64) InventoryStockedItemTransferChildService {
+	base := baseService{
+		client:     c,
+		entityPath: fmt.Sprintf("/V1.0/InventoryProducts/%d/StockedItemsTransfer", parentID),
+		entityName: "InventoryStockedItemTransfer",
+	}
+	return InventoryStockedItemTransferChildService{
+		Creator: Creator[InventoryStockedItemTransfer]{baseService: base},
+	}
+}
+
 // KnowledgeBaseCategoryKnowledgeBaseArticles returns a service for KnowledgeBaseArticle entities under a parent.
 func (c *Client) KnowledgeBaseCategoryKnowledgeBaseArticles(parentID int64) KnowledgeBaseArticleChildService {
 	base := baseService{
@@ -3287,20 +3970,6 @@ func (c *Client) KnowledgeBaseCategoryKnowledgeBaseArticles(parentID int64) Know
 		Updater: Updater[KnowledgeBaseArticle]{baseService: base},
 		Patcher: Patcher[KnowledgeBaseArticle]{baseService: base},
 		Deleter: Deleter[KnowledgeBaseArticle]{baseService: base},
-	}
-}
-
-// OpportunityAttachments returns a service for OpportunityAttachment entities under a parent.
-func (c *Client) OpportunityAttachments(parentID int64) OpportunityAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Opportunities/%d/Attachments", parentID),
-		entityName: "OpportunityAttachment",
-	}
-	return OpportunityAttachmentChildService{
-		Reader:  Reader[OpportunityAttachment]{baseService: base},
-		Creator: Creator[OpportunityAttachment]{baseService: base},
-		Deleter: Deleter[OpportunityAttachment]{baseService: base},
 	}
 }
 
@@ -3331,268 +4000,6 @@ func (c *Client) ProjectPhases(parentID int64) PhaseChildService {
 	}
 }
 
-// ProductNotes returns a service for ProductNote entities under a parent.
-func (c *Client) ProductNotes(parentID int64) ProductNoteChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Products/%d/Notes", parentID),
-		entityName: "ProductNote",
-	}
-	return ProductNoteChildService{
-		Reader:  Reader[ProductNote]{baseService: base},
-		Creator: Creator[ProductNote]{baseService: base},
-		Updater: Updater[ProductNote]{baseService: base},
-		Patcher: Patcher[ProductNote]{baseService: base},
-	}
-}
-
-// ProductTiers returns a service for ProductTier entities under a parent.
-func (c *Client) ProductTiers(parentID int64) ProductTierChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Products/%d/Tiers", parentID),
-		entityName: "ProductTier",
-	}
-	return ProductTierChildService{
-		Reader:  Reader[ProductTier]{baseService: base},
-		Creator: Creator[ProductTier]{baseService: base},
-		Updater: Updater[ProductTier]{baseService: base},
-		Patcher: Patcher[ProductTier]{baseService: base},
-		Deleter: Deleter[ProductTier]{baseService: base},
-	}
-}
-
-// ProductVendors returns a service for ProductVendor entities under a parent.
-func (c *Client) ProductVendors(parentID int64) ProductVendorChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Products/%d/Vendors", parentID),
-		entityName: "ProductVendor",
-	}
-	return ProductVendorChildService{
-		Reader:  Reader[ProductVendor]{baseService: base},
-		Creator: Creator[ProductVendor]{baseService: base},
-		Updater: Updater[ProductVendor]{baseService: base},
-		Patcher: Patcher[ProductVendor]{baseService: base},
-	}
-}
-
-// ProjectAttachments returns a service for ProjectAttachment entities under a parent.
-func (c *Client) ProjectAttachments(parentID int64) ProjectAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Projects/%d/Attachments", parentID),
-		entityName: "ProjectAttachment",
-	}
-	return ProjectAttachmentChildService{
-		Reader:  Reader[ProjectAttachment]{baseService: base},
-		Creator: Creator[ProjectAttachment]{baseService: base},
-		Deleter: Deleter[ProjectAttachment]{baseService: base},
-	}
-}
-
-// ProjectCharges returns a service for ProjectCharge entities under a parent.
-func (c *Client) ProjectCharges(parentID int64) ProjectChargeChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Projects/%d/Charges", parentID),
-		entityName: "ProjectCharge",
-	}
-	return ProjectChargeChildService{
-		Reader:  Reader[ProjectCharge]{baseService: base},
-		Creator: Creator[ProjectCharge]{baseService: base},
-		Updater: Updater[ProjectCharge]{baseService: base},
-		Patcher: Patcher[ProjectCharge]{baseService: base},
-		Deleter: Deleter[ProjectCharge]{baseService: base},
-	}
-}
-
-// ProjectNoteAttachments returns a service for ProjectNoteAttachment entities under a parent.
-func (c *Client) ProjectNoteAttachments(parentID int64) ProjectNoteAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ProjectNotes/%d/Attachments", parentID),
-		entityName: "ProjectNoteAttachment",
-	}
-	return ProjectNoteAttachmentChildService{
-		Reader:  Reader[ProjectNoteAttachment]{baseService: base},
-		Creator: Creator[ProjectNoteAttachment]{baseService: base},
-		Deleter: Deleter[ProjectNoteAttachment]{baseService: base},
-	}
-}
-
-// ProjectNotes returns a service for ProjectNote entities under a parent.
-func (c *Client) ProjectNotes(parentID int64) ProjectNoteChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Projects/%d/Notes", parentID),
-		entityName: "ProjectNote",
-	}
-	return ProjectNoteChildService{
-		Reader:  Reader[ProjectNote]{baseService: base},
-		Creator: Creator[ProjectNote]{baseService: base},
-		Updater: Updater[ProjectNote]{baseService: base},
-		Patcher: Patcher[ProjectNote]{baseService: base},
-	}
-}
-
-// PurchaseOrderItemReceiving returns a service for PurchaseOrderItemReceiving entities under a parent.
-func (c *Client) PurchaseOrderItemReceiving(parentID int64) PurchaseOrderItemReceivingChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/PurchaseOrderItems/%d/Receiving", parentID),
-		entityName: "PurchaseOrderItemReceiving",
-	}
-	return PurchaseOrderItemReceivingChildService{
-		Reader:  Reader[PurchaseOrderItemReceiving]{baseService: base},
-		Creator: Creator[PurchaseOrderItemReceiving]{baseService: base},
-	}
-}
-
-// PurchaseOrderItems returns a service for PurchaseOrderItem entities under a parent.
-func (c *Client) PurchaseOrderItems(parentID int64) PurchaseOrderItemChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/PurchaseOrders/%d/Items", parentID),
-		entityName: "PurchaseOrderItem",
-	}
-	return PurchaseOrderItemChildService{
-		Reader:  Reader[PurchaseOrderItem]{baseService: base},
-		Creator: Creator[PurchaseOrderItem]{baseService: base},
-		Updater: Updater[PurchaseOrderItem]{baseService: base},
-		Patcher: Patcher[PurchaseOrderItem]{baseService: base},
-	}
-}
-
-// QuoteItems returns a service for QuoteItem entities under a parent.
-func (c *Client) QuoteItems(parentID int64) QuoteItemChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Quotes/%d/Items", parentID),
-		entityName: "QuoteItem",
-	}
-	return QuoteItemChildService{
-		Reader:  Reader[QuoteItem]{baseService: base},
-		Creator: Creator[QuoteItem]{baseService: base},
-		Updater: Updater[QuoteItem]{baseService: base},
-		Patcher: Patcher[QuoteItem]{baseService: base},
-		Deleter: Deleter[QuoteItem]{baseService: base},
-	}
-}
-
-// ResourceAttachments returns a service for ResourceAttachment entities under a parent.
-func (c *Client) ResourceAttachments(parentID int64) ResourceAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Resources/%d/Attachments", parentID),
-		entityName: "ResourceAttachment",
-	}
-	return ResourceAttachmentChildService{
-		Reader:  Reader[ResourceAttachment]{baseService: base},
-		Creator: Creator[ResourceAttachment]{baseService: base},
-		Deleter: Deleter[ResourceAttachment]{baseService: base},
-	}
-}
-
-// ResourceDailyAvailabilities returns a service for ResourceDailyAvailability entities under a parent.
-func (c *Client) ResourceDailyAvailabilities(parentID int64) ResourceDailyAvailabilityChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Resources/%d/DailyAvailabilities", parentID),
-		entityName: "ResourceDailyAvailability",
-	}
-	return ResourceDailyAvailabilityChildService{
-		Reader:  Reader[ResourceDailyAvailability]{baseService: base},
-		Updater: Updater[ResourceDailyAvailability]{baseService: base},
-		Patcher: Patcher[ResourceDailyAvailability]{baseService: base},
-	}
-}
-
-// ResourceRoleDepartments returns a service for ResourceRoleDepartment entities under a parent.
-func (c *Client) ResourceRoleDepartments(parentID int64) ResourceRoleDepartmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Resources/%d/RoleDepartments", parentID),
-		entityName: "ResourceRoleDepartment",
-	}
-	return ResourceRoleDepartmentChildService{
-		Reader:  Reader[ResourceRoleDepartment]{baseService: base},
-		Creator: Creator[ResourceRoleDepartment]{baseService: base},
-		Updater: Updater[ResourceRoleDepartment]{baseService: base},
-		Patcher: Patcher[ResourceRoleDepartment]{baseService: base},
-	}
-}
-
-// ResourceRoleQueues returns a service for ResourceRoleQueue entities under a parent.
-func (c *Client) ResourceRoleQueues(parentID int64) ResourceRoleQueueChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Resources/%d/RoleQueues", parentID),
-		entityName: "ResourceRoleQueue",
-	}
-	return ResourceRoleQueueChildService{
-		Reader:  Reader[ResourceRoleQueue]{baseService: base},
-		Creator: Creator[ResourceRoleQueue]{baseService: base},
-		Updater: Updater[ResourceRoleQueue]{baseService: base},
-		Patcher: Patcher[ResourceRoleQueue]{baseService: base},
-	}
-}
-
-// ResourceRoles returns a service for ResourceRole entities under a parent.
-func (c *Client) ResourceRoles(parentID int64) ResourceRoleChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Resources/%d/Roles", parentID),
-		entityName: "ResourceRole",
-	}
-	return ResourceRoleChildService{
-		Reader: Reader[ResourceRole]{baseService: base},
-	}
-}
-
-// ResourceServiceDeskRoles returns a service for ResourceServiceDeskRole entities under a parent.
-func (c *Client) ResourceServiceDeskRoles(parentID int64) ResourceServiceDeskRoleChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Resources/%d/ServiceDeskRoles", parentID),
-		entityName: "ResourceServiceDeskRole",
-	}
-	return ResourceServiceDeskRoleChildService{
-		Reader:  Reader[ResourceServiceDeskRole]{baseService: base},
-		Creator: Creator[ResourceServiceDeskRole]{baseService: base},
-		Updater: Updater[ResourceServiceDeskRole]{baseService: base},
-		Patcher: Patcher[ResourceServiceDeskRole]{baseService: base},
-	}
-}
-
-// ResourceSkills returns a service for ResourceSkill entities under a parent.
-func (c *Client) ResourceSkills(parentID int64) ResourceSkillChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Resources/%d/Skills", parentID),
-		entityName: "ResourceSkill",
-	}
-	return ResourceSkillChildService{
-		Reader:  Reader[ResourceSkill]{baseService: base},
-		Updater: Updater[ResourceSkill]{baseService: base},
-		Patcher: Patcher[ResourceSkill]{baseService: base},
-	}
-}
-
-// SalesOrderAttachments returns a service for SalesOrderAttachment entities under a parent.
-func (c *Client) SalesOrderAttachments(parentID int64) SalesOrderAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/SalesOrders/%d/Attachments", parentID),
-		entityName: "SalesOrderAttachment",
-	}
-	return SalesOrderAttachmentChildService{
-		Reader:  Reader[SalesOrderAttachment]{baseService: base},
-		Creator: Creator[SalesOrderAttachment]{baseService: base},
-		Deleter: Deleter[SalesOrderAttachment]{baseService: base},
-	}
-}
-
 // OpportunitySalesOrders returns a service for SalesOrder entities under a parent.
 func (c *Client) OpportunitySalesOrders(parentID int64) SalesOrderChildService {
 	base := baseService{
@@ -3604,146 +4011,6 @@ func (c *Client) OpportunitySalesOrders(parentID int64) SalesOrderChildService {
 		Reader:  Reader[SalesOrder]{baseService: base},
 		Updater: Updater[SalesOrder]{baseService: base},
 		Patcher: Patcher[SalesOrder]{baseService: base},
-	}
-}
-
-// ServiceBundleServices returns a service for ServiceBundleService entities under a parent.
-func (c *Client) ServiceBundleServices(parentID int64) ServiceBundleServiceChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ServiceBundles/%d/Services", parentID),
-		entityName: "ServiceBundleService",
-	}
-	return ServiceBundleServiceChildService{
-		Reader:  Reader[ServiceBundleService]{baseService: base},
-		Creator: Creator[ServiceBundleService]{baseService: base},
-		Deleter: Deleter[ServiceBundleService]{baseService: base},
-	}
-}
-
-// ServiceCallTaskResources returns a service for ServiceCallTaskResource entities under a parent.
-func (c *Client) ServiceCallTaskResources(parentID int64) ServiceCallTaskResourceChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ServiceCallTasks/%d/Resources", parentID),
-		entityName: "ServiceCallTaskResource",
-	}
-	return ServiceCallTaskResourceChildService{
-		Reader:  Reader[ServiceCallTaskResource]{baseService: base},
-		Creator: Creator[ServiceCallTaskResource]{baseService: base},
-		Deleter: Deleter[ServiceCallTaskResource]{baseService: base},
-	}
-}
-
-// ServiceCallTasks returns a service for ServiceCallTask entities under a parent.
-func (c *Client) ServiceCallTasks(parentID int64) ServiceCallTaskChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ServiceCalls/%d/Tasks", parentID),
-		entityName: "ServiceCallTask",
-	}
-	return ServiceCallTaskChildService{
-		Reader:  Reader[ServiceCallTask]{baseService: base},
-		Creator: Creator[ServiceCallTask]{baseService: base},
-		Deleter: Deleter[ServiceCallTask]{baseService: base},
-	}
-}
-
-// ServiceCallTicketResources returns a service for ServiceCallTicketResource entities under a parent.
-func (c *Client) ServiceCallTicketResources(parentID int64) ServiceCallTicketResourceChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ServiceCallTickets/%d/Resources", parentID),
-		entityName: "ServiceCallTicketResource",
-	}
-	return ServiceCallTicketResourceChildService{
-		Reader:  Reader[ServiceCallTicketResource]{baseService: base},
-		Creator: Creator[ServiceCallTicketResource]{baseService: base},
-		Deleter: Deleter[ServiceCallTicketResource]{baseService: base},
-	}
-}
-
-// ServiceCallTickets returns a service for ServiceCallTicket entities under a parent.
-func (c *Client) ServiceCallTickets(parentID int64) ServiceCallTicketChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/ServiceCalls/%d/Tickets", parentID),
-		entityName: "ServiceCallTicket",
-	}
-	return ServiceCallTicketChildService{
-		Reader:  Reader[ServiceCallTicket]{baseService: base},
-		Creator: Creator[ServiceCallTicket]{baseService: base},
-		Deleter: Deleter[ServiceCallTicket]{baseService: base},
-	}
-}
-
-// SubscriptionPeriods returns a service for SubscriptionPeriod entities under a parent.
-func (c *Client) SubscriptionPeriods(parentID int64) SubscriptionPeriodChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Subscriptions/%d/Periods", parentID),
-		entityName: "SubscriptionPeriod",
-	}
-	return SubscriptionPeriodChildService{
-		Reader: Reader[SubscriptionPeriod]{baseService: base},
-	}
-}
-
-// TaskAttachments returns a service for TaskAttachment entities under a parent.
-func (c *Client) TaskAttachments(parentID int64) TaskAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tasks/%d/Attachments", parentID),
-		entityName: "TaskAttachment",
-	}
-	return TaskAttachmentChildService{
-		Reader:  Reader[TaskAttachment]{baseService: base},
-		Creator: Creator[TaskAttachment]{baseService: base},
-		Deleter: Deleter[TaskAttachment]{baseService: base},
-	}
-}
-
-// TaskNoteAttachments returns a service for TaskNoteAttachment entities under a parent.
-func (c *Client) TaskNoteAttachments(parentID int64) TaskNoteAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/TaskNotes/%d/Attachments", parentID),
-		entityName: "TaskNoteAttachment",
-	}
-	return TaskNoteAttachmentChildService{
-		Reader:  Reader[TaskNoteAttachment]{baseService: base},
-		Creator: Creator[TaskNoteAttachment]{baseService: base},
-		Deleter: Deleter[TaskNoteAttachment]{baseService: base},
-	}
-}
-
-// TaskPredecessors returns a service for TaskPredecessor entities under a parent.
-func (c *Client) TaskPredecessors(parentID int64) TaskPredecessorChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tasks/%d/Predecessors", parentID),
-		entityName: "TaskPredecessor",
-	}
-	return TaskPredecessorChildService{
-		Reader:  Reader[TaskPredecessor]{baseService: base},
-		Creator: Creator[TaskPredecessor]{baseService: base},
-		Updater: Updater[TaskPredecessor]{baseService: base},
-		Patcher: Patcher[TaskPredecessor]{baseService: base},
-		Deleter: Deleter[TaskPredecessor]{baseService: base},
-	}
-}
-
-// TaskSecondaryResources returns a service for TaskSecondaryResource entities under a parent.
-func (c *Client) TaskSecondaryResources(parentID int64) TaskSecondaryResourceChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tasks/%d/SecondaryResources", parentID),
-		entityName: "TaskSecondaryResource",
-	}
-	return TaskSecondaryResourceChildService{
-		Reader:  Reader[TaskSecondaryResource]{baseService: base},
-		Creator: Creator[TaskSecondaryResource]{baseService: base},
-		Deleter: Deleter[TaskSecondaryResource]{baseService: base},
 	}
 }
 
@@ -3762,257 +4029,6 @@ func (c *Client) ProjectTasks(parentID int64) TaskChildService {
 	}
 }
 
-// TicketAdditionalConfigurationItems returns a service for TicketAdditionalConfigurationItem entities under a parent.
-func (c *Client) TicketAdditionalConfigurationItems(parentID int64) TicketAdditionalConfigurationItemChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tickets/%d/AdditionalConfigurationItems", parentID),
-		entityName: "TicketAdditionalConfigurationItem",
-	}
-	return TicketAdditionalConfigurationItemChildService{
-		Reader:  Reader[TicketAdditionalConfigurationItem]{baseService: base},
-		Creator: Creator[TicketAdditionalConfigurationItem]{baseService: base},
-		Deleter: Deleter[TicketAdditionalConfigurationItem]{baseService: base},
-	}
-}
-
-// TicketAdditionalContacts returns a service for TicketAdditionalContact entities under a parent.
-func (c *Client) TicketAdditionalContacts(parentID int64) TicketAdditionalContactChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tickets/%d/AdditionalContacts", parentID),
-		entityName: "TicketAdditionalContact",
-	}
-	return TicketAdditionalContactChildService{
-		Reader:  Reader[TicketAdditionalContact]{baseService: base},
-		Creator: Creator[TicketAdditionalContact]{baseService: base},
-		Deleter: Deleter[TicketAdditionalContact]{baseService: base},
-	}
-}
-
-// TicketAttachments returns a service for TicketAttachment entities under a parent.
-func (c *Client) TicketAttachments(parentID int64) TicketAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tickets/%d/Attachments", parentID),
-		entityName: "TicketAttachment",
-	}
-	return TicketAttachmentChildService{
-		Reader:  Reader[TicketAttachment]{baseService: base},
-		Creator: Creator[TicketAttachment]{baseService: base},
-		Deleter: Deleter[TicketAttachment]{baseService: base},
-	}
-}
-
-// TicketChangeRequestApprovals returns a service for TicketChangeRequestApproval entities under a parent.
-func (c *Client) TicketChangeRequestApprovals(parentID int64) TicketChangeRequestApprovalChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tickets/%d/ChangeRequestApprovals", parentID),
-		entityName: "TicketChangeRequestApproval",
-	}
-	return TicketChangeRequestApprovalChildService{
-		Reader:  Reader[TicketChangeRequestApproval]{baseService: base},
-		Creator: Creator[TicketChangeRequestApproval]{baseService: base},
-		Deleter: Deleter[TicketChangeRequestApproval]{baseService: base},
-	}
-}
-
-// TicketCharges returns a service for TicketCharge entities under a parent.
-func (c *Client) TicketCharges(parentID int64) TicketChargeChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tickets/%d/Charges", parentID),
-		entityName: "TicketCharge",
-	}
-	return TicketChargeChildService{
-		Reader:  Reader[TicketCharge]{baseService: base},
-		Creator: Creator[TicketCharge]{baseService: base},
-		Updater: Updater[TicketCharge]{baseService: base},
-		Patcher: Patcher[TicketCharge]{baseService: base},
-		Deleter: Deleter[TicketCharge]{baseService: base},
-	}
-}
-
-// TicketChecklistItems returns a service for TicketChecklistItem entities under a parent.
-func (c *Client) TicketChecklistItems(parentID int64) TicketChecklistItemChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tickets/%d/ChecklistItems", parentID),
-		entityName: "TicketChecklistItem",
-	}
-	return TicketChecklistItemChildService{
-		Reader:  Reader[TicketChecklistItem]{baseService: base},
-		Creator: Creator[TicketChecklistItem]{baseService: base},
-		Updater: Updater[TicketChecklistItem]{baseService: base},
-		Patcher: Patcher[TicketChecklistItem]{baseService: base},
-		Deleter: Deleter[TicketChecklistItem]{baseService: base},
-	}
-}
-
-// TicketNoteAttachments returns a service for TicketNoteAttachment entities under a parent.
-func (c *Client) TicketNoteAttachments(parentID int64) TicketNoteAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/TicketNotes/%d/Attachments", parentID),
-		entityName: "TicketNoteAttachment",
-	}
-	return TicketNoteAttachmentChildService{
-		Reader:  Reader[TicketNoteAttachment]{baseService: base},
-		Creator: Creator[TicketNoteAttachment]{baseService: base},
-		Deleter: Deleter[TicketNoteAttachment]{baseService: base},
-	}
-}
-
-// TicketNoteWebhookExcludedResources returns a service for TicketNoteWebhookExcludedResource entities under a parent.
-func (c *Client) TicketNoteWebhookExcludedResources(parentID int64) TicketNoteWebhookExcludedResourceChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/TicketNoteWebhooks/%d/ExcludedResources", parentID),
-		entityName: "TicketNoteWebhookExcludedResource",
-	}
-	return TicketNoteWebhookExcludedResourceChildService{
-		Reader:  Reader[TicketNoteWebhookExcludedResource]{baseService: base},
-		Creator: Creator[TicketNoteWebhookExcludedResource]{baseService: base},
-		Deleter: Deleter[TicketNoteWebhookExcludedResource]{baseService: base},
-	}
-}
-
-// TicketNoteWebhookFields returns a service for TicketNoteWebhookField entities under a parent.
-func (c *Client) TicketNoteWebhookFields(parentID int64) TicketNoteWebhookFieldChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/TicketNoteWebhooks/%d/Fields", parentID),
-		entityName: "TicketNoteWebhookField",
-	}
-	return TicketNoteWebhookFieldChildService{
-		Reader:  Reader[TicketNoteWebhookField]{baseService: base},
-		Creator: Creator[TicketNoteWebhookField]{baseService: base},
-		Updater: Updater[TicketNoteWebhookField]{baseService: base},
-		Patcher: Patcher[TicketNoteWebhookField]{baseService: base},
-		Deleter: Deleter[TicketNoteWebhookField]{baseService: base},
-	}
-}
-
-// TicketNotes returns a service for TicketNote entities under a parent.
-func (c *Client) TicketNotes(parentID int64) TicketNoteChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tickets/%d/Notes", parentID),
-		entityName: "TicketNote",
-	}
-	return TicketNoteChildService{
-		Reader:  Reader[TicketNote]{baseService: base},
-		Creator: Creator[TicketNote]{baseService: base},
-		Updater: Updater[TicketNote]{baseService: base},
-		Patcher: Patcher[TicketNote]{baseService: base},
-	}
-}
-
-// TicketRmaCredits returns a service for TicketRmaCredit entities under a parent.
-func (c *Client) TicketRmaCredits(parentID int64) TicketRmaCreditChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tickets/%d/RmaCredits", parentID),
-		entityName: "TicketRmaCredit",
-	}
-	return TicketRmaCreditChildService{
-		Reader:  Reader[TicketRmaCredit]{baseService: base},
-		Creator: Creator[TicketRmaCredit]{baseService: base},
-		Updater: Updater[TicketRmaCredit]{baseService: base},
-		Patcher: Patcher[TicketRmaCredit]{baseService: base},
-		Deleter: Deleter[TicketRmaCredit]{baseService: base},
-	}
-}
-
-// TicketSecondaryResources returns a service for TicketSecondaryResource entities under a parent.
-func (c *Client) TicketSecondaryResources(parentID int64) TicketSecondaryResourceChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tickets/%d/SecondaryResources", parentID),
-		entityName: "TicketSecondaryResource",
-	}
-	return TicketSecondaryResourceChildService{
-		Reader:  Reader[TicketSecondaryResource]{baseService: base},
-		Creator: Creator[TicketSecondaryResource]{baseService: base},
-		Deleter: Deleter[TicketSecondaryResource]{baseService: base},
-	}
-}
-
-// TicketTagAssociations returns a service for TicketTagAssociation entities under a parent.
-func (c *Client) TicketTagAssociations(parentID int64) TicketTagAssociationChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/Tickets/%d/TagAssociations", parentID),
-		entityName: "TicketTagAssociation",
-	}
-	return TicketTagAssociationChildService{
-		Reader:  Reader[TicketTagAssociation]{baseService: base},
-		Creator: Creator[TicketTagAssociation]{baseService: base},
-		Deleter: Deleter[TicketTagAssociation]{baseService: base},
-	}
-}
-
-// TicketWebhookExcludedResources returns a service for TicketWebhookExcludedResource entities under a parent.
-func (c *Client) TicketWebhookExcludedResources(parentID int64) TicketWebhookExcludedResourceChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/TicketWebhooks/%d/ExcludedResources", parentID),
-		entityName: "TicketWebhookExcludedResource",
-	}
-	return TicketWebhookExcludedResourceChildService{
-		Reader:  Reader[TicketWebhookExcludedResource]{baseService: base},
-		Creator: Creator[TicketWebhookExcludedResource]{baseService: base},
-		Deleter: Deleter[TicketWebhookExcludedResource]{baseService: base},
-	}
-}
-
-// TicketWebhookFields returns a service for TicketWebhookField entities under a parent.
-func (c *Client) TicketWebhookFields(parentID int64) TicketWebhookFieldChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/TicketWebhooks/%d/Fields", parentID),
-		entityName: "TicketWebhookField",
-	}
-	return TicketWebhookFieldChildService{
-		Reader:  Reader[TicketWebhookField]{baseService: base},
-		Creator: Creator[TicketWebhookField]{baseService: base},
-		Updater: Updater[TicketWebhookField]{baseService: base},
-		Patcher: Patcher[TicketWebhookField]{baseService: base},
-		Deleter: Deleter[TicketWebhookField]{baseService: base},
-	}
-}
-
-// TicketWebhookUdfFields returns a service for TicketWebhookUdfField entities under a parent.
-func (c *Client) TicketWebhookUdfFields(parentID int64) TicketWebhookUdfFieldChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/TicketWebhooks/%d/UdfFields", parentID),
-		entityName: "TicketWebhookUdfField",
-	}
-	return TicketWebhookUdfFieldChildService{
-		Reader:  Reader[TicketWebhookUdfField]{baseService: base},
-		Creator: Creator[TicketWebhookUdfField]{baseService: base},
-		Updater: Updater[TicketWebhookUdfField]{baseService: base},
-		Patcher: Patcher[TicketWebhookUdfField]{baseService: base},
-		Deleter: Deleter[TicketWebhookUdfField]{baseService: base},
-	}
-}
-
-// TimeEntryAttachments returns a service for TimeEntryAttachment entities under a parent.
-func (c *Client) TimeEntryAttachments(parentID int64) TimeEntryAttachmentChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/TimeEntries/%d/Attachments", parentID),
-		entityName: "TimeEntryAttachment",
-	}
-	return TimeEntryAttachmentChildService{
-		Reader:  Reader[TimeEntryAttachment]{baseService: base},
-		Creator: Creator[TimeEntryAttachment]{baseService: base},
-		Deleter: Deleter[TimeEntryAttachment]{baseService: base},
-	}
-}
-
 // ResourceTimeOffRequests returns a service for TimeOffRequest entities under a parent.
 func (c *Client) ResourceTimeOffRequests(parentID int64) TimeOffRequestChildService {
 	base := baseService{
@@ -4025,20 +4041,5 @@ func (c *Client) ResourceTimeOffRequests(parentID int64) TimeOffRequestChildServ
 		Creator: Creator[TimeOffRequest]{baseService: base},
 		Updater: Updater[TimeOffRequest]{baseService: base},
 		Patcher: Patcher[TimeOffRequest]{baseService: base},
-	}
-}
-
-// UserDefinedFieldListItems returns a service for UserDefinedFieldListItem entities under a parent.
-func (c *Client) UserDefinedFieldListItems(parentID int64) UserDefinedFieldListItemChildService {
-	base := baseService{
-		client:     c,
-		entityPath: fmt.Sprintf("/V1.0/UserDefinedFields/%d/ListItems", parentID),
-		entityName: "UserDefinedFieldListItem",
-	}
-	return UserDefinedFieldListItemChildService{
-		Reader:  Reader[UserDefinedFieldListItem]{baseService: base},
-		Creator: Creator[UserDefinedFieldListItem]{baseService: base},
-		Updater: Updater[UserDefinedFieldListItem]{baseService: base},
-		Patcher: Patcher[UserDefinedFieldListItem]{baseService: base},
 	}
 }
