@@ -62,6 +62,7 @@ func main() {
 	}
 
 	ctx := context.Background()
+	pl := autotask.NewPicklist(client)
 
 	switch cmd {
 	case "whoami":
@@ -70,12 +71,12 @@ func main() {
 		if len(rest) == 0 {
 			fatal("usage: autotask ticket <number-or-id>")
 		}
-		cmdTicket(ctx, client, rest[0], jsonOutput)
+		cmdTicket(ctx, client, pl, rest[0], jsonOutput)
 	case "tickets":
 		if len(rest) == 0 {
 			fatal("usage: autotask tickets <search-term>")
 		}
-		cmdTickets(ctx, client, strings.Join(rest, " "), jsonOutput)
+		cmdTickets(ctx, client, pl, strings.Join(rest, " "), jsonOutput)
 	case "company":
 		if len(rest) == 0 {
 			fatal("usage: autotask company <id-or-name>")
@@ -182,7 +183,7 @@ func cmdWhoami(ctx context.Context, client *autotask.Client, jsonOut bool) {
 }
 
 // cmdTicket looks up a single ticket by display number or internal ID.
-func cmdTicket(ctx context.Context, client *autotask.Client, query string, jsonOut bool) {
+func cmdTicket(ctx context.Context, client *autotask.Client, pl *autotask.Picklist, query string, jsonOut bool) {
 	var ticket *autotask.Ticket
 
 	// If it's purely numeric, treat it as an internal ID.
@@ -212,11 +213,18 @@ func cmdTicket(ctx context.Context, client *autotask.Client, query string, jsonO
 		return
 	}
 
+	// Resolve picklist values for human-readable output.
+	labels, _ := pl.ResolveAll(ctx, "/V1.0/Tickets", map[string]int64{
+		"status":   deref(ticket.Status),
+		"priority": deref(ticket.Priority),
+		"queueID":  deref(ticket.QueueID),
+	})
+
 	fmt.Printf("Ticket: %s (ID: %d)\n", deref(ticket.TicketNumber), deref(ticket.ID))
 	fmt.Printf("  Title:       %s\n", deref(ticket.Title))
-	fmt.Printf("  Status:      %d\n", deref(ticket.Status))
-	fmt.Printf("  Priority:    %d\n", deref(ticket.Priority))
-	fmt.Printf("  Queue:       %d\n", deref(ticket.QueueID))
+	fmt.Printf("  Status:      %s\n", labels["status"])
+	fmt.Printf("  Priority:    %s\n", labels["priority"])
+	fmt.Printf("  Queue:       %s\n", labels["queueID"])
 	fmt.Printf("  Company:     %d\n", deref(ticket.CompanyID))
 	fmt.Printf("  Assigned To: %d\n", deref(ticket.AssignedResourceID))
 	fmt.Printf("  Created:     %s\n", deref(ticket.CreateDate))
@@ -231,11 +239,12 @@ func cmdTicket(ctx context.Context, client *autotask.Client, query string, jsonO
 
 // cmdTickets searches tickets across title, description, and ticket notes.
 //
+//
 // This demonstrates a practical multi-source search pattern: query the main
 // entity for text field matches, then also search the TicketNotes entity
 // (which has a top-level query endpoint) for note content matches. Results
 // are merged and deduplicated by ticket ID.
-func cmdTickets(ctx context.Context, client *autotask.Client, search string, jsonOut bool) {
+func cmdTickets(ctx context.Context, client *autotask.Client, pl *autotask.Picklist, search string, jsonOut bool) {
 	// Search ticket fields: title, description, and ticket number.
 	ticketFilter := autotask.Filter(
 		autotask.Or(
@@ -338,17 +347,18 @@ func cmdTickets(ctx context.Context, client *autotask.Client, search string, jso
 		display = display[:25]
 	}
 
-	fmt.Printf("%-16s %-8s %-6s %s\n", "NUMBER", "ID", "STATUS", "TITLE")
-	fmt.Println(strings.Repeat("-", 72))
+	fmt.Printf("%-16s %-8s %-18s %s\n", "NUMBER", "ID", "STATUS", "TITLE")
+	fmt.Println(strings.Repeat("-", 80))
 	for _, t := range display {
 		title := deref(t.Title)
-		if len(title) > 40 {
-			title = title[:37] + "..."
+		if len(title) > 38 {
+			title = title[:35] + "..."
 		}
-		fmt.Printf("%-16s %-8d %-6d %s\n",
+		status, _ := pl.Resolve(ctx, "/V1.0/Tickets", "status", deref(t.Status))
+		fmt.Printf("%-16s %-8d %-18s %s\n",
 			deref(t.TicketNumber),
 			deref(t.ID),
-			deref(t.Status),
+			status,
 			title,
 		)
 	}
