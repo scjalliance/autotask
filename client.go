@@ -36,6 +36,9 @@ type Config struct {
 	RateLimitThreshold int
 	// DisableRateLimitTracking disables automatic rate limit tracking and backoff.
 	DisableRateLimitTracking bool
+	// MaxRetries is the number of times to retry on transient failures (5xx,
+	// network errors). Defaults to 3. Set to 0 to disable retries.
+	MaxRetries int
 }
 
 type impersonationKey struct{}
@@ -82,6 +85,9 @@ func NewClient(cfg Config) (*Client, error) {
 
 	if cfg.RateLimitThreshold <= 0 {
 		cfg.RateLimitThreshold = defaultRateLimit
+	}
+	if cfg.MaxRetries <= 0 {
+		cfg.MaxRetries = 3
 	}
 
 	c := &Client{
@@ -213,13 +219,14 @@ type pageDetails struct {
 func (c *Client) doRequest(ctx context.Context, method, path string, body any) (*apiResponse, error) {
 	c.trackRequest()
 
-	var bodyReader io.Reader
+	// Marshal body once so it can be replayed on retries.
+	var bodyBytes []byte
 	if body != nil {
 		b, err := json.Marshal(body)
 		if err != nil {
 			return nil, fmt.Errorf("autotask: marshaling request body: %w", err)
 		}
-		bodyReader = bytes.NewReader(b)
+		bodyBytes = b
 	}
 
 	// Support absolute URLs (e.g. pagination nextPageUrl) as-is.
@@ -230,39 +237,67 @@ func (c *Client) doRequest(ctx context.Context, method, path string, body any) (
 		fullURL = c.baseURL + path
 	}
 
-	req, err := http.NewRequestWithContext(ctx, method, fullURL, bodyReader)
-	if err != nil {
-		return nil, fmt.Errorf("autotask: building request: %w", err)
-	}
-	c.setAuthHeaders(ctx, req)
-
-	resp, err := c.http.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("autotask: executing request: %w", err)
-	}
-	defer resp.Body.Close()
-
-	rawBody, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("autotask: reading response body: %w", err)
-	}
-
-	var apiResp apiResponse
-	if len(rawBody) > 0 {
-		if err := json.Unmarshal(rawBody, &apiResp); err != nil {
-			return nil, fmt.Errorf("autotask: decoding response: %w", err)
+	var lastErr error
+	for attempt := range c.config.MaxRetries {
+		if attempt > 0 {
+			// Exponential backoff: 500ms, 1s, 2s, ...
+			delay := time.Duration(1<<uint(attempt-1)) * 500 * time.Millisecond
+			select {
+			case <-ctx.Done():
+				return nil, ctx.Err()
+			case <-time.After(delay):
+			}
 		}
-		apiResp.RawBody = json.RawMessage(rawBody)
-	}
 
-	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
-		return nil, &APIError{
-			StatusCode: resp.StatusCode,
-			Errors:     apiResp.Errors,
+		var reqBody io.Reader
+		if bodyBytes != nil {
+			reqBody = bytes.NewReader(bodyBytes)
 		}
+
+		req, err := http.NewRequestWithContext(ctx, method, fullURL, reqBody)
+		if err != nil {
+			return nil, fmt.Errorf("autotask: building request: %w", err)
+		}
+		c.setAuthHeaders(ctx, req)
+
+		resp, err := c.http.Do(req)
+		if err != nil {
+			lastErr = fmt.Errorf("autotask: executing request: %w", err)
+			continue // network error — retry
+		}
+
+		rawBody, err := io.ReadAll(resp.Body)
+		resp.Body.Close()
+		if err != nil {
+			lastErr = fmt.Errorf("autotask: reading response body: %w", err)
+			continue
+		}
+
+		// 5xx → transient server error, retry
+		if resp.StatusCode >= 500 {
+			lastErr = &APIError{StatusCode: resp.StatusCode, Errors: []string{string(rawBody)}}
+			continue
+		}
+
+		var apiResp apiResponse
+		if len(rawBody) > 0 {
+			if err := json.Unmarshal(rawBody, &apiResp); err != nil {
+				return nil, fmt.Errorf("autotask: decoding response: %w", err)
+			}
+			apiResp.RawBody = json.RawMessage(rawBody)
+		}
+
+		if resp.StatusCode < 200 || resp.StatusCode >= 300 {
+			return nil, &APIError{
+				StatusCode: resp.StatusCode,
+				Errors:     apiResp.Errors,
+			}
+		}
+
+		return &apiResp, nil
 	}
 
-	return &apiResp, nil
+	return nil, lastErr
 }
 
 // doGet performs a GET request against path (relative or absolute).
