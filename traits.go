@@ -177,14 +177,28 @@ type EntityInfo struct {
 
 // FieldDefinition describes a single field on an Autotask entity type.
 type FieldDefinition struct {
-	Name            string `json:"name"`
-	DataType        string `json:"dataType"`
-	IsRequired      bool   `json:"isRequired"`
-	IsReadOnly      bool   `json:"isReadOnly"`
-	IsQueryable     bool   `json:"isQueryable"`
-	MaxLength       int    `json:"maxLength"`
-	IsReference     bool   `json:"isReference"`
-	ReferenceEntity string `json:"referenceEntityType"`
+	Name            string          `json:"name"`
+	DataType        string          `json:"dataType"`
+	Length          int             `json:"length"`
+	IsRequired      bool            `json:"isRequired"`
+	IsReadOnly      bool            `json:"isReadOnly"`
+	IsQueryable     bool            `json:"isQueryable"`
+	MaxLength       int             `json:"maxLength"`
+	IsReference     bool            `json:"isReference"`
+	ReferenceEntity string          `json:"referenceEntityType"`
+	IsPickList      bool            `json:"isPickList"`
+	PicklistValues  []PicklistValue `json:"picklistValues"`
+}
+
+// PicklistValue is a single allowed value for a picklist field.
+type PicklistValue struct {
+	Value          string `json:"value"`
+	Label          string `json:"label"`
+	IsDefaultValue bool   `json:"isDefaultValue"`
+	SortOrder      int    `json:"sortOrder"`
+	ParentValue    string `json:"parentValue"`
+	IsActive       bool   `json:"isActive"`
+	IsSystem       bool   `json:"isSystem"`
 }
 
 // EntityInfo returns metadata about the entity type, including which operations
