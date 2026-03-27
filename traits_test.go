@@ -248,3 +248,100 @@ func TestDeleter_Delete(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 }
+
+func TestReader_EntityInfo(t *testing.T) {
+	srv, _, base := setupTestService(func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			t.Errorf("expected GET, got %s", r.Method)
+		}
+		if r.URL.Path != "/V1.0/TestEntities/entityInformation" {
+			t.Errorf("unexpected path: %s", r.URL.Path)
+		}
+		json.NewEncoder(w).Encode(map[string]any{
+			"name":                 "TestEntity",
+			"canCreate":            true,
+			"canUpdate":            true,
+			"canDelete":            false,
+			"canQuery":             true,
+			"hasUserDefinedFields": true,
+		})
+	})
+	defer srv.Close()
+
+	reader := &Reader[testEntity]{*base}
+	info, err := reader.EntityInfo(context.Background())
+	if err != nil {
+		t.Fatal(err)
+	}
+	if info.Name != "TestEntity" || !info.CanCreate {
+		t.Errorf("unexpected EntityInfo: %+v", info)
+	}
+	if !info.CanQuery || !info.CanUpdate || info.CanDelete {
+		t.Errorf("unexpected capability flags: %+v", info)
+	}
+	if !info.HasUserDefinedFields {
+		t.Errorf("expected HasUserDefinedFields=true, got false")
+	}
+}
+
+func TestReader_FieldDefinitions(t *testing.T) {
+	srv, _, base := setupTestService(func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			t.Errorf("expected GET, got %s", r.Method)
+		}
+		if r.URL.Path != "/V1.0/TestEntities/entityInformation/fields" {
+			t.Errorf("unexpected path: %s", r.URL.Path)
+		}
+		json.NewEncoder(w).Encode(map[string]any{
+			"fields": []map[string]any{
+				{"name": "id", "dataType": "integer", "isRequired": true},
+				{"name": "name", "dataType": "string", "isRequired": false},
+			},
+		})
+	})
+	defer srv.Close()
+
+	reader := &Reader[testEntity]{*base}
+	fields, err := reader.FieldDefinitions(context.Background())
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(fields) != 2 {
+		t.Fatalf("expected 2 fields, got %d", len(fields))
+	}
+	if fields[0].Name != "id" || fields[0].DataType != "integer" || !fields[0].IsRequired {
+		t.Errorf("unexpected first field: %+v", fields[0])
+	}
+	if fields[1].Name != "name" || fields[1].DataType != "string" || fields[1].IsRequired {
+		t.Errorf("unexpected second field: %+v", fields[1])
+	}
+}
+
+func TestReader_UDFDefinitions(t *testing.T) {
+	srv, _, base := setupTestService(func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			t.Errorf("expected GET, got %s", r.Method)
+		}
+		if r.URL.Path != "/V1.0/TestEntities/entityInformation/userDefinedFields" {
+			t.Errorf("unexpected path: %s", r.URL.Path)
+		}
+		json.NewEncoder(w).Encode(map[string]any{
+			"fields": []map[string]any{
+				{"name": "UDF_Priority", "dataType": "string", "isRequired": false, "isReadOnly": false},
+			},
+		})
+	})
+	defer srv.Close()
+
+	reader := &Reader[testEntity]{*base}
+	udfs, err := reader.UDFDefinitions(context.Background())
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(udfs) != 1 {
+		t.Fatalf("expected 1 UDF, got %d", len(udfs))
+	}
+	if udfs[0].Name != "UDF_Priority" || udfs[0].DataType != "string" {
+		t.Errorf("unexpected UDF: %+v", udfs[0])
+	}
+}

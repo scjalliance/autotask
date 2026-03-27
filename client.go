@@ -194,6 +194,11 @@ type apiResponse struct {
 	PageDetails *pageDetails      `json:"pageDetails"`
 	Errors      []string          `json:"errors"`
 	QueryCount  *int64            `json:"queryCount"`
+
+	// RawBody holds the full unparsed response body for endpoints that return
+	// data at the root level rather than nested under item/items (e.g. entity
+	// information endpoints).
+	RawBody json.RawMessage `json:"-"`
 }
 
 type pageDetails struct {
@@ -247,6 +252,7 @@ func (c *Client) doRequest(ctx context.Context, method, path string, body any) (
 		if err := json.Unmarshal(rawBody, &apiResp); err != nil {
 			return nil, fmt.Errorf("autotask: decoding response: %w", err)
 		}
+		apiResp.RawBody = json.RawMessage(rawBody)
 	}
 
 	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
