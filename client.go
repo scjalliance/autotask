@@ -48,6 +48,8 @@ func WithImpersonation(ctx context.Context, resourceID int64) context.Context {
 
 // Client is an authenticated HTTP client for the Autotask PSA REST API.
 type Client struct {
+	entityServiceFields // generated entity services
+
 	config  Config
 	http    *http.Client
 	baseURL string
@@ -97,6 +99,7 @@ func NewClient(cfg Config) (*Client, error) {
 		c.baseURL = base
 	}
 
+	c.initServices()
 	return c, nil
 }
 
