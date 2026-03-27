@@ -289,3 +289,15 @@ func (c *Client) doPatch(ctx context.Context, path string, body any) (*apiRespon
 func (c *Client) doDelete(ctx context.Context, path string) (*apiResponse, error) {
 	return c.doRequest(ctx, http.MethodDelete, path, nil)
 }
+
+// QueryTicketNotes searches ticket notes across all tickets using the
+// top-level /V1.0/TicketNotes/query endpoint. This is useful for searching
+// note content without knowing the parent ticket ID upfront.
+func (c *Client) QueryTicketNotes(ctx context.Context, opts ...FilterOption) ([]*TicketNote, error) {
+	r := Reader[TicketNote]{baseService: baseService{
+		client:     c,
+		entityPath: "/V1.0/TicketNotes",
+		entityName: "TicketNote",
+	}}
+	return r.Query(ctx, opts...)
+}
