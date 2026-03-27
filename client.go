@@ -190,6 +190,7 @@ type apiResponse struct {
 	Items       []json.RawMessage `json:"items"`
 	PageDetails *pageDetails      `json:"pageDetails"`
 	Errors      []string          `json:"errors"`
+	QueryCount  *int64            `json:"queryCount"`
 }
 
 type pageDetails struct {
