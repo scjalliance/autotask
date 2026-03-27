@@ -76,7 +76,7 @@ type Deleter[T any] struct { base *baseService }
 
 Methods on each trait:
 
-- **Reader[T]:** `Get(ctx, id)`, `Query(ctx, ...FilterOption)`, `QueryIter(ctx, ...FilterOption)`, `Count(ctx, ...FilterOption)`, `EntityInfo(ctx)`, `FieldDefinitions(ctx)`, `UDFDefinitions(ctx)`
+- **Reader[T]:** `Get(ctx, id) (*T, error)`, `Query(ctx, ...FilterOption) ([]*T, error)`, `QueryIter(ctx, ...FilterOption) iter.Seq2[*T, error]`, `Count(ctx, ...FilterOption) (int64, error)`, `EntityInfo(ctx)`, `FieldDefinitions(ctx)`, `UDFDefinitions(ctx)`
 - **Creator[T]:** `Create(ctx, *T)`
 - **Updater[T]:** `Update(ctx, *T)`
 - **Patcher[T]:** `Patch(ctx, id, PatchData)` — `PatchData` is `map[string]any`, allowing callers to send only the fields they want to change. For type-safe patching, callers can also use `Update` with a `*T` where only the desired pointer fields are non-nil.
@@ -138,7 +138,7 @@ client.CompanyLocations(parentID)  // CompanyLocationChildService
 func (c *Client) TicketNotes(parentID int64) TicketNoteChildService {
     return TicketNoteChildService{
         Reader: Reader[TicketNote]{base: &baseService{
-            client:     c.client,
+            client:     c,
             entityPath: fmt.Sprintf("/V1.0/Tickets/%d/Notes", parentID),
             entityName: "TicketNote",
         }},
@@ -192,7 +192,7 @@ Filter serializes to the JSON structure the API expects:
 
 ### Pagination
 
-- `Query()` returns `[]T` — auto-pages internally, collects all results.
+- `Query()` returns `[]*T` — auto-pages internally, collects all results.
 - `QueryIter()` returns `iter.Seq2[*T, error]` — streams results, fetches next page on demand. Context cancellation stops iteration; partial results are not returned (callers accumulate in their own loop if they want partial).
 - Follows `nextPageUrl` from `pageDetails` in each response.
 - `Count()` uses the `/query/count` endpoint for efficient counting without fetching data.
@@ -239,7 +239,9 @@ type APIError struct {
 }
 ```
 
-Standard `errors.Is` / `errors.As` support.
+Sentinel errors are matched by status code: `APIError{StatusCode: 404}` matches `ErrNotFound` via an `Is` method on `APIError`. Callers use `errors.Is(err, autotask.ErrNotFound)` for sentinel checks and `errors.As(err, &apiErr)` to access the full error detail including the `Errors` string slice.
+
+The API wraps all responses in an envelope: `{"item": ...}` for single-entity GETs, `{"items": [...], "pageDetails": {...}}` for queries. The client handles envelope parsing internally — callers receive unwrapped types.
 
 ### Code Generation
 
