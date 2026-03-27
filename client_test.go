@@ -75,6 +75,34 @@ func TestClient_ImpersonationHeader(t *testing.T) {
 	}
 }
 
+func TestClient_ZoneDetection_Skipped(t *testing.T) {
+	calls := 0
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		calls++
+		json.NewEncoder(w).Encode(map[string]any{"item": map[string]any{"id": 1}})
+	}))
+	defer srv.Close()
+
+	c, _ := NewClient(Config{
+		Username: "test@test.com", Secret: "secret", IntegrationCode: "TEST",
+		BaseURL: srv.URL, DisableRateLimitTracking: true,
+	})
+	c.doGet(context.Background(), "/V1.0/Tickets/1")
+	if calls != 1 {
+		t.Errorf("expected 1 call (no zone detection), got %d", calls)
+	}
+}
+
+func TestClient_ResolveBaseURL(t *testing.T) {
+	c, _ := NewClient(Config{
+		Username: "test@test.com", Secret: "secret", IntegrationCode: "TEST",
+		BaseURL: "https://example.com", DisableRateLimitTracking: true,
+	})
+	if c.baseURL != "https://example.com" {
+		t.Errorf("expected https://example.com, got %s", c.baseURL)
+	}
+}
+
 func TestClient_ErrorResponse(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(404)
