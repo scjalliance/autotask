@@ -164,3 +164,81 @@ func (d *Deleter[T]) Delete(ctx context.Context, id int64) error {
 	_, err := d.client.doDelete(ctx, fmt.Sprintf("%s/%d", d.entityPath, id))
 	return err
 }
+
+// EntityInfo describes the capabilities and metadata of an Autotask entity type.
+type EntityInfo struct {
+	Name                 string `json:"name"`
+	CanCreate            bool   `json:"canCreate"`
+	CanUpdate            bool   `json:"canUpdate"`
+	CanDelete            bool   `json:"canDelete"`
+	CanQuery             bool   `json:"canQuery"`
+	HasUserDefinedFields bool   `json:"hasUserDefinedFields"`
+}
+
+// FieldDefinition describes a single field on an Autotask entity type.
+type FieldDefinition struct {
+	Name            string `json:"name"`
+	DataType        string `json:"dataType"`
+	IsRequired      bool   `json:"isRequired"`
+	IsReadOnly      bool   `json:"isReadOnly"`
+	IsQueryable     bool   `json:"isQueryable"`
+	MaxLength       int    `json:"maxLength"`
+	IsReference     bool   `json:"isReference"`
+	ReferenceEntity string `json:"referenceEntityType"`
+}
+
+// EntityInfo returns metadata about the entity type, including which operations
+// are permitted and whether user-defined fields exist.
+// It calls GET {entityPath}/entityInformation.
+func (r *Reader[T]) EntityInfo(ctx context.Context) (*EntityInfo, error) {
+	resp, err := r.client.doGet(ctx, r.entityPath+"/entityInformation")
+	if err != nil {
+		return nil, err
+	}
+	if len(resp.RawBody) == 0 {
+		return nil, fmt.Errorf("autotask: empty response for entityInformation on %s", r.entityName)
+	}
+	var info EntityInfo
+	if err := json.Unmarshal(resp.RawBody, &info); err != nil {
+		return nil, fmt.Errorf("autotask: unmarshaling entityInformation for %s: %w", r.entityName, err)
+	}
+	return &info, nil
+}
+
+// FieldDefinitions returns the field definitions for the entity type.
+// It calls GET {entityPath}/entityInformation/fields.
+func (r *Reader[T]) FieldDefinitions(ctx context.Context) ([]FieldDefinition, error) {
+	resp, err := r.client.doGet(ctx, r.entityPath+"/entityInformation/fields")
+	if err != nil {
+		return nil, err
+	}
+	if len(resp.RawBody) == 0 {
+		return nil, fmt.Errorf("autotask: empty response for field definitions on %s", r.entityName)
+	}
+	var envelope struct {
+		Fields []FieldDefinition `json:"fields"`
+	}
+	if err := json.Unmarshal(resp.RawBody, &envelope); err != nil {
+		return nil, fmt.Errorf("autotask: unmarshaling field definitions for %s: %w", r.entityName, err)
+	}
+	return envelope.Fields, nil
+}
+
+// UDFDefinitions returns the user-defined field definitions for the entity type.
+// It calls GET {entityPath}/entityInformation/userDefinedFields.
+func (r *Reader[T]) UDFDefinitions(ctx context.Context) ([]FieldDefinition, error) {
+	resp, err := r.client.doGet(ctx, r.entityPath+"/entityInformation/userDefinedFields")
+	if err != nil {
+		return nil, err
+	}
+	if len(resp.RawBody) == 0 {
+		return nil, fmt.Errorf("autotask: empty response for UDF definitions on %s", r.entityName)
+	}
+	var envelope struct {
+		Fields []FieldDefinition `json:"fields"`
+	}
+	if err := json.Unmarshal(resp.RawBody, &envelope); err != nil {
+		return nil, fmt.Errorf("autotask: unmarshaling UDF definitions for %s: %w", r.entityName, err)
+	}
+	return envelope.Fields, nil
+}
