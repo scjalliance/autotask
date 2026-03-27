@@ -299,7 +299,9 @@ func main() {
 			continue
 		}
 
-		// Determine entity path: the base path without /query, /entityInformation, /{id}
+		// Determine entity path by deriving from any known path.
+		// First try: a bare path (for entities with POST/PUT/PATCH).
+		// Fallback: strip known suffixes from any path we have.
 		entityPath := ""
 		for p := range td.paths {
 			if !strings.Contains(p, "/query") &&
@@ -308,6 +310,28 @@ func main() {
 				!strings.Contains(p, "{parentId}") {
 				entityPath = p
 				break
+			}
+		}
+		if entityPath == "" {
+			// Derive from suffixed paths (read-only entities have no bare path).
+			for p := range td.paths {
+				if strings.Contains(p, "{parentId}") {
+					continue
+				}
+				base := p
+				for _, suffix := range []string{"/query/count", "/query", "/entityInformation/userDefinedFields", "/entityInformation/fields", "/entityInformation"} {
+					if strings.HasSuffix(base, suffix) {
+						base = strings.TrimSuffix(base, suffix)
+						break
+					}
+				}
+				if idx := strings.Index(base, "/{id}"); idx >= 0 {
+					base = base[:idx]
+				}
+				if base != "" && strings.HasPrefix(base, "/V1.0/") {
+					entityPath = base
+					break
+				}
 			}
 		}
 		if entityPath == "" {
@@ -539,6 +563,10 @@ func generateServices(topLevel []entityInfo, children []childInfo, neededTypes m
 	b.WriteString("// initServices initializes all entity services on the client.\n")
 	b.WriteString("func (c *Client) initServices() {\n")
 	for _, e := range topLevel {
+		hasAny := (e.CanGet || e.CanQuery || e.CanCreate || e.CanUpdate || e.CanPatch || e.CanDelete)
+		if !hasAny {
+			continue
+		}
 		baseName := "b" + e.TypeName
 		stn := svcTypeName(e.TypeName)
 		b.WriteString(fmt.Sprintf("\t%s := baseService{client: c, entityPath: %q, entityName: %q}\n", baseName, e.EntityPath, e.TypeName))
@@ -639,6 +667,26 @@ func singularize(s string) string {
 		return "Status"
 	case "AttachmentInfo":
 		return "AttachmentInfo"
+	case "NotificationHistory":
+		return "NotificationHistory"
+	case "TicketHistory":
+		return "TicketHistory"
+	case "TagAliases":
+		return "TagAlias"
+	case "InternalLocationWithBusinessHours":
+		return "InternalLocationWithBusinessHours"
+	case "InventoryStockedItemsAdd":
+		return "InventoryStockedItemAdd"
+	case "InventoryStockedItemsRemove":
+		return "InventoryStockedItemRemove"
+	case "InventoryStockedItemsTransfer":
+		return "InventoryStockedItemTransfer"
+	case "ServiceLevelAgreementResults":
+		return "ServiceLevelAgreementResults"
+	case "SurveyResults":
+		return "SurveyResults"
+	case "TicketCategoryFieldDefaults":
+		return "TicketCategoryFieldDefaults"
 	}
 
 	// *ies -> *y
@@ -648,6 +696,10 @@ func singularize(s string) string {
 	// *sses -> *ss (e.g. "Addresses" won't exist but just in case)
 	if strings.HasSuffix(s, "sses") {
 		return s[:len(s)-2]
+	}
+	// *ses -> *s (e.g. TagAliases → TagAlias, if not caught by special cases)
+	if strings.HasSuffix(s, "ses") && !strings.HasSuffix(s, "sses") {
+		return s[:len(s)-1]
 	}
 	// *xes -> *x
 	if strings.HasSuffix(s, "xes") {

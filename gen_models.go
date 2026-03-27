@@ -11,6 +11,14 @@ type ActionType struct {
 	View               *int64  `json:"view,omitempty"`
 }
 
+// AdditionalInvoiceFieldValue represents an Autotask AdditionalInvoiceFieldValue entity.
+type AdditionalInvoiceFieldValue struct {
+	AdditionalInvoiceFieldID *int64  `json:"additionalInvoiceFieldID,omitempty"`
+	FieldValue               *string `json:"fieldValue,omitempty"`
+	ID                       *int64  `json:"id,omitempty"`
+	InvoiceBatchID           *int64  `json:"invoiceBatchID,omitempty"`
+}
+
 // Appointment represents an Autotask Appointment entity.
 type Appointment struct {
 	CreateDateTime    *string `json:"createDateTime,omitempty"`
@@ -108,6 +116,65 @@ type ArticleToDocumentAssociation struct {
 	AssociatedDocumentID *int64 `json:"associatedDocumentID,omitempty"`
 	ID                   *int64 `json:"id,omitempty"`
 	SoapParentPropertyID *int64 `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+}
+
+// AttachmentInfo represents an Autotask AttachmentInfo entity.
+type AttachmentInfo struct {
+	ArticleID                     *int64   `json:"articleID,omitempty"`
+	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
+	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
+	AttachmentType                *string  `json:"attachmentType,omitempty"`
+	CompanyID                     *int64   `json:"companyID,omitempty"`
+	CompanyNoteID                 *int64   `json:"companyNoteID,omitempty"`
+	ConfigurationItemID           *int64   `json:"configurationItemID,omitempty"`
+	ConfigurationItemNoteID       *int64   `json:"configurationItemNoteID,omitempty"`
+	ContentType                   *string  `json:"contentType,omitempty"`
+	ContractID                    *int64   `json:"contractID,omitempty"`
+	ContractNoteID                *int64   `json:"contractNoteID,omitempty"`
+	CreatorType                   *int64   `json:"creatorType,omitempty"`
+	DocumentID                    *int64   `json:"documentID,omitempty"`
+	ExpenseItemID                 *int64   `json:"expenseItemID,omitempty"`
+	ExpenseReportID               *int64   `json:"expenseReportID,omitempty"`
+	FileSize                      *float64 `json:"fileSize,omitempty"`
+	FullPath                      *string  `json:"fullPath,omitempty"`
+	ID                            *int64   `json:"id,omitempty"`
+	ImpersonatorCreatorResourceID *int64   `json:"impersonatorCreatorResourceID,omitempty"`
+	OpportunityID                 *int64   `json:"opportunityID,omitempty"`
+	ParentAttachmentID            *int64   `json:"parentAttachmentID,omitempty"`
+	ParentID                      *int64   `json:"parentID,omitempty"`
+	ParentType                    *int64   `json:"parentType,omitempty"`
+	ProjectID                     *int64   `json:"projectID,omitempty"`
+	ProjectNoteID                 *int64   `json:"projectNoteID,omitempty"`
+	Publish                       *int64   `json:"publish,omitempty"`
+	ResourceID                    *int64   `json:"resourceID,omitempty"`
+	SalesOrderID                  *int64   `json:"salesOrderID,omitempty"`
+	SoapParentPropertyID          *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+	TaskID                        *int64   `json:"taskID,omitempty"`
+	TaskNoteID                    *int64   `json:"taskNoteID,omitempty"`
+	TicketID                      *int64   `json:"ticketID,omitempty"`
+	TicketNoteID                  *int64   `json:"ticketNoteID,omitempty"`
+	TimeEntryID                   *int64   `json:"timeEntryID,omitempty"`
+	Title                         *string  `json:"title,omitempty"`
+}
+
+// BillingCode represents an Autotask BillingCode entity.
+type BillingCode struct {
+	AfterHoursWorkType         *int64   `json:"afterHoursWorkType,omitempty"`
+	BillingCodeType            *int64   `json:"billingCodeType,omitempty"`
+	Department                 *int64   `json:"department,omitempty"`
+	Description                *string  `json:"description,omitempty"`
+	ExternalNumber             *string  `json:"externalNumber,omitempty"`
+	GeneralLedgerAccount       *int64   `json:"generalLedgerAccount,omitempty"`
+	ID                         *int64   `json:"id,omitempty"`
+	IsActive                   *bool    `json:"isActive,omitempty"`
+	IsExcludedFromNewContracts *bool    `json:"isExcludedFromNewContracts,omitempty"`
+	MarkupRate                 *float64 `json:"markupRate,omitempty"`
+	Name                       *string  `json:"name,omitempty"`
+	TaxCategoryID              *int64   `json:"taxCategoryID,omitempty"`
+	UnitCost                   *float64 `json:"unitCost,omitempty"`
+	UnitPrice                  *float64 `json:"unitPrice,omitempty"`
+	UseType                    *int64   `json:"useType,omitempty"`
 }
 
 // BillingItemApprovalLevel represents an Autotask BillingItemApprovalLevel entity.
@@ -233,6 +300,16 @@ type ChecklistLibrary struct {
 	ID          *int64  `json:"id,omitempty"`
 	IsActive    *bool   `json:"isActive,omitempty"`
 	Name        *string `json:"name,omitempty"`
+}
+
+// ClassificationIcon represents an Autotask ClassificationIcon entity.
+type ClassificationIcon struct {
+	Description *string `json:"description,omitempty"`
+	ID          *int64  `json:"id,omitempty"`
+	IsActive    *bool   `json:"isActive,omitempty"`
+	IsSystem    *bool   `json:"isSystem,omitempty"`
+	Name        *string `json:"name,omitempty"`
+	RelativeURL *string `json:"relativeUrl,omitempty"`
 }
 
 // ClientPortalUser represents an Autotask ClientPortalUser entity.
@@ -834,6 +911,55 @@ type ContactGroup struct {
 	Name     *string `json:"name,omitempty"`
 }
 
+// Contact represents an Autotask Contact entity.
+type Contact struct {
+	AdditionalAddressInformation  *string `json:"additionalAddressInformation,omitempty"`
+	AddressLine                   *string `json:"addressLine,omitempty"`
+	AddressLine1                  *string `json:"addressLine1,omitempty"`
+	AlternatePhone                *string `json:"alternatePhone,omitempty"`
+	APIVendorID                   *int64  `json:"apiVendorID,omitempty"`
+	BulkEmailOptOutTime           *string `json:"bulkEmailOptOutTime,omitempty"`
+	City                          *string `json:"city,omitempty"`
+	CompanyID                     *int64  `json:"companyID,omitempty"`
+	CompanyLocationID             *int64  `json:"companyLocationID,omitempty"`
+	CountryID                     *int64  `json:"countryID,omitempty"`
+	CreateDate                    *string `json:"createDate,omitempty"`
+	EmailAddress                  *string `json:"emailAddress,omitempty"`
+	EmailAddress2                 *string `json:"emailAddress2,omitempty"`
+	EmailAddress3                 *string `json:"emailAddress3,omitempty"`
+	Extension                     *string `json:"extension,omitempty"`
+	ExternalID                    *string `json:"externalID,omitempty"`
+	FacebookURL                   *string `json:"facebookUrl,omitempty"`
+	FaxNumber                     *string `json:"faxNumber,omitempty"`
+	FirstName                     *string `json:"firstName,omitempty"`
+	ID                            *int64  `json:"id,omitempty"`
+	ImpersonatorCreatorResourceID *int64  `json:"impersonatorCreatorResourceID,omitempty"`
+	IsActive                      *int64  `json:"isActive,omitempty"`
+	IsOptedOutFromBulkEmail       *bool   `json:"isOptedOutFromBulkEmail,omitempty"`
+	LastActivityDate              *string `json:"lastActivityDate,omitempty"`
+	LastModifiedDate              *string `json:"lastModifiedDate,omitempty"`
+	LastName                      *string `json:"lastName,omitempty"`
+	LinkedInURL                   *string `json:"linkedInUrl,omitempty"`
+	MiddleInitial                 *string `json:"middleInitial,omitempty"`
+	MobilePhone                   *string `json:"mobilePhone,omitempty"`
+	NamePrefix                    *int64  `json:"namePrefix,omitempty"`
+	NameSuffix                    *int64  `json:"nameSuffix,omitempty"`
+	Note                          *string `json:"note,omitempty"`
+	Phone                         *string `json:"phone,omitempty"`
+	PrimaryContact                *bool   `json:"primaryContact,omitempty"`
+	ReceivesEmailNotifications    *bool   `json:"receivesEmailNotifications,omitempty"`
+	RoomNumber                    *string `json:"roomNumber,omitempty"`
+	SoapParentPropertyID          *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+	SolicitationOptOut            *bool   `json:"solicitationOptOut,omitempty"`
+	SolicitationOptOutTime        *string `json:"solicitationOptOutTime,omitempty"`
+	State                         *string `json:"state,omitempty"`
+	SurveyOptOut                  *bool   `json:"surveyOptOut,omitempty"`
+	Title                         *string `json:"title,omitempty"`
+	TwitterURL                    *string `json:"twitterUrl,omitempty"`
+	ZipCode                       *string `json:"zipCode,omitempty"`
+	UserDefinedFields             []UDF   `json:"userDefinedFields,omitempty"`
+}
+
 // ContactWebhookExcludedResource represents an Autotask ContactWebhookExcludedResource entity.
 type ContactWebhookExcludedResource struct {
 	ID                   *int64 `json:"id,omitempty"`
@@ -1278,6 +1404,48 @@ type Currency struct {
 	UpdateResourceID       *int64   `json:"updateResourceId,omitempty"`
 }
 
+// DeletedTaskActivityLog represents an Autotask DeletedTaskActivityLog entity.
+type DeletedTaskActivityLog struct {
+	ActivityDateTime      *string  `json:"activityDateTime,omitempty"`
+	CreatedByResourceID   *int64   `json:"createdByResourceID,omitempty"`
+	DeletedByResourceID   *int64   `json:"deletedByResourceID,omitempty"`
+	DeletedDateTime       *string  `json:"deletedDateTime,omitempty"`
+	EndDateTime           *string  `json:"endDateTime,omitempty"`
+	HoursWorked           *float64 `json:"hoursWorked,omitempty"`
+	ID                    *int64   `json:"id,omitempty"`
+	NoteOrAttachmentTitle *string  `json:"noteOrAttachmentTitle,omitempty"`
+	StartDateTime         *string  `json:"startDateTime,omitempty"`
+	TaskID                *int64   `json:"taskID,omitempty"`
+	TaskNumber            *string  `json:"taskNumber,omitempty"`
+	TypeID                *int64   `json:"typeID,omitempty"`
+}
+
+// DeletedTicketActivityLog represents an Autotask DeletedTicketActivityLog entity.
+type DeletedTicketActivityLog struct {
+	ActivityDateTime      *string  `json:"activityDateTime,omitempty"`
+	CreatedByResourceID   *int64   `json:"createdByResourceID,omitempty"`
+	DeletedByResourceID   *int64   `json:"deletedByResourceID,omitempty"`
+	DeletedDateTime       *string  `json:"deletedDateTime,omitempty"`
+	EndDateTime           *string  `json:"endDateTime,omitempty"`
+	HoursWorked           *float64 `json:"hoursWorked,omitempty"`
+	ID                    *int64   `json:"id,omitempty"`
+	NoteOrAttachmentTitle *string  `json:"noteOrAttachmentTitle,omitempty"`
+	StartDateTime         *string  `json:"startDateTime,omitempty"`
+	TicketID              *int64   `json:"ticketID,omitempty"`
+	TicketNumber          *string  `json:"ticketNumber,omitempty"`
+	TypeID                *int64   `json:"typeID,omitempty"`
+}
+
+// DeletedTicketLog represents an Autotask DeletedTicketLog entity.
+type DeletedTicketLog struct {
+	DeletedByResourceID *int64  `json:"deletedByResourceID,omitempty"`
+	DeletedDateTime     *string `json:"deletedDateTime,omitempty"`
+	ID                  *int64  `json:"id,omitempty"`
+	TicketID            *int64  `json:"ticketID,omitempty"`
+	TicketNumber        *string `json:"ticketNumber,omitempty"`
+	TicketTitle         *string `json:"ticketTitle,omitempty"`
+}
+
 // Department represents an Autotask Department entity.
 type Department struct {
 	Description       *string `json:"description,omitempty"`
@@ -1583,6 +1751,76 @@ type IntegrationVendorWidget struct {
 	Width                *int64  `json:"width,omitempty"`
 }
 
+// InternalLocation represents an Autotask InternalLocation entity.
+type InternalLocation struct {
+	AdditionalAddressInfo *string `json:"additionalAddressInfo,omitempty"`
+	Address1              *string `json:"address1,omitempty"`
+	Address2              *string `json:"address2,omitempty"`
+	City                  *string `json:"city,omitempty"`
+	Country               *string `json:"country,omitempty"`
+	HolidaySetID          *int64  `json:"holidaySetId,omitempty"`
+	ID                    *int64  `json:"id,omitempty"`
+	IsDefault             *bool   `json:"isDefault,omitempty"`
+	Name                  *string `json:"name,omitempty"`
+	PostalCode            *string `json:"postalCode,omitempty"`
+	State                 *string `json:"state,omitempty"`
+	TimeZone              *string `json:"timeZone,omitempty"`
+}
+
+// InternalLocationWithBusinessHours represents an Autotask InternalLocationWithBusinessHours entity.
+type InternalLocationWithBusinessHours struct {
+	AdditionalAddressInfo           *string `json:"additionalAddressInfo,omitempty"`
+	Address1                        *string `json:"address1,omitempty"`
+	Address2                        *string `json:"address2,omitempty"`
+	City                            *string `json:"city,omitempty"`
+	CountryID                       *int64  `json:"countryID,omitempty"`
+	DateFormat                      *string `json:"dateFormat,omitempty"`
+	FirstDayOfWeek                  *int64  `json:"firstDayOfWeek,omitempty"`
+	FridayBusinessHoursEndTime      *string `json:"fridayBusinessHoursEndTime,omitempty"`
+	FridayBusinessHoursStartTime    *string `json:"fridayBusinessHoursStartTime,omitempty"`
+	FridayExtendedHoursEndTime      *string `json:"fridayExtendedHoursEndTime,omitempty"`
+	FridayExtendedHoursStartTime    *string `json:"fridayExtendedHoursStartTime,omitempty"`
+	HolidayExtendedHoursEndTime     *string `json:"holidayExtendedHoursEndTime,omitempty"`
+	HolidayExtendedHoursStartTime   *string `json:"holidayExtendedHoursStartTime,omitempty"`
+	HolidayHoursEndTime             *string `json:"holidayHoursEndTime,omitempty"`
+	HolidayHoursStartTime           *string `json:"holidayHoursStartTime,omitempty"`
+	HolidayHoursType                *int64  `json:"holidayHoursType,omitempty"`
+	HolidaySetID                    *int64  `json:"holidaySetID,omitempty"`
+	ID                              *int64  `json:"id,omitempty"`
+	IsDefault                       *bool   `json:"isDefault,omitempty"`
+	MondayBusinessHoursEndTime      *string `json:"mondayBusinessHoursEndTime,omitempty"`
+	MondayBusinessHoursStartTime    *string `json:"mondayBusinessHoursStartTime,omitempty"`
+	MondayExtendedHoursEndTime      *string `json:"mondayExtendedHoursEndTime,omitempty"`
+	MondayExtendedHoursStartTime    *string `json:"mondayExtendedHoursStartTime,omitempty"`
+	Name                            *string `json:"name,omitempty"`
+	NoHoursOnHolidays               *bool   `json:"noHoursOnHolidays,omitempty"`
+	NumberFormat                    *string `json:"numberFormat,omitempty"`
+	PostalCode                      *string `json:"postalCode,omitempty"`
+	SaturdayBusinessHoursEndTime    *string `json:"saturdayBusinessHoursEndTime,omitempty"`
+	SaturdayBusinessHoursStartTime  *string `json:"saturdayBusinessHoursStartTime,omitempty"`
+	SaturdayExtendedHoursEndTime    *string `json:"saturdayExtendedHoursEndTime,omitempty"`
+	SaturdayExtendedHoursStartTime  *string `json:"saturdayExtendedHoursStartTime,omitempty"`
+	State                           *string `json:"state,omitempty"`
+	SundayBusinessHoursEndTime      *string `json:"sundayBusinessHoursEndTime,omitempty"`
+	SundayBusinessHoursStartTime    *string `json:"sundayBusinessHoursStartTime,omitempty"`
+	SundayExtendedHoursEndTime      *string `json:"sundayExtendedHoursEndTime,omitempty"`
+	SundayExtendedHoursStartTime    *string `json:"sundayExtendedHoursStartTime,omitempty"`
+	ThursdayBusinessHoursEndTime    *string `json:"thursdayBusinessHoursEndTime,omitempty"`
+	ThursdayBusinessHoursStartTime  *string `json:"thursdayBusinessHoursStartTime,omitempty"`
+	ThursdayExtendedHoursEndTime    *string `json:"thursdayExtendedHoursEndTime,omitempty"`
+	ThursdayExtendedHoursStartTime  *string `json:"thursdayExtendedHoursStartTime,omitempty"`
+	TimeFormat                      *string `json:"timeFormat,omitempty"`
+	TimeZoneID                      *int64  `json:"timeZoneID,omitempty"`
+	TuesdayBusinessHoursEndTime     *string `json:"tuesdayBusinessHoursEndTime,omitempty"`
+	TuesdayBusinessHoursStartTime   *string `json:"tuesdayBusinessHoursStartTime,omitempty"`
+	TuesdayExtendedHoursEndTime     *string `json:"tuesdayExtendedHoursEndTime,omitempty"`
+	TuesdayExtendedHoursStartTime   *string `json:"tuesdayExtendedHoursStartTime,omitempty"`
+	WednesdayBusinessHoursEndTime   *string `json:"wednesdayBusinessHoursEndTime,omitempty"`
+	WednesdayBusinessHoursStartTime *string `json:"wednesdayBusinessHoursStartTime,omitempty"`
+	WednesdayExtendedHoursEndTime   *string `json:"wednesdayExtendedHoursEndTime,omitempty"`
+	WednesdayExtendedHoursStartTime *string `json:"wednesdayExtendedHoursStartTime,omitempty"`
+}
+
 // InventoryItem represents an Autotask InventoryItem entity.
 type InventoryItem struct {
 	BackOrderQuantity             *int64  `json:"backOrderQuantity,omitempty"`
@@ -1637,6 +1875,24 @@ type InventoryProduct struct {
 	UnitsOnOrder        *int64  `json:"unitsOnOrder,omitempty"`
 }
 
+// InventoryStockedItemAdd represents an Autotask InventoryStockedItemAdd entity.
+type InventoryStockedItemAdd struct {
+	DetermineCostUsing     *int64   `json:"determineCostUsing,omitempty"`
+	DetermineNewPriceUsing *int64   `json:"determineNewPriceUsing,omitempty"`
+	ID                     *int64   `json:"id,omitempty"`
+	InventoryProductID     *int64   `json:"inventoryProductID,omitempty"`
+	PricePercentage        *float64 `json:"pricePercentage,omitempty"`
+	QuantityBeingAdded     *int64   `json:"quantityBeingAdded,omitempty"`
+	ReasonForUpdate        *string  `json:"reasonForUpdate,omitempty"`
+	ReturnPrice            *float64 `json:"returnPrice,omitempty"`
+	ReturnTypeID           *int64   `json:"returnTypeID,omitempty"`
+	SerialNumber           *string  `json:"serialNumber,omitempty"`
+	SoapParentPropertyID   *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+	UnitCost               *float64 `json:"unitCost,omitempty"`
+	VendorID               *int64   `json:"vendorID,omitempty"`
+	VendorInvoiceNumber    *string  `json:"vendorInvoiceNumber,omitempty"`
+}
+
 // InventoryStockedItem represents an Autotask InventoryStockedItem entity.
 type InventoryStockedItem struct {
 	AvailableUnits                 *int64   `json:"availableUnits,omitempty"`
@@ -1672,6 +1928,27 @@ type InventoryStockedItem struct {
 	UnitCost                       *float64 `json:"unitCost,omitempty"`
 	VendorID                       *int64   `json:"vendorID,omitempty"`
 	VendorInvoiceNumber            *string  `json:"vendorInvoiceNumber,omitempty"`
+}
+
+// InventoryStockedItemRemove represents an Autotask InventoryStockedItemRemove entity.
+type InventoryStockedItemRemove struct {
+	ID                     *int64  `json:"id,omitempty"`
+	InventoryProductID     *int64  `json:"inventoryProductID,omitempty"`
+	InventoryStockedItemID *int64  `json:"inventoryStockedItemID,omitempty"`
+	QuantityBeingRemoved   *int64  `json:"quantityBeingRemoved,omitempty"`
+	ReasonForUpdate        *string `json:"reasonForUpdate,omitempty"`
+	SoapParentPropertyID   *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+}
+
+// InventoryStockedItemTransfer represents an Autotask InventoryStockedItemTransfer entity.
+type InventoryStockedItemTransfer struct {
+	ID                       *int64  `json:"id,omitempty"`
+	InventoryProductID       *int64  `json:"inventoryProductID,omitempty"`
+	InventoryStockedItemID   *int64  `json:"inventoryStockedItemID,omitempty"`
+	NewInventoryLocationID   *int64  `json:"newInventoryLocationID,omitempty"`
+	QuantityBeingTransferred *int64  `json:"quantityBeingTransferred,omitempty"`
+	ReasonForUpdate          *string `json:"reasonForUpdate,omitempty"`
+	SoapParentPropertyID     *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 }
 
 // InventoryTransfer represents an Autotask InventoryTransfer entity.
@@ -1715,6 +1992,36 @@ type Invoice struct {
 	WebServiceDate          *string  `json:"webServiceDate,omitempty"`
 }
 
+// InvoiceTemplate represents an Autotask InvoiceTemplate entity.
+type InvoiceTemplate struct {
+	CoveredByBlockRetainerContractLabel                       *string `json:"coveredByBlockRetainerContractLabel,omitempty"`
+	CoveredByRecurringServiceFixedPricePerTicketContractLabel *string `json:"coveredByRecurringServiceFixedPricePerTicketContractLabel,omitempty"`
+	CurrencyNegativeFormat                                    *string `json:"currencyNegativeFormat,omitempty"`
+	CurrencyPositiveFormat                                    *string `json:"currencyPositiveFormat,omitempty"`
+	DateFormat                                                *int64  `json:"dateFormat,omitempty"`
+	DisplayFixedPriceContractLabor                            *bool   `json:"displayFixedPriceContractLabor,omitempty"`
+	DisplayRecurringServiceContractLabor                      *bool   `json:"displayRecurringServiceContractLabor,omitempty"`
+	DisplaySeparateLineItemForEachTax                         *bool   `json:"displaySeparateLineItemForEachTax,omitempty"`
+	DisplayTaxCategory                                        *bool   `json:"displayTaxCategory,omitempty"`
+	DisplayTaxCategorySuperscripts                            *bool   `json:"displayTaxCategorySuperscripts,omitempty"`
+	DisplayZeroAmountRecurringServicesAndBundles              *bool   `json:"displayZeroAmountRecurringServicesAndBundles,omitempty"`
+	GroupBy                                                   *int64  `json:"groupBy,omitempty"`
+	ID                                                        *int64  `json:"id,omitempty"`
+	ItemizeItemsInEachGroup                                   *int64  `json:"itemizeItemsInEachGroup,omitempty"`
+	ItemizeServicesAndBundles                                 *bool   `json:"itemizeServicesAndBundles,omitempty"`
+	Name                                                      *string `json:"name,omitempty"`
+	NonBillableLaborLabel                                     *string `json:"nonBillableLaborLabel,omitempty"`
+	NumberFormat                                              *int64  `json:"numberFormat,omitempty"`
+	PageLayout                                                *int64  `json:"pageLayout,omitempty"`
+	PageNumberFormat                                          *int64  `json:"pageNumberFormat,omitempty"`
+	PaymentTerms                                              *int64  `json:"paymentTerms,omitempty"`
+	RateCostExpression                                        *string `json:"rateCostExpression,omitempty"`
+	ShowGridHeader                                            *bool   `json:"showGridHeader,omitempty"`
+	ShowVerticalGridLines                                     *bool   `json:"showVerticalGridLines,omitempty"`
+	SortBy                                                    *int64  `json:"sortBy,omitempty"`
+	TimeFormat                                                *int64  `json:"timeFormat,omitempty"`
+}
+
 // KnowledgeBaseArticle represents an Autotask KnowledgeBaseArticle entity.
 type KnowledgeBaseArticle struct {
 	ArticleCategoryID        *int64  `json:"articleCategoryID,omitempty"`
@@ -1738,6 +2045,30 @@ type KnowledgeBaseCategory struct {
 	ID               *int64  `json:"id,omitempty"`
 	Name             *string `json:"name,omitempty"`
 	ParentCategoryID *int64  `json:"parentCategoryID,omitempty"`
+}
+
+// NotificationHistory represents an Autotask NotificationHistory entity.
+type NotificationHistory struct {
+	CompanyID                 *int64  `json:"companyID,omitempty"`
+	EntityNumber              *string `json:"entityNumber,omitempty"`
+	EntityTitle               *string `json:"entityTitle,omitempty"`
+	ID                        *int64  `json:"id,omitempty"`
+	InitiatingContactID       *int64  `json:"initiatingContactID,omitempty"`
+	InitiatingResourceID      *int64  `json:"initiatingResourceID,omitempty"`
+	IsActive                  *bool   `json:"isActive,omitempty"`
+	IsDeleted                 *bool   `json:"isDeleted,omitempty"`
+	IsTemplateJob             *bool   `json:"isTemplateJob,omitempty"`
+	NotificationHistoryTypeID *int64  `json:"notificationHistoryTypeID,omitempty"`
+	NotificationSentTime      *string `json:"notificationSentTime,omitempty"`
+	OpportunityID             *int64  `json:"opportunityID,omitempty"`
+	ProjectID                 *int64  `json:"projectID,omitempty"`
+	QuoteID                   *int64  `json:"quoteID,omitempty"`
+	RecipientDisplayName      *string `json:"recipientDisplayName,omitempty"`
+	RecipientEmailAddress     *string `json:"recipientEmailAddress,omitempty"`
+	TaskID                    *int64  `json:"taskID,omitempty"`
+	TemplateName              *string `json:"templateName,omitempty"`
+	TicketID                  *int64  `json:"ticketID,omitempty"`
+	TimeEntryID               *int64  `json:"timeEntryID,omitempty"`
 }
 
 // OpportunityAttachment represents an Autotask OpportunityAttachment entity.
@@ -2349,6 +2680,30 @@ type Quote struct {
 	TaxRegionID                       *int64  `json:"taxRegionID,omitempty"`
 }
 
+// QuoteTemplate represents an Autotask QuoteTemplate entity.
+type QuoteTemplate struct {
+	CalculateTaxSeparately         *bool   `json:"calculateTaxSeparately,omitempty"`
+	CreateDate                     *string `json:"createDate,omitempty"`
+	CreatedBy                      *int64  `json:"createdBy,omitempty"`
+	CurrencyNegativeFormat         *string `json:"currencyNegativeFormat,omitempty"`
+	CurrencyPositiveFormat         *string `json:"currencyPositiveFormat,omitempty"`
+	DateFormat                     *int64  `json:"dateFormat,omitempty"`
+	Description                    *string `json:"description,omitempty"`
+	DisplayTaxCategorySuperscripts *bool   `json:"displayTaxCategorySuperscripts,omitempty"`
+	ID                             *int64  `json:"id,omitempty"`
+	IsActive                       *bool   `json:"isActive,omitempty"`
+	LastActivityBy                 *int64  `json:"lastActivityBy,omitempty"`
+	LastActivityDate               *string `json:"lastActivityDate,omitempty"`
+	Name                           *string `json:"name,omitempty"`
+	NumberFormat                   *int64  `json:"numberFormat,omitempty"`
+	PageLayout                     *int64  `json:"pageLayout,omitempty"`
+	PageNumberFormat               *int64  `json:"pageNumberFormat,omitempty"`
+	ShowEachTaxInGroup             *bool   `json:"showEachTaxInGroup,omitempty"`
+	ShowGridHeader                 *bool   `json:"showGridHeader,omitempty"`
+	ShowTaxCategory                *bool   `json:"showTaxCategory,omitempty"`
+	ShowVerticalGridLines          *bool   `json:"showVerticalGridLines,omitempty"`
+}
+
 // ResourceAttachment represents an Autotask ResourceAttachment entity.
 type ResourceAttachment struct {
 	AttachDate                    *string  `json:"attachDate,omitempty"`
@@ -2626,6 +2981,24 @@ type ServiceCallTicketResource struct {
 	SoapParentPropertyID *int64 `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 }
 
+// ServiceLevelAgreementResults represents an Autotask ServiceLevelAgreementResults entity.
+type ServiceLevelAgreementResults struct {
+	FirstResponseElapsedHours         *float64 `json:"firstResponseElapsedHours,omitempty"`
+	FirstResponseInitiatingResourceID *int64   `json:"firstResponseInitiatingResourceID,omitempty"`
+	FirstResponseResourceID           *int64   `json:"firstResponseResourceID,omitempty"`
+	ID                                *int64   `json:"id,omitempty"`
+	IsFirstResponseMet                *bool    `json:"isFirstResponseMet,omitempty"`
+	IsResolutionMet                   *bool    `json:"isResolutionMet,omitempty"`
+	IsResolutionPlanMet               *bool    `json:"isResolutionPlanMet,omitempty"`
+	ResolutionElapsedHours            *float64 `json:"resolutionElapsedHours,omitempty"`
+	ResolutionPlanElapsedHours        *float64 `json:"resolutionPlanElapsedHours,omitempty"`
+	ResolutionPlanResourceID          *int64   `json:"resolutionPlanResourceID,omitempty"`
+	ResolutionResourceID              *int64   `json:"resolutionResourceID,omitempty"`
+	ServiceLevelAgreementName         *string  `json:"serviceLevelAgreementName,omitempty"`
+	SoapParentPropertyID              *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+	TicketID                          *int64   `json:"ticketID,omitempty"`
+}
+
 // Service represents an Autotask Service entity.
 type Service struct {
 	BillingCodeID           *int64   `json:"billingCodeID,omitempty"`
@@ -2644,6 +3017,24 @@ type Service struct {
 	UnitPrice               *float64 `json:"unitPrice,omitempty"`
 	UpdateResourceID        *int64   `json:"updateResourceID,omitempty"`
 	VendorCompanyID         *int64   `json:"vendorCompanyID,omitempty"`
+}
+
+// ShippingType represents an Autotask ShippingType entity.
+type ShippingType struct {
+	BillingCodeID *int64  `json:"billingCodeID,omitempty"`
+	Description   *string `json:"description,omitempty"`
+	ID            *int64  `json:"id,omitempty"`
+	IsActive      *bool   `json:"isActive,omitempty"`
+	Name          *string `json:"name,omitempty"`
+}
+
+// Skill represents an Autotask Skill entity.
+type Skill struct {
+	CategoryID  *int64  `json:"categoryID,omitempty"`
+	Description *string `json:"description,omitempty"`
+	ID          *int64  `json:"id,omitempty"`
+	IsActive    *bool   `json:"isActive,omitempty"`
+	Name        *string `json:"name,omitempty"`
 }
 
 // Subscription represents an Autotask Subscription entity.
@@ -2678,6 +3069,37 @@ type SubscriptionPeriod struct {
 	PurchaseOrderNumber  *string  `json:"purchaseOrderNumber,omitempty"`
 	SoapParentPropertyID *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	SubscriptionID       *int64   `json:"subscriptionID,omitempty"`
+}
+
+// Survey represents an Autotask Survey entity.
+type Survey struct {
+	Description *string `json:"description,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	ID          *int64  `json:"id,omitempty"`
+	Name        *string `json:"name,omitempty"`
+}
+
+// SurveyResults represents an Autotask SurveyResults entity.
+type SurveyResults struct {
+	CompanyID      *int64   `json:"companyID,omitempty"`
+	CompanyRating  *float64 `json:"companyRating,omitempty"`
+	CompleteDate   *string  `json:"completeDate,omitempty"`
+	ContactID      *int64   `json:"contactID,omitempty"`
+	ContactRating  *float64 `json:"contactRating,omitempty"`
+	ID             *int64   `json:"id,omitempty"`
+	ResourceRating *float64 `json:"resourceRating,omitempty"`
+	SendDate       *string  `json:"sendDate,omitempty"`
+	SurveyID       *int64   `json:"surveyID,omitempty"`
+	SurveyRating   *float64 `json:"surveyRating,omitempty"`
+	TicketID       *int64   `json:"ticketID,omitempty"`
+}
+
+// TagAlias represents an Autotask TagAlias entity.
+type TagAlias struct {
+	Alias                *string `json:"alias,omitempty"`
+	ID                   *int64  `json:"id,omitempty"`
+	SoapParentPropertyID *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+	TagID                *int64  `json:"tagID,omitempty"`
 }
 
 // TagGroup represents an Autotask TagGroup entity.
@@ -2894,6 +3316,28 @@ type TicketAttachment struct {
 	Title                         *string  `json:"title,omitempty"`
 }
 
+// TicketCategoryFieldDefaults represents an Autotask TicketCategoryFieldDefaults entity.
+type TicketCategoryFieldDefaults struct {
+	Description                      *string  `json:"description,omitempty"`
+	EstimatedHours                   *float64 `json:"estimatedHours,omitempty"`
+	ID                               *int64   `json:"id,omitempty"`
+	IssueTypeID                      *int64   `json:"issueTypeID,omitempty"`
+	OrganizationalLevelAssociationID *int64   `json:"organizationalLevelAssociationID,omitempty"`
+	Priority                         *int64   `json:"priority,omitempty"`
+	PurchaseOrderNumber              *string  `json:"purchaseOrderNumber,omitempty"`
+	QueueID                          *int64   `json:"queueID,omitempty"`
+	Resolution                       *string  `json:"resolution,omitempty"`
+	ServiceLevelAgreementID          *int64   `json:"serviceLevelAgreementID,omitempty"`
+	SoapParentPropertyID             *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+	SourceID                         *int64   `json:"sourceID,omitempty"`
+	Status                           *int64   `json:"status,omitempty"`
+	SubIssueTypeID                   *int64   `json:"subIssueTypeID,omitempty"`
+	TicketCategoryID                 *int64   `json:"ticketCategoryID,omitempty"`
+	TicketTypeID                     *int64   `json:"ticketTypeID,omitempty"`
+	Title                            *string  `json:"title,omitempty"`
+	WorkTypeID                       *int64   `json:"workTypeID,omitempty"`
+}
+
 // TicketCategory represents an Autotask TicketCategory entity.
 type TicketCategory struct {
 	DisplayColorRGB *int64  `json:"displayColorRGB,omitempty"`
@@ -2970,6 +3414,17 @@ type TicketChecklistLibrary struct {
 	ID                   *int64 `json:"id,omitempty"`
 	SoapParentPropertyID *int64 `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	TicketID             *int64 `json:"ticketID,omitempty"`
+}
+
+// TicketHistory represents an Autotask TicketHistory entity.
+type TicketHistory struct {
+	Action               *string `json:"action,omitempty"`
+	Date                 *string `json:"date,omitempty"`
+	Detail               *string `json:"detail,omitempty"`
+	ID                   *int64  `json:"id,omitempty"`
+	ResourceID           *int64  `json:"resourceID,omitempty"`
+	SoapParentPropertyID *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+	TicketID             *int64  `json:"ticketID,omitempty"`
 }
 
 // Ticket represents an Autotask Ticket entity.
@@ -3315,6 +3770,17 @@ type UserDefinedFieldListItem struct {
 	UDFFieldID           *int64  `json:"udfFieldId,omitempty"`
 	ValueForDisplay      *string `json:"valueForDisplay,omitempty"`
 	ValueForExport       *string `json:"valueForExport,omitempty"`
+}
+
+// WebhookEventErrorLog represents an Autotask WebhookEventErrorLog entity.
+type WebhookEventErrorLog struct {
+	AccountWebhookID *int64  `json:"accountWebhookID,omitempty"`
+	ContactWebhookID *int64  `json:"contactWebhookID,omitempty"`
+	CreateDateTime   *string `json:"createDateTime,omitempty"`
+	ErrorMessage     *string `json:"errorMessage,omitempty"`
+	ID               *int64  `json:"id,omitempty"`
+	Payload          *string `json:"payload,omitempty"`
+	SequenceNumber   *int64  `json:"sequenceNumber,omitempty"`
 }
 
 // WorkTypeModifier represents an Autotask WorkTypeModifier entity.

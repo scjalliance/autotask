@@ -275,7 +275,7 @@ func cmdTickets(ctx context.Context, client *autotask.Client, search string, jso
 	}()
 
 	go func() {
-		results, err := client.QueryTicketNotes(ctx, noteFilter.AsFilterOption())
+		results, err := client.TicketNotes.Query(ctx, noteFilter.AsFilterOption())
 		noteCh <- noteResult{results, err}
 	}()
 
