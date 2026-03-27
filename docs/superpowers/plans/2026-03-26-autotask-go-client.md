@@ -517,6 +517,7 @@ package autotask
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -625,8 +626,6 @@ func TestClient_ErrorResponse(t *testing.T) {
 }
 ```
 
-Add `"errors"` to imports.
-
 - [ ] **Step 2: Run test to verify it fails**
 
 ```bash
@@ -650,6 +649,7 @@ import (
 	"io"
 	"net/http"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
 )
@@ -682,8 +682,7 @@ type Client struct {
 	http    *http.Client
 	baseURL string
 
-	zoneMu   sync.Mutex
-	zoneOnce sync.Once
+	zoneMu sync.Mutex
 
 	rateMu       sync.Mutex
 	rateWindow   []time.Time
@@ -792,7 +791,6 @@ func (c *Client) trackRequest() error {
 	}
 
 	c.rateMu.Lock()
-	defer c.rateMu.Unlock()
 
 	now := time.Now()
 	cutoff := now.Add(-1 * time.Hour)
@@ -809,16 +807,24 @@ func (c *Client) trackRequest() error {
 	usage := float64(len(c.rateWindow)) / float64(c.rateLimit) * 100
 
 	if usage >= 90 {
+		c.rateMu.Unlock()
 		return ErrRateLimited
 	}
 
+	c.rateWindow = append(c.rateWindow, now)
+
+	var delay time.Duration
 	if usage >= 75 {
-		time.Sleep(1 * time.Second)
+		delay = 1 * time.Second
 	} else if usage >= float64(c.rateThreshold) {
-		time.Sleep(500 * time.Millisecond)
+		delay = 500 * time.Millisecond
 	}
 
-	c.rateWindow = append(c.rateWindow, now)
+	c.rateMu.Unlock()
+
+	if delay > 0 {
+		time.Sleep(delay)
+	}
 	return nil
 }
 
@@ -828,12 +834,17 @@ func (c *Client) doRequest(ctx context.Context, method, path string, body any) (
 		return nil, err
 	}
 
-	base, err := c.resolveBaseURL(ctx)
-	if err != nil {
-		return nil, err
+	var url string
+	if strings.HasPrefix(path, "http://") || strings.HasPrefix(path, "https://") {
+		// Absolute URL (e.g., nextPageUrl from pagination) — use as-is
+		url = path
+	} else {
+		base, err := c.resolveBaseURL(ctx)
+		if err != nil {
+			return nil, err
+		}
+		url = base + path
 	}
-
-	url := base + path
 
 	var bodyReader io.Reader
 	if body != nil {
@@ -995,8 +1006,16 @@ func TestReader_Get_NotFound(t *testing.T) {
 
 func TestReader_Query(t *testing.T) {
 	page := 0
+	var srvURL string
 	_, base := setupTestService[testEntity](func(w http.ResponseWriter, r *http.Request) {
 		page++
+		// Verify page 1 is POST, page 2 is GET
+		if page == 1 && r.Method != http.MethodPost {
+			t.Errorf("page 1: expected POST, got %s", r.Method)
+		}
+		if page == 2 && r.Method != http.MethodGet {
+			t.Errorf("page 2: expected GET, got %s", r.Method)
+		}
 		resp := map[string]any{
 			"items": []map[string]any{
 				{"id": page, "name": fmt.Sprintf("item%d", page)},
@@ -1007,10 +1026,12 @@ func TestReader_Query(t *testing.T) {
 			},
 		}
 		if page == 1 {
-			resp["pageDetails"].(map[string]any)["nextPageUrl"] = r.URL.Path + "?page=2"
+			// Real API returns absolute URL for nextPageUrl
+			resp["pageDetails"].(map[string]any)["nextPageUrl"] = srvURL + r.URL.Path + "?page=2"
 		}
 		json.NewEncoder(w).Encode(resp)
 	})
+	srvURL = base.client.baseURL // capture the test server URL
 
 	reader := Reader[testEntity]{base: base}
 	results, err := reader.Query(context.Background(), Filter(Field("name").Eq("test")))
