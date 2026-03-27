@@ -229,16 +229,99 @@ func cmdTicket(ctx context.Context, client *autotask.Client, query string, jsonO
 	}
 }
 
-// cmdTickets searches tickets by title keyword.
+// cmdTickets searches tickets across title, description, and ticket notes.
+//
+// This demonstrates a practical multi-source search pattern: query the main
+// entity for text field matches, then also search the TicketNotes entity
+// (which has a top-level query endpoint) for note content matches. Results
+// are merged and deduplicated by ticket ID.
 func cmdTickets(ctx context.Context, client *autotask.Client, search string, jsonOut bool) {
-	filter := autotask.Filter(
-		autotask.Field("title").Contains(search),
+	// Search ticket fields: title, description, and ticket number.
+	ticketFilter := autotask.Filter(
+		autotask.Or(
+			autotask.Field("title").Contains(search),
+			autotask.Field("description").Contains(search),
+			autotask.Field("ticketNumber").Contains(search),
+		),
 	)
-	results, err := client.Tickets.Query(ctx, filter.AsFilterOption())
-	if err != nil {
-		fatal(fmt.Sprintf("searching tickets: %v", err))
+
+	// Search ticket notes (title and description/body).
+	// TicketNotes has a top-level query endpoint at /V1.0/TicketNotes/query
+	// that searches across all tickets. We build a Reader manually since the
+	// generated code only has the child service (per-ticket).
+	noteFilter := autotask.Filter(
+		autotask.Or(
+			autotask.Field("title").Contains(search),
+			autotask.Field("description").Contains(search),
+		),
+	)
+
+	// Run both searches concurrently.
+	type ticketResult struct {
+		tickets []*autotask.Ticket
+		err     error
+	}
+	type noteResult struct {
+		notes []*autotask.TicketNote
+		err   error
 	}
 
+	ticketCh := make(chan ticketResult, 1)
+	noteCh := make(chan noteResult, 1)
+
+	go func() {
+		results, err := client.Tickets.Query(ctx, ticketFilter.AsFilterOption())
+		ticketCh <- ticketResult{results, err}
+	}()
+
+	go func() {
+		results, err := client.QueryTicketNotes(ctx, noteFilter.AsFilterOption())
+		noteCh <- noteResult{results, err}
+	}()
+
+	tr := <-ticketCh
+	if tr.err != nil {
+		fatal(fmt.Sprintf("searching tickets: %v", tr.err))
+	}
+
+	// Collect ticket IDs from direct matches.
+	seen := map[int64]bool{}
+	for _, t := range tr.tickets {
+		seen[deref(t.ID)] = true
+	}
+
+	// Collect ticket IDs from note matches, fetch any tickets we don't have yet.
+	nr := <-noteCh
+	if nr.err != nil {
+		// Note search failure is non-fatal — we still have ticket field matches.
+		fmt.Fprintf(os.Stderr, "warning: note search failed: %v\n", nr.err)
+	} else {
+		var missingIDs []int64
+		for _, note := range nr.notes {
+			tid := deref(note.TicketID)
+			if tid != 0 && !seen[tid] {
+				seen[tid] = true
+				missingIDs = append(missingIDs, tid)
+			}
+		}
+
+		// Fetch tickets found only via notes. Batch by querying with In().
+		if len(missingIDs) > 0 {
+			ids := make([]any, len(missingIDs))
+			for i, id := range missingIDs {
+				ids[i] = id
+			}
+			idFilter := autotask.Filter(autotask.Field("id").In(ids))
+			extra, err := client.Tickets.Query(ctx, idFilter.AsFilterOption())
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "warning: fetching note-matched tickets: %v\n", err)
+			} else {
+				tr.tickets = append(tr.tickets, extra...)
+			}
+		}
+	}
+
+	results := tr.tickets
 	if len(results) == 0 {
 		fmt.Println("no results")
 		return
@@ -272,6 +355,7 @@ func cmdTickets(ctx context.Context, client *autotask.Client, search string, jso
 	if len(results) > 25 {
 		fmt.Printf("\n... and %d more (showing first 25)\n", len(results)-25)
 	}
+	fmt.Printf("\n%d ticket(s) found\n", len(results))
 }
 
 // cmdCompany looks up a company by ID or searches by name.
