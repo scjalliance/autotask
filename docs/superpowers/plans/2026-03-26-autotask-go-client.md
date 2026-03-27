@@ -27,7 +27,7 @@ Note: the git repo and initial commit already exist from the spec phase. Initial
 
 ```bash
 cd /home/emmaly/Projects/autotask
-go mod init github.com/emmaly/autotask
+go mod init github.com/scjalliance/autotask
 ```
 
 - [ ] **Step 2: Write the error types test**
@@ -2177,7 +2177,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	"github.com/emmaly/autotask"
+	"github.com/scjalliance/autotask"
 )
 
 func ExampleNewClient() {
@@ -2281,7 +2281,7 @@ git commit -m "test: full test suite with examples"
 Create `README.md` with: installation, quick start, query examples, entity list, auth setup, rate limiting notes. Reference the design spec for architecture details.
 
 Key sections:
-- Installation: `go get github.com/emmaly/autotask`
+- Installation: `go get github.com/scjalliance/autotask`
 - Quick Start: NewClient with Config, query tickets
 - Query Builder: Filter, operators, OR grouping, UDF
 - Pagination: auto-paging Query vs streaming QueryIter
