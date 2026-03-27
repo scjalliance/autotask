@@ -52,13 +52,21 @@ client, err := autotask.NewClient(autotask.Config{
 - **Auth headers:** `UserName`, `Secret`, `ApiIntegrationcode` injected on every request automatically.
 - **Impersonation:** `ImpersonationResourceId` settable per-request via context or client option.
 - **HTTP client:** Injectable `*http.Client` for testing/proxying.
-- **Rate limit awareness:** Tracks request rate, backs off at 50%+ threshold to avoid latency penalties.
+- **Rate limit awareness:** The Autotask API imposes latency penalties at 50%+ usage (0.5s per request at 50-75%, 1s at 75%+) and hard-blocks at 10,000 requests/hour. The client tracks request count via a sliding window counter. When usage exceeds 50%, the client adds voluntary delays matching the server-side penalty to stay predictable. At 90%+, the client returns `ErrRateLimited` rather than risking a hard block. Callers can configure the threshold via `Config.RateLimitThreshold` or disable tracking entirely with `Config.DisableRateLimitTracking`.
 
 ### Capability Traits (Generics)
+
+`baseService` holds shared state for all trait methods: a pointer to the `Client` (for HTTP transport and auth), the entity's REST path (e.g., `"/V1.0/Tickets"`), and the entity name (for error messages).
 
 Each CRUD capability is a separate generic struct with its methods:
 
 ```go
+type baseService struct {
+    client     *Client
+    entityPath string
+    entityName string
+}
+
 type Reader[T any]  struct { base *baseService }
 type Creator[T any] struct { base *baseService }
 type Updater[T any] struct { base *baseService }
@@ -71,7 +79,7 @@ Methods on each trait:
 - **Reader[T]:** `Get(ctx, id)`, `Query(ctx, ...FilterOption)`, `QueryIter(ctx, ...FilterOption)`, `Count(ctx, ...FilterOption)`, `EntityInfo(ctx)`, `FieldDefinitions(ctx)`, `UDFDefinitions(ctx)`
 - **Creator[T]:** `Create(ctx, *T)`
 - **Updater[T]:** `Update(ctx, *T)`
-- **Patcher[T]:** `Patch(ctx, id, Patch)`
+- **Patcher[T]:** `Patch(ctx, id, PatchData)` — `PatchData` is `map[string]any`, allowing callers to send only the fields they want to change. For type-safe patching, callers can also use `Update` with a `*T` where only the desired pointer fields are non-nil.
 - **Deleter[T]:** `Delete(ctx, id)`
 
 ### Generated Entity Services
@@ -87,7 +95,10 @@ type TicketService struct {
     Patcher[Ticket]
 }
 
-// Read-only (contacts)
+// Read-only — note: codegen determines capabilities from the swagger spec.
+// The Contacts entity in the example spec only has query endpoints.
+// If the live API supports Create/Update for Contacts, regenerating
+// from an updated spec will add those traits automatically.
 type ContactService struct {
     Reader[Contact]
 }
@@ -112,10 +123,31 @@ client.Tickets        // TicketService
 client.Companies      // CompanyService
 client.TimeEntries    // TimeEntryService
 
-// Child entities via method (needs parent ID)
-client.TicketNotes(parentID)       // ChildReader[TicketNote] etc.
-client.CompanyLocations(parentID)
+// Child entities via method (needs parent ID as int64)
+client.TicketNotes(parentID)       // TicketNoteChildService
+client.CompanyLocations(parentID)  // CompanyLocationChildService
 ```
+
+### Child Entities
+
+137 of the 371 entity tags are child entities (suffix `Child` in the swagger, paths like `/V1.0/Tickets/{parentId}/Notes`). Child entity services mirror the same trait pattern as top-level entities, but their `baseService.entityPath` includes the parent ID:
+
+```go
+// Codegen determines child relationships from swagger path patterns:
+// /V1.0/{Parent}/{parentId}/{Child} → child entity
+func (c *Client) TicketNotes(parentID int64) TicketNoteChildService {
+    return TicketNoteChildService{
+        Reader: Reader[TicketNote]{base: &baseService{
+            client:     c.client,
+            entityPath: fmt.Sprintf("/V1.0/Tickets/%d/Notes", parentID),
+            entityName: "TicketNote",
+        }},
+        Creator: Creator[TicketNote]{/* same base */},
+    }
+}
+```
+
+Child services compose the same `Reader`, `Creator`, `Updater`, `Patcher`, `Deleter` traits — no separate `ChildReader` type needed. The only difference is the path includes the parent ID. Codegen detects child entities by matching swagger paths containing `{parentId}` and generates the appropriate accessor method on `Client`.
 
 ### Query Builder
 
@@ -144,7 +176,9 @@ results, err := client.Tickets.Query(ctx,
 autotask.UDF("CustomerRanking").Eq("Golden")
 
 // Streaming large result sets (range-over-func, Go 1.23+)
-for ticket, err := range client.Tickets.QueryIter(ctx, autotask.Filter(...)).All() {
+// QueryIter returns iter.Seq2[*T, error] directly
+for ticket, err := range client.Tickets.QueryIter(ctx, autotask.Filter(...)) {
+    if err != nil { break }
     // yields one at a time, auto-pages transparently
 }
 ```
@@ -159,7 +193,7 @@ Filter serializes to the JSON structure the API expects:
 ### Pagination
 
 - `Query()` returns `[]T` — auto-pages internally, collects all results.
-- `QueryIter()` returns an iterator — streams results, fetches next page on demand.
+- `QueryIter()` returns `iter.Seq2[*T, error]` — streams results, fetches next page on demand. Context cancellation stops iteration; partial results are not returned (callers accumulate in their own loop if they want partial).
 - Follows `nextPageUrl` from `pageDetails` in each response.
 - `Count()` uses the `/query/count` endpoint for efficient counting without fetching data.
 
@@ -186,8 +220,8 @@ type Ticket struct {
 }
 
 type UDF struct {
-    Name  string      `json:"name"`
-    Value interface{} `json:"value"`
+    Name  string `json:"name"`
+    Value any    `json:"value"`
 }
 ```
 
@@ -197,7 +231,7 @@ type UDF struct {
 var ErrNotFound      // 404 or empty item response
 var ErrUnauthorized  // 401
 var ErrForbidden     // 403
-var ErrRateLimited   // threshold exceeded
+var ErrRateLimited   // client-side preemptive block (usage > 90% of 10k/hr)
 
 type APIError struct {
     StatusCode int
@@ -211,7 +245,7 @@ Standard `errors.Is` / `errors.As` support.
 
 **Tool:** `cmd/generate/main.go` — standalone Go program.
 
-**Inputs:** Swagger spec from `~/.cache/api-explorer/apis/autotask/` (raw swagger JSON).
+**Inputs:** Swagger spec JSON file. Default path: `~/.cache/api-explorer/apis/autotask/raw/*/swagger-apisguru.json`. Overridable via `-spec` flag for CI or other developers.
 
 **Outputs:** `gen_models.go`, `gen_services.go`
 
@@ -233,7 +267,8 @@ Standard `errors.Is` / `errors.As` support.
 ## Constraints & Decisions
 
 - **Go 1.23+** required (generics, range-over-func iterators)
-- **All fields are pointers** — necessary for the PATCH semantic (omit vs zero)
+- **All fields are pointers** — necessary for the PATCH semantic (omit vs zero). With `json:",omitempty"`, nil pointers are omitted from JSON; non-nil pointers (even to zero values) are serialized. This gives correct behavior for both CREATE (send all set fields) and PATCH/UPDATE (send only changed fields).
+- **Timestamps are `*string`, not `*time.Time`** — the API uses ISO 8601 strings. Keeping them as strings avoids parse ambiguity and matches the wire format exactly. Helper functions (`autotask.TimeToString`, `autotask.StringToTime`) will be provided for conversion.
 - **Single package** — no sub-packages, flat structure, clean import
 - **Generated code checked in** — consumers don't need the codegen tool
-- **Swagger spec cached globally** at `~/.cache/api-explorer/` — not vendored into the project
+- **Swagger spec cached globally** at `~/.cache/api-explorer/` — not vendored into the project. Codegen tool accepts `-spec` flag for alternate paths.
