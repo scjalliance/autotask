@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	"github.com/emmaly/autotask"
+	"github.com/scjalliance/autotask"
 )
 
 func ExampleNewClient() {

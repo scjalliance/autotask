@@ -5,7 +5,7 @@ A Go client library for the [Autotask PSA](https://www.autotask.net/) REST API. 
 ## Installation
 
 ```
-go get github.com/emmaly/autotask
+go get github.com/scjalliance/autotask
 ```
 
 Requires Go 1.26+.

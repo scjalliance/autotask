@@ -31,7 +31,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/emmaly/autotask"
+	"github.com/scjalliance/autotask"
 )
 
 func main() {
