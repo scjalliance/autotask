@@ -21,21 +21,21 @@ type AdditionalInvoiceFieldValue struct {
 
 // Appointment represents an Autotask Appointment entity.
 type Appointment struct {
-	CreateDateTime    *string `json:"createDateTime,omitempty"`
+	CreateDateTime    *Time   `json:"createDateTime,omitempty"`
 	CreatorResourceID *int64  `json:"creatorResourceID,omitempty"`
 	Description       *string `json:"description,omitempty"`
-	EndDateTime       *string `json:"endDateTime,omitempty"`
+	EndDateTime       *Time   `json:"endDateTime,omitempty"`
 	ID                *int64  `json:"id,omitempty"`
 	ResourceID        *int64  `json:"resourceID,omitempty"`
-	StartDateTime     *string `json:"startDateTime,omitempty"`
+	StartDateTime     *Time   `json:"startDateTime,omitempty"`
 	Title             *string `json:"title,omitempty"`
-	UpdateDateTime    *string `json:"updateDateTime,omitempty"`
+	UpdateDateTime    *Time   `json:"updateDateTime,omitempty"`
 }
 
 // ArticleAttachment represents an Autotask ArticleAttachment entity.
 type ArticleAttachment struct {
 	ArticleID                     *int64   `json:"articleID,omitempty"`
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -68,11 +68,11 @@ type ArticleConfigurationItemCategoryAssociation struct {
 type ArticleNote struct {
 	ArticleID                *int64  `json:"articleID,omitempty"`
 	CreatedByResourceID      *int64  `json:"createdByResourceID,omitempty"`
-	CreatedDateTime          *string `json:"createdDateTime,omitempty"`
+	CreatedDateTime          *Time   `json:"createdDateTime,omitempty"`
 	Description              *string `json:"description,omitempty"`
 	ID                       *int64  `json:"id,omitempty"`
 	LastModifiedByResourceID *int64  `json:"lastModifiedByResourceID,omitempty"`
-	LastModifiedDateTime     *string `json:"lastModifiedDateTime,omitempty"`
+	LastModifiedDateTime     *Time   `json:"lastModifiedDateTime,omitempty"`
 	SoapParentPropertyID     *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	Title                    *string `json:"title,omitempty"`
 }
@@ -86,12 +86,12 @@ type ArticlePlainTextContent struct {
 
 // ArticleTagAssociation represents an Autotask ArticleTagAssociation entity.
 type ArticleTagAssociation struct {
-	ArticleID            *int64  `json:"articleID,omitempty"`
-	CreateDateTime       *string `json:"createDateTime,omitempty"`
-	CreatedByResourceID  *int64  `json:"createdByResourceID,omitempty"`
-	ID                   *int64  `json:"id,omitempty"`
-	SoapParentPropertyID *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	TagID                *int64  `json:"tagID,omitempty"`
+	ArticleID            *int64 `json:"articleID,omitempty"`
+	CreateDateTime       *Time  `json:"createDateTime,omitempty"`
+	CreatedByResourceID  *int64 `json:"createdByResourceID,omitempty"`
+	ID                   *int64 `json:"id,omitempty"`
+	SoapParentPropertyID *int64 `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+	TagID                *int64 `json:"tagID,omitempty"`
 }
 
 // ArticleTicketAssociation represents an Autotask ArticleTicketAssociation entity.
@@ -121,7 +121,7 @@ type ArticleToDocumentAssociation struct {
 // AttachmentInfo represents an Autotask AttachmentInfo entity.
 type AttachmentInfo struct {
 	ArticleID                     *int64   `json:"articleID,omitempty"`
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -179,11 +179,11 @@ type BillingCode struct {
 
 // BillingItemApprovalLevel represents an Autotask BillingItemApprovalLevel entity.
 type BillingItemApprovalLevel struct {
-	ApprovalDateTime   *string `json:"approvalDateTime,omitempty"`
-	ApprovalLevel      *int64  `json:"approvalLevel,omitempty"`
-	ApprovalResourceID *int64  `json:"approvalResourceID,omitempty"`
-	ID                 *int64  `json:"id,omitempty"`
-	TimeEntryID        *int64  `json:"timeEntryID,omitempty"`
+	ApprovalDateTime   *Time  `json:"approvalDateTime,omitempty"`
+	ApprovalLevel      *int64 `json:"approvalLevel,omitempty"`
+	ApprovalResourceID *int64 `json:"approvalResourceID,omitempty"`
+	ID                 *int64 `json:"id,omitempty"`
+	TimeEntryID        *int64 `json:"timeEntryID,omitempty"`
 }
 
 // BillingItem represents an Autotask BillingItem entity.
@@ -212,7 +212,7 @@ type BillingItem struct {
 	InternalCurrencyTotalAmount       *float64 `json:"internalCurrencyTotalAmount,omitempty"`
 	InvoiceID                         *int64   `json:"invoiceID,omitempty"`
 	ItemApproverID                    *int64   `json:"itemApproverID,omitempty"`
-	ItemDate                          *string  `json:"itemDate,omitempty"`
+	ItemDate                          *Time    `json:"itemDate,omitempty"`
 	ItemName                          *string  `json:"itemName,omitempty"`
 	LineItemFullDescription           *string  `json:"lineItemFullDescription,omitempty"`
 	LineItemGroupDescription          *string  `json:"lineItemGroupDescription,omitempty"`
@@ -220,8 +220,8 @@ type BillingItem struct {
 	NonBillable                       *int64   `json:"nonBillable,omitempty"`
 	OrganizationalLevelAssociationID  *int64   `json:"organizationalLevelAssociationID,omitempty"`
 	OurCost                           *float64 `json:"ourCost,omitempty"`
-	PostedDate                        *string  `json:"postedDate,omitempty"`
-	PostedOnTime                      *string  `json:"postedOnTime,omitempty"`
+	PostedDate                        *Time    `json:"postedDate,omitempty"`
+	PostedOnTime                      *Time    `json:"postedOnTime,omitempty"`
 	ProjectChargeID                   *int64   `json:"projectChargeID,omitempty"`
 	ProjectID                         *int64   `json:"projectID,omitempty"`
 	PurchaseOrderNumber               *string  `json:"purchaseOrderNumber,omitempty"`
@@ -239,7 +239,7 @@ type BillingItem struct {
 	TimeEntryID                       *int64   `json:"timeEntryID,omitempty"`
 	TotalAmount                       *float64 `json:"totalAmount,omitempty"`
 	VendorID                          *int64   `json:"vendorID,omitempty"`
-	WebServiceDate                    *string  `json:"webServiceDate,omitempty"`
+	WebServiceDate                    *Time    `json:"webServiceDate,omitempty"`
 }
 
 // ChangeOrderCharge represents an Autotask ChangeOrderCharge entity.
@@ -250,9 +250,9 @@ type ChangeOrderCharge struct {
 	ChargeType                       *int64   `json:"chargeType,omitempty"`
 	ContractServiceBundleID          *int64   `json:"contractServiceBundleID,omitempty"`
 	ContractServiceID                *int64   `json:"contractServiceID,omitempty"`
-	CreateDate                       *string  `json:"createDate,omitempty"`
+	CreateDate                       *Time    `json:"createDate,omitempty"`
 	CreatorResourceID                *int64   `json:"creatorResourceID,omitempty"`
-	DatePurchased                    *string  `json:"datePurchased,omitempty"`
+	DatePurchased                    *Time    `json:"datePurchased,omitempty"`
 	Description                      *string  `json:"description,omitempty"`
 	ExtendedCost                     *float64 `json:"extendedCost,omitempty"`
 	ID                               *int64   `json:"id,omitempty"`
@@ -268,7 +268,7 @@ type ChangeOrderCharge struct {
 	PurchaseOrderNumber              *string  `json:"purchaseOrderNumber,omitempty"`
 	Status                           *int64   `json:"status,omitempty"`
 	StatusLastModifiedBy             *int64   `json:"statusLastModifiedBy,omitempty"`
-	StatusLastModifiedDate           *string  `json:"statusLastModifiedDate,omitempty"`
+	StatusLastModifiedDate           *Time    `json:"statusLastModifiedDate,omitempty"`
 	TaskID                           *int64   `json:"taskID,omitempty"`
 	UnitCost                         *float64 `json:"unitCost,omitempty"`
 	UnitPrice                        *float64 `json:"unitPrice,omitempty"`
@@ -344,7 +344,7 @@ type CompanyAlert struct {
 
 // CompanyAttachment represents an Autotask CompanyAttachment entity.
 type CompanyAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -431,7 +431,7 @@ type Company struct {
 	CompanyType                            *int64   `json:"companyType,omitempty"`
 	CompetitorID                           *int64   `json:"competitorID,omitempty"`
 	CountryID                              *int64   `json:"countryID,omitempty"`
-	CreateDate                             *string  `json:"createDate,omitempty"`
+	CreateDate                             *Time    `json:"createDate,omitempty"`
 	CreatedByResourceID                    *int64   `json:"createdByResourceID,omitempty"`
 	CurrencyID                             *int64   `json:"currencyID,omitempty"`
 	Fax                                    *string  `json:"fax,omitempty"`
@@ -447,8 +447,8 @@ type Company struct {
 	IsSample                               *bool    `json:"isSample,omitempty"`
 	IsTaskFireActive                       *bool    `json:"isTaskFireActive,omitempty"`
 	IsTaxExempt                            *bool    `json:"isTaxExempt,omitempty"`
-	LastActivityDate                       *string  `json:"lastActivityDate,omitempty"`
-	LastTrackedModifiedDateTime            *string  `json:"lastTrackedModifiedDateTime,omitempty"`
+	LastActivityDate                       *Time    `json:"lastActivityDate,omitempty"`
+	LastTrackedModifiedDateTime            *Time    `json:"lastTrackedModifiedDateTime,omitempty"`
 	MarketSegmentID                        *int64   `json:"marketSegmentID,omitempty"`
 	OwnerResourceID                        *int64   `json:"ownerResourceID,omitempty"`
 	ParentCompanyID                        *int64   `json:"parentCompanyID,omitempty"`
@@ -471,7 +471,7 @@ type Company struct {
 
 // CompanyNoteAttachment represents an Autotask CompanyNoteAttachment entity.
 type CompanyNoteAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -499,19 +499,19 @@ type CompanyNote struct {
 	ActionType                    *int64  `json:"actionType,omitempty"`
 	AssignedResourceID            *int64  `json:"assignedResourceID,omitempty"`
 	CompanyID                     *int64  `json:"companyID,omitempty"`
-	CompletedDateTime             *string `json:"completedDateTime,omitempty"`
+	CompletedDateTime             *Time   `json:"completedDateTime,omitempty"`
 	ContactID                     *int64  `json:"contactID,omitempty"`
-	CreateDateTime                *string `json:"createDateTime,omitempty"`
-	EndDateTime                   *string `json:"endDateTime,omitempty"`
+	CreateDateTime                *Time   `json:"createDateTime,omitempty"`
+	EndDateTime                   *Time   `json:"endDateTime,omitempty"`
 	ID                            *int64  `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID *int64  `json:"impersonatorCreatorResourceID,omitempty"`
 	ImpersonatorUpdaterResourceID *int64  `json:"impersonatorUpdaterResourceID,omitempty"`
-	LastModifiedDate              *string `json:"lastModifiedDate,omitempty"`
+	LastModifiedDate              *Time   `json:"lastModifiedDate,omitempty"`
 	Name                          *string `json:"name,omitempty"`
 	Note                          *string `json:"note,omitempty"`
 	OpportunityID                 *int64  `json:"opportunityID,omitempty"`
 	SoapParentPropertyID          *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	StartDateTime                 *string `json:"startDateTime,omitempty"`
+	StartDateTime                 *Time   `json:"startDateTime,omitempty"`
 }
 
 // CompanySiteConfiguration represents an Autotask CompanySiteConfiguration entity.
@@ -538,18 +538,18 @@ type CompanyToDo struct {
 	ActivityDescription           *string `json:"activityDescription,omitempty"`
 	AssignedToResourceID          *int64  `json:"assignedToResourceID,omitempty"`
 	CompanyID                     *int64  `json:"companyID,omitempty"`
-	CompletedDate                 *string `json:"completedDate,omitempty"`
+	CompletedDate                 *Time   `json:"completedDate,omitempty"`
 	ContactID                     *int64  `json:"contactID,omitempty"`
 	ContractID                    *int64  `json:"contractID,omitempty"`
-	CreateDateTime                *string `json:"createDateTime,omitempty"`
+	CreateDateTime                *Time   `json:"createDateTime,omitempty"`
 	CreatorResourceID             *int64  `json:"creatorResourceID,omitempty"`
-	EndDateTime                   *string `json:"endDateTime,omitempty"`
+	EndDateTime                   *Time   `json:"endDateTime,omitempty"`
 	ID                            *int64  `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID *int64  `json:"impersonatorCreatorResourceID,omitempty"`
-	LastModifiedDate              *string `json:"lastModifiedDate,omitempty"`
+	LastModifiedDate              *Time   `json:"lastModifiedDate,omitempty"`
 	OpportunityID                 *int64  `json:"opportunityID,omitempty"`
 	SoapParentPropertyID          *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	StartDateTime                 *string `json:"startDateTime,omitempty"`
+	StartDateTime                 *Time   `json:"startDateTime,omitempty"`
 	TicketID                      *int64  `json:"ticketID,omitempty"`
 }
 
@@ -601,7 +601,7 @@ type CompanyWebhookUdfField struct {
 
 // ConfigurationItemAttachment represents an Autotask ConfigurationItemAttachment entity.
 type ConfigurationItemAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -626,12 +626,12 @@ type ConfigurationItemAttachment struct {
 
 // ConfigurationItemBillingProductAssociation represents an Autotask ConfigurationItemBillingProductAssociation entity.
 type ConfigurationItemBillingProductAssociation struct {
-	BillingProductID     *int64  `json:"billingProductID,omitempty"`
-	ConfigurationItemID  *int64  `json:"configurationItemID,omitempty"`
-	EffectiveDate        *string `json:"effectiveDate,omitempty"`
-	ExpirationDate       *string `json:"expirationDate,omitempty"`
-	ID                   *int64  `json:"id,omitempty"`
-	SoapParentPropertyID *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+	BillingProductID     *int64 `json:"billingProductID,omitempty"`
+	ConfigurationItemID  *int64 `json:"configurationItemID,omitempty"`
+	EffectiveDate        *Time  `json:"effectiveDate,omitempty"`
+	ExpirationDate       *Time  `json:"expirationDate,omitempty"`
+	ID                   *int64 `json:"id,omitempty"`
+	SoapParentPropertyID *int64 `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 }
 
 // ConfigurationItemCategory represents an Autotask ConfigurationItemCategory entity.
@@ -656,7 +656,7 @@ type ConfigurationItemCategoryUdfAssociation struct {
 
 // ConfigurationItemDnsRecord represents an Autotask ConfigurationItemDnsRecord entity.
 type ConfigurationItemDnsRecord struct {
-	CreateDateTime       *string `json:"createDateTime,omitempty"`
+	CreateDateTime       *Time   `json:"createDateTime,omitempty"`
 	Data                 *string `json:"data,omitempty"`
 	DNSType              *string `json:"dnsType,omitempty"`
 	ID                   *int64  `json:"id,omitempty"`
@@ -676,7 +676,7 @@ type ConfigurationItem struct {
 	ContractID                            *int64   `json:"contractID,omitempty"`
 	ContractServiceBundleID               *int64   `json:"contractServiceBundleID,omitempty"`
 	ContractServiceID                     *int64   `json:"contractServiceID,omitempty"`
-	CreateDate                            *string  `json:"createDate,omitempty"`
+	CreateDate                            *Time    `json:"createDate,omitempty"`
 	CreatedByPersonID                     *int64   `json:"createdByPersonID,omitempty"`
 	DailyCost                             *float64 `json:"dailyCost,omitempty"`
 	DattoAvailableKilobytes               *int64   `json:"dattoAvailableKilobytes,omitempty"`
@@ -685,7 +685,7 @@ type ConfigurationItem struct {
 	DattoHostname                         *string  `json:"dattoHostname,omitempty"`
 	DattoInternalIP                       *string  `json:"dattoInternalIP,omitempty"`
 	DattoKernelVersionID                  *int64   `json:"dattoKernelVersionID,omitempty"`
-	DattoLastCheckInDateTime              *string  `json:"dattoLastCheckInDateTime,omitempty"`
+	DattoLastCheckInDateTime              *Time    `json:"dattoLastCheckInDateTime,omitempty"`
 	DattoNICSpeedKilobitsPerSecond        *int64   `json:"dattoNICSpeedKilobitsPerSecond,omitempty"`
 	DattoNumberOfAgents                   *int64   `json:"dattoNumberOfAgents,omitempty"`
 	DattoNumberOfDrives                   *int64   `json:"dattoNumberOfDrives,omitempty"`
@@ -701,20 +701,20 @@ type ConfigurationItem struct {
 	DattoZFSVersionID                     *int64   `json:"dattoZFSVersionID,omitempty"`
 	DeviceNetworkingID                    *string  `json:"deviceNetworkingID,omitempty"`
 	Domain                                *string  `json:"domain,omitempty"`
-	DomainExpirationDateTime              *string  `json:"domainExpirationDateTime,omitempty"`
-	DomainLastUpdatedDateTime             *string  `json:"domainLastUpdatedDateTime,omitempty"`
+	DomainExpirationDateTime              *Time    `json:"domainExpirationDateTime,omitempty"`
+	DomainLastUpdatedDateTime             *Time    `json:"domainLastUpdatedDateTime,omitempty"`
 	DomainRegistrarID                     *int64   `json:"domainRegistrarID,omitempty"`
-	DomainRegistrationDateTime            *string  `json:"domainRegistrationDateTime,omitempty"`
+	DomainRegistrationDateTime            *Time    `json:"domainRegistrationDateTime,omitempty"`
 	HourlyCost                            *float64 `json:"hourlyCost,omitempty"`
 	ID                                    *int64   `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID         *int64   `json:"impersonatorCreatorResourceID,omitempty"`
-	InstallDate                           *string  `json:"installDate,omitempty"`
+	InstallDate                           *Time    `json:"installDate,omitempty"`
 	InstalledByContactID                  *int64   `json:"installedByContactID,omitempty"`
 	InstalledByID                         *int64   `json:"installedByID,omitempty"`
 	IsActive                              *bool    `json:"isActive,omitempty"`
 	LastActivityPersonID                  *int64   `json:"lastActivityPersonID,omitempty"`
 	LastActivityPersonType                *int64   `json:"lastActivityPersonType,omitempty"`
-	LastModifiedTime                      *string  `json:"lastModifiedTime,omitempty"`
+	LastModifiedTime                      *Time    `json:"lastModifiedTime,omitempty"`
 	Location                              *string  `json:"location,omitempty"`
 	MonthlyCost                           *float64 `json:"monthlyCost,omitempty"`
 	Notes                                 *string  `json:"notes,omitempty"`
@@ -770,16 +770,16 @@ type ConfigurationItem struct {
 	SSLSerialNumber                       *string  `json:"sslSerialNumber,omitempty"`
 	SSLSignatureAlgorithm                 *string  `json:"sslSignatureAlgorithm,omitempty"`
 	SSLSource                             *string  `json:"sslSource,omitempty"`
-	SSLValidFromDateTime                  *string  `json:"sslValidFromDateTime,omitempty"`
-	SSLValidUntilDateTime                 *string  `json:"sslValidUntilDateTime,omitempty"`
+	SSLValidFromDateTime                  *Time    `json:"sslValidFromDateTime,omitempty"`
+	SSLValidUntilDateTime                 *Time    `json:"sslValidUntilDateTime,omitempty"`
 	VendorID                              *int64   `json:"vendorID,omitempty"`
-	WarrantyExpirationDate                *string  `json:"warrantyExpirationDate,omitempty"`
+	WarrantyExpirationDate                *Time    `json:"warrantyExpirationDate,omitempty"`
 	UserDefinedFields                     []UDF    `json:"userDefinedFields,omitempty"`
 }
 
 // ConfigurationItemNoteAttachment represents an Autotask ConfigurationItemNoteAttachment entity.
 type ConfigurationItemNoteAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -804,13 +804,13 @@ type ConfigurationItemNoteAttachment struct {
 // ConfigurationItemNote represents an Autotask ConfigurationItemNote entity.
 type ConfigurationItemNote struct {
 	ConfigurationItemID           *int64  `json:"configurationItemID,omitempty"`
-	CreateDateTime                *string `json:"createDateTime,omitempty"`
+	CreateDateTime                *Time   `json:"createDateTime,omitempty"`
 	CreatorResourceID             *int64  `json:"creatorResourceID,omitempty"`
 	Description                   *string `json:"description,omitempty"`
 	ID                            *int64  `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID *int64  `json:"impersonatorCreatorResourceID,omitempty"`
 	ImpersonatorUpdaterResourceID *int64  `json:"impersonatorUpdaterResourceID,omitempty"`
-	LastActivityDate              *string `json:"lastActivityDate,omitempty"`
+	LastActivityDate              *Time   `json:"lastActivityDate,omitempty"`
 	NoteType                      *int64  `json:"noteType,omitempty"`
 	SoapParentPropertyID          *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	Title                         *string `json:"title,omitempty"`
@@ -888,12 +888,12 @@ type ConfigurationItemWebhookUdfField struct {
 
 // ContactBillingProductAssociation represents an Autotask ContactBillingProductAssociation entity.
 type ContactBillingProductAssociation struct {
-	BillingProductID     *int64  `json:"billingProductID,omitempty"`
-	ContactID            *int64  `json:"contactID,omitempty"`
-	EffectiveDate        *string `json:"effectiveDate,omitempty"`
-	ExpirationDate       *string `json:"expirationDate,omitempty"`
-	ID                   *int64  `json:"id,omitempty"`
-	SoapParentPropertyID *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+	BillingProductID     *int64 `json:"billingProductID,omitempty"`
+	ContactID            *int64 `json:"contactID,omitempty"`
+	EffectiveDate        *Time  `json:"effectiveDate,omitempty"`
+	ExpirationDate       *Time  `json:"expirationDate,omitempty"`
+	ID                   *int64 `json:"id,omitempty"`
+	SoapParentPropertyID *int64 `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 }
 
 // ContactGroupContact represents an Autotask ContactGroupContact entity.
@@ -918,12 +918,12 @@ type Contact struct {
 	AddressLine1                  *string `json:"addressLine1,omitempty"`
 	AlternatePhone                *string `json:"alternatePhone,omitempty"`
 	APIVendorID                   *int64  `json:"apiVendorID,omitempty"`
-	BulkEmailOptOutTime           *string `json:"bulkEmailOptOutTime,omitempty"`
+	BulkEmailOptOutTime           *Time   `json:"bulkEmailOptOutTime,omitempty"`
 	City                          *string `json:"city,omitempty"`
 	CompanyID                     *int64  `json:"companyID,omitempty"`
 	CompanyLocationID             *int64  `json:"companyLocationID,omitempty"`
 	CountryID                     *int64  `json:"countryID,omitempty"`
-	CreateDate                    *string `json:"createDate,omitempty"`
+	CreateDate                    *Time   `json:"createDate,omitempty"`
 	EmailAddress                  *string `json:"emailAddress,omitempty"`
 	EmailAddress2                 *string `json:"emailAddress2,omitempty"`
 	EmailAddress3                 *string `json:"emailAddress3,omitempty"`
@@ -936,8 +936,8 @@ type Contact struct {
 	ImpersonatorCreatorResourceID *int64  `json:"impersonatorCreatorResourceID,omitempty"`
 	IsActive                      *int64  `json:"isActive,omitempty"`
 	IsOptedOutFromBulkEmail       *bool   `json:"isOptedOutFromBulkEmail,omitempty"`
-	LastActivityDate              *string `json:"lastActivityDate,omitempty"`
-	LastModifiedDate              *string `json:"lastModifiedDate,omitempty"`
+	LastActivityDate              *Time   `json:"lastActivityDate,omitempty"`
+	LastModifiedDate              *Time   `json:"lastModifiedDate,omitempty"`
 	LastName                      *string `json:"lastName,omitempty"`
 	LinkedInURL                   *string `json:"linkedInUrl,omitempty"`
 	MiddleInitial                 *string `json:"middleInitial,omitempty"`
@@ -951,7 +951,7 @@ type Contact struct {
 	RoomNumber                    *string `json:"roomNumber,omitempty"`
 	SoapParentPropertyID          *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	SolicitationOptOut            *bool   `json:"solicitationOptOut,omitempty"`
-	SolicitationOptOutTime        *string `json:"solicitationOptOutTime,omitempty"`
+	SolicitationOptOutTime        *Time   `json:"solicitationOptOutTime,omitempty"`
 	State                         *string `json:"state,omitempty"`
 	SurveyOptOut                  *bool   `json:"surveyOptOut,omitempty"`
 	Title                         *string `json:"title,omitempty"`
@@ -1013,7 +1013,7 @@ type ContractBillingRule struct {
 	DailyProratedCost               *float64 `json:"dailyProratedCost,omitempty"`
 	DailyProratedPrice              *float64 `json:"dailyProratedPrice,omitempty"`
 	DetermineUnits                  *int64   `json:"determineUnits,omitempty"`
-	EndDate                         *string  `json:"endDate,omitempty"`
+	EndDate                         *Time    `json:"endDate,omitempty"`
 	ExecutionMethod                 *int64   `json:"executionMethod,omitempty"`
 	ID                              *int64   `json:"id,omitempty"`
 	IncludeItemsInChargeDescription *bool    `json:"includeItemsInChargeDescription,omitempty"`
@@ -1024,7 +1024,7 @@ type ContractBillingRule struct {
 	MinimumUnits                    *int64   `json:"minimumUnits,omitempty"`
 	ProductID                       *int64   `json:"productID,omitempty"`
 	SoapParentPropertyID            *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	StartDate                       *string  `json:"startDate,omitempty"`
+	StartDate                       *Time    `json:"startDate,omitempty"`
 }
 
 // ContractBlockHourFactor represents an Autotask ContractBlockHourFactor entity.
@@ -1041,8 +1041,8 @@ type ContractBlockHourFactor struct {
 // ContractBlock represents an Autotask ContractBlock entity.
 type ContractBlock struct {
 	ContractID           *int64   `json:"contractID,omitempty"`
-	DatePurchased        *string  `json:"datePurchased,omitempty"`
-	EndDate              *string  `json:"endDate,omitempty"`
+	DatePurchased        *Time    `json:"datePurchased,omitempty"`
+	EndDate              *Time    `json:"endDate,omitempty"`
 	HourlyRate           *float64 `json:"hourlyRate,omitempty"`
 	Hours                *float64 `json:"hours,omitempty"`
 	HoursApproved        *float64 `json:"hoursApproved,omitempty"`
@@ -1052,7 +1052,7 @@ type ContractBlock struct {
 	PaymentNumber        *string  `json:"paymentNumber,omitempty"`
 	PaymentType          *int64   `json:"paymentType,omitempty"`
 	SoapParentPropertyID *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	StartDate            *string  `json:"startDate,omitempty"`
+	StartDate            *Time    `json:"startDate,omitempty"`
 	Status               *int64   `json:"status,omitempty"`
 }
 
@@ -1064,9 +1064,9 @@ type ContractCharge struct {
 	ContractID                       *int64   `json:"contractID,omitempty"`
 	ContractServiceBundleID          *int64   `json:"contractServiceBundleID,omitempty"`
 	ContractServiceID                *int64   `json:"contractServiceID,omitempty"`
-	CreateDate                       *string  `json:"createDate,omitempty"`
+	CreateDate                       *Time    `json:"createDate,omitempty"`
 	CreatorResourceID                *int64   `json:"creatorResourceID,omitempty"`
-	DatePurchased                    *string  `json:"datePurchased,omitempty"`
+	DatePurchased                    *Time    `json:"datePurchased,omitempty"`
 	Description                      *string  `json:"description,omitempty"`
 	ExtendedCost                     *float64 `json:"extendedCost,omitempty"`
 	ID                               *int64   `json:"id,omitempty"`
@@ -1083,7 +1083,7 @@ type ContractCharge struct {
 	SoapParentPropertyID             *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	Status                           *int64   `json:"status,omitempty"`
 	StatusLastModifiedBy             *int64   `json:"statusLastModifiedBy,omitempty"`
-	StatusLastModifiedDate           *string  `json:"statusLastModifiedDate,omitempty"`
+	StatusLastModifiedDate           *Time    `json:"statusLastModifiedDate,omitempty"`
 	UnitCost                         *float64 `json:"unitCost,omitempty"`
 	UnitPrice                        *float64 `json:"unitPrice,omitempty"`
 	UnitQuantity                     *float64 `json:"unitQuantity,omitempty"`
@@ -1134,9 +1134,9 @@ type ContractMilestone struct {
 	Amount                           *float64 `json:"amount,omitempty"`
 	BillingCodeID                    *int64   `json:"billingCodeID,omitempty"`
 	ContractID                       *int64   `json:"contractID,omitempty"`
-	CreateDate                       *string  `json:"createDate,omitempty"`
+	CreateDate                       *Time    `json:"createDate,omitempty"`
 	CreatorResourceID                *int64   `json:"creatorResourceID,omitempty"`
-	DateDue                          *string  `json:"dateDue,omitempty"`
+	DateDue                          *Time    `json:"dateDue,omitempty"`
 	Description                      *string  `json:"description,omitempty"`
 	ID                               *int64   `json:"id,omitempty"`
 	InternalCurrencyAmount           *float64 `json:"internalCurrencyAmount,omitempty"`
@@ -1162,7 +1162,7 @@ type Contract struct {
 	ContractPeriodType                     *int64   `json:"contractPeriodType,omitempty"`
 	ContractType                           *int64   `json:"contractType,omitempty"`
 	Description                            *string  `json:"description,omitempty"`
-	EndDate                                *string  `json:"endDate,omitempty"`
+	EndDate                                *Time    `json:"endDate,omitempty"`
 	EstimatedCost                          *float64 `json:"estimatedCost,omitempty"`
 	EstimatedHours                         *float64 `json:"estimatedHours,omitempty"`
 	EstimatedRevenue                       *float64 `json:"estimatedRevenue,omitempty"`
@@ -1180,7 +1180,7 @@ type Contract struct {
 	ServiceLevelAgreementID                *int64   `json:"serviceLevelAgreementID,omitempty"`
 	SetupFee                               *float64 `json:"setupFee,omitempty"`
 	SetupFeeBillingCodeID                  *int64   `json:"setupFeeBillingCodeID,omitempty"`
-	StartDate                              *string  `json:"startDate,omitempty"`
+	StartDate                              *Time    `json:"startDate,omitempty"`
 	Status                                 *int64   `json:"status,omitempty"`
 	TimeReportingRequiresStartAndStopTimes *int64   `json:"timeReportingRequiresStartAndStopTimes,omitempty"`
 	UserDefinedFields                      []UDF    `json:"userDefinedFields,omitempty"`
@@ -1188,7 +1188,7 @@ type Contract struct {
 
 // ContractNoteAttachment represents an Autotask ContractNoteAttachment entity.
 type ContractNoteAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -1213,13 +1213,13 @@ type ContractNoteAttachment struct {
 // ContractNote represents an Autotask ContractNote entity.
 type ContractNote struct {
 	ContractID                    *int64  `json:"contractID,omitempty"`
-	CreateDateTime                *string `json:"createDateTime,omitempty"`
+	CreateDateTime                *Time   `json:"createDateTime,omitempty"`
 	CreatorResourceID             *int64  `json:"creatorResourceID,omitempty"`
 	Description                   *string `json:"description,omitempty"`
 	ID                            *int64  `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID *int64  `json:"impersonatorCreatorResourceID,omitempty"`
 	ImpersonatorUpdaterResourceID *int64  `json:"impersonatorUpdaterResourceID,omitempty"`
-	LastActivityDate              *string `json:"lastActivityDate,omitempty"`
+	LastActivityDate              *Time   `json:"lastActivityDate,omitempty"`
 	SoapParentPropertyID          *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	Title                         *string `json:"title,omitempty"`
 }
@@ -1239,8 +1239,8 @@ type ContractRetainer struct {
 	Amount                         *float64 `json:"amount,omitempty"`
 	AmountApproved                 *float64 `json:"amountApproved,omitempty"`
 	ContractID                     *int64   `json:"contractID,omitempty"`
-	DatePurchased                  *string  `json:"datePurchased,omitempty"`
-	EndDate                        *string  `json:"endDate,omitempty"`
+	DatePurchased                  *Time    `json:"datePurchased,omitempty"`
+	EndDate                        *Time    `json:"endDate,omitempty"`
 	ID                             *int64   `json:"id,omitempty"`
 	InternalCurrencyAmount         *float64 `json:"internalCurrencyAmount,omitempty"`
 	InternalCurrencyAmountApproved *float64 `json:"internalCurrencyAmountApproved,omitempty"`
@@ -1249,7 +1249,7 @@ type ContractRetainer struct {
 	PaymentID                      *int64   `json:"paymentID,omitempty"`
 	PaymentNumber                  *string  `json:"paymentNumber,omitempty"`
 	SoapParentPropertyID           *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	StartDate                      *string  `json:"startDate,omitempty"`
+	StartDate                      *Time    `json:"startDate,omitempty"`
 	Status                         *int64   `json:"status,omitempty"`
 }
 
@@ -1270,7 +1270,7 @@ type ContractServiceAdjustment struct {
 	AllowRepeatService   *bool    `json:"allowRepeatService,omitempty"`
 	ContractID           *int64   `json:"contractID,omitempty"`
 	ContractServiceID    *int64   `json:"contractServiceID,omitempty"`
-	EffectiveDate        *string  `json:"effectiveDate,omitempty"`
+	EffectiveDate        *Time    `json:"effectiveDate,omitempty"`
 	ID                   *int64   `json:"id,omitempty"`
 	QuoteItemID          *int64   `json:"quoteItemID,omitempty"`
 	ServiceID            *int64   `json:"serviceID,omitempty"`
@@ -1284,7 +1284,7 @@ type ContractServiceBundleAdjustment struct {
 	AllowRepeatServiceBundle *bool    `json:"allowRepeatServiceBundle,omitempty"`
 	ContractID               *int64   `json:"contractID,omitempty"`
 	ContractServiceBundleID  *int64   `json:"contractServiceBundleID,omitempty"`
-	EffectiveDate            *string  `json:"effectiveDate,omitempty"`
+	EffectiveDate            *Time    `json:"effectiveDate,omitempty"`
 	ID                       *int64   `json:"id,omitempty"`
 	QuoteItemID              *int64   `json:"quoteItemID,omitempty"`
 	ServiceBundleID          *int64   `json:"serviceBundleID,omitempty"`
@@ -1309,18 +1309,18 @@ type ContractServiceBundle struct {
 
 // ContractServiceBundleUnit represents an Autotask ContractServiceBundleUnit entity.
 type ContractServiceBundleUnit struct {
-	ApproveAndPostDate               *string  `json:"approveAndPostDate,omitempty"`
+	ApproveAndPostDate               *Time    `json:"approveAndPostDate,omitempty"`
 	ContractID                       *int64   `json:"contractID,omitempty"`
 	ContractServiceBundleID          *int64   `json:"contractServiceBundleID,omitempty"`
 	Cost                             *float64 `json:"cost,omitempty"`
-	EndDate                          *string  `json:"endDate,omitempty"`
+	EndDate                          *Time    `json:"endDate,omitempty"`
 	ID                               *int64   `json:"id,omitempty"`
 	InternalCurrencyPrice            *float64 `json:"internalCurrencyPrice,omitempty"`
 	OrganizationalLevelAssociationID *int64   `json:"organizationalLevelAssociationID,omitempty"`
 	Price                            *float64 `json:"price,omitempty"`
 	ServiceBundleID                  *int64   `json:"serviceBundleID,omitempty"`
 	SoapParentPropertyID             *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	StartDate                        *string  `json:"startDate,omitempty"`
+	StartDate                        *Time    `json:"startDate,omitempty"`
 	Units                            *int64   `json:"units,omitempty"`
 }
 
@@ -1341,18 +1341,18 @@ type ContractService struct {
 
 // ContractServiceUnit represents an Autotask ContractServiceUnit entity.
 type ContractServiceUnit struct {
-	ApproveAndPostDate               *string  `json:"approveAndPostDate,omitempty"`
+	ApproveAndPostDate               *Time    `json:"approveAndPostDate,omitempty"`
 	ContractID                       *int64   `json:"contractID,omitempty"`
 	ContractServiceID                *int64   `json:"contractServiceID,omitempty"`
 	Cost                             *float64 `json:"cost,omitempty"`
-	EndDate                          *string  `json:"endDate,omitempty"`
+	EndDate                          *Time    `json:"endDate,omitempty"`
 	ID                               *int64   `json:"id,omitempty"`
 	InternalCurrencyPrice            *float64 `json:"internalCurrencyPrice,omitempty"`
 	OrganizationalLevelAssociationID *int64   `json:"organizationalLevelAssociationID,omitempty"`
 	Price                            *float64 `json:"price,omitempty"`
 	ServiceID                        *int64   `json:"serviceID,omitempty"`
 	SoapParentPropertyID             *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	StartDate                        *string  `json:"startDate,omitempty"`
+	StartDate                        *Time    `json:"startDate,omitempty"`
 	Units                            *int64   `json:"units,omitempty"`
 	VendorCompanyID                  *int64   `json:"vendorCompanyID,omitempty"`
 }
@@ -1360,8 +1360,8 @@ type ContractServiceUnit struct {
 // ContractTicketPurchase represents an Autotask ContractTicketPurchase entity.
 type ContractTicketPurchase struct {
 	ContractID           *int64   `json:"contractID,omitempty"`
-	DatePurchased        *string  `json:"datePurchased,omitempty"`
-	EndDate              *string  `json:"endDate,omitempty"`
+	DatePurchased        *Time    `json:"datePurchased,omitempty"`
+	EndDate              *Time    `json:"endDate,omitempty"`
 	ID                   *int64   `json:"id,omitempty"`
 	InvoiceNumber        *string  `json:"invoiceNumber,omitempty"`
 	IsPaid               *bool    `json:"isPaid,omitempty"`
@@ -1369,7 +1369,7 @@ type ContractTicketPurchase struct {
 	PaymentType          *int64   `json:"paymentType,omitempty"`
 	PerTicketRate        *float64 `json:"perTicketRate,omitempty"`
 	SoapParentPropertyID *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	StartDate            *string  `json:"startDate,omitempty"`
+	StartDate            *Time    `json:"startDate,omitempty"`
 	Status               *int64   `json:"status,omitempty"`
 	TicketsPurchased     *float64 `json:"ticketsPurchased,omitempty"`
 	TicketsUsed          *float64 `json:"ticketsUsed,omitempty"`
@@ -1399,22 +1399,22 @@ type Currency struct {
 	ID                     *int64   `json:"id,omitempty"`
 	IsActive               *bool    `json:"isActive,omitempty"`
 	IsInternalCurrency     *bool    `json:"isInternalCurrency,omitempty"`
-	LastModifiedDateTime   *string  `json:"lastModifiedDateTime,omitempty"`
+	LastModifiedDateTime   *Time    `json:"lastModifiedDateTime,omitempty"`
 	Name                   *string  `json:"name,omitempty"`
 	UpdateResourceID       *int64   `json:"updateResourceId,omitempty"`
 }
 
 // DeletedTaskActivityLog represents an Autotask DeletedTaskActivityLog entity.
 type DeletedTaskActivityLog struct {
-	ActivityDateTime      *string  `json:"activityDateTime,omitempty"`
+	ActivityDateTime      *Time    `json:"activityDateTime,omitempty"`
 	CreatedByResourceID   *int64   `json:"createdByResourceID,omitempty"`
 	DeletedByResourceID   *int64   `json:"deletedByResourceID,omitempty"`
-	DeletedDateTime       *string  `json:"deletedDateTime,omitempty"`
-	EndDateTime           *string  `json:"endDateTime,omitempty"`
+	DeletedDateTime       *Time    `json:"deletedDateTime,omitempty"`
+	EndDateTime           *Time    `json:"endDateTime,omitempty"`
 	HoursWorked           *float64 `json:"hoursWorked,omitempty"`
 	ID                    *int64   `json:"id,omitempty"`
 	NoteOrAttachmentTitle *string  `json:"noteOrAttachmentTitle,omitempty"`
-	StartDateTime         *string  `json:"startDateTime,omitempty"`
+	StartDateTime         *Time    `json:"startDateTime,omitempty"`
 	TaskID                *int64   `json:"taskID,omitempty"`
 	TaskNumber            *string  `json:"taskNumber,omitempty"`
 	TypeID                *int64   `json:"typeID,omitempty"`
@@ -1422,15 +1422,15 @@ type DeletedTaskActivityLog struct {
 
 // DeletedTicketActivityLog represents an Autotask DeletedTicketActivityLog entity.
 type DeletedTicketActivityLog struct {
-	ActivityDateTime      *string  `json:"activityDateTime,omitempty"`
+	ActivityDateTime      *Time    `json:"activityDateTime,omitempty"`
 	CreatedByResourceID   *int64   `json:"createdByResourceID,omitempty"`
 	DeletedByResourceID   *int64   `json:"deletedByResourceID,omitempty"`
-	DeletedDateTime       *string  `json:"deletedDateTime,omitempty"`
-	EndDateTime           *string  `json:"endDateTime,omitempty"`
+	DeletedDateTime       *Time    `json:"deletedDateTime,omitempty"`
+	EndDateTime           *Time    `json:"endDateTime,omitempty"`
 	HoursWorked           *float64 `json:"hoursWorked,omitempty"`
 	ID                    *int64   `json:"id,omitempty"`
 	NoteOrAttachmentTitle *string  `json:"noteOrAttachmentTitle,omitempty"`
-	StartDateTime         *string  `json:"startDateTime,omitempty"`
+	StartDateTime         *Time    `json:"startDateTime,omitempty"`
 	TicketID              *int64   `json:"ticketID,omitempty"`
 	TicketNumber          *string  `json:"ticketNumber,omitempty"`
 	TypeID                *int64   `json:"typeID,omitempty"`
@@ -1439,7 +1439,7 @@ type DeletedTicketActivityLog struct {
 // DeletedTicketLog represents an Autotask DeletedTicketLog entity.
 type DeletedTicketLog struct {
 	DeletedByResourceID *int64  `json:"deletedByResourceID,omitempty"`
-	DeletedDateTime     *string `json:"deletedDateTime,omitempty"`
+	DeletedDateTime     *Time   `json:"deletedDateTime,omitempty"`
 	ID                  *int64  `json:"id,omitempty"`
 	TicketID            *int64  `json:"ticketID,omitempty"`
 	TicketNumber        *string `json:"ticketNumber,omitempty"`
@@ -1457,7 +1457,7 @@ type Department struct {
 
 // DocumentAttachment represents an Autotask DocumentAttachment entity.
 type DocumentAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -1525,14 +1525,14 @@ type DocumentConfigurationItemCategoryAssociation struct {
 type Document struct {
 	CompanyID                *int64  `json:"companyID,omitempty"`
 	CreatedByResourceID      *int64  `json:"createdByResourceID,omitempty"`
-	CreatedDateTime          *string `json:"createdDateTime,omitempty"`
+	CreatedDateTime          *Time   `json:"createdDateTime,omitempty"`
 	DocumentCategoryID       *int64  `json:"documentCategoryID,omitempty"`
 	ErrorCodes               *string `json:"errorCodes,omitempty"`
 	ID                       *int64  `json:"id,omitempty"`
 	IsActive                 *bool   `json:"isActive,omitempty"`
 	Keywords                 *string `json:"keywords,omitempty"`
 	LastModifiedByResourceID *int64  `json:"lastModifiedByResourceID,omitempty"`
-	LastModifiedDateTime     *string `json:"lastModifiedDateTime,omitempty"`
+	LastModifiedDateTime     *Time   `json:"lastModifiedDateTime,omitempty"`
 	Publish                  *int64  `json:"publish,omitempty"`
 	ReferenceLink            *string `json:"referenceLink,omitempty"`
 	SoapParentPropertyID     *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
@@ -1542,12 +1542,12 @@ type Document struct {
 // DocumentNote represents an Autotask DocumentNote entity.
 type DocumentNote struct {
 	CreatedByResourceID      *int64  `json:"createdByResourceID,omitempty"`
-	CreatedDateTime          *string `json:"createdDateTime,omitempty"`
+	CreatedDateTime          *Time   `json:"createdDateTime,omitempty"`
 	Description              *string `json:"description,omitempty"`
 	DocumentID               *int64  `json:"documentID,omitempty"`
 	ID                       *int64  `json:"id,omitempty"`
 	LastModifiedByResourceID *int64  `json:"lastModifiedByResourceID,omitempty"`
-	LastModifiedDateTime     *string `json:"lastModifiedDateTime,omitempty"`
+	LastModifiedDateTime     *Time   `json:"lastModifiedDateTime,omitempty"`
 	SoapParentPropertyID     *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	Title                    *string `json:"title,omitempty"`
 }
@@ -1561,12 +1561,12 @@ type DocumentPlainTextContent struct {
 
 // DocumentTagAssociation represents an Autotask DocumentTagAssociation entity.
 type DocumentTagAssociation struct {
-	CreateDateTime       *string `json:"createDateTime,omitempty"`
-	CreatedByResourceID  *int64  `json:"createdByResourceID,omitempty"`
-	DocumentID           *int64  `json:"documentID,omitempty"`
-	ID                   *int64  `json:"id,omitempty"`
-	SoapParentPropertyID *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	TagID                *int64  `json:"tagID,omitempty"`
+	CreateDateTime       *Time  `json:"createDateTime,omitempty"`
+	CreatedByResourceID  *int64 `json:"createdByResourceID,omitempty"`
+	DocumentID           *int64 `json:"documentID,omitempty"`
+	ID                   *int64 `json:"id,omitempty"`
+	SoapParentPropertyID *int64 `json:"soapParentPropertyId,omitempty"` // READ-ONLY
+	TagID                *int64 `json:"tagID,omitempty"`
 }
 
 // DocumentTicketAssociation represents an Autotask DocumentTicketAssociation entity.
@@ -1602,7 +1602,7 @@ type DomainRegistrar struct {
 
 // ExpenseItemAttachment represents an Autotask ExpenseItemAttachment entity.
 type ExpenseItemAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -1633,7 +1633,7 @@ type ExpenseItem struct {
 	ExpenseCategory                          *int64   `json:"expenseCategory,omitempty"`
 	ExpenseCurrencyExpenseAmount             *float64 `json:"expenseCurrencyExpenseAmount,omitempty"`
 	ExpenseCurrencyID                        *int64   `json:"expenseCurrencyID,omitempty"`
-	ExpenseDate                              *string  `json:"expenseDate,omitempty"`
+	ExpenseDate                              *Time    `json:"expenseDate,omitempty"`
 	ExpenseReportID                          *int64   `json:"expenseReportID,omitempty"`
 	GlCode                                   *string  `json:"glCode,omitempty"`
 	HaveReceipt                              *bool    `json:"haveReceipt,omitempty"`
@@ -1659,7 +1659,7 @@ type ExpenseItem struct {
 
 // ExpenseReportAttachment represents an Autotask ExpenseReportAttachment entity.
 type ExpenseReportAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -1684,7 +1684,7 @@ type ExpenseReportAttachment struct {
 // ExpenseReport represents an Autotask ExpenseReport entity.
 type ExpenseReport struct {
 	AmountDue                              *float64 `json:"amountDue,omitempty"`
-	ApprovedDate                           *string  `json:"approvedDate,omitempty"`
+	ApprovedDate                           *Time    `json:"approvedDate,omitempty"`
 	ApproverID                             *int64   `json:"approverID,omitempty"`
 	DepartmentNumber                       *string  `json:"departmentNumber,omitempty"`
 	ID                                     *int64   `json:"id,omitempty"`
@@ -1699,14 +1699,14 @@ type ExpenseReport struct {
 	RejectionReason                        *string  `json:"rejectionReason,omitempty"`
 	Status                                 *int64   `json:"status,omitempty"`
 	Submit                                 *bool    `json:"submit,omitempty"`
-	SubmitDate                             *string  `json:"submitDate,omitempty"`
+	SubmitDate                             *Time    `json:"submitDate,omitempty"`
 	SubmitterID                            *int64   `json:"submitterID,omitempty"`
-	WeekEnding                             *string  `json:"weekEnding,omitempty"`
+	WeekEnding                             *Time    `json:"weekEnding,omitempty"`
 }
 
 // Holiday represents an Autotask Holiday entity.
 type Holiday struct {
-	HolidayDate          *string `json:"holidayDate,omitempty"`
+	HolidayDate          *Time   `json:"holidayDate,omitempty"`
 	HolidayName          *string `json:"holidayName,omitempty"`
 	HolidaySetID         *int64  `json:"holidaySetID,omitempty"`
 	ID                   *int64  `json:"id,omitempty"`
@@ -1722,14 +1722,14 @@ type HolidaySet struct {
 
 // IntegrationVendorInsight represents an Autotask IntegrationVendorInsight entity.
 type IntegrationVendorInsight struct {
-	CreateDateTime       *string `json:"createDateTime,omitempty"`
+	CreateDateTime       *Time   `json:"createDateTime,omitempty"`
 	Description          *string `json:"description,omitempty"`
 	Height               *int64  `json:"height,omitempty"`
 	ID                   *int64  `json:"id,omitempty"`
 	InsightCategory      *int64  `json:"insightCategory,omitempty"`
 	InsightKey           *string `json:"insightKey,omitempty"`
 	IsActive             *bool   `json:"isActive,omitempty"`
-	LastModifiedDateTime *string `json:"lastModifiedDateTime,omitempty"`
+	LastModifiedDateTime *Time   `json:"lastModifiedDateTime,omitempty"`
 	ReferenceURL         *string `json:"referenceUrl,omitempty"`
 	Secret               *string `json:"secret,omitempty"`
 	Title                *string `json:"title,omitempty"`
@@ -1738,11 +1738,11 @@ type IntegrationVendorInsight struct {
 
 // IntegrationVendorWidget represents an Autotask IntegrationVendorWidget entity.
 type IntegrationVendorWidget struct {
-	CreateDateTime       *string `json:"createDateTime,omitempty"`
+	CreateDateTime       *Time   `json:"createDateTime,omitempty"`
 	Description          *string `json:"description,omitempty"`
 	ID                   *int64  `json:"id,omitempty"`
 	IsActive             *bool   `json:"isActive,omitempty"`
-	LastModifiedDateTime *string `json:"lastModifiedDateTime,omitempty"`
+	LastModifiedDateTime *Time   `json:"lastModifiedDateTime,omitempty"`
 	ReferenceURL         *string `json:"referenceUrl,omitempty"`
 	Secret               *string `json:"secret,omitempty"`
 	Title                *string `json:"title,omitempty"`
@@ -1776,49 +1776,49 @@ type InternalLocationWithBusinessHours struct {
 	CountryID                       *int64  `json:"countryID,omitempty"`
 	DateFormat                      *string `json:"dateFormat,omitempty"`
 	FirstDayOfWeek                  *int64  `json:"firstDayOfWeek,omitempty"`
-	FridayBusinessHoursEndTime      *string `json:"fridayBusinessHoursEndTime,omitempty"`
-	FridayBusinessHoursStartTime    *string `json:"fridayBusinessHoursStartTime,omitempty"`
-	FridayExtendedHoursEndTime      *string `json:"fridayExtendedHoursEndTime,omitempty"`
-	FridayExtendedHoursStartTime    *string `json:"fridayExtendedHoursStartTime,omitempty"`
-	HolidayExtendedHoursEndTime     *string `json:"holidayExtendedHoursEndTime,omitempty"`
-	HolidayExtendedHoursStartTime   *string `json:"holidayExtendedHoursStartTime,omitempty"`
-	HolidayHoursEndTime             *string `json:"holidayHoursEndTime,omitempty"`
-	HolidayHoursStartTime           *string `json:"holidayHoursStartTime,omitempty"`
+	FridayBusinessHoursEndTime      *Time   `json:"fridayBusinessHoursEndTime,omitempty"`
+	FridayBusinessHoursStartTime    *Time   `json:"fridayBusinessHoursStartTime,omitempty"`
+	FridayExtendedHoursEndTime      *Time   `json:"fridayExtendedHoursEndTime,omitempty"`
+	FridayExtendedHoursStartTime    *Time   `json:"fridayExtendedHoursStartTime,omitempty"`
+	HolidayExtendedHoursEndTime     *Time   `json:"holidayExtendedHoursEndTime,omitempty"`
+	HolidayExtendedHoursStartTime   *Time   `json:"holidayExtendedHoursStartTime,omitempty"`
+	HolidayHoursEndTime             *Time   `json:"holidayHoursEndTime,omitempty"`
+	HolidayHoursStartTime           *Time   `json:"holidayHoursStartTime,omitempty"`
 	HolidayHoursType                *int64  `json:"holidayHoursType,omitempty"`
 	HolidaySetID                    *int64  `json:"holidaySetID,omitempty"`
 	ID                              *int64  `json:"id,omitempty"`
 	IsDefault                       *bool   `json:"isDefault,omitempty"`
-	MondayBusinessHoursEndTime      *string `json:"mondayBusinessHoursEndTime,omitempty"`
-	MondayBusinessHoursStartTime    *string `json:"mondayBusinessHoursStartTime,omitempty"`
-	MondayExtendedHoursEndTime      *string `json:"mondayExtendedHoursEndTime,omitempty"`
-	MondayExtendedHoursStartTime    *string `json:"mondayExtendedHoursStartTime,omitempty"`
+	MondayBusinessHoursEndTime      *Time   `json:"mondayBusinessHoursEndTime,omitempty"`
+	MondayBusinessHoursStartTime    *Time   `json:"mondayBusinessHoursStartTime,omitempty"`
+	MondayExtendedHoursEndTime      *Time   `json:"mondayExtendedHoursEndTime,omitempty"`
+	MondayExtendedHoursStartTime    *Time   `json:"mondayExtendedHoursStartTime,omitempty"`
 	Name                            *string `json:"name,omitempty"`
 	NoHoursOnHolidays               *bool   `json:"noHoursOnHolidays,omitempty"`
 	NumberFormat                    *string `json:"numberFormat,omitempty"`
 	PostalCode                      *string `json:"postalCode,omitempty"`
-	SaturdayBusinessHoursEndTime    *string `json:"saturdayBusinessHoursEndTime,omitempty"`
-	SaturdayBusinessHoursStartTime  *string `json:"saturdayBusinessHoursStartTime,omitempty"`
-	SaturdayExtendedHoursEndTime    *string `json:"saturdayExtendedHoursEndTime,omitempty"`
-	SaturdayExtendedHoursStartTime  *string `json:"saturdayExtendedHoursStartTime,omitempty"`
+	SaturdayBusinessHoursEndTime    *Time   `json:"saturdayBusinessHoursEndTime,omitempty"`
+	SaturdayBusinessHoursStartTime  *Time   `json:"saturdayBusinessHoursStartTime,omitempty"`
+	SaturdayExtendedHoursEndTime    *Time   `json:"saturdayExtendedHoursEndTime,omitempty"`
+	SaturdayExtendedHoursStartTime  *Time   `json:"saturdayExtendedHoursStartTime,omitempty"`
 	State                           *string `json:"state,omitempty"`
-	SundayBusinessHoursEndTime      *string `json:"sundayBusinessHoursEndTime,omitempty"`
-	SundayBusinessHoursStartTime    *string `json:"sundayBusinessHoursStartTime,omitempty"`
-	SundayExtendedHoursEndTime      *string `json:"sundayExtendedHoursEndTime,omitempty"`
-	SundayExtendedHoursStartTime    *string `json:"sundayExtendedHoursStartTime,omitempty"`
-	ThursdayBusinessHoursEndTime    *string `json:"thursdayBusinessHoursEndTime,omitempty"`
-	ThursdayBusinessHoursStartTime  *string `json:"thursdayBusinessHoursStartTime,omitempty"`
-	ThursdayExtendedHoursEndTime    *string `json:"thursdayExtendedHoursEndTime,omitempty"`
-	ThursdayExtendedHoursStartTime  *string `json:"thursdayExtendedHoursStartTime,omitempty"`
+	SundayBusinessHoursEndTime      *Time   `json:"sundayBusinessHoursEndTime,omitempty"`
+	SundayBusinessHoursStartTime    *Time   `json:"sundayBusinessHoursStartTime,omitempty"`
+	SundayExtendedHoursEndTime      *Time   `json:"sundayExtendedHoursEndTime,omitempty"`
+	SundayExtendedHoursStartTime    *Time   `json:"sundayExtendedHoursStartTime,omitempty"`
+	ThursdayBusinessHoursEndTime    *Time   `json:"thursdayBusinessHoursEndTime,omitempty"`
+	ThursdayBusinessHoursStartTime  *Time   `json:"thursdayBusinessHoursStartTime,omitempty"`
+	ThursdayExtendedHoursEndTime    *Time   `json:"thursdayExtendedHoursEndTime,omitempty"`
+	ThursdayExtendedHoursStartTime  *Time   `json:"thursdayExtendedHoursStartTime,omitempty"`
 	TimeFormat                      *string `json:"timeFormat,omitempty"`
 	TimeZoneID                      *int64  `json:"timeZoneID,omitempty"`
-	TuesdayBusinessHoursEndTime     *string `json:"tuesdayBusinessHoursEndTime,omitempty"`
-	TuesdayBusinessHoursStartTime   *string `json:"tuesdayBusinessHoursStartTime,omitempty"`
-	TuesdayExtendedHoursEndTime     *string `json:"tuesdayExtendedHoursEndTime,omitempty"`
-	TuesdayExtendedHoursStartTime   *string `json:"tuesdayExtendedHoursStartTime,omitempty"`
-	WednesdayBusinessHoursEndTime   *string `json:"wednesdayBusinessHoursEndTime,omitempty"`
-	WednesdayBusinessHoursStartTime *string `json:"wednesdayBusinessHoursStartTime,omitempty"`
-	WednesdayExtendedHoursEndTime   *string `json:"wednesdayExtendedHoursEndTime,omitempty"`
-	WednesdayExtendedHoursStartTime *string `json:"wednesdayExtendedHoursStartTime,omitempty"`
+	TuesdayBusinessHoursEndTime     *Time   `json:"tuesdayBusinessHoursEndTime,omitempty"`
+	TuesdayBusinessHoursStartTime   *Time   `json:"tuesdayBusinessHoursStartTime,omitempty"`
+	TuesdayExtendedHoursEndTime     *Time   `json:"tuesdayExtendedHoursEndTime,omitempty"`
+	TuesdayExtendedHoursStartTime   *Time   `json:"tuesdayExtendedHoursStartTime,omitempty"`
+	WednesdayBusinessHoursEndTime   *Time   `json:"wednesdayBusinessHoursEndTime,omitempty"`
+	WednesdayBusinessHoursStartTime *Time   `json:"wednesdayBusinessHoursStartTime,omitempty"`
+	WednesdayExtendedHoursEndTime   *Time   `json:"wednesdayExtendedHoursEndTime,omitempty"`
+	WednesdayExtendedHoursStartTime *Time   `json:"wednesdayExtendedHoursStartTime,omitempty"`
 }
 
 // InventoryItem represents an Autotask InventoryItem entity.
@@ -1861,7 +1861,7 @@ type InventoryProduct struct {
 	AvailableUnits      *int64  `json:"availableUnits,omitempty"`
 	BackOrderQuantity   *int64  `json:"backOrderQuantity,omitempty"`
 	Bin                 *string `json:"bin,omitempty"`
-	CreateDateTime      *string `json:"createDateTime,omitempty"`
+	CreateDateTime      *Time   `json:"createDateTime,omitempty"`
 	CreatedByResourceID *int64  `json:"createdByResourceID,omitempty"`
 	ID                  *int64  `json:"id,omitempty"`
 	InventoryLocationID *int64  `json:"inventoryLocationID,omitempty"`
@@ -1899,7 +1899,7 @@ type InventoryStockedItem struct {
 	CompanyID                      *int64   `json:"companyID,omitempty"`
 	ConfigurationItemID            *int64   `json:"configurationItemID,omitempty"`
 	ContractChargeID               *int64   `json:"contractChargeID,omitempty"`
-	CreateDateTime                 *string  `json:"createDateTime,omitempty"`
+	CreateDateTime                 *Time    `json:"createDateTime,omitempty"`
 	CreatedByResourceID            *int64   `json:"createdByResourceID,omitempty"`
 	CurrentInventoryLocationID     *int64   `json:"currentInventoryLocationID,omitempty"`
 	DeliveredUnits                 *int64   `json:"deliveredUnits,omitempty"`
@@ -1909,7 +1909,7 @@ type InventoryStockedItem struct {
 	ParentInventoryStockedItemID   *int64   `json:"parentInventoryStockedItemID,omitempty"`
 	ParentStockedItemReceivedUnits *int64   `json:"parentStockedItemReceivedUnits,omitempty"`
 	PickedRemovedByResourceID      *int64   `json:"pickedRemovedByResourceID,omitempty"`
-	PickedRemovedDateTime          *string  `json:"pickedRemovedDateTime,omitempty"`
+	PickedRemovedDateTime          *Time    `json:"pickedRemovedDateTime,omitempty"`
 	PickedUnits                    *int64   `json:"pickedUnits,omitempty"`
 	ProjectChargeID                *int64   `json:"projectChargeID,omitempty"`
 	PurchaseOrderID                *int64   `json:"purchaseOrderID,omitempty"`
@@ -1961,7 +1961,7 @@ type InventoryTransfer struct {
 	SerialNumber         *string `json:"serialNumber,omitempty"`
 	ToLocationID         *int64  `json:"toLocationID,omitempty"`
 	TransferByResourceID *int64  `json:"transferByResourceID,omitempty"`
-	TransferDate         *string `json:"transferDate,omitempty"`
+	TransferDate         *Time   `json:"transferDate,omitempty"`
 	UpdateNote           *string `json:"updateNote,omitempty"`
 }
 
@@ -1970,26 +1970,26 @@ type Invoice struct {
 	BatchID                 *int64   `json:"batchID,omitempty"`
 	Comments                *string  `json:"comments,omitempty"`
 	CompanyID               *int64   `json:"companyID,omitempty"`
-	CreateDateTime          *string  `json:"createDateTime,omitempty"`
+	CreateDateTime          *Time    `json:"createDateTime,omitempty"`
 	CreatorResourceID       *int64   `json:"creatorResourceID,omitempty"`
-	DueDate                 *string  `json:"dueDate,omitempty"`
-	FromDate                *string  `json:"fromDate,omitempty"`
+	DueDate                 *Time    `json:"dueDate,omitempty"`
+	FromDate                *Time    `json:"fromDate,omitempty"`
 	ID                      *int64   `json:"id,omitempty"`
-	InvoiceDateTime         *string  `json:"invoiceDateTime,omitempty"`
+	InvoiceDateTime         *Time    `json:"invoiceDateTime,omitempty"`
 	InvoiceEditorTemplateID *int64   `json:"invoiceEditorTemplateID,omitempty"`
 	InvoiceNumber           *string  `json:"invoiceNumber,omitempty"`
 	InvoiceTotal            *float64 `json:"invoiceTotal,omitempty"`
 	IsVoided                *bool    `json:"isVoided,omitempty"`
 	OrderNumber             *string  `json:"orderNumber,omitempty"`
-	PaidDate                *string  `json:"paidDate,omitempty"`
+	PaidDate                *Time    `json:"paidDate,omitempty"`
 	PaymentTerm             *int64   `json:"paymentTerm,omitempty"`
 	TaxGroup                *int64   `json:"taxGroup,omitempty"`
 	TaxRegionName           *string  `json:"taxRegionName,omitempty"`
-	ToDate                  *string  `json:"toDate,omitempty"`
+	ToDate                  *Time    `json:"toDate,omitempty"`
 	TotalTaxValue           *float64 `json:"totalTaxValue,omitempty"`
 	VoidedByResourceID      *int64   `json:"voidedByResourceID,omitempty"`
-	VoidedDate              *string  `json:"voidedDate,omitempty"`
-	WebServiceDate          *string  `json:"webServiceDate,omitempty"`
+	VoidedDate              *Time    `json:"voidedDate,omitempty"`
+	WebServiceDate          *Time    `json:"webServiceDate,omitempty"`
 }
 
 // InvoiceTemplate represents an Autotask InvoiceTemplate entity.
@@ -2026,13 +2026,13 @@ type InvoiceTemplate struct {
 type KnowledgeBaseArticle struct {
 	ArticleCategoryID        *int64  `json:"articleCategoryID,omitempty"`
 	CreatedByResourceID      *int64  `json:"createdByResourceID,omitempty"`
-	CreatedDateTime          *string `json:"createdDateTime,omitempty"`
+	CreatedDateTime          *Time   `json:"createdDateTime,omitempty"`
 	ErrorCodes               *string `json:"errorCodes,omitempty"`
 	ID                       *int64  `json:"id,omitempty"`
 	IsActive                 *bool   `json:"isActive,omitempty"`
 	Keywords                 *string `json:"keywords,omitempty"`
 	LastModifiedByResourceID *int64  `json:"lastModifiedByResourceID,omitempty"`
-	LastModifiedDateTime     *string `json:"lastModifiedDateTime,omitempty"`
+	LastModifiedDateTime     *Time   `json:"lastModifiedDateTime,omitempty"`
 	Publish                  *int64  `json:"publish,omitempty"`
 	ReferenceLink            *string `json:"referenceLink,omitempty"`
 	SoapParentPropertyID     *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
@@ -2059,7 +2059,7 @@ type NotificationHistory struct {
 	IsDeleted                 *bool   `json:"isDeleted,omitempty"`
 	IsTemplateJob             *bool   `json:"isTemplateJob,omitempty"`
 	NotificationHistoryTypeID *int64  `json:"notificationHistoryTypeID,omitempty"`
-	NotificationSentTime      *string `json:"notificationSentTime,omitempty"`
+	NotificationSentTime      *Time   `json:"notificationSentTime,omitempty"`
 	OpportunityID             *int64  `json:"opportunityID,omitempty"`
 	ProjectID                 *int64  `json:"projectID,omitempty"`
 	QuoteID                   *int64  `json:"quoteID,omitempty"`
@@ -2073,7 +2073,7 @@ type NotificationHistory struct {
 
 // OpportunityAttachment represents an Autotask OpportunityAttachment entity.
 type OpportunityAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -2114,21 +2114,21 @@ type Opportunity struct {
 	Amount                           *float64 `json:"amount,omitempty"`
 	AssessmentScore                  *float64 `json:"assessmentScore,omitempty"`
 	Barriers                         *string  `json:"barriers,omitempty"`
-	ClosedDate                       *string  `json:"closedDate,omitempty"`
+	ClosedDate                       *Time    `json:"closedDate,omitempty"`
 	CompanyID                        *int64   `json:"companyID,omitempty"`
 	ContactID                        *int64   `json:"contactID,omitempty"`
 	Cost                             *float64 `json:"cost,omitempty"`
-	CreateDate                       *string  `json:"createDate,omitempty"`
+	CreateDate                       *Time    `json:"createDate,omitempty"`
 	CreatorResourceID                *int64   `json:"creatorResourceID,omitempty"`
 	Description                      *string  `json:"description,omitempty"`
 	HelpNeeded                       *string  `json:"helpNeeded,omitempty"`
 	ID                               *int64   `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID    *int64   `json:"impersonatorCreatorResourceID,omitempty"`
-	LastActivity                     *string  `json:"lastActivity,omitempty"`
+	LastActivity                     *Time    `json:"lastActivity,omitempty"`
 	LeadSource                       *int64   `json:"leadSource,omitempty"`
 	LossReason                       *int64   `json:"lossReason,omitempty"`
 	LossReasonDetail                 *string  `json:"lossReasonDetail,omitempty"`
-	LostDate                         *string  `json:"lostDate,omitempty"`
+	LostDate                         *Time    `json:"lostDate,omitempty"`
 	Market                           *string  `json:"market,omitempty"`
 	MonthlyCost                      *float64 `json:"monthlyCost,omitempty"`
 	MonthlyRevenue                   *float64 `json:"monthlyRevenue,omitempty"`
@@ -2141,8 +2141,8 @@ type Opportunity struct {
 	PrimaryCompetitor                *int64   `json:"primaryCompetitor,omitempty"`
 	Probability                      *int64   `json:"probability,omitempty"`
 	ProductID                        *int64   `json:"productID,omitempty"`
-	ProjectedCloseDate               *string  `json:"projectedCloseDate,omitempty"`
-	PromisedFulfillmentDate          *string  `json:"promisedFulfillmentDate,omitempty"`
+	ProjectedCloseDate               *Time    `json:"projectedCloseDate,omitempty"`
+	PromisedFulfillmentDate          *Time    `json:"promisedFulfillmentDate,omitempty"`
 	PromotionName                    *string  `json:"promotionName,omitempty"`
 	QuarterlyCost                    *float64 `json:"quarterlyCost,omitempty"`
 	QuarterlyRevenue                 *float64 `json:"quarterlyRevenue,omitempty"`
@@ -2155,10 +2155,10 @@ type Opportunity struct {
 	SemiannualCost                   *float64 `json:"semiannualCost,omitempty"`
 	SemiannualRevenue                *float64 `json:"semiannualRevenue,omitempty"`
 	Stage                            *int64   `json:"stage,omitempty"`
-	StartDate                        *string  `json:"startDate,omitempty"`
+	StartDate                        *Time    `json:"startDate,omitempty"`
 	Status                           *int64   `json:"status,omitempty"`
 	TechnicalAssessmentScore         *float64 `json:"technicalAssessmentScore,omitempty"`
-	ThroughDate                      *string  `json:"throughDate,omitempty"`
+	ThroughDate                      *Time    `json:"throughDate,omitempty"`
 	Title                            *string  `json:"title,omitempty"`
 	TotalAmountMonths                *int64   `json:"totalAmountMonths,omitempty"`
 	UseQuoteTotals                   *bool    `json:"useQuoteTotals,omitempty"`
@@ -2212,20 +2212,20 @@ type PaymentTerm struct {
 
 // Phase represents an Autotask Phase entity.
 type Phase struct {
-	CreateDate           *string  `json:"createDate,omitempty"`
+	CreateDate           *Time    `json:"createDate,omitempty"`
 	CreatorResourceID    *int64   `json:"creatorResourceID,omitempty"`
 	Description          *string  `json:"description,omitempty"`
-	DueDate              *string  `json:"dueDate,omitempty"`
+	DueDate              *Time    `json:"dueDate,omitempty"`
 	EstimatedHours       *float64 `json:"estimatedHours,omitempty"`
 	ExternalID           *string  `json:"externalID,omitempty"`
 	ID                   *int64   `json:"id,omitempty"`
 	IsScheduled          *bool    `json:"isScheduled,omitempty"`
-	LastActivityDateTime *string  `json:"lastActivityDateTime,omitempty"`
+	LastActivityDateTime *Time    `json:"lastActivityDateTime,omitempty"`
 	ParentPhaseID        *int64   `json:"parentPhaseID,omitempty"`
 	PhaseNumber          *string  `json:"phaseNumber,omitempty"`
 	ProjectID            *int64   `json:"projectID,omitempty"`
 	SoapParentPropertyID *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	StartDate            *string  `json:"startDate,omitempty"`
+	StartDate            *Time    `json:"startDate,omitempty"`
 	Title                *string  `json:"title,omitempty"`
 }
 
@@ -2299,7 +2299,7 @@ type Product struct {
 	BillingType                       *int64   `json:"billingType,omitempty"`
 	ChargeBillingCodeID               *int64   `json:"chargeBillingCodeID,omitempty"`
 	CreatedByResourceID               *int64   `json:"createdByResourceID,omitempty"`
-	CreatedTime                       *string  `json:"createdTime,omitempty"`
+	CreatedTime                       *Time    `json:"createdTime,omitempty"`
 	DefaultInstalledProductCategoryID *int64   `json:"defaultInstalledProductCategoryID,omitempty"`
 	DefaultVendorID                   *int64   `json:"defaultVendorID,omitempty"`
 	Description                       *string  `json:"description,omitempty"`
@@ -2330,13 +2330,13 @@ type Product struct {
 
 // ProductNote represents an Autotask ProductNote entity.
 type ProductNote struct {
-	CreateDateTime                *string `json:"createDateTime,omitempty"`
+	CreateDateTime                *Time   `json:"createDateTime,omitempty"`
 	CreatorResourceID             *int64  `json:"creatorResourceID,omitempty"`
 	Description                   *string `json:"description,omitempty"`
 	ID                            *int64  `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID *int64  `json:"impersonatorCreatorResourceID,omitempty"`
 	ImpersonatorUpdaterResourceID *int64  `json:"impersonatorUpdaterResourceID,omitempty"`
-	LastActivityDate              *string `json:"lastActivityDate,omitempty"`
+	LastActivityDate              *Time   `json:"lastActivityDate,omitempty"`
 	ProductID                     *int64  `json:"productID,omitempty"`
 	SoapParentPropertyID          *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	Title                         *string `json:"title,omitempty"`
@@ -2366,7 +2366,7 @@ type ProductVendor struct {
 
 // ProjectAttachment represents an Autotask ProjectAttachment entity.
 type ProjectAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -2395,9 +2395,9 @@ type ProjectCharge struct {
 	ChargeType                       *int64   `json:"chargeType,omitempty"`
 	ContractServiceBundleID          *int64   `json:"contractServiceBundleID,omitempty"`
 	ContractServiceID                *int64   `json:"contractServiceID,omitempty"`
-	CreateDate                       *string  `json:"createDate,omitempty"`
+	CreateDate                       *Time    `json:"createDate,omitempty"`
 	CreatorResourceID                *int64   `json:"creatorResourceID,omitempty"`
-	DatePurchased                    *string  `json:"datePurchased,omitempty"`
+	DatePurchased                    *Time    `json:"datePurchased,omitempty"`
 	Description                      *string  `json:"description,omitempty"`
 	EstimatedCost                    *float64 `json:"estimatedCost,omitempty"`
 	ExtendedCost                     *float64 `json:"extendedCost,omitempty"`
@@ -2416,7 +2416,7 @@ type ProjectCharge struct {
 	SoapParentPropertyID             *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	Status                           *int64   `json:"status,omitempty"`
 	StatusLastModifiedBy             *int64   `json:"statusLastModifiedBy,omitempty"`
-	StatusLastModifiedDate           *string  `json:"statusLastModifiedDate,omitempty"`
+	StatusLastModifiedDate           *Time    `json:"statusLastModifiedDate,omitempty"`
 	UnitCost                         *float64 `json:"unitCost,omitempty"`
 	UnitPrice                        *float64 `json:"unitPrice,omitempty"`
 	UnitQuantity                     *float64 `json:"unitQuantity,omitempty"`
@@ -2430,15 +2430,15 @@ type Project struct {
 	ChangeOrdersRevenue                  *float64 `json:"changeOrdersRevenue,omitempty"`
 	CompanyID                            *int64   `json:"companyID,omitempty"`
 	CompanyOwnerResourceID               *int64   `json:"companyOwnerResourceID,omitempty"`
-	CompletedDateTime                    *string  `json:"completedDateTime,omitempty"`
+	CompletedDateTime                    *Time    `json:"completedDateTime,omitempty"`
 	CompletedPercentage                  *int64   `json:"completedPercentage,omitempty"`
 	ContractID                           *int64   `json:"contractID,omitempty"`
-	CreateDateTime                       *string  `json:"createDateTime,omitempty"`
+	CreateDateTime                       *Time    `json:"createDateTime,omitempty"`
 	CreatorResourceID                    *int64   `json:"creatorResourceID,omitempty"`
 	Department                           *int64   `json:"department,omitempty"`
 	Description                          *string  `json:"description,omitempty"`
 	Duration                             *int64   `json:"duration,omitempty"`
-	EndDateTime                          *string  `json:"endDateTime,omitempty"`
+	EndDateTime                          *Time    `json:"endDateTime,omitempty"`
 	EstimatedSalesCost                   *float64 `json:"estimatedSalesCost,omitempty"`
 	EstimatedTime                        *float64 `json:"estimatedTime,omitempty"`
 	ExtProjectNumber                     *string  `json:"extProjectNumber,omitempty"`
@@ -2448,7 +2448,7 @@ type Project struct {
 	LaborEstimatedCosts                  *float64 `json:"laborEstimatedCosts,omitempty"`
 	LaborEstimatedMarginPercentage       *float64 `json:"laborEstimatedMarginPercentage,omitempty"`
 	LaborEstimatedRevenue                *float64 `json:"laborEstimatedRevenue,omitempty"`
-	LastActivityDateTime                 *string  `json:"lastActivityDateTime,omitempty"`
+	LastActivityDateTime                 *Time    `json:"lastActivityDateTime,omitempty"`
 	LastActivityPersonType               *int64   `json:"lastActivityPersonType,omitempty"`
 	LastActivityResourceID               *int64   `json:"lastActivityResourceID,omitempty"`
 	OpportunityID                        *int64   `json:"opportunityID,omitempty"`
@@ -2463,16 +2463,16 @@ type Project struct {
 	ProjectType                          *int64   `json:"projectType,omitempty"`
 	PurchaseOrderNumber                  *string  `json:"purchaseOrderNumber,omitempty"`
 	Sgda                                 *float64 `json:"sgda,omitempty"`
-	StartDateTime                        *string  `json:"startDateTime,omitempty"`
+	StartDateTime                        *Time    `json:"startDateTime,omitempty"`
 	Status                               *int64   `json:"status,omitempty"`
-	StatusDateTime                       *string  `json:"statusDateTime,omitempty"`
+	StatusDateTime                       *Time    `json:"statusDateTime,omitempty"`
 	StatusDetail                         *string  `json:"statusDetail,omitempty"`
 	UserDefinedFields                    []UDF    `json:"userDefinedFields,omitempty"`
 }
 
 // ProjectNoteAttachment represents an Autotask ProjectNoteAttachment entity.
 type ProjectNoteAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -2497,7 +2497,7 @@ type ProjectNoteAttachment struct {
 
 // ProjectNote represents an Autotask ProjectNote entity.
 type ProjectNote struct {
-	CreateDateTime                *string `json:"createDateTime,omitempty"`
+	CreateDateTime                *Time   `json:"createDateTime,omitempty"`
 	CreatedByContactID            *int64  `json:"createdByContactID,omitempty"`
 	CreatorResourceID             *int64  `json:"creatorResourceID,omitempty"`
 	Description                   *string `json:"description,omitempty"`
@@ -2505,7 +2505,7 @@ type ProjectNote struct {
 	ImpersonatorCreatorResourceID *int64  `json:"impersonatorCreatorResourceID,omitempty"`
 	ImpersonatorUpdaterResourceID *int64  `json:"impersonatorUpdaterResourceID,omitempty"`
 	IsAnnouncement                *bool   `json:"isAnnouncement,omitempty"`
-	LastActivityDate              *string `json:"lastActivityDate,omitempty"`
+	LastActivityDate              *Time   `json:"lastActivityDate,omitempty"`
 	NoteType                      *int64  `json:"noteType,omitempty"`
 	ProjectID                     *int64  `json:"projectID,omitempty"`
 	Publish                       *int64  `json:"publish,omitempty"`
@@ -2525,7 +2525,7 @@ type PurchaseApproval struct {
 type PurchaseOrderItem struct {
 	ChargeID                 *int64   `json:"chargeID,omitempty"`
 	ContractID               *int64   `json:"contractID,omitempty"`
-	EstimatedArrivalDate     *string  `json:"estimatedArrivalDate,omitempty"`
+	EstimatedArrivalDate     *Time    `json:"estimatedArrivalDate,omitempty"`
 	ID                       *int64   `json:"id,omitempty"`
 	InternalCurrencyUnitCost *float64 `json:"internalCurrencyUnitCost,omitempty"`
 	InventoryLocationID      *int64   `json:"inventoryLocationID,omitempty"`
@@ -2547,7 +2547,7 @@ type PurchaseOrderItemReceiving struct {
 	QuantityBackOrdered        *int64  `json:"quantityBackOrdered,omitempty"`
 	QuantityNowReceiving       *int64  `json:"quantityNowReceiving,omitempty"`
 	QuantityPreviouslyReceived *int64  `json:"quantityPreviouslyReceived,omitempty"`
-	ReceiveDate                *string `json:"receiveDate,omitempty"`
+	ReceiveDate                *Time   `json:"receiveDate,omitempty"`
 	ReceivedByResourceID       *int64  `json:"receivedByResourceID,omitempty"`
 	SerialNumber               *string `json:"serialNumber,omitempty"`
 	SoapParentPropertyID       *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
@@ -2557,8 +2557,8 @@ type PurchaseOrderItemReceiving struct {
 // PurchaseOrder represents an Autotask PurchaseOrder entity.
 type PurchaseOrder struct {
 	AdditionalVendorInvoiceNumbers *string  `json:"additionalVendorInvoiceNumbers,omitempty"`
-	CancelDateTime                 *string  `json:"cancelDateTime,omitempty"`
-	CreateDateTime                 *string  `json:"createDateTime,omitempty"`
+	CancelDateTime                 *Time    `json:"cancelDateTime,omitempty"`
+	CreateDateTime                 *Time    `json:"createDateTime,omitempty"`
 	CreatorResourceID              *int64   `json:"creatorResourceID,omitempty"`
 	ExternalPONumber               *string  `json:"externalPONumber,omitempty"`
 	Fax                            *string  `json:"fax,omitempty"`
@@ -2567,7 +2567,7 @@ type PurchaseOrder struct {
 	ID                             *int64   `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID  *int64   `json:"impersonatorCreatorResourceID,omitempty"`
 	InternalCurrencyFreight        *float64 `json:"internalCurrencyFreight,omitempty"`
-	LatestEstimatedArrivalDate     *string  `json:"latestEstimatedArrivalDate,omitempty"`
+	LatestEstimatedArrivalDate     *Time    `json:"latestEstimatedArrivalDate,omitempty"`
 	PaymentTerm                    *int64   `json:"paymentTerm,omitempty"`
 	Phone                          *string  `json:"phone,omitempty"`
 	PurchaseForCompanyID           *int64   `json:"purchaseForCompanyID,omitempty"`
@@ -2579,12 +2579,12 @@ type PurchaseOrder struct {
 	ShipToName                     *string  `json:"shipToName,omitempty"`
 	ShipToPostalCode               *string  `json:"shipToPostalCode,omitempty"`
 	ShipToState                    *string  `json:"shipToState,omitempty"`
-	ShippingDate                   *string  `json:"shippingDate,omitempty"`
+	ShippingDate                   *Time    `json:"shippingDate,omitempty"`
 	ShippingType                   *int64   `json:"shippingType,omitempty"`
 	ShowEachTaxInGroup             *bool    `json:"showEachTaxInGroup,omitempty"`
 	ShowTaxCategory                *bool    `json:"showTaxCategory,omitempty"`
 	Status                         *int64   `json:"status,omitempty"`
-	SubmitDateTime                 *string  `json:"submitDateTime,omitempty"`
+	SubmitDateTime                 *Time    `json:"submitDateTime,omitempty"`
 	TaxRegionID                    *int64   `json:"taxRegionID,omitempty"`
 	UseItemDescriptionsFrom        *int64   `json:"useItemDescriptionsFrom,omitempty"`
 	VendorID                       *int64   `json:"vendorID,omitempty"`
@@ -2640,29 +2640,29 @@ type QuoteLocation struct {
 type Quote struct {
 	ApprovalStatus                    *int64  `json:"approvalStatus,omitempty"`
 	ApprovalStatusChangedByResourceID *int64  `json:"approvalStatusChangedByResourceID,omitempty"`
-	ApprovalStatusChangedDate         *string `json:"approvalStatusChangedDate,omitempty"`
+	ApprovalStatusChangedDate         *Time   `json:"approvalStatusChangedDate,omitempty"`
 	BillToLocationID                  *int64  `json:"billToLocationID,omitempty"`
 	CalculateTaxSeparately            *bool   `json:"calculateTaxSeparately,omitempty"`
 	Comment                           *string `json:"comment,omitempty"`
 	CompanyID                         *int64  `json:"companyID,omitempty"`
 	ContactID                         *int64  `json:"contactID,omitempty"`
-	CreateDate                        *string `json:"createDate,omitempty"`
+	CreateDate                        *Time   `json:"createDate,omitempty"`
 	CreatorResourceID                 *int64  `json:"creatorResourceID,omitempty"`
 	Description                       *string `json:"description,omitempty"`
-	EffectiveDate                     *string `json:"effectiveDate,omitempty"`
-	ExpirationDate                    *string `json:"expirationDate,omitempty"`
+	EffectiveDate                     *Time   `json:"effectiveDate,omitempty"`
+	ExpirationDate                    *Time   `json:"expirationDate,omitempty"`
 	ExtApprovalContactResponse        *int64  `json:"extApprovalContactResponse,omitempty"`
-	ExtApprovalResponseDate           *string `json:"extApprovalResponseDate,omitempty"`
+	ExtApprovalResponseDate           *Time   `json:"extApprovalResponseDate,omitempty"`
 	ExtApprovalResponseSignature      *string `json:"extApprovalResponseSignature,omitempty"`
 	ExternalQuoteNumber               *string `json:"externalQuoteNumber,omitempty"`
 	GroupByID                         *int64  `json:"groupByID,omitempty"`
 	ID                                *int64  `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID     *int64  `json:"impersonatorCreatorResourceID,omitempty"`
 	IsActive                          *bool   `json:"isActive,omitempty"`
-	LastActivityDate                  *string `json:"lastActivityDate,omitempty"`
+	LastActivityDate                  *Time   `json:"lastActivityDate,omitempty"`
 	LastModifiedBy                    *int64  `json:"lastModifiedBy,omitempty"`
 	LastPublishedByResourceID         *int64  `json:"lastPublishedByResourceID,omitempty"`
-	LastPublishedDateTime             *string `json:"lastPublishedDateTime,omitempty"`
+	LastPublishedDateTime             *Time   `json:"lastPublishedDateTime,omitempty"`
 	Name                              *string `json:"name,omitempty"`
 	OpportunityID                     *int64  `json:"opportunityID,omitempty"`
 	PaymentTerm                       *int64  `json:"paymentTerm,omitempty"`
@@ -2683,7 +2683,7 @@ type Quote struct {
 // QuoteTemplate represents an Autotask QuoteTemplate entity.
 type QuoteTemplate struct {
 	CalculateTaxSeparately         *bool   `json:"calculateTaxSeparately,omitempty"`
-	CreateDate                     *string `json:"createDate,omitempty"`
+	CreateDate                     *Time   `json:"createDate,omitempty"`
 	CreatedBy                      *int64  `json:"createdBy,omitempty"`
 	CurrencyNegativeFormat         *string `json:"currencyNegativeFormat,omitempty"`
 	CurrencyPositiveFormat         *string `json:"currencyPositiveFormat,omitempty"`
@@ -2693,7 +2693,7 @@ type QuoteTemplate struct {
 	ID                             *int64  `json:"id,omitempty"`
 	IsActive                       *bool   `json:"isActive,omitempty"`
 	LastActivityBy                 *int64  `json:"lastActivityBy,omitempty"`
-	LastActivityDate               *string `json:"lastActivityDate,omitempty"`
+	LastActivityDate               *Time   `json:"lastActivityDate,omitempty"`
 	Name                           *string `json:"name,omitempty"`
 	NumberFormat                   *int64  `json:"numberFormat,omitempty"`
 	PageLayout                     *int64  `json:"pageLayout,omitempty"`
@@ -2706,7 +2706,7 @@ type QuoteTemplate struct {
 
 // ResourceAttachment represents an Autotask ResourceAttachment entity.
 type ResourceAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -2757,7 +2757,7 @@ type Resource struct {
 	FirstName                *string  `json:"firstName,omitempty"`
 	Gender                   *string  `json:"gender,omitempty"`
 	Greeting                 *int64   `json:"greeting,omitempty"`
-	HireDate                 *string  `json:"hireDate,omitempty"`
+	HireDate                 *Time    `json:"hireDate,omitempty"`
 	HomePhone                *string  `json:"homePhone,omitempty"`
 	ID                       *int64   `json:"id,omitempty"`
 	Initials                 *string  `json:"initials,omitempty"`
@@ -2849,7 +2849,7 @@ type Role struct {
 
 // SalesOrderAttachment represents an Autotask SalesOrderAttachment entity.
 type SalesOrderAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -2887,8 +2887,8 @@ type SalesOrder struct {
 	OpportunityID                      *int64  `json:"opportunityID,omitempty"`
 	OrganizationalLevelAssociationID   *int64  `json:"organizationalLevelAssociationID,omitempty"`
 	OwnerResourceID                    *int64  `json:"ownerResourceID,omitempty"`
-	PromisedFulfillmentDate            *string `json:"promisedFulfillmentDate,omitempty"`
-	SalesOrderDate                     *string `json:"salesOrderDate,omitempty"`
+	PromisedFulfillmentDate            *Time   `json:"promisedFulfillmentDate,omitempty"`
+	SalesOrderDate                     *Time   `json:"salesOrderDate,omitempty"`
 	ShipToAddress1                     *string `json:"shipToAddress1,omitempty"`
 	ShipToAddress2                     *string `json:"shipToAddress2,omitempty"`
 	ShipToCity                         *string `json:"shipToCity,omitempty"`
@@ -2904,13 +2904,13 @@ type SalesOrder struct {
 // ServiceBundle represents an Autotask ServiceBundle entity.
 type ServiceBundle struct {
 	BillingCodeID           *int64   `json:"billingCodeID,omitempty"`
-	CreateDate              *string  `json:"createDate,omitempty"`
+	CreateDate              *Time    `json:"createDate,omitempty"`
 	CreatorResourceID       *int64   `json:"creatorResourceID,omitempty"`
 	Description             *string  `json:"description,omitempty"`
 	ID                      *int64   `json:"id,omitempty"`
 	InvoiceDescription      *string  `json:"invoiceDescription,omitempty"`
 	IsActive                *bool    `json:"isActive,omitempty"`
-	LastModifiedDate        *string  `json:"lastModifiedDate,omitempty"`
+	LastModifiedDate        *Time    `json:"lastModifiedDate,omitempty"`
 	Name                    *string  `json:"name,omitempty"`
 	PercentageDiscount      *float64 `json:"percentageDiscount,omitempty"`
 	PeriodType              *int64   `json:"periodType,omitempty"`
@@ -2933,19 +2933,19 @@ type ServiceBundleService struct {
 type ServiceCall struct {
 	CancelationNoticeHours        *float64 `json:"cancelationNoticeHours,omitempty"`
 	CanceledByResourceID          *int64   `json:"canceledByResourceID,omitempty"`
-	CanceledDateTime              *string  `json:"canceledDateTime,omitempty"`
+	CanceledDateTime              *Time    `json:"canceledDateTime,omitempty"`
 	CompanyID                     *int64   `json:"companyID,omitempty"`
 	CompanyLocationID             *int64   `json:"companyLocationID,omitempty"`
-	CreateDateTime                *string  `json:"createDateTime,omitempty"`
+	CreateDateTime                *Time    `json:"createDateTime,omitempty"`
 	CreatorResourceID             *int64   `json:"creatorResourceID,omitempty"`
 	Description                   *string  `json:"description,omitempty"`
 	Duration                      *float64 `json:"duration,omitempty"`
-	EndDateTime                   *string  `json:"endDateTime,omitempty"`
+	EndDateTime                   *Time    `json:"endDateTime,omitempty"`
 	ID                            *int64   `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID *int64   `json:"impersonatorCreatorResourceID,omitempty"`
 	IsComplete                    *int64   `json:"isComplete,omitempty"`
-	LastModifiedDateTime          *string  `json:"lastModifiedDateTime,omitempty"`
-	StartDateTime                 *string  `json:"startDateTime,omitempty"`
+	LastModifiedDateTime          *Time    `json:"lastModifiedDateTime,omitempty"`
+	StartDateTime                 *Time    `json:"startDateTime,omitempty"`
 	Status                        *int64   `json:"status,omitempty"`
 }
 
@@ -3002,13 +3002,13 @@ type ServiceLevelAgreementResults struct {
 // Service represents an Autotask Service entity.
 type Service struct {
 	BillingCodeID           *int64   `json:"billingCodeID,omitempty"`
-	CreateDate              *string  `json:"createDate,omitempty"`
+	CreateDate              *Time    `json:"createDate,omitempty"`
 	CreatorResourceID       *int64   `json:"creatorResourceID,omitempty"`
 	Description             *string  `json:"description,omitempty"`
 	ID                      *int64   `json:"id,omitempty"`
 	InvoiceDescription      *string  `json:"invoiceDescription,omitempty"`
 	IsActive                *bool    `json:"isActive,omitempty"`
-	LastModifiedDate        *string  `json:"lastModifiedDate,omitempty"`
+	LastModifiedDate        *Time    `json:"lastModifiedDate,omitempty"`
 	MarkupRate              *float64 `json:"markupRate,omitempty"`
 	Name                    *string  `json:"name,omitempty"`
 	PeriodType              *int64   `json:"periodType,omitempty"`
@@ -3041,8 +3041,8 @@ type Skill struct {
 type Subscription struct {
 	ConfigurationItemID              *int64   `json:"configurationItemID,omitempty"`
 	Description                      *string  `json:"description,omitempty"`
-	EffectiveDate                    *string  `json:"effectiveDate,omitempty"`
-	ExpirationDate                   *string  `json:"expirationDate,omitempty"`
+	EffectiveDate                    *Time    `json:"effectiveDate,omitempty"`
+	ExpirationDate                   *Time    `json:"expirationDate,omitempty"`
 	ID                               *int64   `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID    *int64   `json:"impersonatorCreatorResourceID,omitempty"`
 	MaterialCodeID                   *int64   `json:"materialCodeID,omitempty"`
@@ -3063,9 +3063,9 @@ type Subscription struct {
 type SubscriptionPeriod struct {
 	ID                   *int64   `json:"id,omitempty"`
 	PeriodCost           *float64 `json:"periodCost,omitempty"`
-	PeriodDate           *string  `json:"periodDate,omitempty"`
+	PeriodDate           *Time    `json:"periodDate,omitempty"`
 	PeriodPrice          *float64 `json:"periodPrice,omitempty"`
-	PostedDate           *string  `json:"postedDate,omitempty"`
+	PostedDate           *Time    `json:"postedDate,omitempty"`
 	PurchaseOrderNumber  *string  `json:"purchaseOrderNumber,omitempty"`
 	SoapParentPropertyID *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	SubscriptionID       *int64   `json:"subscriptionID,omitempty"`
@@ -3083,12 +3083,12 @@ type Survey struct {
 type SurveyResults struct {
 	CompanyID      *int64   `json:"companyID,omitempty"`
 	CompanyRating  *float64 `json:"companyRating,omitempty"`
-	CompleteDate   *string  `json:"completeDate,omitempty"`
+	CompleteDate   *Time    `json:"completeDate,omitempty"`
 	ContactID      *int64   `json:"contactID,omitempty"`
 	ContactRating  *float64 `json:"contactRating,omitempty"`
 	ID             *int64   `json:"id,omitempty"`
 	ResourceRating *float64 `json:"resourceRating,omitempty"`
-	SendDate       *string  `json:"sendDate,omitempty"`
+	SendDate       *Time    `json:"sendDate,omitempty"`
 	SurveyID       *int64   `json:"surveyID,omitempty"`
 	SurveyRating   *float64 `json:"surveyRating,omitempty"`
 	TicketID       *int64   `json:"ticketID,omitempty"`
@@ -3113,19 +3113,19 @@ type TagGroup struct {
 
 // Tag represents an Autotask Tag entity.
 type Tag struct {
-	CreateDateTime                 *string `json:"createDateTime,omitempty"`
+	CreateDateTime                 *Time   `json:"createDateTime,omitempty"`
 	ID                             *int64  `json:"id,omitempty"`
 	IsActive                       *bool   `json:"isActive,omitempty"`
 	IsExcludedFromAutomaticTagging *bool   `json:"isExcludedFromAutomaticTagging,omitempty"`
 	IsSystem                       *bool   `json:"isSystem,omitempty"`
 	Label                          *string `json:"label,omitempty"`
-	LastModifiedDateTime           *string `json:"lastModifiedDateTime,omitempty"`
+	LastModifiedDateTime           *Time   `json:"lastModifiedDateTime,omitempty"`
 	TagGroupID                     *int64  `json:"tagGroupID,omitempty"`
 }
 
 // TaskAttachment represents an Autotask TaskAttachment entity.
 type TaskAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -3158,20 +3158,20 @@ type Task struct {
 	CompanyLocationID               *int64   `json:"companyLocationID,omitempty"`
 	CompletedByResourceID           *int64   `json:"completedByResourceID,omitempty"`
 	CompletedByType                 *int64   `json:"completedByType,omitempty"`
-	CompletedDateTime               *string  `json:"completedDateTime,omitempty"`
-	CreateDateTime                  *string  `json:"createDateTime,omitempty"`
+	CompletedDateTime               *Time    `json:"completedDateTime,omitempty"`
+	CreateDateTime                  *Time    `json:"createDateTime,omitempty"`
 	CreatorResourceID               *int64   `json:"creatorResourceID,omitempty"`
 	CreatorType                     *int64   `json:"creatorType,omitempty"`
 	DepartmentID                    *int64   `json:"departmentID,omitempty"`
 	Description                     *string  `json:"description,omitempty"`
-	EndDateTime                     *string  `json:"endDateTime,omitempty"`
+	EndDateTime                     *Time    `json:"endDateTime,omitempty"`
 	EstimatedHours                  *float64 `json:"estimatedHours,omitempty"`
 	ExternalID                      *string  `json:"externalID,omitempty"`
 	HoursToBeScheduled              *float64 `json:"hoursToBeScheduled,omitempty"`
 	ID                              *int64   `json:"id,omitempty"`
 	IsTaskBillable                  *bool    `json:"isTaskBillable,omitempty"`
 	IsVisibleInClientPortal         *bool    `json:"isVisibleInClientPortal,omitempty"`
-	LastActivityDateTime            *string  `json:"lastActivityDateTime,omitempty"`
+	LastActivityDateTime            *Time    `json:"lastActivityDateTime,omitempty"`
 	LastActivityPersonType          *int64   `json:"lastActivityPersonType,omitempty"`
 	LastActivityResourceID          *int64   `json:"lastActivityResourceID,omitempty"`
 	PhaseID                         *int64   `json:"phaseID,omitempty"`
@@ -3181,7 +3181,7 @@ type Task struct {
 	PurchaseOrderNumber             *string  `json:"purchaseOrderNumber,omitempty"`
 	RemainingHours                  *float64 `json:"remainingHours,omitempty"`
 	SoapParentPropertyID            *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	StartDateTime                   *string  `json:"startDateTime,omitempty"`
+	StartDateTime                   *Time    `json:"startDateTime,omitempty"`
 	Status                          *int64   `json:"status,omitempty"`
 	TaskCategoryID                  *int64   `json:"taskCategoryID,omitempty"`
 	TaskNumber                      *string  `json:"taskNumber,omitempty"`
@@ -3192,7 +3192,7 @@ type Task struct {
 
 // TaskNoteAttachment represents an Autotask TaskNoteAttachment entity.
 type TaskNoteAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -3216,14 +3216,14 @@ type TaskNoteAttachment struct {
 
 // TaskNote represents an Autotask TaskNote entity.
 type TaskNote struct {
-	CreateDateTime                *string `json:"createDateTime,omitempty"`
+	CreateDateTime                *Time   `json:"createDateTime,omitempty"`
 	CreatedByContactID            *int64  `json:"createdByContactID,omitempty"`
 	CreatorResourceID             *int64  `json:"creatorResourceID,omitempty"`
 	Description                   *string `json:"description,omitempty"`
 	ID                            *int64  `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID *int64  `json:"impersonatorCreatorResourceID,omitempty"`
 	ImpersonatorUpdaterResourceID *int64  `json:"impersonatorUpdaterResourceID,omitempty"`
-	LastActivityDate              *string `json:"lastActivityDate,omitempty"`
+	LastActivityDate              *Time   `json:"lastActivityDate,omitempty"`
 	NoteType                      *int64  `json:"noteType,omitempty"`
 	Publish                       *int64  `json:"publish,omitempty"`
 	SoapParentPropertyID          *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
@@ -3292,7 +3292,7 @@ type TicketAdditionalContact struct {
 
 // TicketAttachment represents an Autotask TicketAttachment entity.
 type TicketAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -3351,7 +3351,7 @@ type TicketCategory struct {
 
 // TicketChangeRequestApproval represents an Autotask TicketChangeRequestApproval entity.
 type TicketChangeRequestApproval struct {
-	ApproveRejectDateTime *string `json:"approveRejectDateTime,omitempty"`
+	ApproveRejectDateTime *Time   `json:"approveRejectDateTime,omitempty"`
 	ApproveRejectNote     *string `json:"approveRejectNote,omitempty"`
 	ContactID             *int64  `json:"contactID,omitempty"`
 	ID                    *int64  `json:"id,omitempty"`
@@ -3368,9 +3368,9 @@ type TicketCharge struct {
 	ChargeType                       *int64   `json:"chargeType,omitempty"`
 	ContractServiceBundleID          *int64   `json:"contractServiceBundleID,omitempty"`
 	ContractServiceID                *int64   `json:"contractServiceID,omitempty"`
-	CreateDate                       *string  `json:"createDate,omitempty"`
+	CreateDate                       *Time    `json:"createDate,omitempty"`
 	CreatorResourceID                *int64   `json:"creatorResourceID,omitempty"`
-	DatePurchased                    *string  `json:"datePurchased,omitempty"`
+	DatePurchased                    *Time    `json:"datePurchased,omitempty"`
 	Description                      *string  `json:"description,omitempty"`
 	ExtendedCost                     *float64 `json:"extendedCost,omitempty"`
 	ID                               *int64   `json:"id,omitempty"`
@@ -3387,7 +3387,7 @@ type TicketCharge struct {
 	SoapParentPropertyID             *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
 	Status                           *int64   `json:"status,omitempty"`
 	StatusLastModifiedBy             *int64   `json:"statusLastModifiedBy,omitempty"`
-	StatusLastModifiedDate           *string  `json:"statusLastModifiedDate,omitempty"`
+	StatusLastModifiedDate           *Time    `json:"statusLastModifiedDate,omitempty"`
 	TicketID                         *int64   `json:"ticketID,omitempty"`
 	UnitCost                         *float64 `json:"unitCost,omitempty"`
 	UnitPrice                        *float64 `json:"unitPrice,omitempty"`
@@ -3397,7 +3397,7 @@ type TicketCharge struct {
 // TicketChecklistItem represents an Autotask TicketChecklistItem entity.
 type TicketChecklistItem struct {
 	CompletedByResourceID  *int64  `json:"completedByResourceID,omitempty"`
-	CompletedDateTime      *string `json:"completedDateTime,omitempty"`
+	CompletedDateTime      *Time   `json:"completedDateTime,omitempty"`
 	ID                     *int64  `json:"id,omitempty"`
 	IsCompleted            *bool   `json:"isCompleted,omitempty"`
 	IsImportant            *bool   `json:"isImportant,omitempty"`
@@ -3419,7 +3419,7 @@ type TicketChecklistLibrary struct {
 // TicketHistory represents an Autotask TicketHistory entity.
 type TicketHistory struct {
 	Action               *string `json:"action,omitempty"`
-	Date                 *string `json:"date,omitempty"`
+	Date                 *Time   `json:"date,omitempty"`
 	Detail               *string `json:"detail,omitempty"`
 	ID                   *int64  `json:"id,omitempty"`
 	ResourceID           *int64  `json:"resourceID,omitempty"`
@@ -3444,24 +3444,24 @@ type Ticket struct {
 	CompanyID                                 *int64   `json:"companyID,omitempty"`
 	CompanyLocationID                         *int64   `json:"companyLocationID,omitempty"`
 	CompletedByResourceID                     *int64   `json:"completedByResourceID,omitempty"`
-	CompletedDate                             *string  `json:"completedDate,omitempty"`
+	CompletedDate                             *Time    `json:"completedDate,omitempty"`
 	ConfigurationItemID                       *int64   `json:"configurationItemID,omitempty"`
 	ContactID                                 *int64   `json:"contactID,omitempty"`
 	ContractID                                *int64   `json:"contractID,omitempty"`
 	ContractServiceBundleID                   *int64   `json:"contractServiceBundleID,omitempty"`
 	ContractServiceID                         *int64   `json:"contractServiceID,omitempty"`
-	CreateDate                                *string  `json:"createDate,omitempty"`
+	CreateDate                                *Time    `json:"createDate,omitempty"`
 	CreatedByContactID                        *int64   `json:"createdByContactID,omitempty"`
 	CreatorResourceID                         *int64   `json:"creatorResourceID,omitempty"`
 	CreatorType                               *int64   `json:"creatorType,omitempty"`
 	CurrentServiceThermometerRating           *int64   `json:"currentServiceThermometerRating,omitempty"`
 	Description                               *string  `json:"description,omitempty"`
-	DueDateTime                               *string  `json:"dueDateTime,omitempty"`
+	DueDateTime                               *Time    `json:"dueDateTime,omitempty"`
 	EstimatedHours                            *float64 `json:"estimatedHours,omitempty"`
 	ExternalID                                *string  `json:"externalID,omitempty"`
 	FirstResponseAssignedResourceID           *int64   `json:"firstResponseAssignedResourceID,omitempty"`
-	FirstResponseDateTime                     *string  `json:"firstResponseDateTime,omitempty"`
-	FirstResponseDueDateTime                  *string  `json:"firstResponseDueDateTime,omitempty"`
+	FirstResponseDateTime                     *Time    `json:"firstResponseDateTime,omitempty"`
+	FirstResponseDueDateTime                  *Time    `json:"firstResponseDueDateTime,omitempty"`
 	FirstResponseInitiatingResourceID         *int64   `json:"firstResponseInitiatingResourceID,omitempty"`
 	HoursToBeScheduled                        *float64 `json:"hoursToBeScheduled,omitempty"`
 	ID                                        *int64   `json:"id,omitempty"`
@@ -3469,12 +3469,12 @@ type Ticket struct {
 	IsAssignedToComanaged                     *bool    `json:"isAssignedToComanaged,omitempty"`
 	IsVisibleToComanaged                      *bool    `json:"isVisibleToComanaged,omitempty"`
 	IssueType                                 *int64   `json:"issueType,omitempty"`
-	LastActivityDate                          *string  `json:"lastActivityDate,omitempty"`
+	LastActivityDate                          *Time    `json:"lastActivityDate,omitempty"`
 	LastActivityPersonType                    *int64   `json:"lastActivityPersonType,omitempty"`
 	LastActivityResourceID                    *int64   `json:"lastActivityResourceID,omitempty"`
-	LastCustomerNotificationDateTime          *string  `json:"lastCustomerNotificationDateTime,omitempty"`
-	LastCustomerVisibleActivityDateTime       *string  `json:"lastCustomerVisibleActivityDateTime,omitempty"`
-	LastTrackedModificationDateTime           *string  `json:"lastTrackedModificationDateTime,omitempty"`
+	LastCustomerNotificationDateTime          *Time    `json:"lastCustomerNotificationDateTime,omitempty"`
+	LastCustomerVisibleActivityDateTime       *Time    `json:"lastCustomerVisibleActivityDateTime,omitempty"`
+	LastTrackedModificationDateTime           *Time    `json:"lastTrackedModificationDateTime,omitempty"`
 	MonitorID                                 *int64   `json:"monitorID,omitempty"`
 	MonitorTypeID                             *int64   `json:"monitorTypeID,omitempty"`
 	OpportunityID                             *int64   `json:"opportunityID,omitempty"`
@@ -3486,10 +3486,10 @@ type Ticket struct {
 	PurchaseOrderNumber                       *string  `json:"purchaseOrderNumber,omitempty"`
 	QueueID                                   *int64   `json:"queueID,omitempty"`
 	Resolution                                *string  `json:"resolution,omitempty"`
-	ResolutionPlanDateTime                    *string  `json:"resolutionPlanDateTime,omitempty"`
-	ResolutionPlanDueDateTime                 *string  `json:"resolutionPlanDueDateTime,omitempty"`
-	ResolvedDateTime                          *string  `json:"resolvedDateTime,omitempty"`
-	ResolvedDueDateTime                       *string  `json:"resolvedDueDateTime,omitempty"`
+	ResolutionPlanDateTime                    *Time    `json:"resolutionPlanDateTime,omitempty"`
+	ResolutionPlanDueDateTime                 *Time    `json:"resolutionPlanDueDateTime,omitempty"`
+	ResolvedDateTime                          *Time    `json:"resolvedDateTime,omitempty"`
+	ResolvedDueDateTime                       *Time    `json:"resolvedDueDateTime,omitempty"`
 	RMAStatus                                 *int64   `json:"rmaStatus,omitempty"`
 	RMAType                                   *int64   `json:"rmaType,omitempty"`
 	RmmAlertID                                *string  `json:"rmmAlertID,omitempty"`
@@ -3509,7 +3509,7 @@ type Ticket struct {
 
 // TicketNoteAttachment represents an Autotask TicketNoteAttachment entity.
 type TicketNoteAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -3533,14 +3533,14 @@ type TicketNoteAttachment struct {
 
 // TicketNote represents an Autotask TicketNote entity.
 type TicketNote struct {
-	CreateDateTime                *string `json:"createDateTime,omitempty"`
+	CreateDateTime                *Time   `json:"createDateTime,omitempty"`
 	CreatedByContactID            *int64  `json:"createdByContactID,omitempty"`
 	CreatorResourceID             *int64  `json:"creatorResourceID,omitempty"`
 	Description                   *string `json:"description,omitempty"`
 	ID                            *int64  `json:"id,omitempty"`
 	ImpersonatorCreatorResourceID *int64  `json:"impersonatorCreatorResourceID,omitempty"`
 	ImpersonatorUpdaterResourceID *int64  `json:"impersonatorUpdaterResourceID,omitempty"`
-	LastActivityDate              *string `json:"lastActivityDate,omitempty"`
+	LastActivityDate              *Time   `json:"lastActivityDate,omitempty"`
 	NoteType                      *int64  `json:"noteType,omitempty"`
 	Publish                       *int64  `json:"publish,omitempty"`
 	SoapParentPropertyID          *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
@@ -3659,7 +3659,7 @@ type TicketWebhookUdfField struct {
 
 // TimeEntryAttachment represents an Autotask TimeEntryAttachment entity.
 type TimeEntryAttachment struct {
-	AttachDate                    *string  `json:"attachDate,omitempty"`
+	AttachDate                    *Time    `json:"attachDate,omitempty"`
 	AttachedByContactID           *int64   `json:"attachedByContactID,omitempty"`
 	AttachedByResourceID          *int64   `json:"attachedByResourceID,omitempty"`
 	AttachmentType                *string  `json:"attachmentType,omitempty"`
@@ -3684,17 +3684,17 @@ type TimeEntryAttachment struct {
 
 // TimeEntry represents an Autotask TimeEntry entity.
 type TimeEntry struct {
-	BillingApprovalDateTime           *string  `json:"billingApprovalDateTime,omitempty"`
+	BillingApprovalDateTime           *Time    `json:"billingApprovalDateTime,omitempty"`
 	BillingApprovalLevelMostRecent    *int64   `json:"billingApprovalLevelMostRecent,omitempty"`
 	BillingApprovalResourceID         *int64   `json:"billingApprovalResourceID,omitempty"`
 	BillingCodeID                     *int64   `json:"billingCodeID,omitempty"`
 	ContractID                        *int64   `json:"contractID,omitempty"`
 	ContractServiceBundleID           *int64   `json:"contractServiceBundleID,omitempty"`
 	ContractServiceID                 *int64   `json:"contractServiceID,omitempty"`
-	CreateDateTime                    *string  `json:"createDateTime,omitempty"`
+	CreateDateTime                    *Time    `json:"createDateTime,omitempty"`
 	CreatorUserID                     *int64   `json:"creatorUserID,omitempty"`
-	DateWorked                        *string  `json:"dateWorked,omitempty"`
-	EndDateTime                       *string  `json:"endDateTime,omitempty"`
+	DateWorked                        *Time    `json:"dateWorked,omitempty"`
+	EndDateTime                       *Time    `json:"endDateTime,omitempty"`
 	HoursToBill                       *float64 `json:"hoursToBill,omitempty"`
 	HoursWorked                       *float64 `json:"hoursWorked,omitempty"`
 	ID                                *int64   `json:"id,omitempty"`
@@ -3704,13 +3704,13 @@ type TimeEntry struct {
 	InternalNotes                     *string  `json:"internalNotes,omitempty"`
 	IsInternalNotesVisibleToComanaged *bool    `json:"isInternalNotesVisibleToComanaged,omitempty"`
 	IsNonBillable                     *bool    `json:"isNonBillable,omitempty"`
-	LastModifiedDateTime              *string  `json:"lastModifiedDateTime,omitempty"`
+	LastModifiedDateTime              *Time    `json:"lastModifiedDateTime,omitempty"`
 	LastModifiedUserID                *int64   `json:"lastModifiedUserID,omitempty"`
 	OffsetHours                       *float64 `json:"offsetHours,omitempty"`
 	ResourceID                        *int64   `json:"resourceID,omitempty"`
 	RoleID                            *int64   `json:"roleID,omitempty"`
 	ShowOnInvoice                     *bool    `json:"showOnInvoice,omitempty"`
-	StartDateTime                     *string  `json:"startDateTime,omitempty"`
+	StartDateTime                     *Time    `json:"startDateTime,omitempty"`
 	SummaryNotes                      *string  `json:"summaryNotes,omitempty"`
 	TaskID                            *int64   `json:"taskID,omitempty"`
 	TicketID                          *int64   `json:"ticketID,omitempty"`
@@ -3720,27 +3720,27 @@ type TimeEntry struct {
 // TimeOffRequest represents an Autotask TimeOffRequest entity.
 type TimeOffRequest struct {
 	ApproveRejectResourceID  *int64   `json:"approveRejectResourceID,omitempty"`
-	ApprovedDateTime         *string  `json:"approvedDateTime,omitempty"`
-	CreateDateTime           *string  `json:"createDateTime,omitempty"`
+	ApprovedDateTime         *Time    `json:"approvedDateTime,omitempty"`
+	CreateDateTime           *Time    `json:"createDateTime,omitempty"`
 	CreatedByResourceID      *int64   `json:"createdByResourceID,omitempty"`
-	EndTime                  *string  `json:"endTime,omitempty"`
+	EndTime                  *Time    `json:"endTime,omitempty"`
 	Hours                    *float64 `json:"hours,omitempty"`
 	ID                       *int64   `json:"id,omitempty"`
 	LastModifiedByResourceID *int64   `json:"lastModifiedByResourceID,omitempty"`
-	LastModifiedDateTime     *string  `json:"lastModifiedDateTime,omitempty"`
+	LastModifiedDateTime     *Time    `json:"lastModifiedDateTime,omitempty"`
 	Reason                   *string  `json:"reason,omitempty"`
 	RejectReason             *string  `json:"rejectReason,omitempty"`
-	RequestDate              *string  `json:"requestDate,omitempty"`
+	RequestDate              *Time    `json:"requestDate,omitempty"`
 	ResourceID               *int64   `json:"resourceID,omitempty"`
 	SoapParentPropertyID     *int64   `json:"soapParentPropertyId,omitempty"` // READ-ONLY
-	StartTime                *string  `json:"startTime,omitempty"`
+	StartTime                *Time    `json:"startTime,omitempty"`
 	Status                   *int64   `json:"status,omitempty"`
 	TimeOffRequestType       *int64   `json:"timeOffRequestType,omitempty"`
 }
 
 // UserDefinedFieldDefinition represents an Autotask UserDefinedFieldDefinition entity.
 type UserDefinedFieldDefinition struct {
-	CreateDate              *string `json:"createDate,omitempty"`
+	CreateDate              *Time   `json:"createDate,omitempty"`
 	CrmToProjectUDFID       *int64  `json:"crmToProjectUdfId,omitempty"`
 	DataType                *int64  `json:"dataType,omitempty"`
 	DefaultValue            any     `json:"defaultValue,omitempty"`
@@ -3763,7 +3763,7 @@ type UserDefinedFieldDefinition struct {
 
 // UserDefinedFieldListItem represents an Autotask UserDefinedFieldListItem entity.
 type UserDefinedFieldListItem struct {
-	CreateDate           *string `json:"createDate,omitempty"`
+	CreateDate           *Time   `json:"createDate,omitempty"`
 	ID                   *int64  `json:"id,omitempty"`
 	IsActive             *bool   `json:"isActive,omitempty"`
 	SoapParentPropertyID *int64  `json:"soapParentPropertyId,omitempty"` // READ-ONLY
@@ -3776,7 +3776,7 @@ type UserDefinedFieldListItem struct {
 type WebhookEventErrorLog struct {
 	AccountWebhookID *int64  `json:"accountWebhookID,omitempty"`
 	ContactWebhookID *int64  `json:"contactWebhookID,omitempty"`
-	CreateDateTime   *string `json:"createDateTime,omitempty"`
+	CreateDateTime   *Time   `json:"createDateTime,omitempty"`
 	ErrorMessage     *string `json:"errorMessage,omitempty"`
 	ID               *int64  `json:"id,omitempty"`
 	Payload          *string `json:"payload,omitempty"`
