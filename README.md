@@ -1,6 +1,6 @@
 # autotask
 
-A Go client library for the [Autotask PSA](https://www.autotask.net/) REST API. Generated from the Autotask Swagger spec — covers 202 entity types across 208 services.
+A Go client library for the [Autotask PSA](https://www.autotask.net/) REST API. Generated from the Autotask Swagger spec — covers 227 entity types across 228 top-level services.
 
 ## Installation
 
@@ -126,7 +126,7 @@ client.Contacts
 client.Projects
 client.TimeEntries
 client.Resources
-// … 79 top-level services total
+// … 228 top-level services total
 ```
 
 ### Child entity services
@@ -137,7 +137,7 @@ Child entities are accessed via methods that accept the parent ID:
 notes, err := client.TicketNotes(ticketID).Query(ctx, filter)
 ```
 
-There are 126 child service methods covering relationships like ticket notes, attachments, contract services, webhook fields, and more.
+There are 22 child service methods covering relationships like ticket notes, attachments, contract services, webhook fields, and more. Many entities that also exist as children (e.g., `TicketNotes`) have top-level services as well.
 
 ### Introspection
 
@@ -216,16 +216,60 @@ client, err := autotask.NewClient(autotask.Config{
 })
 ```
 
+## Retry
+
+Transient failures (5xx server errors and network errors) are automatically retried with exponential backoff (500ms, 1s, 2s). Client errors (4xx) are never retried. Configure via `Config.MaxRetries` (default: 3, set to 0 to disable).
+
+## Time Type
+
+Date-time fields on all entities use the `autotask.Time` type, which wraps `time.Time` with automatic ISO 8601 JSON marshaling:
+
+```go
+ticket, _ := client.Tickets.Get(ctx, id)
+
+// Time fields are *autotask.Time — use .Time to get the underlying time.Time
+fmt.Println(ticket.CreateDate.Time)           // 2025-10-29 14:53:30 +0000 UTC
+fmt.Println(ticket.CreateDate)                // 2025-10-29T14:53:30.000Z
+fmt.Println(ticket.CreateDate.Before(time.Now())) // true
+
+// Use in filters — marshals to the correct API string format automatically
+filter := autotask.Filter(
+    autotask.Field("createDate").Gte(autotask.Time{time.Now().AddDate(0, -1, 0)}),
+)
+
+// Construct with Ptr for entity fields
+ticket := &autotask.Ticket{
+    DueDateTime: autotask.Ptr(autotask.Time{time.Now().Add(24 * time.Hour)}),
+}
+```
+
+Nil `*Time` fields are omitted from JSON (for PATCH semantics). Zero time marshals as an empty string.
+
+## Picklist Resolution
+
+Translate numeric field values (status, priority, queue, etc.) to human-readable labels:
+
+```go
+pl := autotask.NewPicklist(client)
+
+label, err := pl.Resolve(ctx, "/V1.0/Tickets", "status", 5)
+// label = "Complete"
+
+labels, err := pl.ResolveAll(ctx, "/V1.0/Tickets", map[string]int64{
+    "status":   5,
+    "priority": 2,
+})
+// labels = {"status": "Complete", "priority": "Medium"}
+```
+
+Field definitions are fetched once per entity and cached for the lifetime of the `Picklist`.
+
 ## Helper Functions
 
 ```go
 // Generic pointer helper — useful when setting optional struct fields
 autotask.Ptr("some string")   // *string
 autotask.Ptr[int64](42)       // *int64
-
-// Time conversion to/from the API's ISO 8601 format
-s := autotask.TimeToString(time.Now())
-t, err := autotask.StringToTime(s)
 ```
 
 ## Code Generation
@@ -241,6 +285,27 @@ Or run the generator directly:
 ```
 go run ./cmd/generate -spec path/to/swagger.json
 ```
+
+## CLI Tool
+
+A utility CLI is included at `cmd/autotask` for quick lookups and as a usage example:
+
+```
+go install github.com/scjalliance/autotask/cmd/autotask@latest
+
+export AUTOTASK_USERNAME=api@example.com
+export AUTOTASK_SECRET=your-secret
+export AUTOTASK_INTEGRATION_CODE=YOUR_CODE
+
+autotask whoami                     # test connectivity
+autotask ticket T20251029.0002      # look up by display number
+autotask ticket 8326                # look up by internal ID
+autotask tickets "server"           # search across title, description, notes
+autotask company "ACME"             # search companies by name
+autotask resource "emmaly"          # search resources by name/email
+```
+
+Add `--json` to any command for machine-readable output.
 
 ## Documentation
 
