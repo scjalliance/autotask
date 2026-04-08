@@ -148,6 +148,9 @@ func goType(prop swaggerProperty) string {
 	case "number":
 		return "*float64"
 	case "string":
+		if prop.Format == "date-time" {
+			return "*Time"
+		}
 		return "*string"
 	case "boolean":
 		return "*bool"
