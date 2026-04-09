@@ -1,7 +1,7 @@
 # Webhook Receiver Design
 
 **Date:** 2026-04-09
-**Status:** Draft
+**Status:** Review
 
 ## Overview
 
@@ -70,18 +70,20 @@ Critical: Autotask applies custom Unicode escaping to JSON string values before 
 
 ```go
 type WebhookEvent struct {
-    Action         string         // "Create", "Update", "Delete", "Deactivated"
-    GUID           string         // Unique callout identifier
-    EntityType     string         // "Ticket", "Account", "Contact", "InstalledProduct", "TicketNote"
-    ID             int64          // Entity ID in Autotask
-    Fields         map[string]any // Raw field data from the payload
-    EventTime      time.Time      // When the webhook fired
-    SequenceNumber int64          // Incrementing counter (may have gaps)
-    PersonID       int64          // Resource ID of the triggering user
+    Action         string         `json:"Action"`         // "Create", "Update", "Delete", "Deactivated"
+    GUID           string         `json:"Guid"`           // Unique callout identifier
+    EntityType     string         `json:"EntityType"`     // "Ticket", "Account", "Contact", "InstalledProduct", "TicketNote"
+    ID             int64          `json:"Id"`             // Entity ID in Autotask
+    Fields         map[string]any `json:"Fields"`         // Raw field data from the payload
+    EventTime      Time           `json:"EventTime"`      // When the webhook fired
+    SequenceNumber int64          `json:"SequenceNumber"` // Incrementing counter (may have gaps)
+    PersonID       int64          `json:"PersonID"`       // Resource ID of the triggering user
 }
 ```
 
-All fields are plain values (not pointers) since they are always present in every payload. `Fields` is the raw map for direct access.
+All fields are plain values (not pointers) since they are always present in every payload. `Fields` is the raw map for direct access. `EventTime` uses the library's `Time` type so it benefits from the existing flexible ISO 8601 parsing via `Time.UnmarshalJSON`.
+
+Note: The Autotask webhook payload uses PascalCase JSON keys (not camelCase like the REST API responses), so explicit JSON tags are required.
 
 ### Entity() Method
 
@@ -115,7 +117,7 @@ var webhookEntityTypes = map[string]reflect.Type{
 ### NewWebhookHandler (Primary API)
 
 ```go
-func NewWebhookHandler(secretKey string, fn func(*WebhookEvent)) http.Handler
+func NewWebhookHandler(secretKey string, fn func(*WebhookEvent) error) http.Handler
 ```
 
 Returns an `http.Handler` that:
@@ -124,7 +126,7 @@ Returns an `http.Handler` that:
 2. Calls `ValidateWebhook(r, secretKey)`.
 3. On `ErrMissingSignature` or `ErrInvalidSignature` → `401 Unauthorized`.
 4. On malformed body or parse error → `400 Bad Request`.
-5. On success → calls `fn(event)`, returns `200 OK`.
+5. On success → calls `fn(event)`. If `fn` returns nil, responds `200 OK`. If `fn` returns an error, responds `500 Internal Server Error` (so Autotask retries the delivery).
 
 Error responses are plain text with generic messages (no internal details leaked).
 
@@ -143,24 +145,23 @@ For users who need custom HTTP error handling, logging, or integration with non-
 
 Steps:
 
-1. Read the raw body bytes. Replace `r.Body` with a re-readable buffer so downstream code can still read it.
+1. Read the raw body bytes with a size limit (`io.LimitReader`, 1 MB) to guard against oversized payloads. Replace `r.Body` with a re-readable buffer so downstream code can still read it.
 2. Extract the `X-Hook-Signature` header. Expected format: `sha1=<base64>`.
 3. If header is missing, return `ErrMissingSignature`.
 4. Compute HMAC-SHA1 over raw bytes using `secretKey`.
-5. Base64-encode the result and constant-time compare against the header value.
+5. Base64-decode the signature from the header and use `hmac.Equal` to constant-time compare the raw MAC bytes.
 6. If mismatch, return `ErrInvalidSignature`.
-7. JSON-unmarshal the raw bytes into `WebhookEvent`.
-8. Parse `EventTime` string into `time.Time`.
-9. Return the populated `*WebhookEvent`.
+7. JSON-unmarshal the raw bytes into `WebhookEvent` (including `EventTime` via `Time.UnmarshalJSON`).
+8. Return the populated `*WebhookEvent`.
 
 ### New Sentinel Errors
 
 ```go
-var ErrInvalidSignature = errors.New("invalid webhook signature")
-var ErrMissingSignature = errors.New("missing webhook signature")
+var ErrInvalidSignature = errors.New("autotask: invalid webhook signature")
+var ErrMissingSignature = errors.New("autotask: missing webhook signature")
 ```
 
-These follow the existing pattern (`ErrNotFound`, `ErrUnauthorized`, etc.) and work with `errors.Is()`.
+These follow the existing pattern (`ErrNotFound`, `ErrUnauthorized`, etc.) and work with `errors.Is()`. They are defined in `errors.go` alongside the other sentinels.
 
 ## Registration
 
@@ -173,13 +174,13 @@ No new code. The existing generated services provide full CRUD for all 5 webhook
 ```go
 mux := http.NewServeMux()
 
-mux.Handle("/webhooks/tickets", autotask.NewWebhookHandler(secretKey, func(event *autotask.WebhookEvent) {
+mux.Handle("/webhooks/tickets", autotask.NewWebhookHandler(secretKey, func(event *autotask.WebhookEvent) error {
     var ticket autotask.Ticket
     if err := event.Entity(&ticket); err != nil {
-        log.Printf("failed to parse ticket: %v", err)
-        return
+        return fmt.Errorf("failed to parse ticket: %w", err)
     }
     log.Printf("ticket %d %s: %s", event.ID, event.Action, *ticket.Title)
+    return nil
 }))
 
 http.ListenAndServeTLS(":443", certFile, keyFile, mux)
@@ -242,14 +243,15 @@ created, err := client.TicketWebhooks.Create(ctx, webhook)
 
 | File | Purpose |
 |---|---|
-| `webhook.go` | `WebhookEvent`, `ValidateWebhook`, `NewWebhookHandler`, `Entity()`, sentinel errors, entity type map |
+| `webhook.go` | `WebhookEvent`, `ValidateWebhook`, `NewWebhookHandler`, `Entity()`, entity type map |
+| `errors.go` | `ErrInvalidSignature`, `ErrMissingSignature` (added alongside existing sentinels) |
 | `webhook_test.go` | Tests for HMAC validation, payload parsing, `Entity()` type checking, handler HTTP behavior |
 
 ## Testing Strategy
 
 - **HMAC validation:** Compute known signatures, verify acceptance; mutate body or signature, verify rejection.
 - **Missing/malformed signature header:** Verify correct sentinel errors.
-- **Payload parsing:** Verify all fields unmarshal correctly, including `EventTime` as `time.Time`.
+- **Payload parsing:** Verify all fields unmarshal correctly, including `EventTime` as `Time`.
 - **Entity() happy path:** Unmarshal `Fields` into correct typed struct, verify `*Time` fields parse.
 - **Entity() type mismatch:** Pass `*Company` when `EntityType` is `"Ticket"`, verify error.
 - **Entity() on Delete/Deactivated:** Verify mostly-nil struct, no error.
