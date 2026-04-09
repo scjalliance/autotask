@@ -7,10 +7,12 @@ import (
 )
 
 var (
-	ErrNotFound     = errors.New("autotask: not found")
-	ErrUnauthorized = errors.New("autotask: unauthorized")
-	ErrForbidden    = errors.New("autotask: forbidden")
-	ErrRateLimited  = errors.New("autotask: rate limited")
+	ErrNotFound         = errors.New("autotask: not found")
+	ErrUnauthorized     = errors.New("autotask: unauthorized")
+	ErrForbidden        = errors.New("autotask: forbidden")
+	ErrRateLimited      = errors.New("autotask: rate limited")
+	ErrInvalidSignature = errors.New("autotask: invalid webhook signature")
+	ErrMissingSignature = errors.New("autotask: missing webhook signature")
 )
 
 var sentinelByStatus = map[int]error{

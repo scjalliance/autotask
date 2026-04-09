@@ -197,6 +197,14 @@ if errors.Is(err, autotask.ErrRateLimited) {
     // 429
 }
 
+// Webhook-specific errors
+if errors.Is(err, autotask.ErrInvalidSignature) {
+    // HMAC signature mismatch
+}
+if errors.Is(err, autotask.ErrMissingSignature) {
+    // X-Hook-Signature header absent
+}
+
 // Full error detail
 var apiErr *autotask.APIError
 if errors.As(err, &apiErr) {
@@ -264,6 +272,103 @@ labels, err := pl.ResolveAll(ctx, "/V1.0/Tickets", map[string]int64{
 
 Field definitions are fetched once per entity and cached for the lifetime of the `Picklist`.
 
+## Webhooks
+
+The library supports both **registering** webhooks (via the generated CRUD services) and **receiving** webhook callbacks with HMAC-SHA1 signature validation.
+
+### Registering a Webhook
+
+Use the generated services to create webhooks for any of the 5 supported entity types (Company, Contact, ConfigurationItem, Ticket, TicketNote):
+
+```go
+webhook := &autotask.TicketWebhook{
+    Name:                       autotask.Ptr("My Ticket Webhook"),
+    WebhookURL:                 autotask.Ptr("https://example.com/webhooks/tickets"),
+    SecretKey:                  autotask.Ptr("my-secret-key-here"),
+    IsActive:                   autotask.Ptr(true),
+    IsSubscribedToCreateEvents: autotask.Ptr(true),
+    IsSubscribedToUpdateEvents: autotask.Ptr(true),
+    IsSubscribedToDeleteEvents: autotask.Ptr(false),
+    DeactivationURL:            autotask.Ptr("https://example.com/webhooks/deactivated"),
+}
+
+created, err := client.TicketWebhooks.Create(ctx, webhook)
+```
+
+### Receiving Webhooks
+
+**`NewWebhookHandler`** is the primary API — returns an `http.Handler` that validates the HMAC signature, parses the payload, and calls your function:
+
+```go
+mux.Handle("/webhooks/tickets", autotask.NewWebhookHandler(secretKey, func(event *autotask.WebhookEvent) error {
+    var ticket autotask.Ticket
+    if err := event.Entity(&ticket); err != nil {
+        return fmt.Errorf("failed to parse ticket: %w", err)
+    }
+    log.Printf("ticket %d %s: %s", event.ID, event.Action, *ticket.Title)
+    return nil
+}))
+```
+
+If the callback returns nil, the handler responds 200 OK. If it returns an error, the handler responds 500 so Autotask retries the delivery.
+
+**`ValidateWebhook`** is the escape hatch for users who need custom HTTP error handling:
+
+```go
+func handleWebhook(w http.ResponseWriter, r *http.Request) {
+    event, err := autotask.ValidateWebhook(r, secretKey)
+    if err != nil {
+        switch {
+        case errors.Is(err, autotask.ErrMissingSignature),
+             errors.Is(err, autotask.ErrInvalidSignature):
+            http.Error(w, "unauthorized", http.StatusUnauthorized)
+        default:
+            http.Error(w, "bad request", http.StatusBadRequest)
+        }
+        return
+    }
+
+    switch event.Action {
+    case "Create":
+        var ticket autotask.Ticket
+        if err := event.Entity(&ticket); err != nil { /* handle */ }
+        handleNewTicket(event, &ticket)
+    case "Delete":
+        handleDeletedTicket(event.ID)
+    case "Deactivated":
+        log.Printf("webhook deactivated: %s", event.GUID)
+    }
+    w.WriteHeader(http.StatusOK)
+}
+```
+
+### WebhookEvent
+
+Every callback payload is parsed into a `WebhookEvent`:
+
+| Field | Type | Description |
+|---|---|---|
+| `Action` | `string` | `"Create"`, `"Update"`, `"Delete"`, or `"Deactivated"` |
+| `GUID` | `string` | Unique callout identifier |
+| `EntityType` | `string` | Autotask entity type (`"Ticket"`, `"Account"`, etc.) |
+| `ID` | `int64` | Entity ID |
+| `Fields` | `map[string]any` | Partial field data (raw) |
+| `EventTime` | `Time` | When the webhook fired |
+| `SequenceNumber` | `int64` | Incrementing counter |
+| `PersonID` | `int64` | Resource ID of the triggering user |
+
+`Entity(v)` unmarshals `Fields` into a typed struct (e.g., `*Ticket`, `*Company`). It validates that the target type matches the `EntityType` and handles `*Time` fields automatically. For Delete/Deactivated events, `Fields` is minimal — the struct will have mostly nil fields.
+
+### Entity Type Mapping
+
+| Autotask EntityType | Go Struct |
+|---|---|
+| `"Ticket"` | `*Ticket` |
+| `"Account"` | `*Company` |
+| `"Contact"` | `*Contact` |
+| `"InstalledProduct"` | `*ConfigurationItem` |
+| `"TicketNote"` | `*TicketNote` |
+
 ## Helper Functions
 
 ```go
@@ -309,4 +414,6 @@ Add `--json` to any command for machine-readable output.
 
 ## Documentation
 
-Architecture and design decisions: [`docs/superpowers/specs/2026-03-26-autotask-go-client-design.md`](docs/superpowers/specs/2026-03-26-autotask-go-client-design.md)
+- Architecture and design: [`docs/superpowers/specs/2026-03-26-autotask-go-client-design.md`](docs/superpowers/specs/2026-03-26-autotask-go-client-design.md)
+- Webhook receiver design: [`docs/superpowers/specs/2026-04-09-webhook-receiver-design.md`](docs/superpowers/specs/2026-04-09-webhook-receiver-design.md)
+- CLI tool design: [`docs/superpowers/specs/2026-03-27-cli-tool-design.md`](docs/superpowers/specs/2026-03-27-cli-tool-design.md)
