@@ -1,0 +1,819 @@
+{
+  "name": "contactGroupContactAdd",
+  "label": "Add Contact to Group",
+  "typeId": 4,
+  "description": "Add a contact to a contact group",
+  "public": true
+}
+{
+  "name": "contractServiceAdd",
+  "label": "Add Contract Service",
+  "typeId": 4,
+  "description": "Add a service to a recurring contract",
+  "public": false
+}
+{
+  "name": "quoteItemCreate",
+  "label": "Add Quote Item",
+  "typeId": 4,
+  "description": "Add a line item to a quote",
+  "public": false
+}
+{
+  "name": "ticketChecklistItemCreate",
+  "label": "Add Ticket Checklist Item",
+  "typeId": 4,
+  "description": "Add a checklist item to a ticket",
+  "public": true
+}
+{
+  "name": "contractServiceAdjust",
+  "label": "Adjust Contract Service",
+  "typeId": 4,
+  "description": "Adjust quantity of contract service units",
+  "public": false
+}
+{
+  "name": "configurationItemNoteCreate",
+  "label": "Create Asset Note",
+  "typeId": 4,
+  "description": "Add a new note to a configuration item",
+  "public": true
+}
+{
+  "name": "companiesCreate",
+  "label": "Create Company",
+  "typeId": 4,
+  "description": "Create a new company record in Autotask",
+  "public": false
+}
+{
+  "name": "companylocationsCreate",
+  "label": "Create Company Location",
+  "typeId": 4,
+  "description": "Create a new company location record in Autotask",
+  "public": true
+}
+{
+  "name": "companiesNoteCreate",
+  "label": "Create Company Note",
+  "typeId": 4,
+  "description": "Add a new note to a company",
+  "public": true
+}
+{
+  "name": "configurationItemsCreate",
+  "label": "Create Configuration Item",
+  "typeId": 4,
+  "description": "Create a new configuration item (asset)",
+  "public": true
+}
+{
+  "name": "contactsCreate",
+  "label": "Create Contact",
+  "typeId": 4,
+  "description": "Create a new contact record in Autotask",
+  "public": true
+}
+{
+  "name": "contactGroupCreate",
+  "label": "Create Contact Group",
+  "typeId": 4,
+  "description": "Create a new contact group",
+  "public": false
+}
+{
+  "name": "contractsCreate",
+  "label": "Create Contract",
+  "typeId": 4,
+  "description": "Create a new contract",
+  "public": false
+}
+{
+  "name": "contractChargeCreate",
+  "label": "Create Contract Charge",
+  "typeId": 4,
+  "description": "Add a charge to a contract",
+  "public": false
+}
+{
+  "name": "contractMilestoneCreate",
+  "label": "Create Contract Milestone",
+  "typeId": 4,
+  "description": "Create a milestone for a fixed price contract",
+  "public": false
+}
+{
+  "name": "contractNoteCreate",
+  "label": "Create Contract Note",
+  "typeId": 4,
+  "description": "Add a new note to a contract",
+  "public": false
+}
+{
+  "name": "departmentsCreate",
+  "label": "Create Department",
+  "typeId": 4,
+  "description": "Create a new department",
+  "public": true
+}
+{
+  "name": "opportunitiesCreate",
+  "label": "Create Opportunity",
+  "typeId": 4,
+  "description": "Create a new sales opportunity",
+  "public": false
+}
+{
+  "name": "productsCreate",
+  "label": "Create Product",
+  "typeId": 4,
+  "description": "Create a new product",
+  "public": false
+}
+{
+  "name": "projectsCreate",
+  "label": "Create Project",
+  "typeId": 4,
+  "description": "Create a new project",
+  "public": true
+}
+{
+  "name": "projectChargeCreate",
+  "label": "Create Project Charge",
+  "typeId": 4,
+  "description": "Add a charge to a project",
+  "public": false
+}
+{
+  "name": "projectNoteCreate",
+  "label": "Create Project Note",
+  "typeId": 4,
+  "description": "Add a new note to a project",
+  "public": true
+}
+{
+  "name": "phaseCreate",
+  "label": "Create Project Phase",
+  "typeId": 4,
+  "description": "Create a new phase for a project",
+  "public": true
+}
+{
+  "name": "quotesCreate",
+  "label": "Create Quote",
+  "typeId": 4,
+  "description": "Create a new quote for an opportunity",
+  "public": false
+}
+{
+  "name": "rolesCreate",
+  "label": "Create Role",
+  "typeId": 4,
+  "description": "Create a new billing role",
+  "public": false
+}
+{
+  "name": "servicesCreate",
+  "label": "Create Service",
+  "typeId": 4,
+  "description": "Create a new service",
+  "public": false
+}
+{
+  "name": "tasksCreate",
+  "label": "Create Task",
+  "typeId": 4,
+  "description": "Create a new project task",
+  "public": true
+}
+{
+  "name": "taskNoteCreate",
+  "label": "Create Task Note",
+  "typeId": 4,
+  "description": "Add a new note to a task",
+  "public": true
+}
+{
+  "name": "ticketsCreate",
+  "label": "Create Ticket",
+  "typeId": 4,
+  "description": "Create a new service desk ticket",
+  "public": true
+}
+{
+  "name": "ticketChargeCreate",
+  "label": "Create Ticket Charge",
+  "typeId": 4,
+  "description": "Add a charge to a ticket",
+  "public": false
+}
+{
+  "name": "ticketNoteCreate",
+  "label": "Create Ticket Note",
+  "typeId": 4,
+  "description": "Add a new note to a ticket",
+  "public": true
+}
+{
+  "name": "timeEntriesCreate",
+  "label": "Create Time Entry",
+  "typeId": 4,
+  "description": "Create a new time entry",
+  "public": true
+}
+{
+  "name": "billingItemsGet",
+  "label": "Get Billing Item",
+  "typeId": 4,
+  "description": "Retrieve a specific billing item by ID",
+  "public": false
+}
+{
+  "name": "companiesGet",
+  "label": "Get Company",
+  "typeId": 4,
+  "description": "Retrieve a specific company by ID",
+  "public": true
+}
+{
+  "name": "companylocationsGet",
+  "label": "Get Company Location",
+  "typeId": 4,
+  "description": "Retrieve a specific company location by ID",
+  "public": true
+}
+{
+  "name": "configurationItemsGet",
+  "label": "Get Configuration Item",
+  "typeId": 4,
+  "description": "Retrieve a specific configuration item by ID",
+  "public": true
+}
+{
+  "name": "contactsGet",
+  "label": "Get Contact",
+  "typeId": 4,
+  "description": "Retrieve a specific contact by ID",
+  "public": true
+}
+{
+  "name": "contractsGet",
+  "label": "Get Contract",
+  "typeId": 4,
+  "description": "Retrieve a specific contract by ID",
+  "public": false
+}
+{
+  "name": "departmentsGet",
+  "label": "Get Department",
+  "typeId": 4,
+  "description": "Retrieve a specific department by ID",
+  "public": true
+}
+{
+  "name": "invoicesGet",
+  "label": "Get Invoice",
+  "typeId": 4,
+  "description": "Retrieve a specific invoice by ID",
+  "public": false
+}
+{
+  "name": "opportunitiesGet",
+  "label": "Get Opportunity",
+  "typeId": 4,
+  "description": "Retrieve a specific opportunity by ID",
+  "public": false
+}
+{
+  "name": "productsGet",
+  "label": "Get Product",
+  "typeId": 4,
+  "description": "Retrieve a specific product by ID",
+  "public": false
+}
+{
+  "name": "projectsGet",
+  "label": "Get Project",
+  "typeId": 4,
+  "description": "Retrieve a specific project by ID",
+  "public": true
+}
+{
+  "name": "quotesGet",
+  "label": "Get Quote",
+  "typeId": 4,
+  "description": "Retrieve a specific quote by ID",
+  "public": false
+}
+{
+  "name": "resourcesGet",
+  "label": "Get Resource",
+  "typeId": 4,
+  "description": "Retrieve a specific resource by ID",
+  "public": true
+}
+{
+  "name": "rolesGet",
+  "label": "Get Role",
+  "typeId": 4,
+  "description": "Retrieve a specific role by ID",
+  "public": false
+}
+{
+  "name": "servicesGet",
+  "label": "Get Service",
+  "typeId": 4,
+  "description": "Retrieve a specific service by ID",
+  "public": false
+}
+{
+  "name": "tasksGet",
+  "label": "Get Task",
+  "typeId": 4,
+  "description": "Retrieve a specific task by ID",
+  "public": true
+}
+{
+  "name": "ticketsGet",
+  "label": "Get Ticket",
+  "typeId": 4,
+  "description": "Retrieve a specific ticket by ID",
+  "public": true
+}
+{
+  "name": "timeEntriesGet",
+  "label": "Get Time Entry",
+  "typeId": 4,
+  "description": "Retrieve a specific time entry by ID",
+  "public": true
+}
+{
+  "name": "configurationItemAttachmentsQuery",
+  "label": "Query Asset Attachments",
+  "typeId": 9,
+  "description": "Search for attachments associated with assets",
+  "public": true
+}
+{
+  "name": "configurationItemNotesQuery",
+  "label": "Query Asset Notes",
+  "typeId": 9,
+  "description": "Search for notes associated with configuration items",
+  "public": true
+}
+{
+  "name": "billingItemsQuery",
+  "label": "Query Billing Items",
+  "typeId": 9,
+  "description": "Search for approved and posted billing items",
+  "public": false
+}
+{
+  "name": "companiesQuery",
+  "label": "Query Companies",
+  "typeId": 9,
+  "description": "Query Companies",
+  "public": true
+}
+{
+  "name": "companiesAlertsQuery",
+  "label": "Query Company Alerts",
+  "typeId": 9,
+  "description": "Search for alerts associated with companies",
+  "public": true
+}
+{
+  "name": "companiesAttachmentsQuery",
+  "label": "Query Company Attachments",
+  "typeId": 9,
+  "description": "Search for attachments associated with companies",
+  "public": true
+}
+{
+  "name": "companylocationsQuery",
+  "label": "Query Company Locations",
+  "typeId": 9,
+  "description": "Search for company locations using filters and return matching records",
+  "public": true
+}
+{
+  "name": "companiesNotesQuery",
+  "label": "Query Company Notes",
+  "typeId": 9,
+  "description": "Search for notes associated with companies",
+  "public": true
+}
+{
+  "name": "configurationItemsQuery",
+  "label": "Query Configuration Items",
+  "typeId": 9,
+  "description": "Search for configuration items (assets) using filters",
+  "public": true
+}
+{
+  "name": "contactGroupsQuery",
+  "label": "Query Contact Groups",
+  "typeId": 9,
+  "description": "Search for contact groups",
+  "public": true
+}
+{
+  "name": "contactsQuery",
+  "label": "Query Contacts",
+  "typeId": 9,
+  "description": "Query Contacts",
+  "public": true
+}
+{
+  "name": "contractChargesQuery",
+  "label": "Query Contract Charges",
+  "typeId": 9,
+  "description": "Search for charges associated with contracts",
+  "public": false
+}
+{
+  "name": "contractMilestonesQuery",
+  "label": "Query Contract Milestones",
+  "typeId": 9,
+  "description": "Search for milestones on fixed price contracts",
+  "public": false
+}
+{
+  "name": "contractNotesQuery",
+  "label": "Query Contract Notes",
+  "typeId": 9,
+  "description": "Search for notes associated with contracts",
+  "public": false
+}
+{
+  "name": "contractsQuery",
+  "label": "Query Contracts",
+  "typeId": 9,
+  "description": "Search for contracts using filters and return matching records",
+  "public": false
+}
+{
+  "name": "contractServicesQuery",
+  "label": "Query Contract Services",
+  "typeId": 9,
+  "description": "Search for services on recurring contracts",
+  "public": false
+}
+{
+  "name": "departmentsQuery",
+  "label": "Query Departments",
+  "typeId": 9,
+  "description": "Search for departments",
+  "public": true
+}
+{
+  "name": "invoiceBillingItemsQuery",
+  "label": "Query Invoice Items",
+  "typeId": 9,
+  "description": "Get billing items associated with an invoice",
+  "public": false
+}
+{
+  "name": "invoicesQuery",
+  "label": "Query Invoices",
+  "typeId": 9,
+  "description": "Search for invoices using filters",
+  "public": false
+}
+{
+  "name": "opportunitiesQuery",
+  "label": "Query Opportunities",
+  "typeId": 9,
+  "description": "Search for opportunities using filters",
+  "public": false
+}
+{
+  "name": "opportunityAttachmentsQuery",
+  "label": "Query Opportunity Attachments",
+  "typeId": 9,
+  "description": "Search for attachments on opportunities",
+  "public": false
+}
+{
+  "name": "productsQuery",
+  "label": "Query Products",
+  "typeId": 9,
+  "description": "Search for products in the catalog",
+  "public": false
+}
+{
+  "name": "projectAttachmentsQuery",
+  "label": "Query Project Attachments",
+  "typeId": 9,
+  "description": "Search for attachments associated with projects",
+  "public": true
+}
+{
+  "name": "projectChargesQuery",
+  "label": "Query Project Charges",
+  "typeId": 9,
+  "description": "Search for charges associated with projects",
+  "public": false
+}
+{
+  "name": "projectNotesQuery",
+  "label": "Query Project Notes",
+  "typeId": 9,
+  "description": "Search for notes associated with projects",
+  "public": true
+}
+{
+  "name": "phasesQuery",
+  "label": "Query Project Phases",
+  "typeId": 9,
+  "description": "Search for project phases",
+  "public": true
+}
+{
+  "name": "projectsQuery",
+  "label": "Query Projects",
+  "typeId": 9,
+  "description": "Search for projects using filters and return matching records",
+  "public": true
+}
+{
+  "name": "quoteItemsQuery",
+  "label": "Query Quote Items",
+  "typeId": 9,
+  "description": "Search for line items on quotes",
+  "public": false
+}
+{
+  "name": "quotesQuery",
+  "label": "Query Quotes",
+  "typeId": 9,
+  "description": "Search for quotes associated with opportunities",
+  "public": false
+}
+{
+  "name": "resourcesQuery",
+  "label": "Query Resources",
+  "typeId": 9,
+  "description": "Search for resources (employees/contractors)",
+  "public": true
+}
+{
+  "name": "rolesQuery",
+  "label": "Query Roles",
+  "typeId": 9,
+  "description": "Search for billing roles",
+  "public": true
+}
+{
+  "name": "servicesQuery",
+  "label": "Query Services",
+  "typeId": 9,
+  "description": "Search for services in the catalog",
+  "public": false
+}
+{
+  "name": "taskAttachmentsQuery",
+  "label": "Query Task Attachments",
+  "typeId": 9,
+  "description": "Search for attachments associated with tasks",
+  "public": false
+}
+{
+  "name": "taskNotesQuery",
+  "label": "Query Task Notes",
+  "typeId": 9,
+  "description": "Search for notes associated with tasks",
+  "public": false
+}
+{
+  "name": "tasksQuery",
+  "label": "Query Tasks",
+  "typeId": 9,
+  "description": "Search for project tasks using filters",
+  "public": true
+}
+{
+  "name": "ticketAttachmentsQuery",
+  "label": "Query Ticket Attachments",
+  "typeId": 9,
+  "description": "Search for attachments associated with tickets",
+  "public": false
+}
+{
+  "name": "ticketChargesQuery",
+  "label": "Query Ticket Charges",
+  "typeId": 9,
+  "description": "Search for charges associated with tickets",
+  "public": false
+}
+{
+  "name": "ticketChecklistItemsQuery",
+  "label": "Query Ticket Checklist Items",
+  "typeId": 9,
+  "description": "Search for checklist items on tickets",
+  "public": false
+}
+{
+  "name": "ticketNotesQuery",
+  "label": "Query Ticket Notes",
+  "typeId": 9,
+  "description": "Search for notes associated with tickets",
+  "public": true
+}
+{
+  "name": "ticketsQuery",
+  "label": "Query Tickets",
+  "typeId": 9,
+  "description": "Search for tickets using filters and return matching records",
+  "public": true
+}
+{
+  "name": "timeEntriesQuery",
+  "label": "Query Time Entries",
+  "typeId": 9,
+  "description": "Search for time entries using filters",
+  "public": true
+}
+{
+  "name": "timeEntryAttachmentsQuery",
+  "label": "Query Time Entry Attachments",
+  "typeId": 9,
+  "description": "Search for attachments on time entries",
+  "public": true
+}
+{
+  "name": "ticketEvents",
+  "label": "Ticket Events",
+  "typeId": 10,
+  "description": "Trigger on ticket events",
+  "public": false
+}
+{
+  "name": "companiesUpdate",
+  "label": "Update Company",
+  "typeId": 4,
+  "description": "Update an existing company record",
+  "public": false
+}
+{
+  "name": "companylocationsUpdate",
+  "label": "Update Company Location",
+  "typeId": 4,
+  "description": "Update an existing company location record",
+  "public": true
+}
+{
+  "name": "configurationItemsUpdate",
+  "label": "Update Configuration Item",
+  "typeId": 4,
+  "description": "Update an existing configuration item",
+  "public": true
+}
+{
+  "name": "contactsUpdate",
+  "label": "Update Contact",
+  "typeId": 4,
+  "description": "Update an existing contact record",
+  "public": true
+}
+{
+  "name": "contractsUpdate",
+  "label": "Update Contract",
+  "typeId": 4,
+  "description": "Update an existing contract record",
+  "public": false
+}
+{
+  "name": "departmentsUpdate",
+  "label": "Update Department",
+  "typeId": 4,
+  "description": "Update an existing department",
+  "public": true
+}
+{
+  "name": "opportunitiesUpdate",
+  "label": "Update Opportunity",
+  "typeId": 4,
+  "description": "Update an existing opportunity record",
+  "public": false
+}
+{
+  "name": "productsUpdate",
+  "label": "Update Product",
+  "typeId": 4,
+  "description": "Update an existing product",
+  "public": false
+}
+{
+  "name": "projectsUpdate",
+  "label": "Update Project",
+  "typeId": 4,
+  "description": "Update an existing project record",
+  "public": true
+}
+{
+  "name": "phaseUpdate",
+  "label": "Update Project Phase",
+  "typeId": 4,
+  "description": "Update an existing project phase",
+  "public": true
+}
+{
+  "name": "quotesUpdate",
+  "label": "Update Quote",
+  "typeId": 4,
+  "description": "Update an existing quote",
+  "public": false
+}
+{
+  "name": "quoteItemUpdate",
+  "label": "Update Quote Item",
+  "typeId": 4,
+  "description": "Update a line item on a quote",
+  "public": false
+}
+{
+  "name": "resourcesUpdate",
+  "label": "Update Resource",
+  "typeId": 4,
+  "description": "Update resource information",
+  "public": true
+}
+{
+  "name": "rolesUpdate",
+  "label": "Update Role",
+  "typeId": 4,
+  "description": "Update an existing role",
+  "public": true
+}
+{
+  "name": "servicesUpdate",
+  "label": "Update Service",
+  "typeId": 4,
+  "description": "Update an existing service",
+  "public": false
+}
+{
+  "name": "tasksUpdate",
+  "label": "Update Task",
+  "typeId": 4,
+  "description": "Update an existing task record",
+  "public": true
+}
+{
+  "name": "ticketsUpdate",
+  "label": "Update Ticket",
+  "typeId": 4,
+  "description": "Update an existing ticket record",
+  "public": true
+}
+{
+  "name": "ticketChecklistItemUpdate",
+  "label": "Update Ticket Checklist Item",
+  "typeId": 4,
+  "description": "Update a checklist item on a ticket",
+  "public": true
+}
+{
+  "name": "timeEntriesUpdate",
+  "label": "Update Time Entry",
+  "typeId": 4,
+  "description": "Update an existing time entry",
+  "public": true
+}
+{
+  "name": "watchCompanies",
+  "label": "Watch Companies",
+  "typeId": 10,
+  "description": "Triggers when a company is created, updated, or deleted in Autotask",
+  "public": false
+}
+{
+  "name": "watchConfigurationItems",
+  "label": "Watch Configuration Items",
+  "typeId": 10,
+  "description": "Triggers when a configuration item (asset) is created, updated, or deleted in Autotask",
+  "public": false
+}
+{
+  "name": "watchContacts",
+  "label": "Watch Contacts",
+  "typeId": 10,
+  "description": "Triggers when a contact is created, updated, or deleted in Autotask",
+  "public": false
+}
+{
+  "name": "watchTicketNotes",
+  "label": "Watch Ticket Notes",
+  "typeId": 10,
+  "description": "Triggers when a ticket note is created, updated, or deleted in Autotask",
+  "public": false
+}
+{
+  "name": "watchTickets",
+  "label": "Watch Tickets",
+  "typeId": 10,
+  "description": "Triggers when a ticket is created, updated, or deleted in Autotask",
+  "public": false
+}

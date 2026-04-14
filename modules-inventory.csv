@@ -1,0 +1,117 @@
+billingItemsGet,Get Billing Item,4,false
+billingItemsQuery,Query Billing Items,9,false
+companiesAlertsQuery,Query Company Alerts,9,true
+companiesAttachmentsQuery,Query Company Attachments,9,true
+companiesCreate,Create Company,4,false
+companiesGet,Get Company,4,true
+companiesNoteCreate,Create Company Note,4,true
+companiesNotesQuery,Query Company Notes,9,true
+companiesQuery,Query Companies,9,true
+companiesUpdate,Update Company,4,false
+companylocationsCreate,Create Company Location,4,true
+companylocationsGet,Get Company Location,4,true
+companylocationsQuery,Query Company Locations,9,true
+companylocationsUpdate,Update Company Location,4,true
+configurationItemAttachmentsQuery,Query Asset Attachments,9,true
+configurationItemNoteCreate,Create Asset Note,4,true
+configurationItemNotesQuery,Query Asset Notes,9,true
+configurationItemsCreate,Create Configuration Item,4,true
+configurationItemsGet,Get Configuration Item,4,true
+configurationItemsQuery,Query Configuration Items,9,true
+configurationItemsUpdate,Update Configuration Item,4,true
+contactGroupContactAdd,Add Contact to Group,4,true
+contactGroupCreate,Create Contact Group,4,false
+contactGroupsQuery,Query Contact Groups,9,true
+contactsCreate,Create Contact,4,true
+contactsGet,Get Contact,4,true
+contactsQuery,Query Contacts,9,true
+contactsUpdate,Update Contact,4,true
+contractChargeCreate,Create Contract Charge,4,false
+contractChargesQuery,Query Contract Charges,9,false
+contractMilestoneCreate,Create Contract Milestone,4,false
+contractMilestonesQuery,Query Contract Milestones,9,false
+contractNoteCreate,Create Contract Note,4,false
+contractNotesQuery,Query Contract Notes,9,false
+contractsCreate,Create Contract,4,false
+contractServiceAdd,Add Contract Service,4,false
+contractServiceAdjust,Adjust Contract Service,4,false
+contractServicesQuery,Query Contract Services,9,false
+contractsGet,Get Contract,4,false
+contractsQuery,Query Contracts,9,false
+contractsUpdate,Update Contract,4,false
+departmentsCreate,Create Department,4,true
+departmentsGet,Get Department,4,true
+departmentsQuery,Query Departments,9,true
+departmentsUpdate,Update Department,4,true
+invoiceBillingItemsQuery,Query Invoice Items,9,false
+invoicesGet,Get Invoice,4,false
+invoicesQuery,Query Invoices,9,false
+opportunitiesCreate,Create Opportunity,4,false
+opportunitiesGet,Get Opportunity,4,false
+opportunitiesQuery,Query Opportunities,9,false
+opportunitiesUpdate,Update Opportunity,4,false
+opportunityAttachmentsQuery,Query Opportunity Attachments,9,false
+phaseCreate,Create Project Phase,4,true
+phasesQuery,Query Project Phases,9,true
+phaseUpdate,Update Project Phase,4,true
+productsCreate,Create Product,4,false
+productsGet,Get Product,4,false
+productsQuery,Query Products,9,false
+productsUpdate,Update Product,4,false
+projectAttachmentsQuery,Query Project Attachments,9,true
+projectChargeCreate,Create Project Charge,4,false
+projectChargesQuery,Query Project Charges,9,false
+projectNoteCreate,Create Project Note,4,true
+projectNotesQuery,Query Project Notes,9,true
+projectsCreate,Create Project,4,true
+projectsGet,Get Project,4,true
+projectsQuery,Query Projects,9,true
+projectsUpdate,Update Project,4,true
+quoteItemCreate,Add Quote Item,4,false
+quoteItemsQuery,Query Quote Items,9,false
+quoteItemUpdate,Update Quote Item,4,false
+quotesCreate,Create Quote,4,false
+quotesGet,Get Quote,4,false
+quotesQuery,Query Quotes,9,false
+quotesUpdate,Update Quote,4,false
+resourcesGet,Get Resource,4,true
+resourcesQuery,Query Resources,9,true
+resourcesUpdate,Update Resource,4,true
+rolesCreate,Create Role,4,false
+rolesGet,Get Role,4,false
+rolesQuery,Query Roles,9,true
+rolesUpdate,Update Role,4,true
+servicesCreate,Create Service,4,false
+servicesGet,Get Service,4,false
+servicesQuery,Query Services,9,false
+servicesUpdate,Update Service,4,false
+taskAttachmentsQuery,Query Task Attachments,9,false
+taskNoteCreate,Create Task Note,4,true
+taskNotesQuery,Query Task Notes,9,false
+tasksCreate,Create Task,4,true
+tasksGet,Get Task,4,true
+tasksQuery,Query Tasks,9,true
+tasksUpdate,Update Task,4,true
+ticketAttachmentsQuery,Query Ticket Attachments,9,false
+ticketChargeCreate,Create Ticket Charge,4,false
+ticketChargesQuery,Query Ticket Charges,9,false
+ticketChecklistItemCreate,Add Ticket Checklist Item,4,true
+ticketChecklistItemsQuery,Query Ticket Checklist Items,9,false
+ticketChecklistItemUpdate,Update Ticket Checklist Item,4,true
+ticketEvents,Ticket Events,10,false
+ticketNoteCreate,Create Ticket Note,4,true
+ticketNotesQuery,Query Ticket Notes,9,true
+ticketsCreate,Create Ticket,4,true
+ticketsGet,Get Ticket,4,true
+ticketsQuery,Query Tickets,9,true
+ticketsUpdate,Update Ticket,4,true
+timeEntriesCreate,Create Time Entry,4,true
+timeEntriesGet,Get Time Entry,4,true
+timeEntriesQuery,Query Time Entries,9,true
+timeEntriesUpdate,Update Time Entry,4,true
+timeEntryAttachmentsQuery,Query Time Entry Attachments,9,true
+watchCompanies,Watch Companies,10,false
+watchConfigurationItems,Watch Configuration Items,10,false
+watchContacts,Watch Contacts,10,false
+watchTicketNotes,Watch Ticket Notes,10,false
+watchTickets,Watch Tickets,10,false
