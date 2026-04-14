@@ -2,7 +2,7 @@
 #
 # audit-make-module.sh - Inspect Make module configuration
 #
-# Usage: ./scripts/audit-make-module.sh <module_name>
+# Usage: envwith -f .secrets/.env -- ./scripts/audit-make-module.sh <module_name>
 #
 # This script fetches a specific module from the Make API and displays:
 # - Basic Info (name, label, description, typeId, public)
@@ -16,29 +16,21 @@ set -e
 # Check if module name is provided
 if [[ -z "$1" ]]; then
     echo "Error: Module name required"
-    echo "Usage: $0 <module_name>"
-    echo "Example: $0 companiesCreate"
+    echo "Usage: envwith -f .secrets/.env -- $0 <module_name>"
+    echo "Example: envwith -f .secrets/.env -- $0 companiesCreate"
     exit 1
 fi
 
 MODULE_NAME="$1"
 
-# Load environment variables from .secrets/.env
-if [[ ! -f .secrets/.env ]]; then
-    echo "Error: .secrets/.env file not found"
-    exit 1
-fi
-
-source .secrets/.env
-
-# Check for required environment variable
+# Check for required environment variables
 if [[ -z "$MAKE_API_KEY" ]]; then
-    echo "Error: MAKE_API_KEY not set in .secrets/.env"
+    echo "Error: MAKE_API_KEY not set in environment"
     exit 1
 fi
 
 if [[ -z "$MAKE_API_URL" ]]; then
-    echo "Error: MAKE_API_URL not set in .secrets/.env"
+    echo "Error: MAKE_API_URL not set in environment"
     exit 1
 fi
 
@@ -106,7 +98,3 @@ if [[ -z "$INTERFACE" ]]; then
 else
     echo "$INTERFACE" | jq '.'
 fi
-echo ""
-
-echo "=== Full Module Configuration ==="
-echo "$RESPONSE" | jq '.'

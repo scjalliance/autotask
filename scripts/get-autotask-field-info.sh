@@ -9,8 +9,8 @@
 # If field_name is not provided, shows all fields for the entity.
 #
 # Examples:
-#   ./scripts/get-autotask-field-info.sh Ticket            # All Ticket fields
-#   ./scripts/get-autotask-field-info.sh Ticket status     # Picklist for Ticket.status
+#   envwith -f .secrets/.env -- ./scripts/get-autotask-field-info.sh Ticket            # All Ticket fields
+#   envwith -f .secrets/.env -- ./scripts/get-autotask-field-info.sh Ticket status     # Picklist for Ticket.status
 #
 
 set -e
@@ -18,37 +18,29 @@ set -e
 # Check if entity name is provided
 if [[ -z "$1" ]]; then
     echo "Error: Entity name required"
-    echo "Usage: $0 <entity_name> [field_name]"
+    echo "Usage: envwith -f .secrets/.env -- $0 <entity_name> [field_name]"
     echo "Examples:"
-    echo "  $0 Ticket"
-    echo "  $0 Ticket status"
+    echo "  envwith -f .secrets/.env -- $0 Ticket"
+    echo "  envwith -f .secrets/.env -- $0 Ticket status"
     exit 1
 fi
 
 ENTITY_NAME="$1"
 FIELD_NAME="$2"
 
-# Load environment variables from .secrets/.env
-if [[ ! -f .secrets/.env ]]; then
-    echo "Error: .secrets/.env file not found"
-    exit 1
-fi
-
-source .secrets/.env
-
 # Check for required environment variables
 if [[ -z "$AUTOTASK_USERNAME" ]]; then
-    echo "Error: AUTOTASK_USERNAME not set in .secrets/.env"
+    echo "Error: AUTOTASK_USERNAME not set in environment"
     exit 1
 fi
 
 if [[ -z "$AUTOTASK_SECRET" ]]; then
-    echo "Error: AUTOTASK_SECRET not set in .secrets/.env"
+    echo "Error: AUTOTASK_SECRET not set in environment"
     exit 1
 fi
 
 if [[ -z "$AUTOTASK_INTEGRATION_CODE" ]]; then
-    echo "Error: AUTOTASK_INTEGRATION_CODE not set in .secrets/.env"
+    echo "Error: AUTOTASK_INTEGRATION_CODE not set in environment"
     exit 1
 fi
 
