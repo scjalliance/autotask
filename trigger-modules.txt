@@ -1,0 +1,6 @@
+ticketEvents
+watchCompanies
+watchConfigurationItems
+watchContacts
+watchTicketNotes
+watchTickets
