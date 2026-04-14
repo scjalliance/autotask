@@ -1,0 +1,198 @@
+#!/bin/bash
+#
+# run-module-tests.sh - Test multiple modules and generate a report
+#
+# Usage: envwith -f .secrets/.env -- ./scripts/run-module-tests.sh
+#
+# Tests all improved modules from Tasks 3-6 and generates a comprehensive report
+#
+
+set -e
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Check for required environment variables
+if [[ -z "$MAKE_API_KEY" ]]; then
+    echo -e "${RED}Error: MAKE_API_KEY not set in environment${NC}"
+    exit 1
+fi
+
+if [[ -z "$MAKE_API_URL" ]]; then
+    echo -e "${RED}Error: MAKE_API_URL not set in environment${NC}"
+    exit 1
+fi
+
+REPORT_FILE="/tmp/module_testing_report_$(date +%Y%m%d_%H%M%S).md"
+
+echo -e "${BLUE}Module Testing Suite${NC}"
+echo -e "${BLUE}====================${NC}"
+echo "Report will be saved to: $REPORT_FILE"
+echo ""
+
+# Initialize report
+cat > "$REPORT_FILE" << 'EOF'
+# Module Testing Report
+
+**Generated:** $(date)
+**Test Type:** Configuration and API validation
+**App:** scj-autotask-nn8loi v1
+
+## Executive Summary
+
+EOF
+
+# Modules to test based on completed improvements
+declare -A MODULES_TO_TEST=(
+    # Task 3 - Fixed modules
+    ["ticketsCreate"]="Create/Add - Fixed dropdown fields (4 dropdowns)"
+
+    # Task 4 - Query modules with designed improvements
+    ["ticketsQuery"]="Query - Designed UX improvements"
+    ["companiesQuery"]="Query - Designed UX improvements"
+    ["timeEntriesQuery"]="Query - Designed UX improvements"
+
+    # Additional high-priority modules from inventory
+    ["companiesCreate"]="Create/Add - High priority (8 dropdown fields)"
+    ["contactsCreate"]="Create/Add - High priority (8 dropdown fields)"
+
+    # Sample trigger/watcher modules
+    ["ticketsWatch"]="Trigger - Watcher module"
+
+    # Special operations
+    ["authenticate"]="Special - Authentication module"
+    ["listPicklistValues"]="Special - Utility module"
+)
+
+TOTAL_MODULES=${#MODULES_TO_TEST[@]}
+MODULES_PASSED=0
+MODULES_FAILED=0
+
+echo -e "${YELLOW}Testing $TOTAL_MODULES modules...${NC}"
+echo ""
+
+# Test each module
+for module_name in "${!MODULES_TO_TEST[@]}"; do
+    description="${MODULES_TO_TEST[$module_name]}"
+    echo -e "${BLUE}Testing: $module_name${NC} ($description)"
+
+    # Test the module
+    if ./scripts/test-module.sh "$module_name" config > "/tmp/${module_name}_test_output.txt" 2>&1; then
+        echo -e "  ${GREEN}✓ PASSED${NC}"
+        ((MODULES_PASSED++))
+
+        # Extract key results
+        dropdown_count=$(grep -o "Found [0-9]* dropdown fields" "/tmp/${module_name}_test_output.txt" || echo "Found 0 dropdown fields")
+        field_count=$(grep -o "[0-9]* fields defined" "/tmp/${module_name}_test_output.txt" || echo "0 fields defined")
+
+        # Add to report
+        cat >> "$REPORT_FILE" << EOF
+
+### ✅ $module_name
+**Status:** PASSED
+**Type:** $description
+**Results:** $field_count, $dropdown_count
+
+EOF
+    else
+        echo -e "  ${RED}✗ FAILED${NC}"
+        ((MODULES_FAILED++))
+
+        # Get error summary
+        error_summary=$(tail -5 "/tmp/${module_name}_test_output.txt" | head -3 | tr '\n' ' ')
+
+        # Add to report
+        cat >> "$REPORT_FILE" << EOF
+
+### ❌ $module_name
+**Status:** FAILED
+**Type:** $description
+**Error:** $error_summary
+
+EOF
+    fi
+done
+
+echo ""
+echo -e "${BLUE}=== Test Summary ===${NC}"
+echo -e "Total modules tested: $TOTAL_MODULES"
+echo -e "Modules passed: ${GREEN}$MODULES_PASSED${NC}"
+echo -e "Modules failed: ${RED}$MODULES_FAILED${NC}"
+
+# Complete the report
+cat >> "$REPORT_FILE" << EOF
+
+## Test Summary
+
+- **Total Modules Tested:** $TOTAL_MODULES
+- **Modules Passed:** $MODULES_PASSED
+- **Modules Failed:** $MODULES_FAILED
+- **Success Rate:** $(( MODULES_PASSED * 100 / TOTAL_MODULES ))%
+
+## Detailed Test Results
+
+EOF
+
+# Add detailed results for each module
+for module_name in "${!MODULES_TO_TEST[@]}"; do
+    echo "### $module_name Detailed Output" >> "$REPORT_FILE"
+    echo '```' >> "$REPORT_FILE"
+    if [[ -f "/tmp/${module_name}_test_output.txt" ]]; then
+        cat "/tmp/${module_name}_test_output.txt" >> "$REPORT_FILE"
+    else
+        echo "No test output available" >> "$REPORT_FILE"
+    fi
+    echo '```' >> "$REPORT_FILE"
+    echo "" >> "$REPORT_FILE"
+done
+
+cat >> "$REPORT_FILE" << EOF
+
+## Recommendations
+
+### Immediate Actions
+EOF
+
+if [[ $MODULES_FAILED -gt 0 ]]; then
+    cat >> "$REPORT_FILE" << EOF
+- Fix failed modules before proceeding with deployment
+- Investigate common failure patterns
+- Review API endpoint configurations for failed modules
+EOF
+else
+    cat >> "$REPORT_FILE" << EOF
+- All tested modules passed - ready for deployment validation
+- Consider testing additional modules from inventory
+- Proceed with user acceptance testing
+EOF
+fi
+
+cat >> "$REPORT_FILE" << EOF
+
+### Next Steps
+- Implement any designed improvements that haven't been deployed
+- Schedule regular testing of high-usage modules
+- Collect user feedback on improved modules
+- Expand testing suite to cover remaining 100+ modules
+
+---
+**Report generated by:** scripts/run-module-tests.sh
+**Date:** $(date)
+EOF
+
+echo ""
+echo -e "${BLUE}Report saved to:${NC} $REPORT_FILE"
+echo ""
+
+# Show report summary
+if [[ $MODULES_FAILED -eq 0 ]]; then
+    echo -e "${GREEN}✓ All tests passed!${NC}"
+    exit 0
+else
+    echo -e "${RED}✗ Some tests failed${NC}"
+    exit 1
+fi
