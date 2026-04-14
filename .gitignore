@@ -1,2 +1,3 @@
 .secrets/
 /autotask
+.claude/settings.local.json
