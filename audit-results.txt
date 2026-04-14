@@ -1,0 +1,345 @@
+=== contactGroupContactAdd ===
+Auditing module: contactGroupContactAdd
+
+=== Basic Info ===
+{
+  "name": "contactGroupContactAdd",
+  "label": "Add Contact to Group",
+  "description": "Add a contact to a contact group",
+  "typeId": 4,
+  "public": true
+}
+
+=== API Configuration ===
+{
+  "url": "/v1.0/ContactGroupContacts",
+  "body": "{{omit(parameters, [])}}",
+  "method": "POST",
+  "response": {
+    "output": "{{body.item}}"
+  }
+}
+
+=== Expect (Input Fields) ===
+[
+  {
+    "help": "ID of the associated Contact Group",
+    "name": "contactGroupId",
+    "type": "number",
+    "label": "Contact Group ID",
+    "required": true
+  },
+  {
+    "help": "ID of the associated Contact",
+    "name": "contactID",
+    "type": "number",
+    "label": "Contact ID",
+    "required": true
+  }
+]
+
+=== Interface (Output Fields) ===
+[]
+
+=== contractServiceAdd ===
+Auditing module: contractServiceAdd
+
+=== Basic Info ===
+{
+  "name": "contractServiceAdd",
+  "label": "Add Contract Service",
+  "description": "Add a service to a recurring contract",
+  "typeId": 4,
+  "public": false
+}
+
+=== API Configuration ===
+{
+  "url": "/v1.0/ContractServices",
+  "body": "{{omit(parameters, [])}}",
+  "method": "POST",
+  "response": {
+    "output": "{{body.item}}"
+  }
+}
+
+=== Expect (Input Fields) ===
+[
+  {
+    "help": "Maximum length: 100 characters",
+    "name": "internalDescription",
+    "type": "text",
+    "label": "Internal Description"
+  },
+  {
+    "name": "invoiceDescription",
+    "type": "text",
+    "label": "Invoice Description"
+  },
+  {
+    "help": "Decimal value",
+    "name": "unitCost",
+    "type": "number",
+    "label": "Unit Cost"
+  }
+]
+
+=== Interface (Output Fields) ===
+[]
+
+=== quoteItemCreate ===
+Auditing module: quoteItemCreate
+
+=== Basic Info ===
+{
+  "name": "quoteItemCreate",
+  "label": "Add Quote Item",
+  "description": "Add a line item to a quote",
+  "typeId": 4,
+  "public": false
+}
+
+=== API Configuration ===
+{
+  "url": "/v1.0/QuoteItems",
+  "body": "{{omit(parameters, [])}}",
+  "method": "POST",
+  "response": {
+    "output": "{{body.item}}"
+  }
+}
+
+=== Expect (Input Fields) ===
+[
+  {
+    "name": "isOptional",
+    "type": "boolean",
+    "label": "Is Optional",
+    "required": true
+  },
+  {
+    "help": "Decimal value",
+    "name": "lineDiscount",
+    "type": "number",
+    "label": "Line Discount",
+    "required": true
+  },
+  {
+    "help": "Decimal value",
+    "name": "percentageDiscount",
+    "type": "number",
+    "label": "Percentage Discount",
+    "required": true
+  },
+  {
+    "help": "Decimal value",
+    "name": "quantity",
+    "type": "number",
+    "label": "Quantity",
+    "required": true
+  },
+  {
+    "help": "Integer value",
+    "name": "quoteItemType",
+    "type": "number",
+    "label": "Quote Item Type",
+    "required": true
+  },
+  {
+    "help": "Decimal value",
+    "name": "unitDiscount",
+    "type": "number",
+    "label": "Unit Discount",
+    "required": true
+  },
+  {
+    "help": "ID of the associated Charge",
+    "name": "chargeID",
+    "type": "number",
+    "label": "Charge ID"
+  },
+  {
+    "name": "description",
+    "type": "text",
+    "label": "Description"
+  },
+  {
+    "help": "ID of the associated Expense",
+    "name": "expenseID",
+    "type": "number",
+    "label": "Expense ID"
+  },
+  {
+    "name": "isTaxable",
+    "type": "boolean",
+    "label": "Is Taxable"
+  },
+  {
+    "help": "ID of the associated Labor",
+    "name": "laborID",
+    "type": "number",
+    "label": "Labor ID"
+  },
+  {
+    "name": "name",
+    "type": "text",
+    "label": "Name"
+  },
+  {
+    "help": "Integer value",
+    "name": "periodType",
+    "type": "number",
+    "label": "Period Type"
+  },
+  {
+    "help": "ID of the associated Product",
+    "name": "productID",
+    "type": "number",
+    "label": "Product ID"
+  },
+  {
+    "help": "ID of the associated Service Bundle",
+    "name": "serviceBundleID",
+    "type": "number",
+    "label": "Service Bundle ID"
+  },
+  {
+    "help": "ID of the associated Service",
+    "name": "serviceID",
+    "type": "number",
+    "label": "Service ID"
+  },
+  {
+    "help": "ID of the associated Shipping",
+    "name": "shippingID",
+    "type": "number",
+    "label": "Shipping ID"
+  },
+  {
+    "help": "ID of the associated Tax Category",
+    "name": "taxCategoryID",
+    "type": "number",
+    "label": "Tax Category ID"
+  },
+  {
+    "help": "Decimal value",
+    "name": "unitCost",
+    "type": "number",
+    "label": "Unit Cost"
+  },
+  {
+    "help": "Decimal value",
+    "name": "unitPrice",
+    "type": "number",
+    "label": "Unit Price"
+  }
+]
+
+=== Interface (Output Fields) ===
+[]
+
+=== ticketChecklistItemCreate ===
+Auditing module: ticketChecklistItemCreate
+
+=== Basic Info ===
+{
+  "name": "ticketChecklistItemCreate",
+  "label": "Add Ticket Checklist Item",
+  "description": "Add a checklist item to a ticket",
+  "typeId": 4,
+  "public": true
+}
+
+=== API Configuration ===
+{
+  "url": "/v1.0/TicketChecklistItems",
+  "body": "{{omit(parameters, [])}}",
+  "method": "POST",
+  "response": {
+    "output": "{{body.item}}"
+  }
+}
+
+=== Expect (Input Fields) ===
+[
+  {
+    "name": "itemName",
+    "type": "text",
+    "label": "Item Name",
+    "required": true
+  },
+  {
+    "name": "isCompleted",
+    "type": "boolean",
+    "label": "Is Completed"
+  },
+  {
+    "name": "isImportant",
+    "type": "boolean",
+    "label": "Is Important"
+  },
+  {
+    "help": "ID of the associated Knowledgebase Article",
+    "name": "knowledgebaseArticleID",
+    "type": "number",
+    "label": "Knowledgebase Article ID"
+  },
+  {
+    "help": "Integer value",
+    "name": "position",
+    "type": "number",
+    "label": "Position"
+  }
+]
+
+=== Interface (Output Fields) ===
+[]
+
+=== configurationItemNoteCreate ===
+Auditing module: configurationItemNoteCreate
+
+=== Basic Info ===
+{
+  "name": "configurationItemNoteCreate",
+  "label": "Create Asset Note",
+  "description": "Add a new note to a configuration item",
+  "typeId": 4,
+  "public": true
+}
+
+=== API Configuration ===
+{
+  "url": "/v1.0/ConfigurationItemNotes",
+  "body": "{{omit(parameters, [])}}",
+  "method": "POST",
+  "response": {
+    "output": "{{body.item}}"
+  }
+}
+
+=== Expect (Input Fields) ===
+[
+  {
+    "name": "description",
+    "type": "text",
+    "label": "Description",
+    "required": true
+  },
+  {
+    "help": "Integer value",
+    "name": "noteType",
+    "type": "number",
+    "label": "Note Type",
+    "required": true
+  },
+  {
+    "name": "title",
+    "type": "text",
+    "label": "Title",
+    "required": true
+  }
+]
+
+=== Interface (Output Fields) ===
+[]
+
