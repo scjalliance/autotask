@@ -1,0 +1,28 @@
+[
+  {
+    "name": "connection",
+    "type": "connection",
+    "label": "Connection",
+    "required": true
+  },
+  {
+    "name": "eventTypes",
+    "type": "array",
+    "label": "Event Types",
+    "help": "Select which events trigger the webhook. Leave empty to subscribe to all events.",
+    "options": [
+      {
+        "label": "Create",
+        "value": "create"
+      },
+      {
+        "label": "Update",
+        "value": "update"
+      },
+      {
+        "label": "Delete",
+        "value": "delete"
+      }
+    ]
+  }
+]
