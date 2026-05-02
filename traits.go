@@ -153,9 +153,18 @@ func (u *Updater[T]) Update(ctx context.Context, entity *T) error {
 	return err
 }
 
-// Patch applies a partial update to an entity by ID.
+// Patch applies a partial update to an entity by ID. The Autotask REST API
+// requires PATCH against the collection path (no ID in the URL) with the
+// target entity's ID embedded in the request body; sending an ID-in-path
+// PATCH returns HTTP 405. The id argument is authoritative and overrides
+// any id key in data.
 func (p *Patcher[T]) Patch(ctx context.Context, id int64, data PatchData) error {
-	_, err := p.client.doPatch(ctx, fmt.Sprintf("%s/%d", p.entityPath, id), data)
+	body := make(PatchData, len(data)+1)
+	for k, v := range data {
+		body[k] = v
+	}
+	body["id"] = id
+	_, err := p.client.doPatch(ctx, p.entityPath, body)
 	return err
 }
 
