@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -210,14 +209,25 @@ func TestUpdater_Update(t *testing.T) {
 	}
 }
 
-func TestPatcher_Patch_IDInURL(t *testing.T) {
+func TestPatcher_Patch_IDInBody(t *testing.T) {
 	srv, _, base := setupTestService(func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPatch {
 			t.Errorf("expected PATCH, got %s", r.Method)
 		}
-		wantPath := fmt.Sprintf("/V1.0/TestEntities/%d", 77)
-		if r.URL.Path != wantPath {
-			t.Errorf("path = %s, want %s", r.URL.Path, wantPath)
+		if r.URL.Path != "/V1.0/TestEntities" {
+			t.Errorf("path = %s, want /V1.0/TestEntities", r.URL.Path)
+		}
+		var body map[string]any
+		if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
+			t.Fatalf("decode body: %v", err)
+		}
+		// The Autotask REST API expects the entity ID inside the request body
+		// (numbers come back through json as float64).
+		if id, ok := body["id"].(float64); !ok || int64(id) != 77 {
+			t.Errorf("body id = %v, want 77", body["id"])
+		}
+		if got := body["name"]; got != "Patched" {
+			t.Errorf("body name = %v, want %q", got, "Patched")
 		}
 		json.NewEncoder(w).Encode(map[string]any{"item": nil})
 	})
@@ -225,6 +235,27 @@ func TestPatcher_Patch_IDInURL(t *testing.T) {
 
 	patcher := &Patcher[testEntity]{*base}
 	err := patcher.Patch(context.Background(), 77, PatchData{"name": "Patched"})
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+}
+
+func TestPatcher_Patch_IDArgOverridesBody(t *testing.T) {
+	srv, _, base := setupTestService(func(w http.ResponseWriter, r *http.Request) {
+		var body map[string]any
+		if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
+			t.Fatalf("decode body: %v", err)
+		}
+		if id, ok := body["id"].(float64); !ok || int64(id) != 77 {
+			t.Errorf("body id = %v, want 77 (id arg should override caller-supplied id)", body["id"])
+		}
+		json.NewEncoder(w).Encode(map[string]any{"item": nil})
+	})
+	defer srv.Close()
+
+	patcher := &Patcher[testEntity]{*base}
+	// Caller passes a different id in the data map; the id argument wins.
+	err := patcher.Patch(context.Background(), 77, PatchData{"id": int64(99), "name": "x"})
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
