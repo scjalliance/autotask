@@ -1447,6 +1447,15 @@ type CompanyAttachmentChildService struct {
 	Deleter[CompanyAttachment]
 }
 
+// ContactChildService provides operations for Contact child entities.
+type ContactChildService struct {
+	Reader[Contact]
+	Creator[Contact]
+	Updater[Contact]
+	Patcher[Contact]
+	Deleter[Contact]
+}
+
 // CompanyLocationChildService provides operations for CompanyLocation child entities.
 type CompanyLocationChildService struct {
 	Reader[CompanyLocation]
@@ -3844,6 +3853,22 @@ func (c *Client) KnowledgeBaseArticleDocumentAssociations(parentID int64) Articl
 		Reader:  Reader[ArticleToDocumentAssociation]{baseService: base},
 		Creator: Creator[ArticleToDocumentAssociation]{baseService: base},
 		Deleter: Deleter[ArticleToDocumentAssociation]{baseService: base},
+	}
+}
+
+// CompanyContacts returns a service for Contact entities under a parent.
+func (c *Client) CompanyContacts(parentID int64) ContactChildService {
+	base := baseService{
+		client:     c,
+		entityPath: fmt.Sprintf("/V1.0/Companies/%d/Contacts", parentID),
+		entityName: "Contact",
+	}
+	return ContactChildService{
+		Reader:  Reader[Contact]{baseService: base},
+		Creator: Creator[Contact]{baseService: base},
+		Updater: Updater[Contact]{baseService: base},
+		Patcher: Patcher[Contact]{baseService: base},
+		Deleter: Deleter[Contact]{baseService: base},
 	}
 }
 

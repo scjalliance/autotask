@@ -137,7 +137,14 @@ Child entities are accessed via methods that accept the parent ID:
 notes, err := client.TicketNotes(ticketID).Query(ctx, filter)
 ```
 
-There are 22 child service methods covering relationships like ticket notes, attachments, contract services, webhook fields, and more. Many entities that also exist as children (e.g., `TicketNotes`) have top-level services as well.
+There are 23 child service methods covering relationships like ticket notes, attachments, contract services, webhook fields, and more. Many entities that also exist as children (e.g., `TicketNotes`) have top-level services as well.
+
+Some entities can be written only through their parent. A contact is one: `client.Contacts` is read-only, and creating, updating or deactivating a contact goes through its company:
+
+```go
+contacts := client.CompanyContacts(companyID)
+err := contacts.Patch(ctx, contactID, autotask.PatchData{"isActive": 0})
+```
 
 ### Introspection
 
