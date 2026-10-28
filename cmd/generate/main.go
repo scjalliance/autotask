@@ -384,6 +384,14 @@ func main() {
 		childTag := strings.TrimSuffix(tag, "Child")
 		typeName := singularize(childTag)
 		if !modelNames[typeName] {
+			// Some child tags do not name their model: CompanyContactsChild is
+			// the Contact entity under /Companies/{parentId}/Contacts. Fall
+			// back to the path segment, and report a child still unmatched
+			// rather than drop it unseen.
+			typeName = singularize(childSegment)
+		}
+		if !modelNames[typeName] {
+			fmt.Fprintf(os.Stderr, "generate: skipping child %s: no model %s or %s\n", tag, singularize(childTag), typeName)
 			continue
 		}
 
